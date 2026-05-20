@@ -173,10 +173,12 @@
         padding: 0 18px;
         border: 1px solid transparent;
         border-radius: 8px;
+        font-family: inherit;
         font-size: 0.95rem;
         font-weight: 850;
         line-height: 1;
         text-decoration: none;
+        cursor: pointer;
         transition:
           transform 170ms ease,
           border-color 170ms ease,
@@ -2041,10 +2043,14 @@
         gap: 16px;
         padding: 0 28px;
         color: #ffffff;
+        background: transparent;
         border: 1px solid rgba(255, 255, 255, 0.82);
         border-radius: 999px;
+        font-family: inherit;
+        font-size: 1rem;
         font-weight: 760;
         text-decoration: none;
+        cursor: pointer;
         transition:
           transform 170ms ease,
           background 170ms ease,
@@ -2166,19 +2172,181 @@
         justify-content: end;
       }
 
-      .footer-links a {
+      .footer-links a,
+      .footer-links button {
         color: #5a5b60;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        font: inherit;
         font-size: 0.82rem;
         line-height: 1.1;
         letter-spacing: 0.01em;
         text-decoration: none;
         text-transform: uppercase;
         white-space: nowrap;
+        cursor: pointer;
       }
 
       .footer-links a:hover,
-      .footer-links a:focus-visible {
+      .footer-links a:focus-visible,
+      .footer-links button:hover,
+      .footer-links button:focus-visible {
         color: #000000;
+        outline: none;
+      }
+
+      .contact-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 120;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(5, 9, 13, 0.56);
+        backdrop-filter: blur(12px);
+      }
+
+      .contact-modal[hidden] {
+        display: none !important;
+      }
+
+      .contact-card {
+        position: relative;
+        width: min(560px, 100%);
+        padding: clamp(26px, 4vw, 38px);
+        color: #172026;
+        background:
+          radial-gradient(circle at 92% 8%, rgba(47, 111, 86, 0.12), transparent 28%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 248, 245, 0.96));
+        border: 1px solid rgba(210, 216, 222, 0.96);
+        border-radius: 8px;
+        box-shadow: 0 34px 90px rgba(5, 9, 13, 0.28);
+      }
+
+      .contact-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        color: #172026;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(23, 32, 38, 0.1);
+        border-radius: 50%;
+        font: inherit;
+        font-size: 1.35rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .contact-close:hover,
+      .contact-close:focus-visible {
+        background: #ffffff;
+        outline: none;
+      }
+
+      .contact-kicker {
+        margin: 0 0 24px;
+        color: #48c7b0;
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .contact-brand {
+        margin: 0;
+        color: #172026;
+        font-size: clamp(2.35rem, 6vw, 3.7rem);
+        line-height: 0.95;
+        font-weight: 880;
+      }
+
+      .contact-powered {
+        display: block;
+        margin-top: 10px;
+        color: #5d6872;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-card p {
+        margin: 28px 0 0;
+        color: #4f5962;
+        font-size: 1.04rem;
+        line-height: 1.55;
+      }
+
+      .contact-details {
+        display: grid;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .contact-detail {
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 12px;
+        align-items: baseline;
+        padding-top: 12px;
+        border-top: 1px solid rgba(23, 32, 38, 0.08);
+      }
+
+      .contact-detail span {
+        color: #6a737c;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .contact-detail a {
+        color: #172026;
+        font-weight: 760;
+        text-decoration: none;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-detail a:hover,
+      .contact-detail a:focus-visible {
+        color: #2f6f56;
+        outline: none;
+      }
+
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .contact-action {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 18px;
+        color: #ffffff;
+        background: #172026;
+        border: 1px solid #172026;
+        border-radius: 8px;
+        font-weight: 820;
+        text-decoration: none;
+      }
+
+      .contact-action.secondary {
+        color: #172026;
+        background: transparent;
+        border-color: rgba(23, 32, 38, 0.22);
+      }
+
+      .contact-action:hover,
+      .contact-action:focus-visible {
+        transform: translateY(-2px);
         outline: none;
       }
 
@@ -2565,6 +2733,14 @@
         .cookie-notice {
           grid-template-columns: 1fr;
         }
+
+        .contact-actions {
+          flex-direction: column;
+        }
+
+        .contact-action {
+          width: 100%;
+        }
       }
 
       @media (max-width: 560px) {
@@ -2819,6 +2995,19 @@
         .cookie-notice button {
           width: 100%;
         }
+
+        .contact-modal {
+          padding: 14px;
+        }
+
+        .contact-card {
+          padding: 24px 18px;
+        }
+
+        .contact-detail {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
       }
     </style>
   </head>
@@ -2839,7 +3028,7 @@
         </nav>
 
         <div class="header-actions">
-          <a class="button button-dark" href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Kontakt aufnehmen</a>
+          <button class="button button-dark contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen</button>
         </div>
       </div>
     </header>
@@ -4484,7 +4673,7 @@
         </p>
         <div class="final-cta-actions">
           <a class="final-cta-button primary" href="#apps-title">Anwendungen ansehen <span aria-hidden="true">→</span></a>
-          <a class="final-cta-button" href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Kontakt aufnehmen <span aria-hidden="true">→</span></a>
+          <button class="final-cta-button contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
         </div>
       </section>
     </main>
@@ -4517,7 +4706,7 @@
         </nav>
 
         <nav class="footer-links" aria-label="Rechtliches">
-          <a href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
+          <button class="contact-trigger" type="button" aria-controls="contact-modal">Kontakt</button>
           <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener noreferrer">AGB</a>
           <a href="https://www.built-smart-hub.com/datenschutz-cookies" target="_blank" rel="noopener noreferrer">Datenschutz &amp; Cookies</a>
           <a href="https://www.built-smart-hub.com/widerrufsbelehrung" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a>
@@ -4525,6 +4714,40 @@
         </nav>
       </div>
     </footer>
+
+    <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" hidden>
+      <div class="contact-card">
+        <button class="contact-close" type="button" aria-label="Kontaktkarte schließen">×</button>
+        <p class="contact-kicker">Kontakt</p>
+        <h2 class="contact-brand" id="contact-modal-title">BuiltSmart AI</h2>
+        <span class="contact-powered">powered by BuiltSmart Hub</span>
+        <p>
+          Für individuelle KI-gestützte Anwendungen, smarte Projektarbeit und
+          digitale Unternehmensprozesse können Sie direkt Kontakt aufnehmen oder
+          einen Termin über die Kontaktseite anfragen.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span>E-Mail</span>
+            <a href="mailto:info@www.built-smart-hub.com">info@www.built-smart-hub.com</a>
+          </div>
+          <div class="contact-detail">
+            <span>Website</span>
+            <a href="https://www.built-smart-hub.com" target="_blank" rel="noopener noreferrer">www.built-smart-hub.com</a>
+          </div>
+          <div class="contact-detail">
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/bernhard-metzger-8376539a" target="_blank" rel="noopener noreferrer">Bernhard Metzger</a>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a class="contact-action" href="mailto:info@www.built-smart-hub.com">E-Mail schreiben <span aria-hidden="true">→</span></a>
+          <a class="contact-action secondary" href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
 
     <aside class="cookie-notice" id="cookie-notice" aria-label="Datenschutzhinweis" hidden>
       <div>
@@ -4539,6 +4762,44 @@
     </aside>
 
     <script>
+      (() => {
+        const modal = document.querySelector("#contact-modal");
+        const triggers = document.querySelectorAll(".contact-trigger");
+        const closeButton = document.querySelector(".contact-close");
+        if (!modal || !triggers.length || !closeButton) return;
+
+        let previousFocus = null;
+
+        const openModal = () => {
+          previousFocus = document.activeElement;
+          modal.hidden = false;
+          document.body.style.overflow = "hidden";
+          closeButton.focus();
+        };
+
+        const closeModal = () => {
+          modal.hidden = true;
+          document.body.style.overflow = "";
+          if (previousFocus && typeof previousFocus.focus === "function") {
+            previousFocus.focus();
+          }
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", openModal);
+        });
+
+        closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !modal.hidden) closeModal();
+        });
+      })();
+
       (() => {
         const notice = document.querySelector("#cookie-notice");
         const accept = document.querySelector("#cookie-notice-accept");
