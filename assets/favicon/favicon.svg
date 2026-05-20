@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">BuiltSmart AI Favicon Variant 9</title>
+  <desc id="desc">Refined white AI favicon with thinner black ring and subtle relief depth.</desc>
+  <defs>
+    <linearGradient id="paper" x1="84" x2="428" y1="66" y2="446" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="58%" stop-color="#fbfbfa"/>
+      <stop offset="100%" stop-color="#edf0ef"/>
+    </linearGradient>
+    <linearGradient id="ringDepth" x1="96" x2="416" y1="78" y2="434" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#25252a"/>
+      <stop offset="48%" stop-color="#05050f"/>
+      <stop offset="100%" stop-color="#2d2d33"/>
+    </linearGradient>
+    <linearGradient id="textFace" x1="164" x2="348" y1="150" y2="344" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141419"/>
+      <stop offset="52%" stop-color="#05050f"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <filter id="ringShadow" x="-14%" y="-14%" width="128%" height="128%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    <filter id="textRelief" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="8" stdDeviation="4" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#paper)"/>
+  <circle cx="256" cy="256" r="204" fill="none" stroke="url(#ringDepth)" stroke-width="13" filter="url(#ringShadow)"/>
+  <circle cx="256" cy="256" r="184" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.78"/>
+  <circle cx="256" cy="256" r="196" fill="none" stroke="#000000" stroke-width="2" opacity="0.05"/>
+  <text x="258" y="262" text-anchor="middle" dominant-baseline="central"
+        fill="#000000" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="236" font-weight="900" letter-spacing="-16" opacity="0.15">AI</text>
+  <text x="256" y="257" text-anchor="middle" dominant-baseline="central"
+        fill="url(#textFace)" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="236" font-weight="900" letter-spacing="-16" filter="url(#textRelief)">AI</text>
+  <text x="250" y="250" text-anchor="middle" dominant-baseline="central"
+        fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="236" font-weight="900" letter-spacing="-16" opacity="0.1">AI</text>
+</svg>

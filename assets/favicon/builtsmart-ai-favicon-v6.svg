@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">BuiltSmart AI Favicon Variant 6</title>
+  <desc id="desc">Minimal white favicon with bold black AI lettering and elegant black ring.</desc>
+  <defs>
+    <filter id="softDepth" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="#ffffff"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="#05050f" stroke-width="18" filter="url(#softDepth)"/>
+  <circle cx="256" cy="256" r="174" fill="none" stroke="#05050f" stroke-width="3" opacity="0.08"/>
+  <text x="256" y="266" text-anchor="middle" dominant-baseline="middle"
+        fill="#05050f" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="214" font-weight="900" letter-spacing="-14">AI</text>
+</svg>

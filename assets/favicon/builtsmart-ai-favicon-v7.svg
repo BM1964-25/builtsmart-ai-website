@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">BuiltSmart AI Favicon Variant 7</title>
+  <desc id="desc">Minimal white AI favicon with centered bold lettering, black ring and subtle 3D depth.</desc>
+  <defs>
+    <linearGradient id="paper" x1="88" x2="424" y1="70" y2="442" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="58%" stop-color="#fbfbfa"/>
+      <stop offset="100%" stop-color="#eef1f0"/>
+    </linearGradient>
+    <linearGradient id="ringDepth" x1="96" x2="416" y1="78" y2="434" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1d1d21"/>
+      <stop offset="52%" stop-color="#05050f"/>
+      <stop offset="100%" stop-color="#34343a"/>
+    </linearGradient>
+    <filter id="ringShadow" x="-14%" y="-14%" width="128%" height="128%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <filter id="textDepth" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="7" stdDeviation="4" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#paper)"/>
+  <circle cx="256" cy="256" r="205" fill="none" stroke="url(#ringDepth)" stroke-width="18" filter="url(#ringShadow)"/>
+  <circle cx="256" cy="256" r="181" fill="none" stroke="#ffffff" stroke-width="5" opacity="0.72"/>
+  <text x="256" y="257" text-anchor="middle" dominant-baseline="central"
+        fill="#05050f" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="214" font-weight="900" letter-spacing="-14" filter="url(#textDepth)">AI</text>
+  <text x="250" y="250" text-anchor="middle" dominant-baseline="central"
+        fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="214" font-weight="900" letter-spacing="-14" opacity="0.13">AI</text>
+</svg>

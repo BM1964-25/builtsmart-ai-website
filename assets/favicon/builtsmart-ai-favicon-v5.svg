@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">BuiltSmart AI Favicon Variant 5</title>
+  <desc id="desc">Elegant favicon with white circular frame, raised white AI button and refined dark background.</desc>
+  <defs>
+    <radialGradient id="bg" cx="32%" cy="20%" r="88%">
+      <stop offset="0%" stop-color="#2a4257"/>
+      <stop offset="40%" stop-color="#08131c"/>
+      <stop offset="100%" stop-color="#010304"/>
+    </radialGradient>
+    <linearGradient id="circleStroke" x1="96" x2="416" y1="78" y2="434" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="52%" stop-color="#dce7eb"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="142" x2="370" y1="179" y2="329" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f6f8f8"/>
+      <stop offset="100%" stop-color="#d6dfe3"/>
+    </linearGradient>
+    <linearGradient id="pillSide" x1="132" x2="380" y1="248" y2="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d7e0e4"/>
+      <stop offset="100%" stop-color="#aebdc4"/>
+    </linearGradient>
+    <filter id="outerShadow" x="-22%" y="-22%" width="144%" height="144%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
+    <filter id="pillShadow" x="-26%" y="-38%" width="152%" height="176%">
+      <feDropShadow dx="0" dy="24" stdDeviation="20" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="#010304"/>
+  <circle cx="256" cy="256" r="214" fill="url(#bg)" filter="url(#outerShadow)"/>
+  <circle cx="256" cy="256" r="216" fill="none" stroke="url(#circleStroke)" stroke-width="13" opacity="0.92"/>
+  <circle cx="256" cy="256" r="188" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.1"/>
+
+  <g filter="url(#pillShadow)">
+    <rect x="126" y="218" width="260" height="98" rx="43" fill="url(#pillSide)" opacity="0.88"/>
+    <rect x="126" y="174" width="260" height="132" rx="52" fill="url(#pill)"/>
+    <path d="M165 198c25-13 56-20 91-20 34 0 64 6 90 18" fill="none"
+          stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+    <path d="M156 291c32 10 66 15 101 15 35 0 68-5 98-15" fill="none"
+          stroke="#aebdc4" stroke-width="5" stroke-linecap="round" opacity="0.34"/>
+  </g>
+
+  <text x="256" y="250" text-anchor="middle" dominant-baseline="middle"
+        fill="#071017" font-family="Inter, Arial, Helvetica, sans-serif"
+        font-size="168" font-weight="900" letter-spacing="-9">AI</text>
+
+  <path d="M150 364c31 26 66 39 106 39s76-13 107-39" fill="none"
+        stroke="#48c7b0" stroke-width="9" stroke-linecap="round" opacity="0.52"/>
+</svg>
