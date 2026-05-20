@@ -1,0 +1,22 @@
+# BuiltSmart AI
+
+BuiltSmart AI entwickelt KI-gestützte Softwarelösungen für Bau, Immobilien, KMU und digitale Unternehmensprozesse.
+
+## Website
+
+- [Homepage](https://www.builtsmart-ai.app/)
+- [Sitemap](https://www.builtsmart-ai.app/sitemap.xml)
+- [Kontakt und Terminbuchung](https://www.built-smart-hub.com/termin-buchen)
+- [BuiltSmart Hub](https://www.built-smart-hub.com)
+
+## Schwerpunkte
+
+- KI-Anwendungen für strukturierte Projektarbeit
+- Risiko-, Vertrags- und Compliance-Management
+- Projektsteuerung, Prognosen und ROI-Bewertung
+- Datenschutzbewusste und nachvollziehbare Softwarelösungen
+- Individuelle KI-gestützte Anwendungen für KMU
+
+## Betreiber
+
+BuiltSmart AI, powered by BuiltSmart Hub.
