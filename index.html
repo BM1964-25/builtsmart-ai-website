@@ -1806,6 +1806,27 @@
         border-right: 1px solid rgba(210, 216, 222, 0.88);
       }
 
+      a.expertise-stat {
+        color: inherit;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      a.expertise-stat:hover,
+      a.expertise-stat:focus-visible {
+        transform: translateY(-4px);
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1), transparent 42%),
+          linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(244, 247, 248, 0.98));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.96),
+          0 28px 78px rgba(23, 32, 38, 0.12);
+        outline: none;
+      }
+
       .expertise-stat:last-child {
         border-right: 0;
       }
@@ -4195,13 +4216,16 @@
           <p class="eyebrow">Expertise</p>
           <h2 class="expertise-title" id="expertise-title">
             <span class="expertise-title-line">Drei Jahrzehnte</span>
-            <span class="expertise-title-line">Branchenwissen,</span>
-            <span class="expertise-title-line">in Software gegossen.</span>
+            <span class="expertise-title-line">Branchenerfahrung,</span>
+            <span class="expertise-title-line">in digitale Lösungen übersetzt.</span>
           </h2>
           <p>
-            BuiltSmart AI entwickelt praxisnahe Anwendungen, die Informationen
-            strukturieren, Zusammenhänge sichtbar machen und fundierte
-            Entscheidungen unterstützen.
+            BuiltSmart AI verbindet <strong>langjährige Erfahrung</strong> aus
+            der Bau- und Immobilienwirtschaft mit <strong>moderner
+            KI-gestützter Softwareentwicklung</strong>. Daraus entstehen
+            praxisnahe Anwendungen, die <strong>Informationen strukturieren</strong>,
+            <strong>Zusammenhänge sichtbar machen</strong> und
+            <strong>belastbare Entscheidungen unterstützen</strong>.
           </p>
         </div>
 
@@ -4229,7 +4253,7 @@
             </div>
           </div>
 
-          <div class="expertise-stat">
+          <a class="expertise-stat" href="https://www.built-smart-hub.com/smart-works" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="expertise-icon" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
@@ -4244,9 +4268,9 @@
               <span class="expertise-divider"></span>
               <p class="expertise-text">Fundiertes Wissen aus der Praxis<br>für die Praxis.</p>
             </div>
-          </div>
+          </a>
 
-          <div class="expertise-stat">
+          <a class="expertise-stat" href="https://www.built-smart-hub.com/blog" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="expertise-icon" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
@@ -4266,9 +4290,9 @@
               <span class="expertise-divider"></span>
               <p class="expertise-text">Praxisnahe Impulse für die<br>Bau- und Immobilienwirtschaft.</p>
             </div>
-          </div>
+          </a>
 
-          <div class="expertise-stat">
+          <a class="expertise-stat" href="https://www.built-smart-hub.com" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="expertise-icon dark" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
@@ -4288,7 +4312,7 @@
               <span class="expertise-divider"></span>
               <p class="expertise-text">Ihr zentraler Zugang zu Wissen,<br>Methoden und KI-Lösungen.</p>
             </div>
-          </div>
+          </a>
         </div>
 
         <div class="expertise-tags" aria-label="Kompetenzen">
