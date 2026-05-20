@@ -2005,6 +2005,69 @@
         outline: none;
       }
 
+      .cookie-notice {
+        position: fixed;
+        right: clamp(16px, 3vw, 32px);
+        bottom: clamp(16px, 3vw, 32px);
+        z-index: 80;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        width: min(520px, calc(100vw - 32px));
+        padding: 18px;
+        color: #172026;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(23, 32, 38, 0.12);
+        border-radius: 8px;
+        box-shadow: 0 24px 70px rgba(23, 32, 38, 0.18);
+        backdrop-filter: blur(18px) saturate(1.05);
+      }
+
+      .cookie-notice[hidden] {
+        display: none !important;
+      }
+
+      .cookie-notice strong {
+        display: block;
+        margin: 0 0 6px;
+        font-size: 0.96rem;
+        line-height: 1.2;
+      }
+
+      .cookie-notice p {
+        margin: 0;
+        color: #5d6872;
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .cookie-notice a {
+        color: #172026;
+        font-weight: 760;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .cookie-notice button {
+        align-self: center;
+        min-height: 40px;
+        padding: 0 16px;
+        color: #ffffff;
+        background: #172026;
+        border: 1px solid #172026;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 780;
+        cursor: pointer;
+      }
+
+      .cookie-notice button:hover,
+      .cookie-notice button:focus-visible {
+        background: #000000;
+        outline: none;
+      }
+
       .menu-tile {
         position: relative;
         min-height: 214px;
@@ -2320,6 +2383,10 @@
         .footer-social {
           justify-content: flex-start;
         }
+
+        .cookie-notice {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 560px) {
@@ -2561,6 +2628,17 @@
         .tile-icon svg {
           width: 38px;
           height: 38px;
+        }
+
+        .cookie-notice {
+          right: 12px;
+          bottom: 12px;
+          width: calc(100vw - 24px);
+          padding: 16px;
+        }
+
+        .cookie-notice button {
+          width: 100%;
         }
       }
     </style>
@@ -4114,7 +4192,51 @@
         </nav>
       </div>
     </footer>
+
+    <aside class="cookie-notice" id="cookie-notice" aria-label="Datenschutzhinweis" hidden>
+      <div>
+        <strong>Datenschutzhinweis</strong>
+        <p>
+          Diese Website setzt aktuell keine Analyse- oder Marketing-Cookies.
+          Details finden Sie unter
+          <a href="https://www.built-smart-hub.com/datenschutz-cookies" target="_blank" rel="noopener noreferrer">Datenschutz &amp; Cookies</a>.
+        </p>
+      </div>
+      <button type="button" id="cookie-notice-accept">Verstanden</button>
+    </aside>
+
     <script>
+      (() => {
+        const notice = document.querySelector("#cookie-notice");
+        const accept = document.querySelector("#cookie-notice-accept");
+        if (!notice || !accept) return;
+
+        const storageKey = "builtsmart-cookie-notice-accepted";
+        const hasAccepted = () => {
+          try {
+            return window.localStorage.getItem(storageKey) === "true";
+          } catch {
+            return false;
+          }
+        };
+
+        const rememberAccepted = () => {
+          try {
+            window.localStorage.setItem(storageKey, "true");
+          } catch {
+            // The notice can still be dismissed for the current page view.
+          }
+        };
+
+        if (hasAccepted()) return;
+
+        notice.hidden = false;
+        accept.addEventListener("click", () => {
+          rememberAccepted();
+          notice.hidden = true;
+        });
+      })();
+
       (() => {
         const calculator = document.querySelector("#roi-calculator");
         if (!calculator) return;
