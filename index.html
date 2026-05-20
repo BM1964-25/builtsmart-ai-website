@@ -2167,9 +2167,17 @@
 
       .footer-links {
         display: grid;
-        grid-template-columns: minmax(170px, auto) minmax(150px, auto);
+        grid-template-columns: 1fr;
+        gap: 8px;
+        justify-content: start;
+        justify-self: end;
+      }
+
+      .footer-link-row {
+        display: flex;
+        flex-wrap: wrap;
         gap: 8px 22px;
-        justify-content: end;
+        justify-content: flex-start;
       }
 
       .footer-links a,
@@ -4706,11 +4714,17 @@
         </nav>
 
         <nav class="footer-links" aria-label="Rechtliches">
-          <button class="contact-trigger" type="button" aria-controls="contact-modal">Kontakt</button>
-          <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener noreferrer">AGB</a>
-          <a href="https://www.built-smart-hub.com/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
-          <a href="https://www.built-smart-hub.com/widerrufbelehrung" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a>
-          <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+          <span class="footer-link-row">
+            <button class="contact-trigger" type="button" aria-controls="contact-modal">Kontakt</button>
+          </span>
+          <span class="footer-link-row">
+            <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener noreferrer">AGB</a>
+            <a href="https://www.built-smart-hub.com/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+          </span>
+          <span class="footer-link-row">
+            <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+            <a href="https://www.built-smart-hub.com/widerrufbelehrung" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a>
+          </span>
         </nav>
       </div>
     </footer>
