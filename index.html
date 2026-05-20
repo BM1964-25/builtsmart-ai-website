@@ -2000,13 +2000,107 @@
       }
 
       .final-cta {
-        order: 22;
+        order: 23;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-top: clamp(64px, 9vw, 118px);
         padding: clamp(92px, 13vw, 150px) max(32px, calc((100vw - 980px) / 2)) clamp(88px, 12vw, 130px);
         color: #ffffff;
         background: #000000;
+      }
+
+      .founder-section {
+        order: 22;
+        margin-top: clamp(64px, 8vw, 104px);
+      }
+
+      .founder-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.72fr);
+        min-height: 560px;
+        overflow: hidden;
+        color: #ffffff;
+        background:
+          linear-gradient(120deg, rgba(0, 0, 0, 0.96) 0%, rgba(8, 13, 17, 0.93) 48%, rgba(8, 13, 17, 0.35) 100%),
+          #000000;
+        border-radius: 8px;
+        box-shadow: 0 30px 90px rgba(23, 32, 38, 0.16);
+      }
+
+      .founder-content {
+        position: relative;
+        z-index: 1;
+        padding: clamp(42px, 6vw, 74px);
+        align-self: center;
+      }
+
+      .founder-content .eyebrow {
+        color: #48c7b0;
+      }
+
+      .founder-content h2 {
+        margin: 0;
+        max-width: 760px;
+        color: #ffffff;
+        font-size: clamp(2.85rem, 5.2vw, 5rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .founder-content p {
+        max-width: 720px;
+        margin: clamp(30px, 4vw, 46px) 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: clamp(1.12rem, 1.75vw, 1.42rem);
+        line-height: 1.42;
+      }
+
+      .founder-proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: clamp(30px, 4vw, 44px);
+      }
+
+      .founder-proof span {
+        min-height: 94px;
+        display: grid;
+        align-content: center;
+        padding: 18px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.95rem;
+        line-height: 1.3;
+        font-weight: 760;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        backdrop-filter: blur(16px);
+      }
+
+      .founder-media {
+        position: relative;
+        min-height: 560px;
+        margin: 0;
+      }
+
+      .founder-media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.18) 34%, rgba(0, 0, 0, 0) 62%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.2), transparent 38%);
+        pointer-events: none;
+      }
+
+      .founder-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 560px;
+        display: block;
+        object-fit: cover;
+        object-position: 52% 30%;
       }
 
       .final-cta h2 {
@@ -2734,6 +2828,26 @@
           grid-template-columns: 1fr;
         }
 
+        .founder-card {
+          grid-template-columns: 1fr;
+          min-height: 0;
+        }
+
+        .founder-media {
+          order: -1;
+          min-height: 420px;
+        }
+
+        .founder-media::before {
+          background:
+            linear-gradient(0deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.16) 48%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .founder-media img {
+          min-height: 420px;
+          object-position: 52% 24%;
+        }
+
         .site-footer__inner {
           grid-template-columns: 1fr;
           gap: 22px;
@@ -2906,6 +3020,35 @@
         .expertise-strip,
         .expertise-tags {
           grid-template-columns: 1fr;
+        }
+
+        .founder-section {
+          margin-top: 54px;
+        }
+
+        .founder-card {
+          border-radius: 8px;
+        }
+
+        .founder-content {
+          padding: 30px 22px 34px;
+        }
+
+        .founder-content h2 {
+          font-size: clamp(2.35rem, 11vw, 3.35rem);
+        }
+
+        .founder-proof {
+          grid-template-columns: 1fr;
+        }
+
+        .founder-proof span {
+          min-height: 78px;
+        }
+
+        .founder-media,
+        .founder-media img {
+          min-height: 360px;
         }
 
         .final-cta {
@@ -4667,6 +4810,30 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="founder-section" id="persoenliche-expertise" aria-labelledby="founder-title">
+        <div class="founder-card">
+          <div class="founder-content">
+            <p class="eyebrow">Persönliche Expertise</p>
+            <h2 id="founder-title">Praxiswissen, das in Software wirksam wird.</h2>
+            <p>
+              BuiltSmart AI wird von Bernhard Metzger entwickelt und verbindet
+              fast vier Jahrzehnte Erfahrung in Bau, Immobilien und
+              Projektsteuerung mit moderner KI-gestützter Softwareentwicklung.
+              Der Fokus liegt auf Lösungen, die KMU, Projektverantwortliche und
+              Entscheider im Arbeitsalltag konkret entlasten.
+            </p>
+            <div class="founder-proof" aria-label="Schwerpunkte">
+              <span>Branchenwissen aus der Praxis</span>
+              <span>Fokus auf KMU und projektorientierte Unternehmen</span>
+              <span>Nachvollziehbare Grundlagen für bessere Entscheidungen</span>
+            </div>
+          </div>
+          <figure class="founder-media">
+            <img src="assets/portraits/bernhard-metzger.jpg" alt="Bernhard Metzger, Gründer von BuiltSmart AI">
+          </figure>
         </div>
       </section>
 
