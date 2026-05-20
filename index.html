@@ -525,6 +525,154 @@
         line-height: 1.62;
       }
 
+      .benefits-section {
+        margin-top: clamp(64px, 9vw, 112px);
+        padding: clamp(48px, 7vw, 76px) 0 0;
+        border-top: 1px solid rgba(23, 32, 38, 0.1);
+      }
+
+      .benefits-section .section-heading {
+        max-width: 980px;
+        margin-bottom: clamp(32px, 5vw, 54px);
+        padding-left: 0;
+      }
+
+      .benefits-section .section-heading::before {
+        display: none;
+      }
+
+      .benefits-section .section-heading h2 {
+        max-width: 920px;
+        color: #05050f;
+        font-size: clamp(2.7rem, 5vw, 4.25rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .benefits-section .section-heading p:not(.eyebrow) {
+        max-width: 850px;
+        margin-top: clamp(24px, 4vw, 42px);
+        color: #080811;
+        font-size: clamp(1.16rem, 1.85vw, 1.42rem);
+        line-height: 1.35;
+      }
+
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .benefit-card {
+        --accent: #2f6f56;
+        position: relative;
+        min-height: 244px;
+        display: grid;
+        align-content: start;
+        gap: 18px;
+        padding: 22px;
+        overflow: hidden;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0 72%, color-mix(in srgb, var(--accent) 8%, #ffffff) 72% 100%);
+        border: 1px solid rgba(255, 255, 255, 0.96);
+        border-radius: 8px;
+        box-shadow:
+          0 0 0 1px rgba(23, 32, 38, 0.055),
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          0 22px 54px rgba(23, 32, 38, 0.07);
+      }
+
+      .benefit-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 38%, #ffffff));
+      }
+
+      .benefit-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(132deg, transparent 0 62%, rgba(255, 255, 255, 0.7) 62.2% 62.8%, transparent 63%),
+          radial-gradient(circle at 91% 17%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 25%);
+        pointer-events: none;
+      }
+
+      .benefit-card-head {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .benefit-icon {
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        color: var(--accent);
+        background:
+          radial-gradient(circle at 30% 20%, #ffffff, transparent 34%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.62)),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, #ffffff), rgba(255, 255, 255, 0.72));
+        border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(255, 255, 255, 0.94));
+        border-radius: 16px;
+      }
+
+      .benefit-icon svg {
+        width: 30px;
+        height: 30px;
+        stroke: currentColor;
+        stroke-width: 1.55;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .benefit-index {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
+          var(--accent);
+        border-radius: 10px;
+      }
+
+      .benefit-card h3 {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #172026;
+        font-size: clamp(1.12rem, 1.5vw, 1.34rem);
+        line-height: 1.14;
+      }
+
+      .benefit-card p {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: #56616b;
+        font-size: 0.98rem;
+        line-height: 1.52;
+      }
+
+      .benefit-card:nth-child(1) { --accent: #2f6f56; }
+      .benefit-card:nth-child(2) { --accent: #247780; }
+      .benefit-card:nth-child(3) { --accent: #315f9e; }
+      .benefit-card:nth-child(4) { --accent: #65529c; }
+      .benefit-card:nth-child(5) { --accent: #b87924; }
+      .benefit-card:nth-child(6) { --accent: #4b6c76; }
+
       .tile-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2348,6 +2496,7 @@
         }
 
         .tile-grid,
+        .benefit-grid,
         .audience-grid,
         .neutral-grid,
         .app-grid {
@@ -2461,6 +2610,7 @@
         }
 
         .tile-grid,
+        .benefit-grid,
         .audience-grid,
         .neutral-grid,
         .app-grid {
@@ -3552,6 +3702,116 @@
             <span class="suite-row-meta">Fokus</span>
           </a>
         </nav>
+      </section>
+
+      <section class="benefits-section" id="nutzen" aria-labelledby="benefits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Nutzen</p>
+          <h2 id="benefits-title">Was BuiltSmart AI<br>im Arbeitsalltag verbessert.</h2>
+          <p>
+            Die Anwendungen schaffen nicht nur einzelne Arbeitserleichterungen,
+            sondern verbessern die Qualität, Nachvollziehbarkeit und
+            Steuerbarkeit komplexer Arbeitsprozesse.
+          </p>
+        </div>
+
+        <div class="benefit-grid" aria-label="Weitere Nutzen">
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M9 5h11l4 4v18H9z"></path>
+                  <path d="M20 5v5h5"></path>
+                  <path d="M13 16h9"></path>
+                  <path d="M13 21h7"></path>
+                  <path d="M11 11l2 2 4-5"></path>
+                </svg>
+              </span>
+              <span class="benefit-index">01</span>
+            </div>
+            <h3>Prüfbarkeit &amp; Nachvollziehbarkeit</h3>
+            <p>Verträge, Rechnungen, Nachweise, Protokolle und Entscheidungen werden strukturierter dokumentiert.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M16 5l9 4v7c0 5.5-3.6 9.2-9 11-5.4-1.8-9-5.5-9-11V9z"></path>
+                  <path d="M12 16l3 3 6-7"></path>
+                </svg>
+              </span>
+              <span class="benefit-index">02</span>
+            </div>
+            <h3>Qualitätssicherung &amp; Kontrolle</h3>
+            <p>Prüfungen, Plausibilitäten, Abweichungen und Feststellungen werden systematischer vorbereitet.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M5 25h22"></path>
+                  <path d="M8 22l5-7 5 4 6-10"></path>
+                  <path d="M21 9h3v3"></path>
+                  <path d="M9 8l2 2"></path>
+                  <path d="M11 8l-2 2"></path>
+                </svg>
+              </span>
+              <span class="benefit-index">03</span>
+            </div>
+            <h3>Risikofrüherkennung &amp; Unsicherheit</h3>
+            <p>Risiken, Kosten-, Termin- und Investitionsszenarien werden früher sichtbar und besser bewertbar.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M8 7h16v18H8z"></path>
+                  <path d="M12 11h8"></path>
+                  <path d="M12 16h8"></path>
+                  <path d="M12 21h5"></path>
+                  <path d="M24 11l4 3-4 3"></path>
+                </svg>
+              </span>
+              <span class="benefit-index">04</span>
+            </div>
+            <h3>Wissen &amp; Wiederverwendung</h3>
+            <p>Fachwissen, Dokumente, Prompts, Kommunikation und Arbeitsbausteine werden strukturiert nutzbar.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M7 10h12v8H9l-4 4V12a2 2 0 0 1 2-2z"></path>
+                  <path d="M17 15h8a2 2 0 0 1 2 2v9l-4-4h-6z"></path>
+                </svg>
+              </span>
+              <span class="benefit-index">05</span>
+            </div>
+            <h3>Kommunikation &amp; Abstimmung</h3>
+            <p>E-Mails, Meetings, Protokolle, Aufgaben und Entscheidungen werden effizienter vorbereitet und dokumentiert.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-card-head">
+              <span class="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M7 24V8"></path>
+                  <path d="M7 24h18"></path>
+                  <rect x="10" y="17" width="3" height="7"></rect>
+                  <rect x="16" y="12" width="3" height="12"></rect>
+                  <rect x="22" y="8" width="3" height="16"></rect>
+                </svg>
+              </span>
+              <span class="benefit-index">06</span>
+            </div>
+            <h3>Steuerung &amp; Entlastung</h3>
+            <p>Wiederkehrende Prüf-, Analyse- und Dokumentationsprozesse werden konsistenter, schneller und belastbarer.</p>
+          </article>
+        </div>
       </section>
 
       <section class="security-section" id="datenschutz-sicherheit" aria-labelledby="security-title">
