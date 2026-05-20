@@ -2167,17 +2167,19 @@
 
       .footer-links {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: max-content max-content;
+        gap: 8px 24px;
         justify-content: start;
         justify-self: end;
       }
 
       .footer-link-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 22px;
-        justify-content: flex-start;
+        display: contents;
+      }
+
+      .footer-link-row:first-child {
+        display: block;
+        grid-column: 1 / -1;
       }
 
       .footer-links a,
