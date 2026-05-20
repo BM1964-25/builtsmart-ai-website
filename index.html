@@ -1,0 +1,3425 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BuiltSmart AI</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172026;
+        --muted: #5d6872;
+        --paper: #f7f8f5;
+        --panel: #ffffff;
+        --line: #d9ded8;
+        --green: #2f6f56;
+        --teal: #247780;
+        --blue: #315f9e;
+        --gold: #b87924;
+        --red: #a8483e;
+        --violet: #65529c;
+        --shadow: 0 24px 70px rgba(23, 32, 38, 0.16);
+        --deep-shadow: 0 34px 90px rgba(23, 32, 38, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 72px) 0 clamp(32px, 6vw, 84px);
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        background: rgba(250, 251, 248, 0.96);
+        border-bottom: 1px solid rgba(23, 32, 38, 0.1);
+        backdrop-filter: blur(18px) saturate(1.08);
+      }
+
+      .site-header__inner {
+        width: min(1180px, calc(100% - 32px));
+        min-height: 74px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(210px, 1fr) auto minmax(180px, 1fr);
+        gap: 22px;
+        align-items: center;
+      }
+
+      .brand {
+        display: inline-flex;
+        min-width: 0;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        filter: drop-shadow(0 12px 20px rgba(36, 107, 254, 0.18));
+      }
+
+      .brand-name {
+        white-space: nowrap;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(18px, 3vw, 34px);
+      }
+
+      .site-nav a {
+        color: #3f4a52;
+        font-size: 0.92rem;
+        font-weight: 760;
+        text-decoration: none;
+        transition: color 160ms ease;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        color: var(--ink);
+        outline: none;
+      }
+
+      .header-actions {
+        display: flex;
+        min-width: 0;
+        justify-content: flex-end;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 850;
+        line-height: 1;
+        text-decoration: none;
+        transition:
+          transform 170ms ease,
+          border-color 170ms ease,
+          background 170ms ease,
+          color 170ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .button-dark {
+        color: #ffffff;
+        background: #172026;
+        border-color: #172026;
+        box-shadow: 0 14px 26px rgba(23, 32, 38, 0.18);
+      }
+
+      .button-light {
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.72);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.82),
+          0 14px 28px rgba(0, 0, 0, 0.14);
+      }
+
+      .button-ghost {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .hero {
+        position: relative;
+        min-height: clamp(560px, 78svh, 740px);
+        width: 100%;
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+        color: #ffffff;
+        background:
+          linear-gradient(90deg, rgba(3, 6, 10, 0.86) 0%, rgba(3, 6, 10, 0.68) 34%, rgba(3, 6, 10, 0.24) 64%, rgba(3, 6, 10, 0.04) 100%),
+          linear-gradient(180deg, rgba(3, 6, 10, 0.04) 0%, rgba(3, 6, 10, 0.3) 100%),
+          url("assets/hero/builtsmart-ai-hero.jpeg") center right / cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 22%;
+        background: linear-gradient(180deg, transparent, rgba(6, 11, 15, 0.24));
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: clamp(42px, 6vw, 74px) 0;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+        min-width: 0;
+      }
+
+      .hero-eyebrow {
+        margin: 0 0 16px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-pill {
+        display: inline-flex;
+        max-width: 100%;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 18px;
+        padding: 8px 12px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 0.9rem;
+        font-weight: 760;
+        line-height: 1.2;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        backdrop-filter: blur(12px);
+        white-space: normal;
+      }
+
+      .hero-pill svg {
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+        stroke: #7bd4b0;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .hero h1 {
+        max-width: 16ch;
+        color: #ffffff;
+        font-size: clamp(2.5rem, 5.7vw, 5.35rem);
+        line-height: 1;
+        text-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+        overflow-wrap: normal;
+      }
+
+      .hero-subtitle {
+        margin: 24px 0 0;
+        max-width: 54ch;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.18rem, 2vw, 1.55rem);
+        line-height: 1.42;
+        font-weight: 780;
+      }
+
+      .hero-lead {
+        margin: 18px 0 0;
+        max-width: 66ch;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: clamp(1.04rem, 1.7vw, 1.22rem);
+        line-height: 1.62;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 620px;
+        margin-top: 30px;
+      }
+
+      .hero-metric {
+        min-width: 0;
+        min-height: 96px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        backdrop-filter: blur(16px) saturate(1.12);
+      }
+
+      .hero-metric strong {
+        display: block;
+        color: #ffffff;
+        font-size: clamp(1.28rem, 2.2vw, 1.74rem);
+        line-height: 1.05;
+      }
+
+      .hero-metric span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      .intro {
+        position: relative;
+        max-width: 860px;
+        margin-bottom: clamp(24px, 4vw, 38px);
+        padding: clamp(14px, 2vw, 26px) 0 clamp(22px, 4vw, 34px);
+        border-bottom: 1px solid rgba(23, 32, 38, 0.14);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 12ch;
+        font-size: clamp(2.9rem, 7vw, 6.15rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        margin: 20px 0 0;
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.22rem);
+        line-height: 1.65;
+      }
+
+      .tile-section {
+        margin-top: clamp(52px, 8vw, 88px);
+        padding-top: clamp(26px, 4vw, 38px);
+        border-top: 1px solid rgba(23, 32, 38, 0.1);
+      }
+
+      .section-heading {
+        position: relative;
+        max-width: 720px;
+        margin-bottom: clamp(24px, 4vw, 36px);
+        padding-left: 22px;
+      }
+
+      .section-heading::before {
+        content: "";
+        position: absolute;
+        inset: 6px auto 5px 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--green), var(--blue));
+        border-radius: 8px;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.12rem);
+        line-height: 1.6;
+      }
+
+      .tile-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        perspective: 1200px;
+      }
+
+      .challenge-grid .menu-tile {
+        min-height: 142px;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 18px;
+        row-gap: 10px;
+        align-items: center;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.54)),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0 71%, color-mix(in srgb, var(--accent) 9%, #ffffff) 71% 100%),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 13%, transparent), transparent 58%);
+        border: 1px solid rgba(255, 255, 255, 0.98);
+        box-shadow:
+          0 0 0 1px rgba(23, 32, 38, 0.055),
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          inset 0 -1px 0 rgba(23, 32, 38, 0.04);
+        backdrop-filter: blur(24px) saturate(1.18);
+      }
+
+      .challenge-grid .menu-tile::before {
+        width: 4px;
+      }
+
+      .challenge-grid .menu-tile::after {
+        background:
+          linear-gradient(132deg, transparent 0 34%, rgba(255, 255, 255, 0.72) 34.2% 34.8%, transparent 35%),
+          linear-gradient(135deg, transparent 0 70%, rgba(255, 255, 255, 0.78) 70.2% 70.8%, transparent 71%),
+          radial-gradient(circle at 86% 22%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 24%);
+        opacity: 1;
+      }
+
+      .challenge-grid .tile-head {
+        display: contents;
+        margin: 0;
+      }
+
+      .challenge-grid .tile-number {
+        grid-column: 1;
+        grid-row: 1;
+        width: 34px;
+        height: 34px;
+        align-self: start;
+        border-radius: 10px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.36),
+          0 10px 20px color-mix(in srgb, var(--accent) 18%, transparent);
+      }
+
+      .challenge-grid .tile-icon {
+        position: relative;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        justify-self: end;
+        width: 76px;
+        height: 76px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 1), transparent 34%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.56)),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, #ffffff), rgba(255, 255, 255, 0.68));
+        border: 1px solid color-mix(in srgb, var(--accent) 24%, rgba(255, 255, 255, 0.96));
+        border-radius: 16px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          inset 0 -18px 36px color-mix(in srgb, var(--accent) 7%, transparent);
+      }
+
+      .challenge-grid .tile-icon::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(255, 255, 255, 0.66));
+        border-radius: 12px;
+        opacity: 0.62;
+      }
+
+      .challenge-grid .tile-icon::after {
+        content: "";
+        position: absolute;
+        width: 54px;
+        height: 54px;
+        right: -22px;
+        bottom: -22px;
+        background: color-mix(in srgb, var(--accent) 14%, transparent);
+        border-radius: 50%;
+      }
+
+      .challenge-grid .tile-icon svg {
+        position: relative;
+        z-index: 1;
+        width: 42px;
+        height: 42px;
+        stroke-width: 1.45;
+        filter: drop-shadow(0 6px 12px color-mix(in srgb, var(--accent) 14%, transparent));
+      }
+
+      .challenge-grid .menu-tile h2 {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        min-height: 0;
+        max-width: calc(100% - 94px);
+        font-size: clamp(1.06rem, 1.6vw, 1.34rem);
+        line-height: 1.12;
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .audience-flow {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        counter-reset: audience;
+      }
+
+      .audience-card {
+        --accent: #2f6f56;
+        position: relative;
+        min-height: 132px;
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+        padding: 18px;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.62)),
+          linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, #ffffff), rgba(255, 255, 255, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.96);
+        border-radius: 8px;
+        box-shadow:
+          0 0 0 1px rgba(23, 32, 38, 0.055),
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          inset 0 -1px 0 rgba(23, 32, 38, 0.04);
+        backdrop-filter: blur(22px) saturate(1.12);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .audience-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 40%, #ffffff));
+      }
+
+      .audience-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(132deg, transparent 0 42%, rgba(255, 255, 255, 0.66) 42.2% 42.8%, transparent 43%),
+          radial-gradient(circle at 91% 22%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 26%);
+        pointer-events: none;
+      }
+
+      .audience-card:hover,
+      .audience-card:focus-visible {
+        transform: translateY(-4px);
+        border-color: color-mix(in srgb, var(--accent) 30%, #ffffff);
+        outline: none;
+      }
+
+      .audience-icon {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        color: var(--accent);
+        background:
+          radial-gradient(circle at 30% 20%, #ffffff, transparent 34%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.62)),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, #ffffff), rgba(255, 255, 255, 0.72));
+        border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(255, 255, 255, 0.94));
+        border-radius: 16px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          inset 0 -14px 28px color-mix(in srgb, var(--accent) 7%, transparent);
+      }
+
+      .audience-icon svg {
+        width: 32px;
+        height: 32px;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .audience-copy {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+      }
+
+      .audience-copy h3 {
+        margin: 0;
+        font-size: clamp(1.08rem, 1.5vw, 1.34rem);
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .audience-copy span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .audience-index {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
+          var(--accent);
+        border-radius: 10px;
+      }
+
+      .audience-card:nth-child(1) { --accent: #2f6f56; }
+      .audience-card:nth-child(2) { --accent: #247780; }
+      .audience-card:nth-child(3) { --accent: #315f9e; }
+      .audience-card:nth-child(4) { --accent: #65529c; }
+      .audience-card:nth-child(5) { --accent: #4b6c76; }
+      .audience-card:nth-child(6) { --accent: #a8483e; }
+      .audience-card:nth-child(7) { --accent: #b87924; }
+      .audience-card:nth-child(8) { --accent: #2f7d58; }
+      .audience-card:nth-child(9) { --accent: #7a5f3f; }
+      .audience-card:nth-child(10) { --accent: #5d6fa3; }
+      .audience-card:nth-child(11) { --accent: #6f5f89; }
+      .audience-card:nth-child(12) { --accent: #3f7868; }
+
+      .neutral-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .app-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .app-category,
+      .suite-list-category {
+        grid-column: 1 / -1;
+        margin: clamp(24px, 4vw, 38px) 0 2px;
+        padding: 0 0 14px;
+        color: var(--ink);
+        font-size: clamp(1.12rem, 1.85vw, 1.48rem);
+        line-height: 1.18;
+        font-weight: 850;
+        border-bottom: 1px solid rgba(23, 32, 38, 0.12);
+      }
+
+      .app-category:first-child,
+      .suite-list-category:first-child {
+        margin-top: 0;
+      }
+
+      .suite-list-category {
+        margin-top: clamp(22px, 3vw, 34px);
+      }
+
+      .app-card {
+        --accent: #315f9e;
+        position: relative;
+        display: grid;
+        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        column-gap: 20px;
+        row-gap: 12px;
+        min-height: 226px;
+        padding: 22px 24px 20px 20px;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0 70%, color-mix(in srgb, var(--accent) 7%, #ffffff) 70% 100%),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 58%);
+        border: 1px solid rgba(207, 214, 220, 0.92);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.92),
+          0 0 0 1px rgba(23, 32, 38, 0.035),
+          0 18px 46px rgba(23, 32, 38, 0.08);
+        backdrop-filter: blur(20px) saturate(1.08);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .app-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 42%, #ffffff));
+        box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 24%, transparent);
+      }
+
+      .app-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(132deg, transparent 0 68%, rgba(255, 255, 255, 0.78) 68.2% 68.8%, transparent 69%),
+          radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 25%);
+        pointer-events: none;
+      }
+
+      .app-card:hover,
+      .app-card:focus-visible {
+        transform: translateY(-7px) rotateX(1deg);
+        border-color: color-mix(in srgb, var(--accent) 32%, #ffffff);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.92) inset,
+          0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent),
+          var(--deep-shadow);
+        outline: none;
+      }
+
+      .app-media {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        margin-bottom: 0;
+      }
+
+      .app-icon {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 30px color-mix(in srgb, var(--accent) 18%, transparent));
+      }
+
+      .app-index {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: 800;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent),
+          var(--accent);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 8px;
+        box-shadow: 0 12px 24px color-mix(in srgb, var(--accent) 22%, transparent);
+      }
+
+      .app-card h3 {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        min-height: 0;
+        font-size: clamp(1.12rem, 1.55vw, 1.38rem);
+        line-height: 1.17;
+        letter-spacing: 0;
+      }
+
+      .app-card p {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .app-cta {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 4px;
+        align-items: center;
+        gap: 9px;
+        color: color-mix(in srgb, var(--accent) 76%, #174ea6);
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .app-cta span {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        color: #ffffff;
+        background: var(--accent);
+        border-radius: 8px;
+        transition: transform 180ms ease;
+      }
+
+      .app-card:hover .app-cta span,
+      .app-card:focus-visible .app-cta span {
+        transform: translateX(4px);
+      }
+
+      .app-card:nth-of-type(1) { --accent: var(--green); }
+      .app-card:nth-of-type(2) { --accent: var(--teal); }
+      .app-card:nth-of-type(3) { --accent: var(--blue); }
+      .app-card:nth-of-type(4) { --accent: #4b6c76; }
+      .app-card:nth-of-type(5) { --accent: var(--violet); }
+      .app-card:nth-of-type(6) { --accent: #5d6fa3; }
+      .app-card:nth-of-type(7) { --accent: #2f7d58; }
+      .app-card:nth-of-type(8) { --accent: var(--gold); }
+      .app-card:nth-of-type(9) { --accent: var(--red); }
+      .app-card:nth-of-type(10) { --accent: #7a5f3f; }
+      .app-card:nth-of-type(11) { --accent: #65529c; }
+      .app-card:nth-of-type(12) { --accent: #3f7868; }
+      .app-card:nth-of-type(13) { --accent: #4b6c76; }
+
+      .suite-variant-label {
+        display: inline-flex;
+        width: fit-content;
+        margin: 0 0 20px;
+        padding: 8px 11px;
+        color: #174ea6;
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, rgba(36, 107, 254, 0.09), rgba(47, 111, 86, 0.055));
+        border: 1px solid rgba(36, 107, 254, 0.18);
+        border-radius: 8px;
+      }
+
+      .suite-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .suite-row {
+        --accent: #315f9e;
+        position: relative;
+        min-height: 122px;
+        display: grid;
+        grid-template-columns: 112px minmax(0, 1fr) minmax(138px, auto);
+        gap: 20px;
+        align-items: center;
+        padding: 18px 20px;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        background:
+          linear-gradient(90deg, color-mix(in srgb, var(--accent) 7%, #ffffff), rgba(255, 255, 255, 0.96)),
+          #ffffff;
+        border: 1px solid rgba(207, 214, 220, 0.9);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.92),
+          0 12px 32px rgba(23, 32, 38, 0.055);
+        transition:
+          transform 170ms ease,
+          border-color 170ms ease,
+          box-shadow 170ms ease;
+      }
+
+      .suite-row::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: var(--accent);
+      }
+
+      .suite-row:hover,
+      .suite-row:focus-visible {
+        transform: translateY(-3px);
+        border-color: color-mix(in srgb, var(--accent) 28%, var(--line));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.92),
+          0 16px 38px rgba(23, 32, 38, 0.09);
+        outline: none;
+      }
+
+      .suite-row-media {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .suite-row-icon {
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
+        filter: drop-shadow(0 12px 18px color-mix(in srgb, var(--accent) 18%, transparent));
+      }
+
+      .suite-row-index {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.74rem;
+        font-weight: 850;
+        background: var(--accent);
+        border-radius: 8px;
+      }
+
+      .suite-row-copy {
+        position: relative;
+        z-index: 1;
+        min-width: 0;
+      }
+
+      .suite-row-copy h3 {
+        margin: 0;
+        font-size: clamp(1.12rem, 1.65vw, 1.36rem);
+        line-height: 1.15;
+      }
+
+      .suite-row-copy p {
+        margin: 8px 0 0;
+        max-width: 68ch;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .suite-row-copy::after {
+        content: "Mehr erfahren →";
+        display: inline-flex;
+        margin-top: 12px;
+        align-items: center;
+        color: color-mix(in srgb, var(--accent) 72%, #174ea6);
+        font-size: 0.9rem;
+        font-weight: 850;
+        letter-spacing: 0.01em;
+        transition: transform 170ms ease;
+      }
+
+      .suite-row:hover .suite-row-copy::after,
+      .suite-row:focus-visible .suite-row-copy::after {
+        transform: translateX(4px);
+      }
+
+      .suite-row-meta {
+        position: relative;
+        z-index: 1;
+        justify-self: end;
+        padding: 9px 11px;
+        color: color-mix(in srgb, var(--accent) 72%, #172026);
+        font-size: 0.78rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+        background: color-mix(in srgb, var(--accent) 8%, #ffffff);
+        border: 1px solid color-mix(in srgb, var(--accent) 16%, #ffffff);
+        border-radius: 8px;
+      }
+
+      .suite-row:nth-of-type(1) { --accent: var(--green); }
+      .suite-row:nth-of-type(2) { --accent: var(--teal); }
+      .suite-row:nth-of-type(3) { --accent: var(--blue); }
+      .suite-row:nth-of-type(4) { --accent: #4b6c76; }
+      .suite-row:nth-of-type(5) { --accent: var(--violet); }
+      .suite-row:nth-of-type(6) { --accent: #5d6fa3; }
+      .suite-row:nth-of-type(7) { --accent: #2f7d58; }
+      .suite-row:nth-of-type(8) { --accent: var(--gold); }
+      .suite-row:nth-of-type(9) { --accent: var(--red); }
+      .suite-row:nth-of-type(10) { --accent: #7a5f3f; }
+      .suite-row:nth-of-type(11) { --accent: #65529c; }
+      .suite-row:nth-of-type(12) { --accent: #3f7868; }
+      .suite-row:nth-of-type(13) { --accent: #4b6c76; }
+
+      .roi-section {
+        padding: clamp(22px, 3vw, 34px);
+        background: #ffffff;
+        border-radius: 8px;
+      }
+
+      .roi-calculator {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        gap: 18px;
+        align-items: stretch;
+        background: #ffffff;
+        box-shadow: none;
+      }
+
+      .roi-panel {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(22px, 3vw, 34px);
+        background: #ffffff;
+        border: 1px solid rgba(23, 32, 38, 0.08);
+        border-radius: 8px;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .roi-controls {
+        display: grid;
+        gap: 22px;
+      }
+
+      .roi-control {
+        position: relative;
+        z-index: 1;
+      }
+
+      .roi-control label {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 10px;
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .roi-value {
+        color: #174ea6;
+        font-size: 0.95rem;
+        white-space: nowrap;
+      }
+
+      .roi-control input[type="range"] {
+        width: 100%;
+        accent-color: #246bfe;
+      }
+
+      .roi-hint {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .roi-result {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 16px;
+      }
+
+      .roi-hero {
+        padding: 22px;
+        color: #ffffff;
+        text-align: center;
+        background:
+          linear-gradient(135deg, rgba(36, 107, 254, 0.96), rgba(47, 111, 86, 0.94)),
+          #246bfe;
+        border-radius: 8px;
+        box-shadow: 0 24px 52px rgba(36, 107, 254, 0.24);
+      }
+
+      .roi-label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.82;
+      }
+
+      .roi-main {
+        display: block;
+        font-size: clamp(2.4rem, 5vw, 4.7rem);
+        font-weight: 900;
+        line-height: 0.95;
+      }
+
+      .roi-sub {
+        display: block;
+        margin-top: 12px;
+        font-weight: 700;
+        opacity: 0.9;
+      }
+
+      .roi-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .roi-metric {
+        padding: 16px;
+        text-align: center;
+        background: #ffffff;
+        border: 1px solid rgba(23, 32, 38, 0.08);
+        border-radius: 8px;
+      }
+
+      .roi-metric strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: 1.36rem;
+        line-height: 1.1;
+      }
+
+      .roi-note {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .security-section {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: clamp(56px, 8vw, 92px);
+        padding: clamp(72px, 9vw, 106px) max(32px, calc((100vw - 1180px) / 2));
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+        gap: clamp(48px, 7vw, 86px);
+        align-items: center;
+        overflow: hidden;
+        color: #ffffff;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+          radial-gradient(circle at 16% 22%, rgba(24, 184, 255, 0.08), transparent 30%),
+          #07101d;
+        background-size: 62px 62px, 62px 62px, auto, auto;
+      }
+
+      .security-copy {
+        max-width: 580px;
+      }
+
+      .security-eyebrow {
+        margin: 0 0 22px;
+        color: #18b8ff;
+        font-size: 0.78rem;
+        line-height: 1;
+        font-weight: 850;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+      }
+
+      .security-copy h2 {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(2.9rem, 5.2vw, 4.05rem);
+        line-height: 1.08;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .security-lead {
+        margin: 28px 0 0;
+        max-width: 520px;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+        line-height: 1.55;
+        font-weight: 500;
+      }
+
+      .security-control {
+        margin: 24px 0 0;
+        max-width: 560px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        line-height: 1.55;
+        font-weight: 500;
+      }
+
+      .security-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+      }
+
+      .security-card {
+        position: relative;
+        min-height: 82px;
+        padding: 20px 22px;
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+        overflow: hidden;
+        color: #ffffff;
+        text-decoration: none;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.076), rgba(255, 255, 255, 0.036));
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 18px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 18px 42px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 0.28s ease,
+          border-color 0.28s ease,
+          background 0.28s ease,
+          box-shadow 0.28s ease;
+      }
+
+      .security-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(24, 184, 255, 0.12), transparent 30%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 44%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.28s ease;
+      }
+
+      .security-icon {
+        position: relative;
+        z-index: 1;
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(24, 184, 255, 0.12);
+        border: 1px solid rgba(24, 184, 255, 0.32);
+        border-radius: 14px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 10px 24px rgba(24, 184, 255, 0.08);
+        transition:
+          transform 0.28s ease,
+          background 0.28s ease,
+          border-color 0.28s ease;
+      }
+
+      .security-icon svg {
+        width: 22px;
+        height: 22px;
+        display: block;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .security-card-title {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 0.95rem;
+        line-height: 1.32;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .security-card:hover,
+      .security-card:focus-visible {
+        transform: translateY(-6px);
+        border-color: rgba(24, 184, 255, 0.42);
+        background: linear-gradient(145deg, rgba(24, 184, 255, 0.13), rgba(255, 255, 255, 0.045));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 24px 52px rgba(0, 0, 0, 0.28);
+        outline: none;
+      }
+
+      .security-card:hover::after,
+      .security-card:focus-visible::after {
+        opacity: 1;
+      }
+
+      .security-card:hover .security-icon,
+      .security-card:focus-visible .security-icon {
+        transform: scale(1.08);
+        background: rgba(24, 184, 255, 0.18);
+        border-color: rgba(24, 184, 255, 0.58);
+      }
+
+      .security-cards-preview {
+        margin-top: clamp(42px, 6vw, 72px);
+        padding: 0;
+        background: transparent;
+      }
+
+      .security-cards-preview .security-grid {
+        grid-template-columns: 25% 25% !important;
+        grid-auto-rows: minmax(86px, auto);
+      }
+
+      .security-cards-preview .security-card {
+        min-height: 86px;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 70%, rgba(23, 32, 38, 0.045) 70%, rgba(23, 32, 38, 0.09) 100%);
+        border-color: rgba(210, 214, 218, 0.95);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.95),
+          0 0 0 1px rgba(23, 32, 38, 0.025);
+      }
+
+      .security-cards-preview .security-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: #172026;
+      }
+
+      .security-cards-preview .security-card::after {
+        opacity: 1;
+        background:
+          linear-gradient(132deg, transparent 0 68%, rgba(255, 255, 255, 0.82) 68.2% 68.8%, transparent 69%),
+          radial-gradient(circle at 86% 20%, rgba(23, 32, 38, 0.08), transparent 26%);
+      }
+
+      .security-cards-preview .security-icon {
+        color: #172026;
+        background:
+          radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.96), transparent 36%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(23, 32, 38, 0.1));
+        border-color: rgba(23, 32, 38, 0.18);
+      }
+
+      .security-cards-preview .security-card-title {
+        color: var(--ink);
+      }
+
+      .security-cards-preview .security-card:hover,
+      .security-cards-preview .security-card:focus-visible {
+        border-color: rgba(23, 32, 38, 0.34);
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 70%, rgba(23, 32, 38, 0.07) 70%, rgba(23, 32, 38, 0.13) 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.98),
+          0 18px 36px rgba(20, 35, 45, 0.13);
+      }
+
+      .expertise-preview {
+        margin-top: clamp(42px, 6vw, 72px);
+        padding: 0;
+        background: transparent;
+      }
+
+      .expertise-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+      }
+
+      .expertise-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1), transparent 42%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(249, 250, 252, 0.94));
+        border: 1px solid rgba(210, 216, 222, 0.95);
+        border-radius: 24px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.96),
+          0 24px 70px rgba(23, 32, 38, 0.08);
+      }
+
+      .expertise-stat {
+        min-height: 336px;
+        padding: 46px 34px 38px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border-right: 1px solid rgba(210, 216, 222, 0.88);
+      }
+
+      .expertise-stat:last-child {
+        border-right: 0;
+      }
+
+      .expertise-icon {
+        width: 76px;
+        height: 76px;
+        margin: 0 auto 24px;
+        display: grid;
+        place-items: center;
+        color: #000000;
+        background:
+          radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 1), transparent 36%),
+          linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(226, 229, 235, 0.96));
+        border: 1px solid rgba(210, 216, 224, 0.95);
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 1),
+          inset 0 -14px 26px rgba(23, 32, 38, 0.07),
+          0 16px 34px rgba(23, 32, 38, 0.14);
+      }
+
+      .expertise-icon.dark {
+        color: #000000;
+        background:
+          radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 1), transparent 36%),
+          linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(226, 229, 235, 0.96));
+        border-color: rgba(210, 216, 224, 0.95);
+      }
+
+      .expertise-icon svg {
+        width: 38px;
+        height: 38px;
+        stroke: currentColor;
+        stroke-width: 1.75;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.16));
+      }
+
+      .expertise-value {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+        color: #000000;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .expertise-number {
+        font-size: clamp(3.95rem, 6.3vw, 5.55rem);
+        line-height: 0.92;
+      }
+
+      .expertise-unit {
+        color: #000000;
+        font-size: clamp(1.45rem, 2.1vw, 2rem);
+        line-height: 1;
+        font-weight: 750;
+      }
+
+      .expertise-hub {
+        display: block;
+        max-width: 9ch;
+        color: #000000;
+        font-size: clamp(2.05rem, 2.95vw, 2.6rem);
+        line-height: 1.02;
+        font-weight: 850;
+        overflow-wrap: normal;
+      }
+
+      .expertise-label {
+        display: block;
+        margin-top: 18px;
+        color: #000000;
+        font-size: 1.08rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      .expertise-divider {
+        display: block;
+        width: 52px;
+        height: 2px;
+        margin: 24px auto 20px;
+        background: #000000;
+        border-radius: 999px;
+      }
+
+      .expertise-text {
+        margin: 0 auto;
+        max-width: none;
+        color: #000000;
+        font-size: 0.94rem;
+        line-height: 1.48;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .expertise-tags {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .expertise-tag {
+        min-height: 244px;
+        padding: 34px 28px;
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+        place-items: center;
+        text-align: center;
+        color: #000000;
+        font-size: 1.35rem;
+        line-height: 1.25;
+        font-weight: 850;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 1), transparent 44%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(249, 250, 252, 0.94));
+        border: 1px solid rgba(210, 216, 222, 0.95);
+        border-radius: 22px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.96),
+          0 18px 52px rgba(23, 32, 38, 0.07);
+      }
+
+      .expertise-tag .expertise-icon {
+        width: 88px;
+        height: 88px;
+        margin-bottom: 22px;
+      }
+
+      .expertise-tag .expertise-divider {
+        margin: 20px auto 18px;
+      }
+
+      .expertise-tag p {
+        margin: 0;
+        max-width: none;
+        color: #000000;
+        font-size: 0.94rem;
+        line-height: 1.45;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .expertise-footer {
+        margin: 32px 0 0;
+        text-align: center;
+        color: #000000;
+      }
+
+      .expertise-footer strong {
+        display: block;
+        font-size: clamp(1.45rem, 2.5vw, 2rem);
+        line-height: 1.2;
+      }
+
+      .expertise-footer span {
+        display: block;
+        margin-top: 10px;
+        color: #000000;
+        font-size: clamp(1rem, 1.7vw, 1.32rem);
+        line-height: 1.45;
+        font-weight: 500;
+      }
+
+      .menu-tile {
+        position: relative;
+        min-height: 214px;
+        padding: 26px;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 248, 0.82)),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 48%);
+        border: 1px solid rgba(255, 255, 255, 0.88);
+        border-radius: 8px;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.84) inset,
+          0 0 0 1px rgba(23, 32, 38, 0.06),
+          var(--shadow);
+        backdrop-filter: blur(20px) saturate(1.08);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .menu-tile::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 46%, #ffffff));
+        box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent);
+      }
+
+      .menu-tile::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, transparent 0 68%, rgba(255, 255, 255, 0.62) 68% 68.6%, transparent 68.6%),
+          linear-gradient(90deg, transparent 0 84%, color-mix(in srgb, var(--accent) 10%, transparent) 84% 100%);
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      .menu-tile:hover,
+      .menu-tile:focus-visible {
+        transform: translateY(-7px) rotateX(1deg);
+        border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.9) inset,
+          0 0 0 1px color-mix(in srgb, var(--accent) 24%, transparent),
+          var(--deep-shadow);
+        outline: none;
+      }
+
+      .tile-head {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+
+      .tile-number {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: 800;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
+          var(--accent);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 8px;
+        box-shadow: 0 12px 24px color-mix(in srgb, var(--accent) 24%, transparent);
+      }
+
+      .tile-icon {
+        display: grid;
+        width: 88px;
+        height: 88px;
+        place-items: center;
+        color: var(--accent);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.38)),
+          linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent);
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+        border-radius: 8px;
+        box-shadow:
+          0 18px 38px rgba(23, 32, 38, 0.11),
+          0 1px 0 rgba(255, 255, 255, 0.9) inset;
+      }
+
+      .tile-icon svg {
+        width: 50px;
+        height: 50px;
+        stroke: currentColor;
+        stroke-width: 1.55;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+
+      .menu-tile h2 {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        min-height: 2.36em;
+        max-width: 14rem;
+        font-size: clamp(1.22rem, 2vw, 1.58rem);
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .tile-kicker {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .audience-grid .menu-tile h2 {
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+
+      .menu-tile:nth-child(1) {
+        --accent: var(--green);
+      }
+
+      .menu-tile:nth-child(2) {
+        --accent: var(--teal);
+      }
+
+      .menu-tile:nth-child(3) {
+        --accent: var(--blue);
+      }
+
+      .menu-tile:nth-child(4) {
+        --accent: var(--red);
+      }
+
+      .menu-tile:nth-child(5) {
+        --accent: var(--gold);
+      }
+
+      .menu-tile:nth-child(6) {
+        --accent: var(--violet);
+      }
+
+      .menu-tile:nth-child(7) {
+        --accent: #4b6c76;
+      }
+
+      .menu-tile:nth-child(8) {
+        --accent: #7a5f3f;
+      }
+
+      .challenge-grid .menu-tile:nth-child(9) {
+        --accent: #2f7d58;
+      }
+
+      @media (max-width: 820px) {
+        .site-header__inner {
+          min-height: 68px;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .site-nav {
+          display: none;
+        }
+
+        .brand {
+          max-width: calc(100vw - 96px);
+        }
+
+        .header-actions .button {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 50px;
+          min-height: 40px;
+          padding: 0 10px;
+          overflow: hidden;
+          font-size: 0;
+          white-space: nowrap;
+        }
+
+        .header-actions .button::before {
+          content: "Start";
+          font-size: 0.86rem;
+        }
+
+        .hero {
+          min-height: clamp(590px, 82svh, 720px);
+          background-position: 58% center;
+        }
+
+        .hero h1 {
+          max-width: 100%;
+          font-size: clamp(2rem, 8.8vw, 3rem);
+          line-height: 1.04;
+        }
+
+        .hero-copy,
+        .hero-lead,
+        .hero-subtitle,
+        .hero-metrics {
+          max-width: 100%;
+        }
+
+        .hero-pill {
+          width: 100%;
+          align-items: flex-start;
+          border-radius: 8px;
+        }
+
+        .hero-metrics {
+          grid-template-columns: 1fr;
+          max-width: 420px;
+        }
+
+        .audience-flow {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .security-section {
+          grid-template-columns: 1fr;
+          gap: 44px;
+          padding: 72px 24px;
+        }
+
+        .security-copy {
+          max-width: 720px;
+        }
+
+        .tile-grid,
+        .audience-grid,
+        .neutral-grid,
+        .app-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .suite-row {
+          grid-template-columns: auto 1fr;
+        }
+
+        .suite-row-meta {
+          grid-column: 2;
+          justify-self: start;
+        }
+
+        .roi-calculator {
+          grid-template-columns: 1fr;
+        }
+
+        .expertise-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .expertise-stat:nth-child(2) {
+          border-right: 0;
+        }
+
+        .expertise-stat:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(210, 216, 222, 0.95);
+        }
+
+        .expertise-tags {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .site-header__inner {
+          width: min(100% - 24px, 1120px);
+          min-height: 64px;
+          display: flex;
+          justify-content: space-between;
+          gap: 12px;
+        }
+
+        .brand {
+          gap: 10px;
+          max-width: calc(100vw - 96px);
+        }
+
+        .brand-mark {
+          width: 36px;
+          height: 36px;
+        }
+
+        .brand-name {
+          font-size: 0.96rem;
+        }
+
+        .hero {
+          min-height: 78svh;
+          background-position: 62% center;
+        }
+
+        .hero-inner {
+          width: min(100% - 24px, 1120px);
+          padding: 34px 0;
+        }
+
+        .hero h1 {
+          font-size: clamp(1.92rem, 8.2vw, 2.7rem);
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .hero-metrics {
+          gap: 8px;
+          margin-top: 22px;
+        }
+
+        .hero-metric {
+          min-height: 76px;
+          padding: 13px 14px;
+        }
+
+        main {
+          width: min(100% - 24px, 1120px);
+          padding: 28px 0;
+        }
+
+        .tile-grid,
+        .audience-grid,
+        .neutral-grid,
+        .app-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .audience-flow {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .audience-card {
+          grid-template-columns: 52px minmax(0, 1fr) auto;
+          min-height: 112px;
+          padding: 16px;
+        }
+
+        .audience-icon {
+          width: 52px;
+          height: 52px;
+        }
+
+        .audience-icon svg {
+          width: 29px;
+          height: 29px;
+        }
+
+        .app-card {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          padding: 18px;
+        }
+
+        .app-media {
+          grid-column: auto;
+          grid-row: auto;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-bottom: 4px;
+        }
+
+        .suite-row {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          min-height: 0;
+          padding: 16px;
+        }
+
+        .suite-row-media {
+          justify-content: space-between;
+        }
+
+        .suite-row-icon {
+          width: 54px;
+          height: 54px;
+        }
+
+        .suite-row-meta {
+          grid-column: auto;
+          justify-self: start;
+          white-space: normal;
+        }
+
+        .app-icon {
+          width: 74px;
+          height: 74px;
+        }
+
+        .roi-metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .security-section {
+          min-height: auto;
+          padding: 56px 18px;
+        }
+
+        .security-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .security-cards-preview .security-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .expertise-strip,
+        .expertise-tags {
+          grid-template-columns: 1fr;
+        }
+
+        .expertise-stat {
+          min-height: 260px;
+          padding: 34px 24px 30px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(210, 216, 222, 0.95);
+        }
+
+        .expertise-text,
+        .expertise-tag p {
+          white-space: normal;
+        }
+
+        .expertise-stat:last-child {
+          border-bottom: 0;
+        }
+
+        .security-card {
+          min-height: 76px;
+          padding: 18px;
+          border-radius: 16px;
+        }
+
+        .security-copy h2 {
+          font-size: 2.35rem;
+        }
+
+        .security-lead,
+        .security-control {
+          font-size: 1rem;
+        }
+
+        .menu-tile {
+          min-height: 178px;
+          padding: 20px 18px;
+        }
+
+        .challenge-grid .menu-tile {
+          min-height: 132px;
+          padding: 16px 18px;
+        }
+
+        .challenge-grid .tile-icon {
+          width: 62px;
+          height: 62px;
+        }
+
+        .challenge-grid .tile-icon svg {
+          width: 34px;
+          height: 34px;
+        }
+
+        .challenge-grid .menu-tile h2 {
+          max-width: calc(100% - 76px);
+        }
+
+        .tile-number {
+          width: 34px;
+          height: 34px;
+        }
+
+        .tile-head {
+          margin-bottom: 24px;
+        }
+
+        .tile-icon {
+          width: 68px;
+          height: 68px;
+        }
+
+        .tile-icon svg {
+          width: 38px;
+          height: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#top" aria-label="BuiltSmart AI Start">
+          <img class="brand-mark" src="assets/app-icons/baurevision-neu.png" alt="">
+          <span class="brand-name">BuiltSmart AI</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hauptnavigation">
+          <a href="#apps-title">Funktionen</a>
+          <a href="#datenschutz-sicherheit">Lokal</a>
+          <a href="#roi-title">Lizenz</a>
+          <a href="#branchenwissen-software">FAQ</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button button-dark" href="#roi-title">Jetzt starten</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">KI-basierte Softwarelösungen für die Bau- und Immobilienwirtschaft sowie weitere Wirtschaftszweige.</h1>
+          <p class="hero-subtitle">
+            KI unterstützt Unternehmen dabei, fundiertere Entscheidungen
+            schneller zu treffen und Prozesse wirtschaftlicher zu steuern.
+          </p>
+          <p class="hero-lead">
+            BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen, die
+            komplexe Abläufe vereinfachen, Daten effizient nutzbar machen und
+            Unternehmen bei der digitalen Optimierung ihrer Prozesse
+            unterstützen. Durch die Verbindung moderner KI-Technologien mit
+            fundierter Branchenexpertise entstehen praxisorientierte Lösungen
+            mit messbarem Mehrwert für Effizienz, Transparenz und Produktivität.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">BuiltSmart AI</p>
+        <h1 id="page-title">Herausforderungen im Projektalltag</h1>
+        <p class="lead">
+          Sechs zentrale Themen, die Bau- und Infrastrukturprojekte heute
+          ausbremsen und genau dort ansetzen, wo digitale Steuerung den größten
+          Hebel schafft.
+        </p>
+      </section>
+
+      <nav class="tile-grid challenge-grid" aria-label="Herausforderungen">
+        <a class="menu-tile" href="#steigende-komplexitaet">
+          <span class="tile-head">
+            <span class="tile-number">01</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 24h22"></path>
+                <path d="M8 21V10h5v11"></path>
+                <path d="M14 21V6h5v15"></path>
+                <path d="M20 21v-8h5v8"></path>
+                <path d="M23 8l4-4"></path>
+                <path d="M23 4h4v4"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Steigende<br>Komplexität</h2>
+        </a>
+        <a class="menu-tile" href="#hohe-datenmengen">
+          <span class="tile-head">
+            <span class="tile-number">02</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <ellipse cx="16" cy="8" rx="10" ry="4"></ellipse>
+                <path d="M6 8v8c0 2.2 4.5 4 10 4s10-1.8 10-4V8"></path>
+                <path d="M6 16v8c0 2.2 4.5 4 10 4s10-1.8 10-4v-8"></path>
+                <path d="M11 13.5c1.4.4 3 .5 5 .5s3.6-.1 5-.5"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Hohe<br>Datenmengen</h2>
+        </a>
+        <a class="menu-tile" href="#termin-und-kostendruck">
+          <span class="tile-head">
+            <span class="tile-number">03</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="5" y="7" width="22" height="20" rx="3"></rect>
+                <path d="M10 5v5"></path>
+                <path d="M22 5v5"></path>
+                <path d="M5 13h22"></path>
+                <path d="M11 20h5"></path>
+                <path d="M18 20h3.5"></path>
+                <path d="M22 17.5l3 3-3 3"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Termin- und<br>Kostendruck</h2>
+        </a>
+        <a class="menu-tile" href="#wachsende-risiken">
+          <span class="tile-head">
+            <span class="tile-number">04</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 4l11 20H5L16 4z"></path>
+                <path d="M16 11v6"></path>
+                <path d="M16 22h.01"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Wachsende<br>Risiken</h2>
+        </a>
+        <a class="menu-tile" href="#mangelnde-transparenz">
+          <span class="tile-head">
+            <span class="tile-number">05</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M3.5 16s4.5-8 12.5-8 12.5 8 12.5 8-4.5 8-12.5 8S3.5 16 3.5 16z"></path>
+                <circle cx="16" cy="16" r="4"></circle>
+                <path d="M22.5 9.5l4-4"></path>
+                <path d="M26.5 9.5v-4h-4"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Mangelnde<br>Transparenz</h2>
+        </a>
+        <a class="menu-tile" href="#ineffiziente-prozesse">
+          <span class="tile-head">
+            <span class="tile-number">06</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="5" y="6" width="8" height="8" rx="2"></rect>
+                <rect x="19" y="18" width="8" height="8" rx="2"></rect>
+                <path d="M13 10h5a5 5 0 0 1 5 5v3"></path>
+                <path d="M19 22h-5a5 5 0 0 1-5-5v-3"></path>
+                <path d="M20 13l3 3 3-3"></path>
+                <path d="M12 19l-3-3-3 3"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Ineffiziente<br>Prozesse</h2>
+        </a>
+        <a class="menu-tile" href="#fachkraeftemangel">
+          <span class="tile-head">
+            <span class="tile-number">07</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="12" cy="10" r="4"></circle>
+                <path d="M5 25c.9-5.3 3.2-8 7-8 2.2 0 4 .9 5.2 2.7"></path>
+                <path d="M21 10h6"></path>
+                <path d="M24 7v6"></path>
+                <path d="M19 22h9"></path>
+                <path d="M19 26h6"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Fachkräfte-<br>mangel</h2>
+        </a>
+        <a class="menu-tile" href="#steigende-preise">
+          <span class="tile-head">
+            <span class="tile-number">08</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 24h22"></path>
+                <path d="M8 21l5-5 4 3 7-10"></path>
+                <path d="M21 9h4v4"></path>
+                <path d="M11 8h7"></path>
+                <path d="M14.5 5v13"></path>
+                <path d="M11 18h6a3 3 0 0 0 0-6h-5a3 3 0 0 1 0-6h6"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>Steigende<br>Preise</h2>
+        </a>
+        <a class="menu-tile" href="#esg-co2-reduktion">
+          <span class="tile-head">
+            <span class="tile-number">09</span>
+            <span class="tile-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M7 24h18"></path>
+                <path d="M22 10c-6.2.2-9.8 3.6-10.8 10.2"></path>
+                <path d="M12 20c-1.4-4.4.8-8.6 7.4-11.5 1.7-.8 3.6-1.3 5.6-1.5-.2 6.6-3.4 10.5-9.4 11.6"></path>
+                <path d="M6 11.5c1.2-1.2 2.4-1.8 3.8-1.8 1.7 0 3 1 3 2.7 0 1.8-1.3 2.8-3 2.8-1.4 0-2.6-.6-3.8-1.8"></path>
+                <path d="M22 21l3 3 3-3"></path>
+                <path d="M25 15v9"></path>
+              </svg>
+            </span>
+          </span>
+          <h2>ESG &<br>CO₂-Reduktion</h2>
+        </a>
+      </nav>
+
+      <section class="tile-section" aria-labelledby="audience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Zielgruppen</p>
+          <h2 id="audience-title">Für wen BuiltSmart AI arbeitet</h2>
+          <p>
+            Rollen- und organisationsübergreifend nutzbar: von operativen Teams
+            bis zu Entscheidern, Eigentümern und externen Partnern.
+          </p>
+        </div>
+
+        <nav class="audience-flow" aria-label="Zielgruppen">
+          <a class="audience-card" href="#projektentwickler">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 25h22"></path>
+                <path d="M8 22V10l8-4 8 4v12"></path>
+                <path d="M12 22v-7h8v7"></path>
+                <path d="M16 6v9"></path>
+                <path d="M8 10l8 5 8-5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Projektentwickler</h3>
+              <span>Initiatoren</span>
+            </span>
+            <span class="audience-index">01</span>
+          </a>
+
+          <a class="audience-card" href="#investoren">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 24h22"></path>
+                <path d="M8 21l5-5 4 3 7-9"></path>
+                <path d="M21 10h3v3"></path>
+                <circle cx="10" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Investoren</h3>
+              <span>Kapitalgeber</span>
+            </span>
+            <span class="audience-index">02</span>
+          </a>
+
+          <a class="audience-card" href="#banken">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 13h22"></path>
+                <path d="M7 13l9-7 9 7"></path>
+                <path d="M8 13v11"></path>
+                <path d="M14 13v11"></path>
+                <path d="M20 13v11"></path>
+                <path d="M6 24h20"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Banken</h3>
+              <span>Finanzierungspartner</span>
+            </span>
+            <span class="audience-index">03</span>
+          </a>
+
+          <a class="audience-card" href="#versicherungen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 27c-5-3.6-8-8.2-8-13.2V7l8-3 8 3v6.8c0 5-3 9.6-8 13.2z"></path>
+                <path d="M12 16l3 3 6-7"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Versicherungen</h3>
+              <span>Risikopartner</span>
+            </span>
+            <span class="audience-index">04</span>
+          </a>
+
+          <a class="audience-card" href="#bestandshalter">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="7" y="6" width="18" height="20" rx="2"></rect>
+                <path d="M11 11h2"></path>
+                <path d="M19 11h2"></path>
+                <path d="M11 16h2"></path>
+                <path d="M19 16h2"></path>
+                <path d="M13 26v-5h6v5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Bestandshalter</h3>
+              <span>Eigentümer</span>
+            </span>
+            <span class="audience-index">05</span>
+          </a>
+
+          <a class="audience-card" href="#planer">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 26h20"></path>
+                <path d="M8 22V8h12l4 4v10"></path>
+                <path d="M20 8v5h5"></path>
+                <path d="M11 16h8"></path>
+                <path d="M11 20h11"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Planer</h3>
+              <span>Fachplanung</span>
+            </span>
+            <span class="audience-index">06</span>
+          </a>
+
+          <a class="audience-card" href="#behoerden">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 13h20"></path>
+                <path d="M8 13l8-7 8 7"></path>
+                <path d="M10 13v11"></path>
+                <path d="M16 13v11"></path>
+                <path d="M22 13v11"></path>
+                <path d="M7 24h18"></path>
+                <path d="M21 7l3-3"></path>
+                <path d="M24 7V4h-3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Behörden</h3>
+              <span>Genehmigungsstellen</span>
+            </span>
+            <span class="audience-index">07</span>
+          </a>
+
+          <a class="audience-card" href="#bauunternehmen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 26h22"></path>
+                <path d="M8 26V11h8v15"></path>
+                <path d="M16 26V7h8v19"></path>
+                <path d="M10.5 15h3"></path>
+                <path d="M18.5 15h3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Bauunternehmen</h3>
+              <span>Umsetzungsteams</span>
+            </span>
+            <span class="audience-index">08</span>
+          </a>
+
+          <a class="audience-card" href="#projektsteuerer">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 8h20"></path>
+                <path d="M6 16h20"></path>
+                <path d="M6 24h20"></path>
+                <circle cx="12" cy="8" r="2.5"></circle>
+                <circle cx="20" cy="16" r="2.5"></circle>
+                <circle cx="14" cy="24" r="2.5"></circle>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Projektsteuerer</h3>
+              <span>Koordinatoren</span>
+            </span>
+            <span class="audience-index">09</span>
+          </a>
+
+          <a class="audience-card" href="#beratungsunternehmen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 9h20v13H13l-5 5v-5H6V9z"></path>
+                <path d="M12 14h8"></path>
+                <path d="M12 18h5"></path>
+                <path d="M22 5l4 4"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Beratungsunternehmen</h3>
+              <span>Externe Partner</span>
+            </span>
+            <span class="audience-index">10</span>
+          </a>
+
+          <a class="audience-card" href="#fuehrungskraefte">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="9" r="4"></circle>
+                <path d="M8 26c1.2-5 4-8 8-8s6.8 3 8 8"></path>
+                <path d="M24 7l3 3 3-5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Führungskräfte</h3>
+              <span>Entscheider</span>
+            </span>
+            <span class="audience-index">11</span>
+          </a>
+
+          <a class="audience-card" href="#privatpersonen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="9" r="4"></circle>
+                <path d="M9 27c.8-5.4 3.3-8 7-8s6.2 2.6 7 8"></path>
+                <path d="M6 14l3 3 3-3"></path>
+                <path d="M20 14l3 3 3-3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Privatpersonen</h3>
+              <span>Einzelpersonen</span>
+            </span>
+            <span class="audience-index">12</span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="tile-section" aria-labelledby="neutral-title">
+        <div class="section-heading">
+          <p class="eyebrow">Branchenneutral</p>
+          <h2 id="neutral-title">Übertragbare Einsatzfelder</h2>
+          <p>
+            Für Organisationen, die Komplexität, Daten, Ressourcen und
+            Entscheidungen über mehrere Einheiten hinweg besser steuern wollen.
+          </p>
+        </div>
+
+        <nav class="tile-grid neutral-grid" aria-label="Branchenneutrale Einsatzfelder">
+          <a class="menu-tile" href="#operative-teams">
+            <span class="tile-head">
+              <span class="tile-number">01</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <circle cx="10" cy="10" r="3"></circle>
+                  <circle cx="22" cy="10" r="3"></circle>
+                  <circle cx="16" cy="21" r="3"></circle>
+                  <path d="M8 18c1.2-2 2.8-3 5-3"></path>
+                  <path d="M24 18c-1.2-2-2.8-3-5-3"></path>
+                  <path d="M10 24c1.6 2 3.6 3 6 3s4.4-1 6-3"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Operative<br>Teams</h2>
+            <span class="tile-kicker">Zusammenarbeit</span>
+          </a>
+
+          <a class="menu-tile" href="#portfolios">
+            <span class="tile-head">
+              <span class="tile-number">02</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <rect x="5" y="7" width="8" height="8" rx="2"></rect>
+                  <rect x="19" y="7" width="8" height="8" rx="2"></rect>
+                  <rect x="5" y="19" width="8" height="8" rx="2"></rect>
+                  <rect x="19" y="19" width="8" height="8" rx="2"></rect>
+                  <path d="M13 11h6"></path>
+                  <path d="M13 23h6"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Portfolios<br>und Programme</h2>
+            <span class="tile-kicker">Steuerung</span>
+          </a>
+
+          <a class="menu-tile" href="#standorte">
+            <span class="tile-head">
+              <span class="tile-number">03</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M16 28s9-8 9-15a9 9 0 0 0-18 0c0 7 9 15 9 15z"></path>
+                  <circle cx="16" cy="13" r="3"></circle>
+                  <path d="M8 27h16"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Standorte<br>und Einheiten</h2>
+            <span class="tile-kicker">Verteilung</span>
+          </a>
+
+          <a class="menu-tile" href="#prozesslandschaften">
+            <span class="tile-head">
+              <span class="tile-number">04</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <rect x="5" y="6" width="8" height="7" rx="2"></rect>
+                  <rect x="19" y="6" width="8" height="7" rx="2"></rect>
+                  <rect x="12" y="20" width="8" height="7" rx="2"></rect>
+                  <path d="M13 9.5h6"></path>
+                  <path d="M23 13v3a4 4 0 0 1-4 4"></path>
+                  <path d="M9 13v3a4 4 0 0 0 4 4"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Prozess-<br>landschaften</h2>
+            <span class="tile-kicker">Abläufe</span>
+          </a>
+
+          <a class="menu-tile" href="#ressourcenplanung">
+            <span class="tile-head">
+              <span class="tile-number">05</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M6 25h20"></path>
+                  <path d="M9 22V10"></path>
+                  <path d="M16 22V6"></path>
+                  <path d="M23 22v-8"></path>
+                  <path d="M7 14h4"></path>
+                  <path d="M14 10h4"></path>
+                  <path d="M21 18h4"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Ressourcen-<br>planung</h2>
+            <span class="tile-kicker">Kapazitäten</span>
+          </a>
+
+          <a class="menu-tile" href="#entscheidungsraeume">
+            <span class="tile-head">
+              <span class="tile-number">06</span>
+              <span class="tile-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M6 7h20v14H11l-5 5V7z"></path>
+                  <path d="M12 13h8"></path>
+                  <path d="M12 17h5"></path>
+                  <path d="M22 24l2 2 4-5"></path>
+                </svg>
+              </span>
+            </span>
+            <h2>Entscheidungs-<br>räume</h2>
+            <span class="tile-kicker">Priorisierung</span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="tile-section" hidden aria-labelledby="apps-title-hidden">
+        <div class="section-heading">
+          <p class="eyebrow">Digitale Werkzeuge</p>
+          <h2 id="apps-title-hidden">Digitale Werkzeuge<br>für smarte Projektarbeit</h2>
+          <p>
+            Jede App fokussiert einen klaren Arbeitsbereich und verbindet
+            strukturierte Daten, KI-Unterstützung und schnelle Entscheidungen.
+          </p>
+        </div>
+
+        <span class="suite-variant-label">Variante 1 · Kartenansicht</span>
+
+        <nav class="app-grid" aria-label="BuiltSmart Apps">
+          <h3 class="app-category">Risiko-, Vertrags- &amp; Compliance-Management</h3>
+
+          <a class="app-card" href="#smart-risk-vertragsanalyse">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Vertragsanalyse-neu.png" alt="">
+              <span class="app-index">01</span>
+            </span>
+            <h3>SMART RISK Vertragsanalyse</h3>
+            <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern. Entscheidungen werden transparenter, schneller und nachvollziehbarer vorbereitet.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-risk-risiko-register">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Risiko-Register-neu.png" alt="">
+              <span class="app-index">02</span>
+            </span>
+            <h3>SMART RISK Risiko-Register</h3>
+            <p>Strukturierte Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix. Die KI unterstützt bei Analyse, Bewertung und Maßnahmensteuerung.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-revision">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/baurevision-neu.png" alt="">
+              <span class="app-index">03</span>
+            </span>
+            <h3>SMART REVISION</h3>
+            <p>Digitale Prüfung von HOAI-Leistungen, Nachweisen und Projektunterlagen zur strukturierten Qualitätssicherung und belastbaren Projektkontrolle. KI-gestützte Analysen, Feststellungen und Revisionsberichte unterstützen transparente Abläufe und nachvollziehbare Entscheidungen.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-validate">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/baurevision-neu.png" alt="">
+              <span class="app-index">04</span>
+            </span>
+            <h3>SMART Validate</h3>
+            <p>Strukturierte Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit. Abweichungen, Prüfvermerke und Freigabeprozesse werden transparent dokumentiert.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <h3 class="app-category">Wissenssysteme &amp; Content Intelligence</h3>
+
+          <a class="app-card" href="#smart-snippetflow">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/SMART%20SnippetFlow-neu.png" alt="">
+              <span class="app-index">05</span>
+            </span>
+            <h3>SMART SnippetFlow</h3>
+            <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. Inhalte lassen sich strukturiert organisieren, durchsuchen und flexibel wiederverwenden. Die Anwendung unterstützt effiziente KI-gestützte Wissens- und Arbeitsprozesse.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-summaryassistent">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/SMART%20Summary%20Assistant-neu.png" alt="">
+              <span class="app-index">06</span>
+            </span>
+            <h3>SMART SummaryAssistent</h3>
+            <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte. Informationen werden strukturiert verdichtet und schnell als präzise Entscheidungsgrundlage bereitgestellt.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-replysuite">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Smart%20MailResponse-neu.png" alt="">
+              <span class="app-index">07</span>
+            </span>
+            <h3>SMART ReplySuite</h3>
+            <p>Professionelle Unterstützung für E-Mails, Anfragen und geschäftliche Kommunikation. Inhalte werden strukturiert priorisiert, sprachlich optimiert und kontextbezogen aufbereitet, um Kommunikationsprozesse effizienter und nachvollziehbarer zu gestalten.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <h3 class="app-category">Projektsteuerung &amp; Prognose</h3>
+
+          <a class="app-card" href="#smart-cost-pert-prognose">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Pert-neu.png" alt="">
+              <span class="app-index">08</span>
+            </span>
+            <h3>SMART COST PERT-Prognose</h3>
+            <p>Fundierte Baukostenprognosen für frühe Projektphasen auf Basis definierter Best-, Mittel- und Worst-Case-Szenarien. Die Anwendung berechnet belastbare Erwartungswerte, Unsicherheiten und Budgetbandbreiten für nachvollziehbare Budgetentscheidungen.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-risk-monte-carlo-simulation">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Monte-Carlo-Simulation-neu.png" alt="">
+              <span class="app-index">09</span>
+            </span>
+            <h3>SMART RISK Monte-Carlo-Simulation</h3>
+            <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="app-card" href="#smart-capex">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Monte-Carlo-Simulation-neu.png" alt="">
+              <span class="app-index">10</span>
+            </span>
+            <h3>SMART CapEx</h3>
+            <p>Strukturierte Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien zur Unterstützung fundierter Budget-, Rentabilitäts- und Investitionsentscheidungen. Investitionen bewerten. Szenarien verstehen. Sicher entscheiden.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <h3 class="app-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
+
+          <a class="app-card" href="#smart-meeting-navigator">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Meeting-neu.png" alt="">
+              <span class="app-index">11</span>
+            </span>
+            <h3>SMART Meeting Navigator</h3>
+            <p>Unterstützt die Vorbereitung, Analyse und Dokumentation von Meetings. Transkripte, Protokolle, Aufgaben und Entscheidungen werden automatisiert strukturiert bereitgestellt.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <h3 class="app-category">Karriere &amp; Entwicklung</h3>
+
+          <a class="app-card" href="#smart-career-navigator">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/Career%20Navigator-neu.png" alt="">
+              <span class="app-index">12</span>
+            </span>
+            <h3>SMART Career Navigator</h3>
+            <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+
+          <h3 class="app-category">Produktivität &amp; Workflow Intelligence</h3>
+
+          <a class="app-card" href="#smart-focus">
+            <span class="app-media">
+              <img class="app-icon" src="assets/app-icons/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <span class="app-index">13</span>
+            </span>
+            <h3>SMART Focus</h3>
+            <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für strukturiertes Deep Work, Zeitmanagement und produktive Wissensarbeit. Intelligente Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung und effiziente Umsetzung.</p>
+            <span class="app-cta">Mehr erfahren <span aria-hidden="true">→</span></span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="tile-section" id="apps-title" aria-label="BuiltSmart Apps">
+        <div class="section-heading" hidden>
+          <p class="eyebrow">Digitale Werkzeuge</p>
+          <h2 id="apps-variant-title">Workflow-orientierte Übersicht</h2>
+          <p>
+            Variante 2 stellt dieselben Anwendungen kompakter dar und rückt
+            Einsatzfeld, Nutzen und schnelle Orientierung in den Vordergrund.
+          </p>
+        </div>
+
+        <span class="suite-variant-label" hidden>Variante 2 · Workflow-Liste</span>
+
+        <nav class="suite-list" aria-label="BuiltSmart Apps Variante 2">
+          <h3 class="suite-list-category">Risiko-, Vertrags- &amp; Compliance-Management</h3>
+
+          <a class="suite-row" href="#smart-risk-vertragsanalyse">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Vertragsanalyse-neu.png" alt="">
+              <span class="suite-row-index">01</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART RISK Vertragsanalyse</h3>
+              <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern.</p>
+            </span>
+            <span class="suite-row-meta">Verträge</span>
+          </a>
+
+          <a class="suite-row" href="#smart-risk-risiko-register">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Risiko-Register-neu.png" alt="">
+              <span class="suite-row-index">02</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART RISK Risiko-Register</h3>
+              <p>Strukturierte Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix.</p>
+            </span>
+            <span class="suite-row-meta">Risiken</span>
+          </a>
+
+          <a class="suite-row" href="#smart-revision">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/baurevision-neu.png" alt="">
+              <span class="suite-row-index">03</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART REVISION</h3>
+              <p>Digitale Prüfung von HOAI-Leistungen, Nachweisen und Projektunterlagen für Qualitätssicherung und Projektkontrolle.</p>
+            </span>
+            <span class="suite-row-meta">Revision</span>
+          </a>
+
+          <a class="suite-row" href="#smart-validate">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/baurevision-neu.png" alt="">
+              <span class="suite-row-index">04</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART Validate</h3>
+              <p>Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität und Vollständigkeit.</p>
+            </span>
+            <span class="suite-row-meta">Validierung</span>
+          </a>
+
+          <h3 class="suite-list-category">Wissenssysteme &amp; Content Intelligence</h3>
+
+          <a class="suite-row" href="#smart-snippetflow">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/SMART%20SnippetFlow-neu.png" alt="">
+              <span class="suite-row-index">05</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART SnippetFlow</h3>
+              <p>Arbeitsbibliothek für Prompts, Code, Workflows und Notizen mit strukturierter Suche und Wiederverwendung.</p>
+            </span>
+            <span class="suite-row-meta">Wissen</span>
+          </a>
+
+          <a class="suite-row" href="#smart-summaryassistent">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/SMART%20Summary%20Assistant-neu.png" alt="">
+              <span class="suite-row-index">06</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART SummaryAssistent</h3>
+              <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte.</p>
+            </span>
+            <span class="suite-row-meta">Verdichtung</span>
+          </a>
+
+          <a class="suite-row" href="#smart-replysuite">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Smart%20MailResponse-neu.png" alt="">
+              <span class="suite-row-index">07</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART ReplySuite</h3>
+              <p>Professionelle Unterstützung für E-Mails, Anfragen und geschäftliche Kommunikation.</p>
+            </span>
+            <span class="suite-row-meta">Kommunikation</span>
+          </a>
+
+          <h3 class="suite-list-category">Projektsteuerung &amp; Prognose</h3>
+
+          <a class="suite-row" href="#smart-cost-pert-prognose">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Pert-neu.png" alt="">
+              <span class="suite-row-index">08</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART COST PERT-Prognose</h3>
+              <p>Baukostenprognosen für frühe Projektphasen auf Basis von Best-, Mittel- und Worst-Case-Szenarien.</p>
+            </span>
+            <span class="suite-row-meta">Prognose</span>
+          </a>
+
+          <a class="suite-row" href="#smart-risk-monte-carlo-simulation">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Monte-Carlo-Simulation-neu.png" alt="">
+              <span class="suite-row-index">09</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART RISK Monte-Carlo-Simulation</h3>
+              <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit.</p>
+            </span>
+            <span class="suite-row-meta">Simulation</span>
+          </a>
+
+          <a class="suite-row" href="#smart-capex">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Monte-Carlo-Simulation-neu.png" alt="">
+              <span class="suite-row-index">10</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART CapEx</h3>
+              <p>Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien für fundierte Budgetentscheidungen.</p>
+            </span>
+            <span class="suite-row-meta">Investition</span>
+          </a>
+
+          <h3 class="suite-list-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
+
+          <a class="suite-row" href="#smart-meeting-navigator">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Meeting-neu.png" alt="">
+              <span class="suite-row-index">11</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART Meeting Navigator</h3>
+              <p>Vorbereitung, Analyse und Dokumentation von Meetings mit strukturierten Protokollen und Aufgaben.</p>
+            </span>
+            <span class="suite-row-meta">Meetings</span>
+          </a>
+
+          <h3 class="suite-list-category">Karriere &amp; Entwicklung</h3>
+
+          <a class="suite-row" href="#smart-career-navigator">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/Career%20Navigator-neu.png" alt="">
+              <span class="suite-row-index">12</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART Career Navigator</h3>
+              <p>Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung.</p>
+            </span>
+            <span class="suite-row-meta">Karriere</span>
+          </a>
+
+          <h3 class="suite-list-category">Produktivität &amp; Workflow Intelligence</h3>
+
+          <a class="suite-row" href="#smart-focus">
+            <span class="suite-row-media">
+              <img class="suite-row-icon" src="assets/app-icons/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <span class="suite-row-index">13</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART Focus</h3>
+              <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und Wissensarbeit.</p>
+            </span>
+            <span class="suite-row-meta">Fokus</span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="security-section" id="datenschutz-sicherheit" aria-labelledby="security-title">
+        <div class="security-copy">
+          <p class="security-eyebrow">Datenschutz &amp; Sicherheit</p>
+          <h2 id="security-title">Enterprise-Grade Sicherheit. Made in Germany.</h2>
+          <p class="security-lead">
+            Ihre Daten bleiben Ihre Daten. Jederzeit geschützt, transparent
+            verarbeitet und vollständig unter Ihrer Kontrolle.
+          </p>
+          <p class="security-control">
+            Maximale Kontrolle für sensible Unternehmensdaten. Sicherheit ist
+            kein Zusatzmodul, sondern Teil der gesamten Plattformarchitektur.
+          </p>
+        </div>
+
+        <div class="security-grid" aria-label="Sicherheitsmerkmale">
+          <a class="security-card" href="#hosting-deutschland">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="8" y="6" width="16" height="8" rx="2"></rect>
+                <rect x="8" y="18" width="16" height="8" rx="2"></rect>
+                <path d="M12 10h8"></path>
+                <path d="M12 22h8"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Hosting in<br>Deutschland</span>
+          </a>
+
+          <a class="security-card" href="#aws-frankfurt">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <ellipse cx="16" cy="8" rx="8" ry="3"></ellipse>
+                <path d="M8 8v8c0 1.7 3.6 3 8 3s8-1.3 8-3V8"></path>
+                <path d="M8 16v8c0 1.7 3.6 3 8 3s8-1.3 8-3v-8"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">AWS Frankfurt</span>
+          </a>
+
+          <a class="security-card" href="#bring-your-own-key">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="12" cy="20" r="4"></circle>
+                <path d="M15 17l9-9"></path>
+                <path d="M21 8h4v4"></path>
+                <path d="M10 22l-3 3"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Bring Your Own Key</span>
+          </a>
+
+          <a class="security-card" href="#verschluesselte-uebertragung">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="8" y="14" width="16" height="12" rx="2"></rect>
+                <path d="M11 14v-3a5 5 0 0 1 10 0v3"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Verschlüsselte<br>Übertragung</span>
+          </a>
+
+          <a class="security-card" href="#lokale-datenhaltung">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 5l9 4v7c0 5.5-3.6 9.2-9 11-5.4-1.8-9-5.5-9-11V9l9-4z"></path>
+                <path d="M13 16l2 2 4-5"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Lokale Datenhaltung<br>möglich</span>
+          </a>
+
+          <a class="security-card" href="#kein-modelltraining">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 6v20"></path>
+                <path d="M10 10c-3 1-4 4-2 6-2 2-1 5 2 6"></path>
+                <path d="M22 10c3 1 4 4 2 6 2 2 1 5-2 6"></path>
+                <path d="M11 16h10"></path>
+                <path d="M9 25L25 7"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Kein Modelltraining<br>mit Ihren Daten</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="security-cards-preview" id="security-kacheln-transparent" aria-label="Sicherheitskacheln transparent">
+        <div class="security-grid">
+          <a class="security-card" href="#hosting-deutschland">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="8" y="6" width="16" height="8" rx="2"></rect>
+                <rect x="8" y="18" width="16" height="8" rx="2"></rect>
+                <path d="M12 10h8"></path>
+                <path d="M12 22h8"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Hosting in<br>Deutschland</span>
+          </a>
+
+          <a class="security-card" href="#aws-frankfurt">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <ellipse cx="16" cy="8" rx="8" ry="3"></ellipse>
+                <path d="M8 8v8c0 1.7 3.6 3 8 3s8-1.3 8-3V8"></path>
+                <path d="M8 16v8c0 1.7 3.6 3 8 3s8-1.3 8-3v-8"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">AWS Frankfurt</span>
+          </a>
+
+          <a class="security-card" href="#bring-your-own-key">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="12" cy="20" r="4"></circle>
+                <path d="M15 17l9-9"></path>
+                <path d="M21 8h4v4"></path>
+                <path d="M10 22l-3 3"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Bring Your Own Key</span>
+          </a>
+
+          <a class="security-card" href="#verschluesselte-uebertragung">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="8" y="14" width="16" height="12" rx="2"></rect>
+                <path d="M11 14v-3a5 5 0 0 1 10 0v3"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Verschlüsselte<br>Übertragung</span>
+          </a>
+
+          <a class="security-card" href="#lokale-datenhaltung">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 5l9 4v7c0 5.5-3.6 9.2-9 11-5.4-1.8-9-5.5-9-11V9l9-4z"></path>
+                <path d="M13 16l2 2 4-5"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Lokale Datenhaltung<br>möglich</span>
+          </a>
+
+          <a class="security-card" href="#kein-modelltraining">
+            <span class="security-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 6v20"></path>
+                <path d="M10 10c-3 1-4 4-2 6-2 2-1 5 2 6"></path>
+                <path d="M22 10c3 1 4 4 2 6 2 2 1 5-2 6"></path>
+                <path d="M11 16h10"></path>
+                <path d="M9 25L25 7"></path>
+              </svg>
+            </span>
+            <span class="security-card-title">Kein Modelltraining<br>mit Ihren Daten</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="expertise-preview" id="branchenwissen-software" aria-labelledby="expertise-title">
+        <h2 class="expertise-title" id="expertise-title">Drei Jahrzehnte Branchenwissen, in Software gegossen.</h2>
+
+        <div class="expertise-strip" aria-label="Kennzahlen">
+          <div class="expertise-stat">
+            <div>
+              <span class="expertise-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <rect x="7" y="8" width="18" height="18" rx="2"></rect>
+                  <path d="M11 5v6"></path>
+                  <path d="M21 5v6"></path>
+                  <path d="M7 13h18"></path>
+                  <path d="M11 18h.01"></path>
+                  <path d="M16 18h.01"></path>
+                  <path d="M21 18h.01"></path>
+                </svg>
+              </span>
+              <strong class="expertise-value">
+                <span class="expertise-number">38</span>
+                <span class="expertise-unit">Jahre</span>
+              </strong>
+              <span class="expertise-label">Branchenerfahrung</span>
+              <span class="expertise-divider"></span>
+              <p class="expertise-text">Seit Jahrzehnten in der Bau- und<br>Immobilienwirtschaft zu Hause.</p>
+            </div>
+          </div>
+
+          <div class="expertise-stat">
+            <div>
+              <span class="expertise-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M6 8c4-2 7-1.6 10 1v17c-3-2.6-6-3-10-1V8z"></path>
+                  <path d="M16 9c3-2.6 6-3 10-1v17c-4-2-7-1.6-10 1V9z"></path>
+                </svg>
+              </span>
+              <strong class="expertise-value">
+                <span class="expertise-number">21+</span>
+              </strong>
+              <span class="expertise-label">Fachbücher</span>
+              <span class="expertise-divider"></span>
+              <p class="expertise-text">Fundiertes Wissen aus der Praxis<br>für die Praxis.</p>
+            </div>
+          </div>
+
+          <div class="expertise-stat">
+            <div>
+              <span class="expertise-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M8 5h12l4 4v18H8V5z"></path>
+                  <path d="M20 5v5h5"></path>
+                  <path d="M12 12h5"></path>
+                  <path d="M12 17h4"></path>
+                  <path d="M20 22l6-6"></path>
+                  <path d="M23 16l3 3"></path>
+                  <path d="M18 24l2-5 3 3-5 2z"></path>
+                </svg>
+              </span>
+              <strong class="expertise-value">
+                <span class="expertise-number">336+</span>
+              </strong>
+              <span class="expertise-label">Fachbeiträge</span>
+              <span class="expertise-divider"></span>
+              <p class="expertise-text">Praxisnahe Impulse für die<br>Bau- und Immobilienwirtschaft.</p>
+            </div>
+          </div>
+
+          <div class="expertise-stat">
+            <div>
+              <span class="expertise-icon dark" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M16 4l10 6v12l-10 6-10-6V10l10-6z"></path>
+                  <path d="M16 16l10-6"></path>
+                  <path d="M16 16L6 10"></path>
+                  <path d="M16 16v12"></path>
+                  <path d="M11 13l10-6"></path>
+                  <path d="M21 13v10"></path>
+                  <path d="M11 13v10"></path>
+                </svg>
+              </span>
+              <strong class="expertise-value">
+                <span class="expertise-hub">BuiltSmart Hub</span>
+              </strong>
+              <span class="expertise-label">Digitale Wissensplattform</span>
+              <span class="expertise-divider"></span>
+              <p class="expertise-text">Ihr zentraler Zugang zu Wissen,<br>Methoden und KI-Lösungen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="expertise-tags" aria-label="Kompetenzen">
+          <article class="expertise-tag">
+            <span class="expertise-icon dark" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="10"></circle>
+                <circle cx="16" cy="16" r="5"></circle>
+                <path d="M16 16l7-7"></path>
+                <path d="M22 5h5v5"></path>
+              </svg>
+            </span>
+            <strong>Strategische Beratungskompetenz</strong>
+            <span class="expertise-divider"></span>
+            <p>Branchenwissen und Strategie<br>für messbaren Projekterfolg.</p>
+          </article>
+
+          <article class="expertise-tag">
+            <span class="expertise-icon dark" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 5v22"></path>
+                <path d="M9 9c-4 2-4 8 0 10-2 4 3 7 7 4"></path>
+                <path d="M23 9c4 2 4 8 0 10 2 4-3 7-7 4"></path>
+                <path d="M10 16h12"></path>
+                <path d="M12 10l8 12"></path>
+                <path d="M20 10l-8 12"></path>
+              </svg>
+            </span>
+            <strong>KI- und Transformationsexpertise</strong>
+            <span class="expertise-divider"></span>
+            <p>KI-Lösungen und Transformation<br>für effiziente Prozesse.</p>
+          </article>
+
+          <article class="expertise-tag">
+            <span class="expertise-icon dark" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="10" r="4"></circle>
+                <path d="M8 26c1-6 3.7-9 8-9s7 3 8 9"></path>
+                <circle cx="7" cy="14" r="3"></circle>
+                <circle cx="25" cy="14" r="3"></circle>
+                <path d="M3 25c.6-4 2.4-6 5.5-6"></path>
+                <path d="M29 25c-.6-4-2.4-6-5.5-6"></path>
+              </svg>
+            </span>
+            <strong>Tiefes Branchenverständnis</strong>
+            <span class="expertise-divider"></span>
+            <p>Branchenverständnis und Praxisnähe<br>für bessere Entscheidungen.</p>
+          </article>
+        </div>
+
+        <p class="expertise-footer">
+          <strong>Wissen. Erfahrung, KI. Für die Bau- und Immobilienwirtschaft.</strong>
+        </p>
+      </section>
+
+      <section class="tile-section roi-section" aria-labelledby="roi-title">
+        <div class="section-heading">
+          <p class="eyebrow">ROI Rechner</p>
+          <h2 id="roi-title">Wie effektiv ist KI-Nutzung?</h2>
+          <p>
+            Berechne den wirtschaftlichen Effekt deiner KI-Investition anhand
+            eingesparter Zeit, Personenzahl, Stundensatz und monatlicher Kosten.
+          </p>
+        </div>
+
+        <div class="roi-calculator" id="roi-calculator">
+          <div class="roi-panel">
+            <div class="roi-controls">
+              <div class="roi-control">
+                <label for="roi-people">
+                  Anzahl der Nutzer
+                  <span class="roi-value" id="roi-people-value">12 Personen</span>
+                </label>
+                <input id="roi-people" type="range" min="1" max="10" value="5">
+                <span class="roi-hint">Wie viele Personen nutzen KI regelmäßig im Arbeitsalltag?</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-hours">
+                  Arbeitszeit pro Nutzer und Woche
+                  <span class="roi-value" id="roi-hours-value">32 Std.</span>
+                </label>
+                <input id="roi-hours" type="range" min="5" max="50" value="32">
+                <span class="roi-hint">Relevante Arbeitszeit, in der KI Aufgaben beschleunigen kann.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-saving">
+                  Zeitersparnis durch KI
+                  <span class="roi-value" id="roi-saving-value">18%</span>
+                </label>
+                <input id="roi-saving" type="range" min="1" max="60" value="18">
+                <span class="roi-hint">Anteil der Zeit, der durch Automatisierung, Assistenz und bessere Vorlagen entfällt.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-rate">
+                  Interner Stundensatz
+                  <span class="roi-value" id="roi-rate-value">75 €</span>
+                </label>
+                <input id="roi-rate" type="range" min="25" max="180" step="5" value="75">
+                <span class="roi-hint">Vollkosten oder kalkulatorischer Wert einer Arbeitsstunde.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-investment">
+                  KI-Investition pro Monat
+                  <span class="roi-value" id="roi-investment-value">1.800 €</span>
+                </label>
+                <input id="roi-investment" type="range" min="0" max="5000" step="50" value="1800">
+                <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-panel">
+            <div class="roi-result" aria-live="polite">
+              <div class="roi-hero">
+                <span class="roi-label">Return on Investment</span>
+                <strong class="roi-main" id="roi-result">0%</strong>
+                <span class="roi-sub" id="roi-payback">Amortisation wird berechnet</span>
+              </div>
+
+              <div class="roi-metrics">
+                <div class="roi-metric">
+                  <span class="roi-label">Zeitgewinn pro Monat</span>
+                  <strong id="roi-hours-saved">0 Std.</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Wert der Zeitersparnis</span>
+                  <strong id="roi-gross-value">0 €</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Netto-Nutzen pro Monat</span>
+                  <strong id="roi-net-value">0 €</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Jahrespotenzial</span>
+                  <strong id="roi-year-value">0 €</strong>
+                </div>
+              </div>
+
+              <p class="roi-note">
+                Annahme: 1 Monat = 4 Wochen. Netto-Nutzen = eingesparte
+                Stunden pro Monat × Stundensatz - monatliche KI-Investition.
+                ROI = Netto-Nutzen /
+                monatliche KI-Investition × 100.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      (() => {
+        const calculator = document.querySelector("#roi-calculator");
+        if (!calculator) return;
+
+        const fields = {
+          people: document.querySelector("#roi-people"),
+          hours: document.querySelector("#roi-hours"),
+          saving: document.querySelector("#roi-saving"),
+          rate: document.querySelector("#roi-rate"),
+          investment: document.querySelector("#roi-investment"),
+        };
+
+        const outputs = {
+          people: document.querySelector("#roi-people-value"),
+          hours: document.querySelector("#roi-hours-value"),
+          saving: document.querySelector("#roi-saving-value"),
+          rate: document.querySelector("#roi-rate-value"),
+          investment: document.querySelector("#roi-investment-value"),
+          result: document.querySelector("#roi-result"),
+          payback: document.querySelector("#roi-payback"),
+          hoursSaved: document.querySelector("#roi-hours-saved"),
+          grossValue: document.querySelector("#roi-gross-value"),
+          netValue: document.querySelector("#roi-net-value"),
+          yearValue: document.querySelector("#roi-year-value"),
+        };
+
+        const money = new Intl.NumberFormat("de-DE", {
+          style: "currency",
+          currency: "EUR",
+          maximumFractionDigits: 0,
+        });
+
+        const number = new Intl.NumberFormat("de-DE", {
+          maximumFractionDigits: 0,
+        });
+
+        const defaults = {
+          people: 1,
+          hours: 40,
+          saving: 20,
+          rate: 75,
+          investment: 100,
+        };
+
+        const resetDefaults = () => {
+          Object.entries(defaults).forEach(([key, value]) => {
+            fields[key].value = value;
+          });
+        };
+
+        const updateRoi = () => {
+          const people = Number(fields.people.value);
+          const hours = Number(fields.hours.value);
+          const saving = Number(fields.saving.value);
+          const rate = Number(fields.rate.value);
+          const investment = Number(fields.investment.value);
+
+          const monthlyHours = people * hours * 4;
+          const savedHours = monthlyHours * (saving / 100);
+          const grossValue = savedHours * rate;
+          const netValue = grossValue - investment;
+          const roi = investment > 0 ? (netValue / investment) * 100 : null;
+          const paybackMonths = grossValue > 0 ? investment / grossValue : 0;
+
+          outputs.people.textContent = `${people} ${people === 1 ? "Person" : "Personen"}`;
+          outputs.hours.textContent = `${hours} Std.`;
+          outputs.saving.textContent = `${saving}%`;
+          outputs.rate.textContent = money.format(rate);
+          outputs.investment.textContent = money.format(investment);
+
+          outputs.result.textContent = roi === null ? "∞" : `${number.format(roi)}%`;
+          outputs.payback.textContent =
+            investment === 0
+              ? "Keine Investition hinterlegt"
+              :
+            paybackMonths <= 1
+              ? "Amortisation innerhalb eines Monats"
+              : `Amortisation nach ca. ${paybackMonths.toFixed(1).replace(".", ",")} Monaten`;
+          outputs.hoursSaved.textContent = `${number.format(savedHours)} Std.`;
+          outputs.grossValue.textContent = money.format(grossValue);
+          outputs.netValue.textContent = money.format(netValue);
+          outputs.yearValue.textContent = money.format(netValue * 12);
+        };
+
+        Object.values(fields).forEach((field) => {
+          field.addEventListener("input", updateRoi);
+        });
+
+        window.addEventListener("pageshow", () => {
+          resetDefaults();
+          updateRoi();
+        });
+
+        resetDefaults();
+        updateRoi();
+        requestAnimationFrame(() => {
+          resetDefaults();
+          updateRoi();
+        });
+        window.setTimeout(() => {
+          resetDefaults();
+          updateRoi();
+        }, 250);
+      })();
+    </script>
+  </body>
+</html>
