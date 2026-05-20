@@ -44,60 +44,87 @@
         width: min(1180px, calc(100% - 32px));
         margin: 0 auto;
         padding: clamp(28px, 5vw, 72px) 0 clamp(32px, 6vw, 84px);
+        display: flex;
+        flex-direction: column;
       }
 
       .site-header {
         position: relative;
         z-index: 10;
         width: 100%;
-        background: rgba(250, 251, 248, 0.96);
-        border-bottom: 1px solid rgba(23, 32, 38, 0.1);
-        backdrop-filter: blur(18px) saturate(1.08);
+        background: #f7f8f5;
       }
 
       .site-header__inner {
         width: min(1180px, calc(100% - 32px));
-        min-height: 74px;
+        min-height: 260px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: minmax(210px, 1fr) auto minmax(180px, 1fr);
-        gap: 22px;
-        align-items: center;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto auto;
+        gap: 0 28px;
+        align-items: start;
+        padding: clamp(28px, 4.2vw, 50px) 0 20px;
       }
 
       .brand {
         display: inline-flex;
+        grid-column: 1;
+        grid-row: 1;
         min-width: 0;
         align-items: center;
-        gap: 12px;
+        gap: 0;
         color: inherit;
         text-decoration: none;
-        font-weight: 850;
+        font-weight: 880;
         letter-spacing: 0;
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
-        object-fit: contain;
-        filter: drop-shadow(0 12px 20px rgba(36, 107, 254, 0.18));
+        display: none;
       }
 
       .brand-name {
-        white-space: nowrap;
+        color: #3d3d3f;
+        font-size: clamp(4.6rem, 8.6vw, 7.1rem);
+        line-height: 0.9;
+        white-space: normal;
+      }
+
+      .site-tagline {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin: 28px 0 0;
+        color: #66676b;
+        font-size: clamp(1.15rem, 2vw, 1.42rem);
+        line-height: 1.35;
+      }
+
+      .site-tagline strong {
+        display: block;
+        margin-top: 2px;
+        color: #222326;
+        font-size: clamp(1.35rem, 2.35vw, 1.82rem);
+        line-height: 1.25;
+        font-weight: 450;
       }
 
       .site-nav {
         display: flex;
+        grid-column: 1;
+        grid-row: 3;
         align-items: center;
-        justify-content: center;
-        gap: clamp(18px, 3vw, 34px);
+        justify-content: flex-start;
+        gap: clamp(18px, 2.5vw, 30px);
+        margin-top: 24px;
       }
 
       .site-nav a {
-        color: #3f4a52;
-        font-size: 0.92rem;
-        font-weight: 760;
+        color: #36383b;
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
         text-decoration: none;
         transition: color 160ms ease;
       }
@@ -110,8 +137,31 @@
 
       .header-actions {
         display: flex;
+        grid-column: 2;
+        grid-row: 1;
         min-width: 0;
         justify-content: flex-end;
+      }
+
+      .social-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-top: 18px;
+      }
+
+      .social-link {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        color: #ffffff;
+        background: #000000;
+        border-radius: 50%;
+        font-size: 0.74rem;
+        font-weight: 850;
+        line-height: 1;
+        text-decoration: none;
       }
 
       .button {
@@ -164,15 +214,15 @@
 
       .hero {
         position: relative;
-        min-height: clamp(560px, 78svh, 740px);
+        min-height: clamp(640px, 82svh, 790px);
         width: 100%;
         display: grid;
         align-items: center;
         overflow: hidden;
         color: #ffffff;
         background:
-          linear-gradient(90deg, rgba(3, 6, 10, 0.86) 0%, rgba(3, 6, 10, 0.68) 34%, rgba(3, 6, 10, 0.24) 64%, rgba(3, 6, 10, 0.04) 100%),
-          linear-gradient(180deg, rgba(3, 6, 10, 0.04) 0%, rgba(3, 6, 10, 0.3) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.7) 38%, rgba(0, 0, 0, 0.22) 70%, rgba(0, 0, 0, 0.02) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.38) 100%),
           url("assets/hero/builtsmart-ai-hero.jpeg") center right / cover no-repeat;
       }
 
@@ -188,13 +238,13 @@
       .hero-inner {
         position: relative;
         z-index: 1;
-        width: min(1180px, calc(100% - 32px));
+        width: min(1180px, calc(100% - 90px));
         margin: 0 auto;
-        padding: clamp(42px, 6vw, 74px) 0;
+        padding: clamp(58px, 7vw, 86px) 0;
       }
 
       .hero-copy {
-        max-width: 760px;
+        max-width: 940px;
         min-width: 0;
       }
 
@@ -237,29 +287,37 @@
       }
 
       .hero h1 {
-        max-width: 16ch;
+        max-width: 100%;
         color: #ffffff;
-        font-size: clamp(2.5rem, 5.7vw, 5.35rem);
-        line-height: 1;
-        text-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+        font-family: "Arial Narrow", "Roboto Condensed", Inter, ui-sans-serif, system-ui, sans-serif;
+        font-size: clamp(3.4rem, 6vw, 5.45rem);
+        font-weight: 950;
+        line-height: 0.98;
+        letter-spacing: 0;
+        text-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
         overflow-wrap: normal;
       }
 
+      .hero-line {
+        display: block;
+        white-space: nowrap;
+      }
+
       .hero-subtitle {
-        margin: 24px 0 0;
-        max-width: 54ch;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(1.18rem, 2vw, 1.55rem);
-        line-height: 1.42;
-        font-weight: 780;
+        margin: clamp(42px, 5vw, 58px) 0 0;
+        max-width: 48ch;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: clamp(1.65rem, 2.75vw, 2.2rem);
+        line-height: 1.18;
+        font-weight: 650;
       }
 
       .hero-lead {
-        margin: 18px 0 0;
-        max-width: 66ch;
-        color: rgba(255, 255, 255, 0.76);
-        font-size: clamp(1.04rem, 1.7vw, 1.22rem);
-        line-height: 1.62;
+        margin: clamp(52px, 6vw, 72px) 0 0;
+        max-width: 48ch;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: clamp(1.18rem, 2vw, 1.52rem);
+        line-height: 1.38;
       }
 
       .hero-actions {
@@ -309,6 +367,54 @@
         margin-bottom: clamp(24px, 4vw, 38px);
         padding: clamp(14px, 2vw, 26px) 0 clamp(22px, 4vw, 34px);
         border-bottom: 1px solid rgba(23, 32, 38, 0.14);
+      }
+
+      .requirements-section {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: calc(clamp(28px, 5vw, 72px) * -1);
+        padding: clamp(24px, 4vw, 48px) max(24px, calc((100vw - 1180px) / 2)) clamp(36px, 5vw, 64px);
+        background: #eeeeff;
+        border-bottom: 2px solid rgba(143, 126, 255, 0.26);
+      }
+
+      .requirements-section .intro {
+        max-width: 860px;
+        margin-bottom: clamp(28px, 4vw, 42px);
+        padding: 0;
+        border-bottom: 0;
+      }
+
+      .requirements-section .eyebrow {
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.9vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      .requirements-section h1 {
+        max-width: 900px;
+        color: #090921;
+        font-size: clamp(3.1rem, 6.2vw, 5.35rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .requirements-title-line {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .requirements-section .lead {
+        max-width: 820px;
+        margin-top: clamp(32px, 5vw, 58px);
+        color: #101025;
+        font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+        line-height: 1.18;
+      }
+
+      .requirements-section .challenge-grid {
+        gap: 22px;
       }
 
       .eyebrow {
@@ -370,6 +476,45 @@
         color: var(--muted);
         font-size: clamp(1rem, 1.6vw, 1.12rem);
         line-height: 1.6;
+      }
+
+      .apps-suite-section {
+        margin-top: 0;
+        padding-top: clamp(50px, 7vw, 84px);
+        border-top: 0;
+      }
+
+      .apps-suite-section .section-heading {
+        max-width: 980px;
+        margin-bottom: clamp(38px, 6vw, 64px);
+        padding-left: 0;
+      }
+
+      .apps-suite-section .section-heading::before {
+        display: none;
+      }
+
+      .apps-suite-section .section-heading > .eyebrow {
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .apps-suite-section .section-heading h2 {
+        max-width: 1080px;
+        color: #05050f;
+        font-size: clamp(3rem, 5.4vw, 4.65rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .apps-suite-section .section-heading p {
+        max-width: 960px;
+        margin-top: clamp(34px, 5vw, 58px);
+        color: #080811;
+        font-size: clamp(1.35rem, 2.35vw, 1.86rem);
+        line-height: 1.18;
       }
 
       .tile-grid {
@@ -488,6 +633,45 @@
 
       .audience-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .target-audience-section {
+        margin-top: clamp(58px, 8vw, 96px);
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .target-audience-section .section-heading {
+        max-width: 960px;
+        margin-bottom: clamp(44px, 6vw, 68px);
+        padding-left: 0;
+      }
+
+      .target-audience-section .section-heading::before {
+        display: none;
+      }
+
+      .target-audience-section .eyebrow {
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .target-audience-section .section-heading h2 {
+        max-width: 900px;
+        color: #05050f;
+        font-size: clamp(3.1rem, 6.2vw, 5.35rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .target-audience-section .section-heading p {
+        max-width: 880px;
+        margin-top: clamp(34px, 5vw, 58px);
+        color: #080811;
+        font-size: clamp(1.35rem, 2.35vw, 1.86rem);
+        line-height: 1.18;
       }
 
       .audience-flow {
@@ -928,6 +1112,10 @@
         color: var(--muted);
         font-size: 0.95rem;
         line-height: 1.45;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
       }
 
       .suite-row-copy::after {
@@ -978,9 +1166,43 @@
       .suite-row:nth-of-type(13) { --accent: #4b6c76; }
 
       .roi-section {
+        order: 20;
         padding: clamp(22px, 3vw, 34px);
         background: #ffffff;
         border-radius: 8px;
+      }
+
+      .roi-section .section-heading {
+        max-width: 1000px;
+        margin-bottom: clamp(42px, 6vw, 66px);
+        padding-left: 0;
+      }
+
+      .roi-section .section-heading::before {
+        display: none;
+      }
+
+      .roi-section .eyebrow {
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .roi-section .section-heading h2 {
+        max-width: 1000px;
+        color: #05050f;
+        font-size: clamp(3.1rem, 6.2vw, 5.35rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .roi-section .section-heading p {
+        max-width: 960px;
+        margin-top: clamp(34px, 5vw, 58px);
+        color: #080811;
+        font-size: clamp(1.35rem, 2.35vw, 1.86rem);
+        line-height: 1.18;
       }
 
       .roi-calculator {
@@ -1340,18 +1562,69 @@
       }
 
       .expertise-preview {
+        order: 21;
         margin-top: clamp(42px, 6vw, 72px);
         padding: 0;
         background: transparent;
       }
 
       .expertise-title {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
+        position: static;
+        width: auto;
+        height: auto;
+        max-width: 920px;
+        margin: 0 0 clamp(36px, 5vw, 54px);
+        overflow: visible;
+        clip: auto;
+        color: #05050f;
+        font-size: clamp(3.1rem, 6.2vw, 5.35rem);
+        line-height: 0.98;
+        font-weight: 850;
+        white-space: normal;
+      }
+
+      .expertise-title-line {
+        display: block;
         white-space: nowrap;
+      }
+
+      .expertise-intro {
+        max-width: 980px;
+        margin-bottom: clamp(34px, 5vw, 58px);
+      }
+
+      .expertise-intro .eyebrow {
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .expertise-intro p {
+        max-width: 960px;
+        margin: clamp(34px, 5vw, 58px) 0 0;
+        color: #080811;
+        font-size: clamp(1.35rem, 2.35vw, 1.86rem);
+        line-height: 1.18;
+      }
+
+      .eyebrow,
+      .requirements-section .eyebrow,
+      .section-heading > .eyebrow,
+      .apps-suite-section .section-heading > .eyebrow,
+      .security-eyebrow,
+      .target-audience-section .eyebrow,
+      .target-audience-section .section-heading > .eyebrow,
+      .roi-section .eyebrow,
+      .roi-section .section-heading > .eyebrow,
+      .expertise-intro .eyebrow {
+        margin: 0 0 22px;
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
 
       .expertise-strip {
@@ -1547,6 +1820,184 @@
         font-weight: 500;
       }
 
+      .final-cta {
+        order: 22;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: clamp(64px, 9vw, 118px);
+        padding: clamp(92px, 13vw, 150px) max(32px, calc((100vw - 980px) / 2)) clamp(88px, 12vw, 130px);
+        color: #ffffff;
+        background: #000000;
+      }
+
+      .final-cta h2 {
+        margin: 0;
+        max-width: 980px;
+        color: #ffffff;
+        font-size: clamp(3.05rem, 5.1vw, 4.05rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .final-cta p {
+        max-width: 620px;
+        margin: clamp(38px, 5vw, 60px) 0 0;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.35rem, 2.35vw, 1.85rem);
+        line-height: 1.22;
+      }
+
+      .final-cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(18px, 3vw, 44px);
+        margin-top: clamp(56px, 7vw, 84px);
+        justify-content: center;
+      }
+
+      .final-cta-button {
+        display: inline-flex;
+        min-width: min(290px, 100%);
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 0 28px;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        border-radius: 999px;
+        font-weight: 760;
+        text-decoration: none;
+        transition:
+          transform 170ms ease,
+          background 170ms ease,
+          color 170ms ease;
+      }
+
+      .final-cta-button.primary {
+        color: #000000;
+        background: #ffffff;
+        border-color: #ffffff;
+      }
+
+      .final-cta-button:hover,
+      .final-cta-button:focus-visible {
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .site-footer {
+        width: 100%;
+        background:
+          linear-gradient(180deg, #fbfbf9, #f2f3ef);
+      }
+
+      .site-footer__inner {
+        width: min(1040px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 38px 0 34px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(130px, auto) minmax(340px, 0.95fr);
+        gap: clamp(30px, 5vw, 72px);
+        align-items: center;
+      }
+
+      .footer-brand strong {
+        display: block;
+        color: #24262a;
+        font-size: 1.14rem;
+        letter-spacing: 0.02em;
+      }
+
+      .footer-brand span,
+      .footer-brand p {
+        display: block;
+        margin: 5px 0 0;
+        color: #5f6065;
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .footer-brand small {
+        display: block;
+        margin-top: 24px;
+        color: #6d6f74;
+        font-size: 0.78rem;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      .footer-social a {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        color: #111111;
+        background:
+          linear-gradient(145deg, #ffffff, #ecefec);
+        border: 1px solid rgba(23, 32, 38, 0.1);
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.95),
+          0 10px 22px rgba(23, 32, 38, 0.08);
+        text-decoration: none;
+        transition:
+          transform 170ms ease,
+          color 170ms ease,
+          background 170ms ease,
+          box-shadow 170ms ease;
+      }
+
+      .footer-social a:hover,
+      .footer-social a:focus-visible {
+        transform: translateY(-2px);
+        color: #ffffff;
+        background: #000000;
+        box-shadow: 0 14px 28px rgba(23, 32, 38, 0.16);
+        outline: none;
+      }
+
+      .footer-social svg {
+        width: 17px;
+        height: 17px;
+        display: block;
+        fill: currentColor;
+      }
+
+      .footer-social a[aria-label="Spotify"] svg path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.55;
+        stroke-linecap: round;
+      }
+
+      .footer-links {
+        display: grid;
+        grid-template-columns: minmax(170px, auto) minmax(150px, auto);
+        gap: 8px 22px;
+        justify-content: end;
+      }
+
+      .footer-links a {
+        color: #5a5b60;
+        font-size: 0.82rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: #000000;
+        outline: none;
+      }
+
       .menu-tile {
         position: relative;
         min-height: 214px;
@@ -1719,34 +2170,42 @@
 
       @media (max-width: 820px) {
         .site-header__inner {
-          min-height: 68px;
-          display: flex;
-          justify-content: space-between;
+          min-height: 0;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 28px 0 18px;
         }
 
         .site-nav {
-          display: none;
+          display: flex;
+          width: 100%;
+          gap: 22px;
+          overflow-x: auto;
+          padding-bottom: 4px;
         }
 
         .brand {
-          max-width: calc(100vw - 96px);
+          max-width: 100%;
         }
 
-        .header-actions .button {
-          position: absolute;
-          top: 12px;
-          right: 12px;
-          width: 50px;
-          min-height: 40px;
-          padding: 0 10px;
-          overflow: hidden;
-          font-size: 0;
-          white-space: nowrap;
+        .brand-name {
+          font-size: clamp(3.2rem, 13vw, 5.7rem);
         }
 
-        .header-actions .button::before {
-          content: "Start";
-          font-size: 0.86rem;
+        .site-tagline {
+          margin-top: 20px;
+        }
+
+        .header-actions {
+          grid-column: 1;
+          grid-row: 4;
+          margin-top: 18px;
+          justify-content: flex-start;
+        }
+
+        .social-links {
+          padding-top: 0;
         }
 
         .hero {
@@ -1758,6 +2217,24 @@
           max-width: 100%;
           font-size: clamp(2rem, 8.8vw, 3rem);
           line-height: 1.04;
+        }
+
+        .hero-line {
+          display: inline;
+          white-space: normal;
+        }
+
+        .hero-line + .hero-line::before {
+          content: " ";
+        }
+
+        .requirements-title-line {
+          display: inline;
+          white-space: normal;
+        }
+
+        .requirements-title-line + .requirements-title-line::before {
+          content: " ";
         }
 
         .hero-copy,
@@ -1827,29 +2304,45 @@
         .expertise-tags {
           grid-template-columns: 1fr;
         }
+
+        .site-footer__inner {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+
+        .footer-social {
+          justify-content: flex-start;
+        }
       }
 
       @media (max-width: 560px) {
         .site-header__inner {
           width: min(100% - 24px, 1120px);
-          min-height: 64px;
-          display: flex;
-          justify-content: space-between;
-          gap: 12px;
+          padding: 24px 0 16px;
         }
 
         .brand {
-          gap: 10px;
-          max-width: calc(100vw - 96px);
+          max-width: 100%;
         }
 
         .brand-mark {
-          width: 36px;
-          height: 36px;
+          display: none;
         }
 
         .brand-name {
-          font-size: 0.96rem;
+          font-size: clamp(2.8rem, 15vw, 4.2rem);
+        }
+
+        .site-tagline {
+          font-size: 1rem;
+        }
+
+        .site-tagline strong {
+          font-size: 1.2rem;
+        }
+
+        .site-nav a {
+          font-size: 0.86rem;
         }
 
         .hero {
@@ -1977,6 +2470,18 @@
           grid-template-columns: 1fr;
         }
 
+        .final-cta {
+          padding: 72px 24px;
+        }
+
+        .final-cta-actions {
+          justify-content: flex-start;
+        }
+
+        .final-cta-button {
+          width: 100%;
+        }
+
         .expertise-stat {
           min-height: 260px;
           padding: 34px 24px 30px;
@@ -2062,14 +2567,15 @@
         </a>
 
         <nav class="site-nav" aria-label="Hauptnavigation">
-          <a href="#apps-title">Funktionen</a>
-          <a href="#datenschutz-sicherheit">Lokal</a>
-          <a href="#roi-title">Lizenz</a>
-          <a href="#branchenwissen-software">FAQ</a>
+          <a href="#apps-title">Apps</a>
+          <a href="#datenschutz-sicherheit">Sicherheit</a>
+          <a href="#zielgruppen">Zielgruppen</a>
+          <a href="#roi-title">ROI Rechner</a>
+          <a href="#branchenwissen-software">Expertise</a>
         </nav>
 
         <div class="header-actions">
-          <a class="button button-dark" href="#roi-title">Jetzt starten</a>
+          <a class="button button-dark" href="#kontakt">Kontakt aufnehmen</a>
         </div>
       </div>
     </header>
@@ -2077,17 +2583,19 @@
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-inner">
         <div class="hero-copy">
-          <h1 id="hero-title">KI-basierte Softwarelösungen für die Bau- und Immobilienwirtschaft sowie weitere Wirtschaftszweige.</h1>
+          <h1 id="hero-title">
+            <span class="hero-line">KI-Softwarelösungen</span>
+            <span class="hero-line">für Bau, Immobilien und</span>
+            <span class="hero-line">digitale Unternehmensprozesse.</span>
+          </h1>
           <p class="hero-subtitle">
-            KI unterstützt Unternehmen dabei, fundiertere Entscheidungen
-            schneller zu treffen und Prozesse wirtschaftlicher zu steuern.
+            Gezielte KI-Anwendungen für schnellere Entscheidungen, effizientere
+            Prozesse und höhere Produktivität.
           </p>
           <p class="hero-lead">
-            BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen, die
-            komplexe Abläufe vereinfachen, Daten effizient nutzbar machen und
-            Unternehmen bei der digitalen Optimierung ihrer Prozesse
-            unterstützen. Durch die Verbindung moderner KI-Technologien mit
-            fundierter Branchenexpertise entstehen praxisorientierte Lösungen
+            BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen zur
+            Optimierung digitaler Prozesse. Moderne KI-Technologien und
+            fundierte Branchenexpertise ermöglichen praxisorientierte Lösungen
             mit messbarem Mehrwert für Effizienz, Transparenz und Produktivität.
           </p>
         </div>
@@ -2095,17 +2603,21 @@
     </section>
 
     <main>
-      <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">BuiltSmart AI</p>
-        <h1 id="page-title">Herausforderungen im Projektalltag</h1>
-        <p class="lead">
-          Sechs zentrale Themen, die Bau- und Infrastrukturprojekte heute
-          ausbremsen und genau dort ansetzen, wo digitale Steuerung den größten
-          Hebel schafft.
-        </p>
-      </section>
+      <section class="requirements-section" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">Warum BuiltSmart AI</p>
+          <h1 id="page-title">
+            <span class="requirements-title-line">Die Anforderungen</span>
+            <span class="requirements-title-line">an Unternehmen steigen.</span>
+          </h1>
+          <p class="lead">
+            BuiltSmart AI entwickelt praxisnahe KI-Anwendungen zur Strukturierung
+            von Informationen, Optimierung von Prozessen und Unterstützung
+            fundierter Entscheidungen.
+          </p>
+        </div>
 
-      <nav class="tile-grid challenge-grid" aria-label="Herausforderungen">
+        <nav class="tile-grid challenge-grid" aria-label="Herausforderungen">
         <a class="menu-tile" href="#steigende-komplexitaet">
           <span class="tile-head">
             <span class="tile-number">01</span>
@@ -2244,9 +2756,10 @@
           </span>
           <h2>ESG &<br>CO₂-Reduktion</h2>
         </a>
-      </nav>
+        </nav>
+      </section>
 
-      <section class="tile-section" aria-labelledby="audience-title">
+      <section class="tile-section" hidden aria-labelledby="audience-title">
         <div class="section-heading">
           <p class="eyebrow">Zielgruppen</p>
           <h2 id="audience-title">Für wen BuiltSmart AI arbeitet</h2>
@@ -2461,7 +2974,7 @@
         </nav>
       </section>
 
-      <section class="tile-section" aria-labelledby="neutral-title">
+      <section class="tile-section" hidden aria-labelledby="neutral-title">
         <div class="section-heading">
           <p class="eyebrow">Branchenneutral</p>
           <h2 id="neutral-title">Übertragbare Einsatzfelder</h2>
@@ -2735,13 +3248,13 @@
         </nav>
       </section>
 
-      <section class="tile-section" id="apps-title" aria-label="BuiltSmart Apps">
-        <div class="section-heading" hidden>
-          <p class="eyebrow">Digitale Werkzeuge</p>
-          <h2 id="apps-variant-title">Workflow-orientierte Übersicht</h2>
+      <section class="tile-section apps-suite-section" id="apps-title" aria-labelledby="apps-variant-title">
+        <div class="section-heading">
+          <p class="eyebrow">App Suite</p>
+          <h2 id="apps-variant-title">Digitale Werkzeuge<br>für smarte Projektarbeit</h2>
           <p>
-            Variante 2 stellt dieselben Anwendungen kompakter dar und rückt
-            Einsatzfeld, Nutzen und schnelle Orientierung in den Vordergrund.
+            Jede App fokussiert einen klaren Arbeitsbereich und verbindet
+            strukturierte Daten, KI-Unterstützung und schnelle Entscheidungen.
           </p>
         </div>
 
@@ -2757,7 +3270,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART RISK Vertragsanalyse</h3>
-              <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern.</p>
+              <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern. Entscheidungen werden transparenter, schneller und nachvollziehbarer vorbereitet.</p>
             </span>
             <span class="suite-row-meta">Verträge</span>
           </a>
@@ -2769,7 +3282,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART RISK Risiko-Register</h3>
-              <p>Strukturierte Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix.</p>
+              <p>Strukturierte Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix. Die KI unterstützt bei Analyse, Bewertung und Maßnahmensteuerung.</p>
             </span>
             <span class="suite-row-meta">Risiken</span>
           </a>
@@ -2781,7 +3294,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART REVISION</h3>
-              <p>Digitale Prüfung von HOAI-Leistungen, Nachweisen und Projektunterlagen für Qualitätssicherung und Projektkontrolle.</p>
+              <p>Digitale Prüfung von HOAI-Leistungen, Nachweisen und Projektunterlagen zur strukturierten Qualitätssicherung und belastbaren Projektkontrolle. KI-gestützte Analysen, Feststellungen und Revisionsberichte unterstützen transparente Abläufe und nachvollziehbare Entscheidungen.</p>
             </span>
             <span class="suite-row-meta">Revision</span>
           </a>
@@ -2793,7 +3306,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART Validate</h3>
-              <p>Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität und Vollständigkeit.</p>
+              <p>Strukturierte Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit. Abweichungen, Prüfvermerke und Freigabeprozesse werden transparent dokumentiert.</p>
             </span>
             <span class="suite-row-meta">Validierung</span>
           </a>
@@ -2807,7 +3320,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART SnippetFlow</h3>
-              <p>Arbeitsbibliothek für Prompts, Code, Workflows und Notizen mit strukturierter Suche und Wiederverwendung.</p>
+              <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. Inhalte lassen sich strukturiert organisieren, durchsuchen und flexibel wiederverwenden. Die Anwendung unterstützt effiziente KI-gestützte Wissens- und Arbeitsprozesse.</p>
             </span>
             <span class="suite-row-meta">Wissen</span>
           </a>
@@ -2819,7 +3332,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART SummaryAssistent</h3>
-              <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte.</p>
+              <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte. Informationen werden strukturiert verdichtet und schnell als präzise Entscheidungsgrundlage bereitgestellt.</p>
             </span>
             <span class="suite-row-meta">Verdichtung</span>
           </a>
@@ -2831,7 +3344,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART ReplySuite</h3>
-              <p>Professionelle Unterstützung für E-Mails, Anfragen und geschäftliche Kommunikation.</p>
+              <p>Professionelle Unterstützung für E-Mails, Anfragen und geschäftliche Kommunikation. Inhalte werden strukturiert priorisiert, sprachlich optimiert und kontextbezogen aufbereitet, um Kommunikationsprozesse effizienter und nachvollziehbarer zu gestalten.</p>
             </span>
             <span class="suite-row-meta">Kommunikation</span>
           </a>
@@ -2845,7 +3358,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART COST PERT-Prognose</h3>
-              <p>Baukostenprognosen für frühe Projektphasen auf Basis von Best-, Mittel- und Worst-Case-Szenarien.</p>
+              <p>Fundierte Baukostenprognosen für frühe Projektphasen auf Basis definierter Best-, Mittel- und Worst-Case-Szenarien. Die Anwendung berechnet belastbare Erwartungswerte, Unsicherheiten und Budgetbandbreiten für nachvollziehbare Budgetentscheidungen.</p>
             </span>
             <span class="suite-row-meta">Prognose</span>
           </a>
@@ -2857,7 +3370,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART RISK Monte-Carlo-Simulation</h3>
-              <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit.</p>
+              <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
             </span>
             <span class="suite-row-meta">Simulation</span>
           </a>
@@ -2869,7 +3382,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART CapEx</h3>
-              <p>Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien für fundierte Budgetentscheidungen.</p>
+              <p>Strukturierte Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien zur Unterstützung fundierter Budget-, Rentabilitäts- und Investitionsentscheidungen. Investitionen bewerten. Szenarien verstehen. Sicher entscheiden.</p>
             </span>
             <span class="suite-row-meta">Investition</span>
           </a>
@@ -2883,7 +3396,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART Meeting Navigator</h3>
-              <p>Vorbereitung, Analyse und Dokumentation von Meetings mit strukturierten Protokollen und Aufgaben.</p>
+              <p>Unterstützt die Vorbereitung, Analyse und Dokumentation von Meetings. Transkripte, Protokolle, Aufgaben und Entscheidungen werden automatisiert strukturiert bereitgestellt.</p>
             </span>
             <span class="suite-row-meta">Meetings</span>
           </a>
@@ -2897,7 +3410,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART Career Navigator</h3>
-              <p>Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung.</p>
+              <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
             </span>
             <span class="suite-row-meta">Karriere</span>
           </a>
@@ -2911,7 +3424,7 @@
             </span>
             <span class="suite-row-copy">
               <h3>SMART Focus</h3>
-              <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und Wissensarbeit.</p>
+              <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für strukturiertes Deep Work, Zeitmanagement und produktive Wissensarbeit. Intelligente Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung und effiziente Umsetzung.</p>
             </span>
             <span class="suite-row-meta">Fokus</span>
           </a>
@@ -2923,12 +3436,15 @@
           <p class="security-eyebrow">Datenschutz &amp; Sicherheit</p>
           <h2 id="security-title">Enterprise-Grade Sicherheit. Made in Germany.</h2>
           <p class="security-lead">
-            Ihre Daten bleiben Ihre Daten. Jederzeit geschützt, transparent
-            verarbeitet und vollständig unter Ihrer Kontrolle.
+            Ihre Daten bleiben geschützt, transparent verarbeitet und
+            vollständig unter Ihrer Kontrolle. Unsere browserbasierten und
+            lokalen Softwarelösungen erfüllen höchste Sicherheitsstandards und
+            eignen sich auch für regulierte sowie sicherheitskritische
+            Unternehmensbereiche.
           </p>
           <p class="security-control">
-            Maximale Kontrolle für sensible Unternehmensdaten. Sicherheit ist
-            kein Zusatzmodul, sondern Teil der gesamten Plattformarchitektur.
+            Sicherheit ist dabei fester Bestandteil der gesamten
+            Softwarearchitektur.
           </p>
         </div>
 
@@ -3003,7 +3519,217 @@
         </div>
       </section>
 
-      <section class="security-cards-preview" id="security-kacheln-transparent" aria-label="Sicherheitskacheln transparent">
+      <section class="tile-section target-audience-section" id="zielgruppen" aria-labelledby="target-audience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Zielgruppen</p>
+          <h2 id="target-audience-title">Entwickelt für Entscheider<br>der Branche.</h2>
+          <p>
+            Gezielte KI-Anwendungen für Eigentümer, Projektverantwortliche und
+            Unternehmen der Bau- und Immobilienwirtschaft sowie weiterer
+            Branchen.
+          </p>
+        </div>
+
+        <nav class="audience-flow" aria-label="Zielgruppen">
+          <a class="audience-card" href="#projektentwickler">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 25h22"></path>
+                <path d="M8 22V10l8-4 8 4v12"></path>
+                <path d="M12 22v-7h8v7"></path>
+                <path d="M8 10l8 5 8-5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Projektentwickler</h3>
+              <span>Initiatoren</span>
+            </span>
+            <span class="audience-index">01</span>
+          </a>
+
+          <a class="audience-card" href="#investoren">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 24h22"></path>
+                <path d="M8 21l5-5 4 3 7-9"></path>
+                <path d="M21 10h3v3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Investoren</h3>
+              <span>Kapitalgeber</span>
+            </span>
+            <span class="audience-index">02</span>
+          </a>
+
+          <a class="audience-card" href="#banken">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 13h22"></path>
+                <path d="M7 13l9-7 9 7"></path>
+                <path d="M8 13v11"></path>
+                <path d="M14 13v11"></path>
+                <path d="M20 13v11"></path>
+                <path d="M6 24h20"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Banken</h3>
+              <span>Finanzierung</span>
+            </span>
+            <span class="audience-index">03</span>
+          </a>
+
+          <a class="audience-card" href="#versicherungen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M16 27c-5-3.6-8-8.2-8-13.2V7l8-3 8 3v6.8c0 5-3 9.6-8 13.2z"></path>
+                <path d="M12 16l3 3 6-7"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Versicherungen</h3>
+              <span>Risikopartner</span>
+            </span>
+            <span class="audience-index">04</span>
+          </a>
+
+          <a class="audience-card" href="#bestandshalter">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <rect x="7" y="6" width="18" height="20" rx="2"></rect>
+                <path d="M11 11h2"></path>
+                <path d="M19 11h2"></path>
+                <path d="M11 16h2"></path>
+                <path d="M19 16h2"></path>
+                <path d="M13 26v-5h6v5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Bestandshalter</h3>
+              <span>Eigentümer</span>
+            </span>
+            <span class="audience-index">05</span>
+          </a>
+
+          <a class="audience-card" href="#planer">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 26h20"></path>
+                <path d="M8 22V8h12l4 4v10"></path>
+                <path d="M20 8v5h5"></path>
+                <path d="M11 20h11"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Planer</h3>
+              <span>Fachplanung</span>
+            </span>
+            <span class="audience-index">06</span>
+          </a>
+
+          <a class="audience-card" href="#behoerden">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 13h20"></path>
+                <path d="M8 13l8-7 8 7"></path>
+                <path d="M10 13v11"></path>
+                <path d="M16 13v11"></path>
+                <path d="M22 13v11"></path>
+                <path d="M7 24h18"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Behörden</h3>
+              <span>Genehmigung</span>
+            </span>
+            <span class="audience-index">07</span>
+          </a>
+
+          <a class="audience-card" href="#bauunternehmen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M5 26h22"></path>
+                <path d="M8 26V11h8v15"></path>
+                <path d="M16 26V7h8v19"></path>
+                <path d="M10.5 15h3"></path>
+                <path d="M18.5 15h3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Bauunternehmen</h3>
+              <span>Umsetzung</span>
+            </span>
+            <span class="audience-index">08</span>
+          </a>
+
+          <a class="audience-card" href="#projektsteuerer">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 8h20"></path>
+                <path d="M6 16h20"></path>
+                <path d="M6 24h20"></path>
+                <circle cx="12" cy="8" r="2.5"></circle>
+                <circle cx="20" cy="16" r="2.5"></circle>
+                <circle cx="14" cy="24" r="2.5"></circle>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Projektsteuerer</h3>
+              <span>Koordination</span>
+            </span>
+            <span class="audience-index">09</span>
+          </a>
+
+          <a class="audience-card" href="#beratungsunternehmen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <path d="M6 9h20v13H13l-5 5v-5H6V9z"></path>
+                <path d="M12 14h8"></path>
+                <path d="M12 18h5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Beratungsunternehmen</h3>
+              <span>Externe Partner</span>
+            </span>
+            <span class="audience-index">10</span>
+          </a>
+
+          <a class="audience-card" href="#fuehrungskraefte">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="9" r="4"></circle>
+                <path d="M8 26c1.2-5 4-8 8-8s6.8 3 8 8"></path>
+                <path d="M24 7l3 3 3-5"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Führungskräfte</h3>
+              <span>Entscheider</span>
+            </span>
+            <span class="audience-index">11</span>
+          </a>
+
+          <a class="audience-card" href="#privatpersonen">
+            <span class="audience-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32">
+                <circle cx="16" cy="9" r="4"></circle>
+                <path d="M9 27c.8-5.4 3.3-8 7-8s6.2 2.6 7 8"></path>
+                <path d="M6 14l3 3 3-3"></path>
+                <path d="M20 14l3 3 3-3"></path>
+              </svg>
+            </span>
+            <span class="audience-copy">
+              <h3>Privatpersonen</h3>
+              <span>Einzelpersonen</span>
+            </span>
+            <span class="audience-index">12</span>
+          </a>
+        </nav>
+      </section>
+
+      <section class="security-cards-preview" hidden id="security-kacheln-transparent" aria-label="Sicherheitskacheln transparent">
         <div class="security-grid">
           <a class="security-card" href="#hosting-deutschland">
             <span class="security-icon" aria-hidden="true">
@@ -3076,7 +3802,19 @@
       </section>
 
       <section class="expertise-preview" id="branchenwissen-software" aria-labelledby="expertise-title">
-        <h2 class="expertise-title" id="expertise-title">Drei Jahrzehnte Branchenwissen, in Software gegossen.</h2>
+        <div class="expertise-intro">
+          <p class="eyebrow">Expertise</p>
+          <h2 class="expertise-title" id="expertise-title">
+            <span class="expertise-title-line">Drei Jahrzehnte</span>
+            <span class="expertise-title-line">Branchenwissen,</span>
+            <span class="expertise-title-line">in Software gegossen.</span>
+          </h2>
+          <p>
+            BuiltSmart AI entwickelt praxisnahe Anwendungen, die Informationen
+            strukturieren, Zusammenhänge sichtbar machen und fundierte
+            Entscheidungen unterstützen.
+          </p>
+        </div>
 
         <div class="expertise-strip" aria-label="Kennzahlen">
           <div class="expertise-stat">
@@ -3214,6 +3952,7 @@
 
         <p class="expertise-footer">
           <strong>Wissen. Erfahrung, KI. Für die Bau- und Immobilienwirtschaft.</strong>
+          <span>BuiltSmart Hub - KI-Lösungen für bessere Entscheidungen und nachhaltigen Erfolg.</span>
         </p>
       </section>
 
@@ -3235,7 +3974,7 @@
                   Anzahl der Nutzer
                   <span class="roi-value" id="roi-people-value">12 Personen</span>
                 </label>
-                <input id="roi-people" type="range" min="1" max="10" value="5">
+                <input id="roi-people" type="range" min="1" max="10" value="1">
                 <span class="roi-hint">Wie viele Personen nutzen KI regelmäßig im Arbeitsalltag?</span>
               </div>
 
@@ -3244,7 +3983,7 @@
                   Arbeitszeit pro Nutzer und Woche
                   <span class="roi-value" id="roi-hours-value">32 Std.</span>
                 </label>
-                <input id="roi-hours" type="range" min="5" max="50" value="32">
+                <input id="roi-hours" type="range" min="5" max="50" value="40">
                 <span class="roi-hint">Relevante Arbeitszeit, in der KI Aufgaben beschleunigen kann.</span>
               </div>
 
@@ -3253,7 +3992,7 @@
                   Zeitersparnis durch KI
                   <span class="roi-value" id="roi-saving-value">18%</span>
                 </label>
-                <input id="roi-saving" type="range" min="1" max="60" value="18">
+                <input id="roi-saving" type="range" min="1" max="60" value="20">
                 <span class="roi-hint">Anteil der Zeit, der durch Automatisierung, Assistenz und bessere Vorlagen entfällt.</span>
               </div>
 
@@ -3271,7 +4010,7 @@
                   KI-Investition pro Monat
                   <span class="roi-value" id="roi-investment-value">1.800 €</span>
                 </label>
-                <input id="roi-investment" type="range" min="0" max="5000" step="50" value="1800">
+                <input id="roi-investment" type="range" min="0" max="5000" step="50" value="100">
                 <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
               </div>
             </div>
@@ -3314,7 +4053,62 @@
           </div>
         </div>
       </section>
+
+      <section class="final-cta" id="kontakt" aria-labelledby="final-cta-title">
+        <h2 id="final-cta-title">
+          Prozesse optimieren.<br>
+          Risiken steuern.<br>
+          Entscheidungen verbessern.
+        </h2>
+        <p>
+          Moderne KI-gestützte Softwarelösungen für die Bau- und
+          Immobilienwirtschaft.
+        </p>
+        <div class="final-cta-actions">
+          <a class="final-cta-button primary" href="#apps-title">Anwendungen ansehen <span aria-hidden="true">→</span></a>
+          <a class="final-cta-button" href="mailto:kontakt@builtsmart-ai.app">Kontakt aufnehmen <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="site-footer__inner">
+        <div class="footer-brand">
+          <strong>BuiltSmart AI</strong>
+          <span>powered by BuiltSmart Hub</span>
+          <p>© 2026 BuiltSmart Hub AI. All rights reserved.</p>
+        </div>
+
+        <nav class="footer-social" aria-label="Social Media">
+          <a href="https://www.linkedin.com/in/bernhard-metzger-8376539a" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.02h4.36V23H.32V8.02zM8.12 8.02h4.18v2.05h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.22 2.9 5.22 6.67V23h-4.36v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.96-2.9 3.99V23H7.57V8.02h.55z"></path>
+            </svg>
+          </a>
+          <a href="https://x.com/BuiltSmartHub" aria-label="X" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.9 2h3.3l-7.2 8.23L23.5 22h-6.65l-5.2-6.8L5.7 22H2.4l7.7-8.8L2 2h6.82l4.7 6.22L18.9 2zm-1.16 17.92h1.83L7.82 3.97H5.86l11.88 15.95z"></path>
+            </svg>
+          </a>
+          <a href="https://open.spotify.com/show/3l5T4RcPwkejP6mS3p5238" aria-label="Spotify" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M7.2 9.55c3.48-1.05 7.08-.62 9.82 1.02"></path>
+              <path d="M7.72 12.25c2.9-.82 5.82-.48 8.07.88"></path>
+              <path d="M8.14 14.78c2.25-.58 4.52-.33 6.27.72"></path>
+            </svg>
+          </a>
+        </nav>
+
+        <nav class="footer-links" aria-label="Rechtliches">
+          <a href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Kontakt</a>
+          <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener noreferrer">AGB</a>
+          <a href="https://www.built-smart-hub.com/datenschutz-cookies" target="_blank" rel="noopener noreferrer">Datenschutz &amp; Cookies</a>
+          <a href="https://www.built-smart-hub.com/widerrufsbelehrung" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a>
+          <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+        </nav>
+      </div>
+    </footer>
     <script>
       (() => {
         const calculator = document.querySelector("#roi-calculator");
