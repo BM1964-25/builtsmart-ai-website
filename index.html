@@ -2227,8 +2227,8 @@
         padding: clamp(26px, 4vw, 38px);
         color: #172026;
         background:
-          radial-gradient(circle at 92% 8%, rgba(47, 111, 86, 0.12), transparent 28%),
-          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(247, 248, 245, 0.96));
+          radial-gradient(circle at 92% 8%, rgba(47, 111, 86, 0.08), transparent 28%),
+          #ffffff;
         border: 1px solid rgba(210, 216, 222, 0.96);
         border-radius: 8px;
         box-shadow: 0 34px 90px rgba(5, 9, 13, 0.28);
@@ -2327,31 +2327,34 @@
       }
 
       .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
         margin-top: 30px;
       }
 
       .contact-action {
-        display: inline-flex;
-        min-height: 46px;
+        display: flex;
+        width: 100%;
+        min-height: 52px;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        padding: 0 18px;
+        padding: 0 20px;
         color: #ffffff;
         background: #172026;
         border: 1px solid #172026;
         border-radius: 8px;
+        font-size: 0.96rem;
         font-weight: 820;
+        line-height: 1.1;
         text-decoration: none;
       }
 
       .contact-action.secondary {
         color: #172026;
-        background: transparent;
-        border-color: rgba(23, 32, 38, 0.22);
+        background: #f7f8f5;
+        border-color: rgba(23, 32, 38, 0.24);
       }
 
       .contact-action:hover,
@@ -2745,11 +2748,7 @@
         }
 
         .contact-actions {
-          flex-direction: column;
-        }
-
-        .contact-action {
-          width: 100%;
+          grid-template-columns: 1fr;
         }
       }
 
@@ -4760,7 +4759,7 @@
 
         <div class="contact-actions">
           <a class="contact-action" href="mailto:info@www.built-smart-hub.com">E-Mail schreiben <span aria-hidden="true">→</span></a>
-          <a class="contact-action secondary" href="https://www.built-smart-hub.com/kontakt" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
+          <a class="contact-action secondary" href="https://www.built-smart-hub.com/termin-buchen" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
