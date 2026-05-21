@@ -1368,6 +1368,43 @@
         transform: translateX(4px);
       }
 
+      .suite-row--with-links .suite-row-copy::after {
+        display: none;
+        content: none;
+      }
+
+      .suite-row-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 13px;
+      }
+
+      .suite-row-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+        color: color-mix(in srgb, var(--accent) 72%, #174ea6);
+        font: inherit;
+        font-size: 0.9rem;
+        font-weight: 720;
+        letter-spacing: 0;
+        text-decoration: none;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .suite-row-action span {
+        transition: transform 170ms ease;
+      }
+
+      .suite-row-action:hover span,
+      .suite-row-action:focus-visible span {
+        transform: translateX(4px);
+      }
+
       .suite-row-meta {
         position: relative;
         z-index: 1;
@@ -4034,7 +4071,7 @@
         <nav class="suite-list" aria-label="BuiltSmart Apps Variante 2">
           <h3 class="suite-list-category">Risiko-, Vertrags- &amp; Compliance-Management</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--green);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Vertragsanalyse-neu.png" alt="">
               <span class="suite-row-index">01</span>
@@ -4050,7 +4087,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--teal);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Risiko-Register-neu.png" alt="">
               <span class="suite-row-index">02</span>
@@ -4066,7 +4103,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--blue);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">03</span>
@@ -4082,7 +4119,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">04</span>
@@ -4100,7 +4137,7 @@
 
           <h3 class="suite-list-category">Wissenssysteme &amp; Content Intelligence</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <div class="suite-row suite-row--with-links" style="--accent: var(--violet);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow.png" alt="">
               <span class="suite-row-index">05</span>
@@ -4108,15 +4145,19 @@
             <span class="suite-row-copy">
               <h3>SMART SnippetFlow</h3>
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
+              <span class="suite-row-links" aria-label="Aktionen für SMART SnippetFlow">
+                <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
+                <a class="suite-row-action" href="https://bm1964-25.github.io/Smart-SnippedFlow-Landingpage/" target="_blank" rel="noopener noreferrer">Zur Landingpage <span aria-hidden="true">→</span></a>
+              </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-prompt">Prompts &amp; Co. verwalten</span>
               <span class="suite-tag suite-tag-variant">Varianten erzeugen</span>
               <span class="suite-tag suite-tag-workflow">Wissensbibliothek anlegen</span>
             </span>
-          </a>
+          </div>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow.png" alt="">
               <span class="suite-row-index">06</span>
@@ -4132,7 +4173,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
               <span class="suite-row-index">07</span>
@@ -4148,7 +4189,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--gold);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
               <span class="suite-row-index">08</span>
@@ -4166,7 +4207,7 @@
 
           <h3 class="suite-list-category">Projektsteuerung &amp; Prognose</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--red);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Pert-neu.png" alt="">
               <span class="suite-row-index">09</span>
@@ -4182,7 +4223,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #7a5f3f;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Monte-Carlo-Simulation-neu.png" alt="">
               <span class="suite-row-index">10</span>
@@ -4198,7 +4239,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #65529c;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Monte-Carlo-Simulation-neu.png" alt="">
               <span class="suite-row-index">11</span>
@@ -4216,7 +4257,7 @@
 
           <h3 class="suite-list-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #3f7868;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Meeting-neu.png" alt="">
               <span class="suite-row-index">12</span>
@@ -4234,7 +4275,7 @@
 
           <h3 class="suite-list-category">Karriere &amp; Entwicklung</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Career%20Navigator-neu.png" alt="">
               <span class="suite-row-index">13</span>
@@ -4252,7 +4293,7 @@
 
           <h3 class="suite-list-category">Produktivität &amp; Workflow Intelligence</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt">
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
               <span class="suite-row-index">14</span>
