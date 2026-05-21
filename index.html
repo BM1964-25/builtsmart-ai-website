@@ -1258,9 +1258,9 @@
       .suite-row {
         --accent: #315f9e;
         position: relative;
-        min-height: 148px;
+        min-height: 170px;
         display: grid;
-        grid-template-columns: 112px minmax(0, 1fr) minmax(138px, auto);
+        grid-template-columns: 112px minmax(0, 1fr) minmax(240px, 0.34fr);
         gap: 20px;
         align-items: center;
         padding: 20px;
@@ -1370,18 +1370,46 @@
       .suite-row-meta {
         position: relative;
         z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
         justify-self: end;
-        padding: 9px 11px;
-        color: color-mix(in srgb, var(--accent) 72%, #172026);
+      }
+
+      .suite-tag {
+        --tag: #4b6c76;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 31px;
+        padding: 7px 9px;
+        color: color-mix(in srgb, var(--tag) 78%, #172026);
         font-size: 0.78rem;
         font-weight: 850;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         white-space: nowrap;
-        background: color-mix(in srgb, var(--accent) 8%, #ffffff);
-        border: 1px solid color-mix(in srgb, var(--accent) 16%, #ffffff);
+        background: color-mix(in srgb, var(--tag) 8%, #ffffff);
+        border: 1px solid color-mix(in srgb, var(--tag) 18%, #ffffff);
         border-radius: 8px;
       }
+
+      .suite-tag-risk { --tag: #a8483e; }
+      .suite-tag-contract { --tag: #65529c; }
+      .suite-tag-compliance { --tag: #2f6f56; }
+      .suite-tag-document { --tag: #247780; }
+      .suite-tag-quality { --tag: #315f9e; }
+      .suite-tag-cost { --tag: #b87924; }
+      .suite-tag-scenario { --tag: #7a5f3f; }
+      .suite-tag-communication { --tag: #247780; }
+      .suite-tag-knowledge { --tag: #2f7d58; }
+      .suite-tag-productivity { --tag: #4b6c76; }
+      .suite-tag-career { --tag: #6f5f89; }
+      .suite-tag-investment { --tag: #7a5f3f; }
+      .suite-tag-report { --tag: #5d6fa3; }
+      .suite-tag-time { --tag: #315f9e; }
+      .suite-tag-decision { --tag: #172026; }
 
       .suite-row:nth-of-type(1) { --accent: var(--green); }
       .suite-row:nth-of-type(2) { --accent: var(--teal); }
@@ -4002,7 +4030,11 @@
               <h3>SMART RISK Vertragsanalyse</h3>
               <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern. Entscheidungen werden transparenter, schneller und nachvollziehbarer vorbereitet.</p>
             </span>
-            <span class="suite-row-meta">Verträge</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-contract">Verträge</span>
+              <span class="suite-tag suite-tag-risk">Risiken</span>
+              <span class="suite-tag suite-tag-compliance">Compliance</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4014,7 +4046,11 @@
               <h3>SMART RISK Risiko-Register</h3>
               <p>Qualitative und quantitative Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix. Verantwortlichkeiten, Maßnahmen und Fristen werden festgelegt, nachverfolgt und für belastbare Berichte strukturiert aufbereitet.</p>
             </span>
-            <span class="suite-row-meta">Risiken</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-risk">Risiken</span>
+              <span class="suite-tag suite-tag-report">Maßnahmen</span>
+              <span class="suite-tag suite-tag-report">Berichte</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4026,7 +4062,11 @@
               <h3>SMART REVISION</h3>
               <p>Digitale Prüfung von Leistungen, Nachweisen und Projektunterlagen zur strukturierten Qualitätssicherung und belastbaren Projektkontrolle. Die Anwendung ist universell einsetzbar und besonders auf Anforderungen der Bau- und Immobilienwirtschaft ausgerichtet.</p>
             </span>
-            <span class="suite-row-meta">Revision</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-quality">Prüfung</span>
+              <span class="suite-tag suite-tag-document">Dokumente</span>
+              <span class="suite-tag suite-tag-quality">Qualität</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4038,7 +4078,11 @@
               <h3>SMART Validate</h3>
               <p>Strukturierte Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit. Abweichungen, Prüfvermerke und Freigabeprozesse werden transparent dokumentiert.</p>
             </span>
-            <span class="suite-row-meta">Validierung</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-cost">Rechnungen</span>
+              <span class="suite-tag suite-tag-quality">Plausibilität</span>
+              <span class="suite-tag suite-tag-compliance">Freigaben</span>
+            </span>
           </a>
 
           <h3 class="suite-list-category">Wissenssysteme &amp; Content Intelligence</h3>
@@ -4052,7 +4096,11 @@
               <h3>SMART SnippetFlow</h3>
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
             </span>
-            <span class="suite-row-meta">Wissen</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-knowledge">Prompts</span>
+              <span class="suite-tag suite-tag-productivity">Workflows</span>
+              <span class="suite-tag suite-tag-knowledge">Wissen</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4064,7 +4112,11 @@
               <h3>SMART SummaryAssistent</h3>
               <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte. Informationen werden strukturiert verdichtet und anhand individueller Ausgabeprofile als präzise Entscheidungs- und Arbeitsgrundlage zusammengestellt.</p>
             </span>
-            <span class="suite-row-meta">Verdichtung</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-document">Dokumente</span>
+              <span class="suite-tag suite-tag-knowledge">Summary</span>
+              <span class="suite-tag suite-tag-decision">Entscheiden</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4076,7 +4128,11 @@
               <h3>SMART ReplySuite</h3>
               <p>Unterstützung für geschäftliche Kommunikation, private Korrespondenz, E-Mails und Anfragen. Antworten können anhand von Vorlagen, Stilprofilen und definierbaren Antwortparametern in bis zu fünf Sprachen vorbereitet und ausgegeben werden. So entstehen klare, passende und nachvollziehbare Antworten.</p>
             </span>
-            <span class="suite-row-meta">Kommunikation</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-communication">E-Mail</span>
+              <span class="suite-tag suite-tag-communication">Sprachen</span>
+              <span class="suite-tag suite-tag-quality">Stilprofile</span>
+            </span>
           </a>
 
           <h3 class="suite-list-category">Projektsteuerung &amp; Prognose</h3>
@@ -4090,7 +4146,11 @@
               <h3>SMART COST PERT-Prognose</h3>
               <p>Fundierte Baukostenprognosen für frühe Projektphasen auf Basis definierter Best-, Mittel- und Worst-Case-Szenarien. Die Anwendung berechnet belastbare Erwartungswerte, Unsicherheiten und Budgetbandbreiten für nachvollziehbare Budgetentscheidungen.</p>
             </span>
-            <span class="suite-row-meta">Prognose</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-cost">Kosten</span>
+              <span class="suite-tag suite-tag-scenario">Prognose</span>
+              <span class="suite-tag suite-tag-scenario">Szenarien</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4102,7 +4162,11 @@
               <h3>SMART RISK Monte-Carlo-Simulation</h3>
               <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
             </span>
-            <span class="suite-row-meta">Simulation</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-risk">Risiken</span>
+              <span class="suite-tag suite-tag-cost">Kosten</span>
+              <span class="suite-tag suite-tag-scenario">Simulation</span>
+            </span>
           </a>
 
           <a class="suite-row contact-trigger" href="#kontakt">
@@ -4114,7 +4178,11 @@
               <h3>SMART CapEx</h3>
               <p>Strukturierte Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien zur Unterstützung fundierter Budget-, Rentabilitäts- und Investitionsentscheidungen. Szenarien werden vergleichbar gemacht, wirtschaftliche Auswirkungen sichtbar und Entscheidungen belastbar vorbereitet.</p>
             </span>
-            <span class="suite-row-meta">Investition</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-investment">Investition</span>
+              <span class="suite-tag suite-tag-cost">Kosten</span>
+              <span class="suite-tag suite-tag-scenario">Szenarien</span>
+            </span>
           </a>
 
           <h3 class="suite-list-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
@@ -4128,7 +4196,11 @@
               <h3>SMART Meeting Navigator</h3>
               <p>Unterstützt die Vorbereitung, Analyse und Dokumentation von Meetings. Transkripte, Protokolle, Aufgaben und Entscheidungen werden automatisiert strukturiert bereitgestellt.</p>
             </span>
-            <span class="suite-row-meta">Meetings</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-communication">Meetings</span>
+              <span class="suite-tag suite-tag-document">Protokolle</span>
+              <span class="suite-tag suite-tag-decision">Aufgaben</span>
+            </span>
           </a>
 
           <h3 class="suite-list-category">Karriere &amp; Entwicklung</h3>
@@ -4142,7 +4214,11 @@
               <h3>SMART Career Navigator</h3>
               <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
             </span>
-            <span class="suite-row-meta">Karriere</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-career">Karriere</span>
+              <span class="suite-tag suite-tag-document">Bewerbung</span>
+              <span class="suite-tag suite-tag-decision">Profil</span>
+            </span>
           </a>
 
           <h3 class="suite-list-category">Produktivität &amp; Workflow Intelligence</h3>
@@ -4156,7 +4232,11 @@
               <h3>SMART Focus</h3>
               <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
             </span>
-            <span class="suite-row-meta">Fokus</span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-productivity">Fokus</span>
+              <span class="suite-tag suite-tag-time">Pomodoro</span>
+              <span class="suite-tag suite-tag-productivity">Kanban</span>
+            </span>
           </a>
         </nav>
       </section>
