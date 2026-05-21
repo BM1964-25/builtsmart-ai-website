@@ -1260,7 +1260,7 @@
         position: relative;
         min-height: 170px;
         display: grid;
-        grid-template-columns: 112px minmax(0, 1fr) minmax(240px, 0.34fr);
+        grid-template-columns: 112px minmax(0, 1fr) minmax(250px, 0.34fr);
         gap: 20px;
         align-items: center;
         padding: 20px;
@@ -1381,22 +1381,35 @@
 
       .suite-tag {
         --tag: #4b6c76;
+        position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 132px;
-        min-height: 31px;
-        padding: 7px 9px;
-        color: color-mix(in srgb, var(--tag) 78%, #172026);
-        font-size: 0.78rem;
+        min-width: 188px;
+        min-height: 32px;
+        padding: 7px 13px 7px 22px;
+        color: #172026;
+        font-size: 0.79rem;
         font-weight: 850;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
+        letter-spacing: 0.01em;
         text-align: center;
         white-space: nowrap;
-        background: color-mix(in srgb, var(--tag) 8%, #ffffff);
-        border: 1px solid color-mix(in srgb, var(--tag) 18%, #ffffff);
+        background: linear-gradient(180deg, #fbfcfb, #f5f7f6);
+        border: 1px solid #dfe4e1;
         border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+          0 8px 18px rgba(23, 32, 38, 0.035);
+      }
+
+      .suite-tag::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        width: 6px;
+        height: 6px;
+        background: var(--tag);
+        border-radius: 999px;
       }
 
       .suite-tag-risk { --tag: #a8483e; }
@@ -4065,9 +4078,9 @@
               <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern. Entscheidungen werden transparenter, schneller und nachvollziehbarer vorbereitet.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-contract">Verträge</span>
-              <span class="suite-tag suite-tag-clause">Klauseln</span>
-              <span class="suite-tag suite-tag-risk">Risiken</span>
+              <span class="suite-tag suite-tag-contract">Verträge analysieren</span>
+              <span class="suite-tag suite-tag-clause">Klauseln prüfen</span>
+              <span class="suite-tag suite-tag-risk">Risiken ableiten</span>
             </span>
           </a>
 
@@ -4081,9 +4094,9 @@
               <p>Qualitative und quantitative Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix. Verantwortlichkeiten, Maßnahmen und Fristen werden festgelegt, nachverfolgt und für belastbare Berichte strukturiert aufbereitet.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-risk">Risiken</span>
-              <span class="suite-tag suite-tag-measure">Maßnahmen</span>
-              <span class="suite-tag suite-tag-report">Berichte</span>
+              <span class="suite-tag suite-tag-risk">Risiken erfassen</span>
+              <span class="suite-tag suite-tag-measure">Maßnahmen steuern</span>
+              <span class="suite-tag suite-tag-report">Berichte erstellen</span>
             </span>
           </a>
 
@@ -4097,9 +4110,9 @@
               <p>Digitale Prüfung von Leistungen, Nachweisen und Projektunterlagen zur strukturierten Qualitätssicherung und belastbaren Projektkontrolle. Die Anwendung ist universell einsetzbar und besonders auf Anforderungen der Bau- und Immobilienwirtschaft ausgerichtet.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-audit">Prüfung</span>
-              <span class="suite-tag suite-tag-document">Dokumente</span>
-              <span class="suite-tag suite-tag-quality">Qualität</span>
+              <span class="suite-tag suite-tag-audit">Unterlagen prüfen</span>
+              <span class="suite-tag suite-tag-quality">Qualität sichern</span>
+              <span class="suite-tag suite-tag-report">Ergebnisse dokumentieren</span>
             </span>
           </a>
 
@@ -4113,9 +4126,9 @@
               <p>Strukturierte Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit. Abweichungen, Prüfvermerke und Freigabeprozesse werden transparent dokumentiert.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-invoice">Rechnungen</span>
-              <span class="suite-tag suite-tag-plausibility">Plausibilität</span>
-              <span class="suite-tag suite-tag-approval">Freigaben</span>
+              <span class="suite-tag suite-tag-invoice">Rechnungen prüfen</span>
+              <span class="suite-tag suite-tag-plausibility">Plausibilität sichern</span>
+              <span class="suite-tag suite-tag-approval">Freigaben dokumentieren</span>
             </span>
           </a>
 
@@ -4131,9 +4144,9 @@
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-prompt">Prompts</span>
-              <span class="suite-tag suite-tag-variant">Varianten</span>
-              <span class="suite-tag suite-tag-workflow">Workflows</span>
+              <span class="suite-tag suite-tag-prompt">Prompts verwalten</span>
+              <span class="suite-tag suite-tag-variant">Varianten erzeugen</span>
+              <span class="suite-tag suite-tag-workflow">Workflows strukturieren</span>
             </span>
           </a>
 
@@ -4147,9 +4160,9 @@
               <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte. Informationen werden strukturiert verdichtet und anhand individueller Ausgabeprofile als präzise Entscheidungs- und Arbeitsgrundlage zusammengestellt.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-document">Dokumente</span>
-              <span class="suite-tag suite-tag-output">Ausgabeprofile</span>
-              <span class="suite-tag suite-tag-summary">Summary</span>
+              <span class="suite-tag suite-tag-document">Dokumente verdichten</span>
+              <span class="suite-tag suite-tag-output">Profile nutzen</span>
+              <span class="suite-tag suite-tag-summary">Ergebnisse aufbereiten</span>
             </span>
           </a>
 
@@ -4163,9 +4176,9 @@
               <p>Unterstützung für geschäftliche Kommunikation, private Korrespondenz, E-Mails und Anfragen. Antworten können anhand von Vorlagen, Stilprofilen und definierbaren Antwortparametern in bis zu fünf Sprachen vorbereitet und ausgegeben werden. So entstehen klare, passende und nachvollziehbare Antworten.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-correspondence">Korrespondenz</span>
-              <span class="suite-tag suite-tag-template">Vorlagen</span>
-              <span class="suite-tag suite-tag-language">Mehrsprachig</span>
+              <span class="suite-tag suite-tag-correspondence">Antworten erstellen</span>
+              <span class="suite-tag suite-tag-template">Vorlagen nutzen</span>
+              <span class="suite-tag suite-tag-language">5 Sprachen ausgeben</span>
             </span>
           </a>
 
@@ -4181,9 +4194,9 @@
               <p>Fundierte Baukostenprognosen für frühe Projektphasen auf Basis definierter Best-, Mittel- und Worst-Case-Szenarien. Die Anwendung berechnet belastbare Erwartungswerte, Unsicherheiten und Budgetbandbreiten für nachvollziehbare Budgetentscheidungen.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-cost">Kosten</span>
-              <span class="suite-tag suite-tag-forecast">Prognose</span>
-              <span class="suite-tag suite-tag-budget">Budget</span>
+              <span class="suite-tag suite-tag-cost">Kosten prognostizieren</span>
+              <span class="suite-tag suite-tag-scenario">Szenarien vergleichen</span>
+              <span class="suite-tag suite-tag-budget">Budgets vorbereiten</span>
             </span>
           </a>
 
@@ -4197,9 +4210,9 @@
               <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-simulation">Simulation</span>
-              <span class="suite-tag suite-tag-uncertainty">Unsicherheit</span>
-              <span class="suite-tag suite-tag-buffer">Risikopuffer</span>
+              <span class="suite-tag suite-tag-simulation">Unsicherheit simulieren</span>
+              <span class="suite-tag suite-tag-buffer">Puffer berechnen</span>
+              <span class="suite-tag suite-tag-risk">Auswirkungen bewerten</span>
             </span>
           </a>
 
@@ -4213,9 +4226,9 @@
               <p>Strukturierte Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien zur Unterstützung fundierter Budget-, Rentabilitäts- und Investitionsentscheidungen. Szenarien werden vergleichbar gemacht, wirtschaftliche Auswirkungen sichtbar und Entscheidungen belastbar vorbereitet.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-investment">Investition</span>
-              <span class="suite-tag suite-tag-profitability">Wirtschaftlichkeit</span>
-              <span class="suite-tag suite-tag-scenario">Szenarien</span>
+              <span class="suite-tag suite-tag-investment">Investitionen bewerten</span>
+              <span class="suite-tag suite-tag-scenario">Szenarien vergleichen</span>
+              <span class="suite-tag suite-tag-profitability">Wirtschaftlichkeit prüfen</span>
             </span>
           </a>
 
@@ -4231,9 +4244,9 @@
               <p>Unterstützt die Vorbereitung, Analyse und Dokumentation von Meetings. Transkripte, Protokolle, Aufgaben und Entscheidungen werden automatisiert strukturiert bereitgestellt.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-meeting">Meetings</span>
-              <span class="suite-tag suite-tag-protocol">Protokolle</span>
-              <span class="suite-tag suite-tag-task">Aufgaben</span>
+              <span class="suite-tag suite-tag-meeting">Meetings vorbereiten</span>
+              <span class="suite-tag suite-tag-protocol">Protokolle erstellen</span>
+              <span class="suite-tag suite-tag-task">Aufgaben ableiten</span>
             </span>
           </a>
 
@@ -4249,9 +4262,9 @@
               <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-career">Karriere</span>
-              <span class="suite-tag suite-tag-application">Bewerbung</span>
-              <span class="suite-tag suite-tag-profile">Positionierung</span>
+              <span class="suite-tag suite-tag-career">Stellen analysieren</span>
+              <span class="suite-tag suite-tag-application">Bewerbung erstellen</span>
+              <span class="suite-tag suite-tag-profile">Profil schärfen</span>
             </span>
           </a>
 
@@ -4267,9 +4280,9 @@
               <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-focus">Fokus</span>
-              <span class="suite-tag suite-tag-pomodoro">Pomodoro</span>
-              <span class="suite-tag suite-tag-kanban">Kanban</span>
+              <span class="suite-tag suite-tag-focus">Fokus planen</span>
+              <span class="suite-tag suite-tag-pomodoro">Pomodoro nutzen</span>
+              <span class="suite-tag suite-tag-kanban">Aufgaben steuern</span>
             </span>
           </a>
         </nav>
