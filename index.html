@@ -1371,9 +1371,11 @@
         position: relative;
         z-index: 1;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-end;
         justify-content: flex-end;
-        gap: 8px;
+        gap: 7px;
         justify-self: end;
       }
 
@@ -1381,7 +1383,8 @@
         --tag: #4b6c76;
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
+        min-width: 132px;
         min-height: 31px;
         padding: 7px 9px;
         color: color-mix(in srgb, var(--tag) 78%, #172026);
@@ -1389,6 +1392,7 @@
         font-weight: 850;
         letter-spacing: 0.06em;
         text-transform: uppercase;
+        text-align: right;
         white-space: nowrap;
         background: color-mix(in srgb, var(--tag) 8%, #ffffff);
         border: 1px solid color-mix(in srgb, var(--tag) 18%, #ffffff);
@@ -1397,19 +1401,42 @@
 
       .suite-tag-risk { --tag: #a8483e; }
       .suite-tag-contract { --tag: #65529c; }
+      .suite-tag-clause { --tag: #7f5ca8; }
       .suite-tag-compliance { --tag: #2f6f56; }
+      .suite-tag-measure { --tag: #5d6fa3; }
+      .suite-tag-report { --tag: #436f8f; }
+      .suite-tag-audit { --tag: #315f9e; }
       .suite-tag-document { --tag: #247780; }
-      .suite-tag-quality { --tag: #315f9e; }
+      .suite-tag-quality { --tag: #286f9e; }
+      .suite-tag-invoice { --tag: #b87924; }
+      .suite-tag-plausibility { --tag: #2f6f68; }
+      .suite-tag-approval { --tag: #3f7868; }
+      .suite-tag-prompt { --tag: #7d4f9a; }
+      .suite-tag-variant { --tag: #8a5c2c; }
+      .suite-tag-workflow { --tag: #4b6c76; }
+      .suite-tag-output { --tag: #6f5f89; }
+      .suite-tag-summary { --tag: #2f7d58; }
+      .suite-tag-correspondence { --tag: #1f6f8b; }
+      .suite-tag-template { --tag: #60717c; }
+      .suite-tag-language { --tag: #426fb4; }
       .suite-tag-cost { --tag: #b87924; }
-      .suite-tag-scenario { --tag: #7a5f3f; }
-      .suite-tag-communication { --tag: #247780; }
-      .suite-tag-knowledge { --tag: #2f7d58; }
-      .suite-tag-productivity { --tag: #4b6c76; }
-      .suite-tag-career { --tag: #6f5f89; }
+      .suite-tag-forecast { --tag: #2d6f9e; }
+      .suite-tag-budget { --tag: #9a6b2d; }
+      .suite-tag-simulation { --tag: #8f4f3f; }
+      .suite-tag-uncertainty { --tag: #7a5f3f; }
+      .suite-tag-buffer { --tag: #b45a45; }
       .suite-tag-investment { --tag: #7a5f3f; }
-      .suite-tag-report { --tag: #5d6fa3; }
-      .suite-tag-time { --tag: #315f9e; }
-      .suite-tag-decision { --tag: #172026; }
+      .suite-tag-profitability { --tag: #6f613e; }
+      .suite-tag-scenario { --tag: #8a6f3f; }
+      .suite-tag-meeting { --tag: #2d7a7f; }
+      .suite-tag-protocol { --tag: #436f8f; }
+      .suite-tag-task { --tag: #172026; }
+      .suite-tag-career { --tag: #6f5f89; }
+      .suite-tag-application { --tag: #5d6fa3; }
+      .suite-tag-profile { --tag: #566b63; }
+      .suite-tag-focus { --tag: #425f73; }
+      .suite-tag-pomodoro { --tag: #b86a32; }
+      .suite-tag-kanban { --tag: #2f6f68; }
 
       .suite-row:nth-of-type(1) { --accent: var(--green); }
       .suite-row:nth-of-type(2) { --accent: var(--teal); }
@@ -3112,7 +3139,14 @@
         .suite-row-meta {
           grid-column: auto;
           justify-self: start;
+          align-items: flex-start;
           white-space: normal;
+        }
+
+        .suite-tag {
+          justify-content: flex-start;
+          min-width: 0;
+          text-align: left;
         }
 
         .app-icon {
@@ -4032,8 +4066,8 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-contract">Verträge</span>
+              <span class="suite-tag suite-tag-clause">Klauseln</span>
               <span class="suite-tag suite-tag-risk">Risiken</span>
-              <span class="suite-tag suite-tag-compliance">Compliance</span>
             </span>
           </a>
 
@@ -4048,7 +4082,7 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-risk">Risiken</span>
-              <span class="suite-tag suite-tag-report">Maßnahmen</span>
+              <span class="suite-tag suite-tag-measure">Maßnahmen</span>
               <span class="suite-tag suite-tag-report">Berichte</span>
             </span>
           </a>
@@ -4063,7 +4097,7 @@
               <p>Digitale Prüfung von Leistungen, Nachweisen und Projektunterlagen zur strukturierten Qualitätssicherung und belastbaren Projektkontrolle. Die Anwendung ist universell einsetzbar und besonders auf Anforderungen der Bau- und Immobilienwirtschaft ausgerichtet.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-quality">Prüfung</span>
+              <span class="suite-tag suite-tag-audit">Prüfung</span>
               <span class="suite-tag suite-tag-document">Dokumente</span>
               <span class="suite-tag suite-tag-quality">Qualität</span>
             </span>
@@ -4079,9 +4113,9 @@
               <p>Strukturierte Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit. Abweichungen, Prüfvermerke und Freigabeprozesse werden transparent dokumentiert.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-cost">Rechnungen</span>
-              <span class="suite-tag suite-tag-quality">Plausibilität</span>
-              <span class="suite-tag suite-tag-compliance">Freigaben</span>
+              <span class="suite-tag suite-tag-invoice">Rechnungen</span>
+              <span class="suite-tag suite-tag-plausibility">Plausibilität</span>
+              <span class="suite-tag suite-tag-approval">Freigaben</span>
             </span>
           </a>
 
@@ -4097,9 +4131,9 @@
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-knowledge">Prompts</span>
-              <span class="suite-tag suite-tag-productivity">Workflows</span>
-              <span class="suite-tag suite-tag-knowledge">Wissen</span>
+              <span class="suite-tag suite-tag-prompt">Prompts</span>
+              <span class="suite-tag suite-tag-variant">Varianten</span>
+              <span class="suite-tag suite-tag-workflow">Workflows</span>
             </span>
           </a>
 
@@ -4114,8 +4148,8 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-document">Dokumente</span>
-              <span class="suite-tag suite-tag-knowledge">Summary</span>
-              <span class="suite-tag suite-tag-decision">Entscheiden</span>
+              <span class="suite-tag suite-tag-output">Ausgabeprofile</span>
+              <span class="suite-tag suite-tag-summary">Summary</span>
             </span>
           </a>
 
@@ -4129,9 +4163,9 @@
               <p>Unterstützung für geschäftliche Kommunikation, private Korrespondenz, E-Mails und Anfragen. Antworten können anhand von Vorlagen, Stilprofilen und definierbaren Antwortparametern in bis zu fünf Sprachen vorbereitet und ausgegeben werden. So entstehen klare, passende und nachvollziehbare Antworten.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-communication">E-Mail</span>
-              <span class="suite-tag suite-tag-communication">Sprachen</span>
-              <span class="suite-tag suite-tag-quality">Stilprofile</span>
+              <span class="suite-tag suite-tag-correspondence">Korrespondenz</span>
+              <span class="suite-tag suite-tag-template">Vorlagen</span>
+              <span class="suite-tag suite-tag-language">Mehrsprachig</span>
             </span>
           </a>
 
@@ -4148,8 +4182,8 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-cost">Kosten</span>
-              <span class="suite-tag suite-tag-scenario">Prognose</span>
-              <span class="suite-tag suite-tag-scenario">Szenarien</span>
+              <span class="suite-tag suite-tag-forecast">Prognose</span>
+              <span class="suite-tag suite-tag-budget">Budget</span>
             </span>
           </a>
 
@@ -4163,9 +4197,9 @@
               <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-risk">Risiken</span>
-              <span class="suite-tag suite-tag-cost">Kosten</span>
-              <span class="suite-tag suite-tag-scenario">Simulation</span>
+              <span class="suite-tag suite-tag-simulation">Simulation</span>
+              <span class="suite-tag suite-tag-uncertainty">Unsicherheit</span>
+              <span class="suite-tag suite-tag-buffer">Risikopuffer</span>
             </span>
           </a>
 
@@ -4180,7 +4214,7 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-investment">Investition</span>
-              <span class="suite-tag suite-tag-cost">Kosten</span>
+              <span class="suite-tag suite-tag-profitability">Wirtschaftlichkeit</span>
               <span class="suite-tag suite-tag-scenario">Szenarien</span>
             </span>
           </a>
@@ -4197,9 +4231,9 @@
               <p>Unterstützt die Vorbereitung, Analyse und Dokumentation von Meetings. Transkripte, Protokolle, Aufgaben und Entscheidungen werden automatisiert strukturiert bereitgestellt.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-communication">Meetings</span>
-              <span class="suite-tag suite-tag-document">Protokolle</span>
-              <span class="suite-tag suite-tag-decision">Aufgaben</span>
+              <span class="suite-tag suite-tag-meeting">Meetings</span>
+              <span class="suite-tag suite-tag-protocol">Protokolle</span>
+              <span class="suite-tag suite-tag-task">Aufgaben</span>
             </span>
           </a>
 
@@ -4216,8 +4250,8 @@
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-career">Karriere</span>
-              <span class="suite-tag suite-tag-document">Bewerbung</span>
-              <span class="suite-tag suite-tag-decision">Profil</span>
+              <span class="suite-tag suite-tag-application">Bewerbung</span>
+              <span class="suite-tag suite-tag-profile">Positionierung</span>
             </span>
           </a>
 
@@ -4233,9 +4267,9 @@
               <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-productivity">Fokus</span>
-              <span class="suite-tag suite-tag-time">Pomodoro</span>
-              <span class="suite-tag suite-tag-productivity">Kanban</span>
+              <span class="suite-tag suite-tag-focus">Fokus</span>
+              <span class="suite-tag suite-tag-pomodoro">Pomodoro</span>
+              <span class="suite-tag suite-tag-kanban">Kanban</span>
             </span>
           </a>
         </nav>
