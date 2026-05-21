@@ -1380,17 +1380,16 @@
       }
 
       .suite-tag {
-        --tag: #4b6c76;
         position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 188px;
+        width: 212px;
         min-height: 32px;
-        padding: 7px 13px 7px 22px;
+        padding: 7px 13px;
         color: #172026;
         font-size: 0.79rem;
-        font-weight: 850;
+        font-weight: 760;
         letter-spacing: 0.01em;
         text-align: center;
         white-space: nowrap;
@@ -1403,53 +1402,8 @@
       }
 
       .suite-tag::before {
-        content: "";
-        position: absolute;
-        left: 10px;
-        width: 6px;
-        height: 6px;
-        background: var(--tag);
-        border-radius: 999px;
+        display: none;
       }
-
-      .suite-tag-risk { --tag: #a8483e; }
-      .suite-tag-contract { --tag: #65529c; }
-      .suite-tag-clause { --tag: #7f5ca8; }
-      .suite-tag-compliance { --tag: #2f6f56; }
-      .suite-tag-measure { --tag: #5d6fa3; }
-      .suite-tag-report { --tag: #436f8f; }
-      .suite-tag-audit { --tag: #315f9e; }
-      .suite-tag-document { --tag: #247780; }
-      .suite-tag-quality { --tag: #286f9e; }
-      .suite-tag-invoice { --tag: #b87924; }
-      .suite-tag-plausibility { --tag: #2f6f68; }
-      .suite-tag-approval { --tag: #3f7868; }
-      .suite-tag-prompt { --tag: #7d4f9a; }
-      .suite-tag-variant { --tag: #8a5c2c; }
-      .suite-tag-workflow { --tag: #4b6c76; }
-      .suite-tag-output { --tag: #6f5f89; }
-      .suite-tag-summary { --tag: #2f7d58; }
-      .suite-tag-correspondence { --tag: #1f6f8b; }
-      .suite-tag-template { --tag: #60717c; }
-      .suite-tag-language { --tag: #426fb4; }
-      .suite-tag-cost { --tag: #b87924; }
-      .suite-tag-forecast { --tag: #2d6f9e; }
-      .suite-tag-budget { --tag: #9a6b2d; }
-      .suite-tag-simulation { --tag: #8f4f3f; }
-      .suite-tag-uncertainty { --tag: #7a5f3f; }
-      .suite-tag-buffer { --tag: #b45a45; }
-      .suite-tag-investment { --tag: #7a5f3f; }
-      .suite-tag-profitability { --tag: #6f613e; }
-      .suite-tag-scenario { --tag: #8a6f3f; }
-      .suite-tag-meeting { --tag: #2d7a7f; }
-      .suite-tag-protocol { --tag: #436f8f; }
-      .suite-tag-task { --tag: #172026; }
-      .suite-tag-career { --tag: #6f5f89; }
-      .suite-tag-application { --tag: #5d6fa3; }
-      .suite-tag-profile { --tag: #566b63; }
-      .suite-tag-focus { --tag: #425f73; }
-      .suite-tag-pomodoro { --tag: #b86a32; }
-      .suite-tag-kanban { --tag: #2f6f68; }
 
       .suite-row:nth-of-type(1) { --accent: var(--green); }
       .suite-row:nth-of-type(2) { --accent: var(--teal); }
@@ -3158,7 +3112,7 @@
 
         .suite-tag {
           justify-content: center;
-          min-width: 0;
+          width: 100%;
           text-align: center;
         }
 
@@ -4144,9 +4098,9 @@
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-prompt">Prompts verwalten</span>
+              <span class="suite-tag suite-tag-prompt">Prompts &amp; Co. verwalten</span>
               <span class="suite-tag suite-tag-variant">Varianten erzeugen</span>
-              <span class="suite-tag suite-tag-workflow">Workflows strukturieren</span>
+              <span class="suite-tag suite-tag-workflow">Wissensbibliothek anlegen</span>
             </span>
           </a>
 
