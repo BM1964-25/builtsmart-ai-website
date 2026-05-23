@@ -3615,6 +3615,54 @@
         outline: none;
       }
 
+      .scroll-top-button {
+        position: fixed;
+        right: clamp(18px, 2.4vw, 34px);
+        bottom: clamp(18px, 2.8vw, 34px);
+        z-index: 79;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.22), transparent 30%),
+          linear-gradient(145deg, #172026, #05070a);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        box-shadow:
+          0 18px 42px rgba(23, 32, 38, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .scroll-top-button.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .scroll-top-button:hover,
+      .scroll-top-button:focus-visible {
+        transform: translateY(-2px);
+        box-shadow:
+          0 22px 50px rgba(23, 32, 38, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        outline: none;
+      }
+
+      .scroll-top-button svg {
+        width: 21px;
+        height: 21px;
+        stroke-width: 2.4;
+      }
+
       .menu-tile {
         position: relative;
         min-height: 214px;
@@ -4312,6 +4360,13 @@
 
         .cookie-notice button {
           width: 100%;
+        }
+
+        .scroll-top-button {
+          right: 16px;
+          bottom: 16px;
+          width: 44px;
+          height: 44px;
         }
 
         .contact-modal {
@@ -6828,6 +6883,13 @@
       <button type="button" id="cookie-notice-accept">Verstanden</button>
     </aside>
 
+    <button class="scroll-top-button" type="button" aria-label="Zurück zum Seitenanfang">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 19V5"></path>
+        <path d="m5 12 7-7 7 7"></path>
+      </svg>
+    </button>
+
     <script>
       (() => {
         const modal = document.querySelector("#contact-modal");
@@ -6868,6 +6930,23 @@
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape" && !modal.hidden) closeModal();
         });
+      })();
+
+      (() => {
+        const scrollTopButton = document.querySelector(".scroll-top-button");
+        if (!scrollTopButton) return;
+
+        const toggleButton = () => {
+          scrollTopButton.classList.toggle("is-visible", window.scrollY > 720);
+        };
+
+        scrollTopButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", toggleButton, { passive: true });
+        window.addEventListener("pageshow", toggleButton);
+        toggleButton();
       })();
 
       (() => {
