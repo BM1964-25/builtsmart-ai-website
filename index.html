@@ -2383,6 +2383,7 @@
       .bundle-time-benefits {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
         gap: 14px;
         margin-top: 12px;
         padding: 18px;
@@ -2413,6 +2414,10 @@
 
       .bundle-time-benefit {
         position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+        min-height: 96px;
         padding-left: 16px;
         border-left: 1px solid rgba(36, 119, 128, 0.24);
       }
