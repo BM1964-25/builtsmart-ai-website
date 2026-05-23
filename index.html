@@ -3411,8 +3411,40 @@
         fill: currentColor;
       }
 
-      .footer-social a[aria-label="Spotify"] svg path {
+      .footer-social a[aria-label="Spotify"] {
+        color: #1db954;
+      }
+
+      .footer-social a[aria-label="Spotify"]:hover,
+      .footer-social a[aria-label="Spotify"]:focus-visible {
+        color: #ffffff;
+        background: #1db954;
+      }
+
+      .footer-social a[aria-label="Spotify"] svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      .footer-social a[aria-label="Spotify"] .spotify-mark {
         fill: currentColor;
+      }
+
+      .footer-social a[aria-label="Spotify"] .spotify-wave {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 1.55;
+        stroke-linecap: round;
+      }
+
+      .footer-social a[aria-label="Spotify"]:hover .spotify-mark,
+      .footer-social a[aria-label="Spotify"]:focus-visible .spotify-mark {
+        fill: #ffffff;
+      }
+
+      .footer-social a[aria-label="Spotify"]:hover .spotify-wave,
+      .footer-social a[aria-label="Spotify"]:focus-visible .spotify-wave {
+        stroke: #1db954;
       }
 
       .footer-links {
@@ -6905,7 +6937,10 @@
           </a>
           <a href="https://open.spotify.com/show/3l5T4RcPwkejP6mS3p5238" aria-label="Spotify" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 1.8C6.38 1.8 1.8 6.38 1.8 12S6.38 22.2 12 22.2 22.2 17.62 22.2 12 17.62 1.8 12 1.8Zm4.68 14.72a.64.64 0 0 1-.88.21c-2.4-1.47-5.43-1.8-8.99-.99a.64.64 0 1 1-.29-1.25c3.9-.89 7.25-.5 9.95 1.16.3.18.4.58.21.87Zm1.25-2.78a.8.8 0 0 1-1.1.26c-2.75-1.69-6.95-2.18-10.2-1.19a.8.8 0 0 1-.46-1.53c3.72-1.13 8.35-.58 11.5 1.35.38.24.5.73.26 1.11Zm.11-2.9c-3.3-1.96-8.75-2.14-11.9-1.18a.96.96 0 1 1-.56-1.84c3.62-1.1 9.64-.89 13.44 1.37a.96.96 0 1 1-.98 1.65Z"></path>
+              <circle class="spotify-mark" cx="12" cy="12" r="10"></circle>
+              <path class="spotify-wave" d="M7.15 9.25c3.35-1.02 7.06-.72 9.96.92"></path>
+              <path class="spotify-wave" d="M7.62 12.12c2.62-.77 5.72-.5 8.05.87"></path>
+              <path class="spotify-wave" d="M8.08 14.78c2.08-.58 4.38-.36 6.12.66"></path>
             </svg>
           </a>
         </nav>
