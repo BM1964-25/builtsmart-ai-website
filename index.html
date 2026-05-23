@@ -2938,28 +2938,22 @@
         display: grid;
         min-height: 238px;
         place-items: center;
-        padding: 24px;
+        padding: 26px;
         color: #ffffff;
         background:
           linear-gradient(145deg, color-mix(in srgb, var(--book-accent) 82%, #172026), #172026);
       }
 
-      .book-cover-placeholder {
-        display: grid;
-        width: min(180px, 72%);
+      .book-cover img {
+        display: block;
+        width: min(190px, 74%);
         aspect-ratio: 0.68;
-        place-items: center;
-        padding: 18px;
-        text-align: center;
-        color: #172026;
+        object-fit: cover;
         background: #ffffff;
         border: 1px solid rgba(255, 255, 255, 0.72);
-        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
-      }
-
-      .book-cover-placeholder strong {
-        font-size: clamp(1.05rem, 1.5vw, 1.28rem);
-        line-height: 1.12;
+        box-shadow:
+          0 18px 42px rgba(0, 0, 0, 0.24),
+          0 0 0 8px rgba(255, 255, 255, 0.06);
       }
 
       .book-copy {
@@ -6600,11 +6594,9 @@
         </div>
 
         <div class="book-grid" aria-label="Ausgewählte Fachbücher">
-          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #315f9e;">
-            <span class="book-cover" aria-hidden="true">
-              <span class="book-cover-placeholder">
-                <strong>KI &amp; Robotik<br>im Bauwesen</strong>
-              </span>
+          <a class="book-card" href="https://shop.tredition.com/booktitle/KI__Robotik_im_Bauwesen/W-551-260-755" target="_blank" rel="noopener noreferrer" style="--book-accent: #315f9e;">
+            <span class="book-cover">
+              <img src="assets/books/ki-robotik-im-bauwesen.jpeg" alt="Buchcover KI und Robotik im Bauwesen">
             </span>
             <span class="book-copy">
               <h3>KI &amp; Robotik im Bauwesen</h3>
@@ -6617,11 +6609,9 @@
             <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
           </a>
 
-          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #b87924;">
-            <span class="book-cover" aria-hidden="true">
-              <span class="book-cover-placeholder">
-                <strong>Die<br>KI-Revolution</strong>
-              </span>
+          <a class="book-card" href="https://shop.tredition.com/booktitle/Die_KI-Revolution/W-307-842-452" target="_blank" rel="noopener noreferrer" style="--book-accent: #b87924;">
+            <span class="book-cover">
+              <img src="assets/books/die-ki-revolution.jpeg" alt="Buchcover Die KI-Revolution">
             </span>
             <span class="book-copy">
               <h3>Die KI-Revolution</h3>
@@ -6634,11 +6624,9 @@
             <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
           </a>
 
-          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #65529c;">
-            <span class="book-cover" aria-hidden="true">
-              <span class="book-cover-placeholder">
-                <strong>KI verstehen,<br>anwenden,<br>profitieren</strong>
-              </span>
+          <a class="book-card" href="https://shop.tredition.com/booktitle/KI_verstehen_anwenden_profitieren/W-133-457-583" target="_blank" rel="noopener noreferrer" style="--book-accent: #65529c;">
+            <span class="book-cover">
+              <img src="assets/books/ki-verstehen-anwenden-profitieren.jpeg" alt="Buchcover KI verstehen, anwenden, profitieren">
             </span>
             <span class="book-copy">
               <h3>KI verstehen, anwenden, profitieren</h3>
