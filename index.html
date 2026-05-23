@@ -2936,24 +2936,58 @@
 
       .book-cover {
         display: grid;
+        position: relative;
+        overflow: hidden;
         min-height: 238px;
         place-items: center;
         padding: 26px;
         color: #ffffff;
         background:
-          linear-gradient(145deg, color-mix(in srgb, var(--book-accent) 82%, #172026), #172026);
+          radial-gradient(circle at 50% 22%, color-mix(in srgb, var(--book-accent) 46%, #ffffff) 0, transparent 34%),
+          linear-gradient(145deg, color-mix(in srgb, var(--book-accent) 72%, #172026), #111922 72%);
+        isolation: isolate;
+      }
+
+      .book-cover::before,
+      .book-cover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .book-cover::before {
+        z-index: -2;
+        background-image: var(--book-bg);
+        background-position: center;
+        background-size: cover;
+        filter: blur(18px) saturate(1.08);
+        opacity: 0.38;
+        transform: scale(1.16);
+      }
+
+      .book-cover::after {
+        z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 28%),
+          linear-gradient(145deg, rgba(8, 12, 16, 0.14), rgba(8, 12, 16, 0.56)),
+          radial-gradient(circle at 50% 52%, transparent 0 34%, rgba(8, 12, 16, 0.34) 74%);
       }
 
       .book-cover img {
         display: block;
+        position: relative;
+        z-index: 1;
         width: min(190px, 74%);
         aspect-ratio: 0.68;
         object-fit: cover;
         background: #ffffff;
         border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 2px;
         box-shadow:
-          0 18px 42px rgba(0, 0, 0, 0.24),
-          0 0 0 8px rgba(255, 255, 255, 0.06);
+          0 20px 44px rgba(0, 0, 0, 0.3),
+          0 0 0 8px rgba(255, 255, 255, 0.075),
+          0 0 34px color-mix(in srgb, var(--book-accent) 26%, transparent);
       }
 
       .book-copy {
@@ -6594,7 +6628,7 @@
         </div>
 
         <div class="book-grid" aria-label="Ausgewählte Fachbücher">
-          <a class="book-card" href="https://shop.tredition.com/booktitle/KI__Robotik_im_Bauwesen/W-551-260-755" target="_blank" rel="noopener noreferrer" style="--book-accent: #315f9e;">
+          <a class="book-card" href="https://shop.tredition.com/booktitle/KI__Robotik_im_Bauwesen/W-551-260-755" target="_blank" rel="noopener noreferrer" style="--book-accent: #315f9e; --book-bg: url('assets/books/ki-robotik-im-bauwesen.jpeg');">
             <span class="book-cover">
               <img src="assets/books/ki-robotik-im-bauwesen.jpeg" alt="Buchcover KI und Robotik im Bauwesen">
             </span>
@@ -6609,7 +6643,7 @@
             <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
           </a>
 
-          <a class="book-card" href="https://shop.tredition.com/booktitle/Die_KI-Revolution/W-307-842-452" target="_blank" rel="noopener noreferrer" style="--book-accent: #b87924;">
+          <a class="book-card" href="https://shop.tredition.com/booktitle/Die_KI-Revolution/W-307-842-452" target="_blank" rel="noopener noreferrer" style="--book-accent: #c66827; --book-bg: url('assets/books/die-ki-revolution.jpeg');">
             <span class="book-cover">
               <img src="assets/books/die-ki-revolution.jpeg" alt="Buchcover Die KI-Revolution">
             </span>
@@ -6624,7 +6658,7 @@
             <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
           </a>
 
-          <a class="book-card" href="https://shop.tredition.com/booktitle/KI_verstehen_anwenden_profitieren/W-133-457-583" target="_blank" rel="noopener noreferrer" style="--book-accent: #65529c;">
+          <a class="book-card" href="https://shop.tredition.com/booktitle/KI_verstehen_anwenden_profitieren/W-133-457-583" target="_blank" rel="noopener noreferrer" style="--book-accent: #c30b78; --book-bg: url('assets/books/ki-verstehen-anwenden-profitieren.jpeg');">
             <span class="book-cover">
               <img src="assets/books/ki-verstehen-anwenden-profitieren.jpeg" alt="Buchcover KI verstehen, anwenden, profitieren">
             </span>
