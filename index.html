@@ -2870,8 +2870,167 @@
         font-weight: 500;
       }
 
+      .books-section {
+        order: 22;
+        margin-top: clamp(56px, 7vw, 88px);
+        padding: 0;
+      }
+
+      .books-section .section-heading {
+        max-width: 980px;
+        margin-bottom: clamp(28px, 4vw, 44px);
+        padding-left: 0;
+      }
+
+      .books-section .section-heading h2 {
+        max-width: 920px;
+        color: #05050f;
+        font-size: clamp(2.65rem, 5vw, 4.35rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .books-section .section-heading p:not(.eyebrow) {
+        max-width: 920px;
+        margin-top: clamp(22px, 3.8vw, 38px);
+        color: #080811;
+        font-size: clamp(1.2rem, 2vw, 1.56rem);
+        line-height: 1.3;
+      }
+
+      .book-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .book-card {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 560px;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 249, 0.94));
+        border: 1px solid rgba(210, 216, 222, 0.95);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.96),
+          0 18px 52px rgba(23, 32, 38, 0.07);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .book-card:hover,
+      .book-card:focus-visible {
+        transform: translateY(-5px);
+        border-color: rgba(23, 32, 38, 0.24);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.96),
+          0 26px 70px rgba(23, 32, 38, 0.12);
+        outline: none;
+      }
+
+      .book-cover {
+        display: grid;
+        min-height: 238px;
+        place-items: center;
+        padding: 24px;
+        color: #ffffff;
+        background:
+          linear-gradient(145deg, color-mix(in srgb, var(--book-accent) 82%, #172026), #172026);
+      }
+
+      .book-cover-placeholder {
+        display: grid;
+        width: min(180px, 72%);
+        aspect-ratio: 0.68;
+        place-items: center;
+        padding: 18px;
+        text-align: center;
+        color: #172026;
+        background: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+      }
+
+      .book-cover-placeholder strong {
+        font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+        line-height: 1.12;
+      }
+
+      .book-copy {
+        padding: 24px 24px 10px;
+      }
+
+      .book-copy h3 {
+        margin: 0;
+        color: #05050f;
+        font-size: clamp(1.32rem, 2vw, 1.72rem);
+        line-height: 1.12;
+      }
+
+      .book-copy p {
+        margin: 12px 0 0;
+        color: #56616b;
+        font-size: 0.98rem;
+        line-height: 1.52;
+      }
+
+      .book-points {
+        display: grid;
+        gap: 8px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .book-points li {
+        position: relative;
+        padding-left: 18px;
+        color: #26323a;
+        font-size: 0.94rem;
+        line-height: 1.42;
+      }
+
+      .book-points li::before {
+        content: "";
+        position: absolute;
+        top: 0.62em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        background: var(--book-accent);
+        border-radius: 50%;
+      }
+
+      .book-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 14px 24px 24px;
+        padding-top: 16px;
+        color: color-mix(in srgb, var(--book-accent) 78%, #172026);
+        font-size: 0.9rem;
+        font-weight: 760;
+        border-top: 1px solid rgba(210, 216, 222, 0.95);
+      }
+
+      .book-action span {
+        transition: transform 170ms ease;
+      }
+
+      .book-card:hover .book-action span,
+      .book-card:focus-visible .book-action span {
+        transform: translateX(4px);
+      }
+
       .final-cta {
-        order: 23;
+        order: 24;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-top: clamp(64px, 9vw, 118px);
@@ -2881,7 +3040,7 @@
       }
 
       .founder-section {
-        order: 22;
+        order: 23;
         margin-top: clamp(64px, 8vw, 104px);
       }
 
@@ -3687,6 +3846,7 @@
 
         .tile-grid,
         .benefit-grid,
+        .book-grid,
         .service-grid,
         .service-process,
         .service-pillars,
@@ -3850,6 +4010,7 @@
 
         .tile-grid,
         .benefit-grid,
+        .book-grid,
         .service-grid,
         .service-process,
         .service-pillars,
@@ -4135,7 +4296,7 @@
         <p class="site-tagline">Prozesse strukturieren. Risiken erkennen. Entscheidungen verbessern.</p>
 
         <nav class="site-nav" aria-label="Hauptnavigation">
-          <a href="#apps-title">Apps</a>
+          <a href="#apps-title">KI-Anwendungen</a>
           <a href="#leistungen">Leistungen</a>
           <a href="#roi-title">ROI Rechner</a>
           <a href="#datenschutz-sicherheit">Sicherheit</a>
@@ -6426,6 +6587,70 @@
           <strong>Wissen. Erfahrung, KI. Für die Bau- und Immobilienwirtschaft.</strong>
           <span>BuiltSmart Hub - KI-Lösungen für bessere Entscheidungen und nachhaltigen Erfolg.</span>
         </p>
+      </section>
+
+      <section class="books-section" id="fachbuecher" aria-labelledby="books-title">
+        <div class="section-heading">
+          <p class="eyebrow">Fachwissen</p>
+          <h2 id="books-title">Ausgewählte Bücher zur digitalen Transformation.</h2>
+          <p>
+            Die Bücher ergänzen die Softwarelösungen um praxisnahes Wissen zu
+            KI, Robotik, digitalen Prozessen und produktivem KI-Einsatz.
+          </p>
+        </div>
+
+        <div class="book-grid" aria-label="Ausgewählte Fachbücher">
+          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #315f9e;">
+            <span class="book-cover" aria-hidden="true">
+              <span class="book-cover-placeholder">
+                <strong>KI &amp; Robotik<br>im Bauwesen</strong>
+              </span>
+            </span>
+            <span class="book-copy">
+              <h3>KI &amp; Robotik im Bauwesen</h3>
+              <p>Digitale Planung, smarte Baustellen und intelligente Gebäude.</p>
+              <ul class="book-points">
+                <li>KI und Robotik als Zukunftstreiber der Bauwirtschaft verstehen.</li>
+                <li>Praxisnahe Impulse für effizienteres und sichereres Bauen.</li>
+              </ul>
+            </span>
+            <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #b87924;">
+            <span class="book-cover" aria-hidden="true">
+              <span class="book-cover-placeholder">
+                <strong>Die<br>KI-Revolution</strong>
+              </span>
+            </span>
+            <span class="book-copy">
+              <h3>Die KI-Revolution</h3>
+              <p>Wie Künstliche Intelligenz unsere Zukunft verändert und wie man davon profitiert.</p>
+              <ul class="book-points">
+                <li>Grundlagen, Chancen und Anwendungen verständlich einordnen.</li>
+                <li>Technologischen Wandel für Beruf und Business nutzbar machen.</li>
+              </ul>
+            </span>
+            <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="book-card" href="https://www.tredition.de" target="_blank" rel="noopener noreferrer" style="--book-accent: #65529c;">
+            <span class="book-cover" aria-hidden="true">
+              <span class="book-cover-placeholder">
+                <strong>KI verstehen,<br>anwenden,<br>profitieren</strong>
+              </span>
+            </span>
+            <span class="book-copy">
+              <h3>KI verstehen, anwenden, profitieren</h3>
+              <p>Praxiswissen, Prompts und Strategien für den erfolgreichen KI-Einsatz im Alltag und Beruf.</p>
+              <ul class="book-points">
+                <li>KI-Nutzung strukturierter, souveräner und praxistauglicher gestalten.</li>
+                <li>Prompt-Vorlagen und Strategien als persönliche Arbeitsbasis nutzen.</li>
+              </ul>
+            </span>
+            <span class="book-action">Zum Tredition-Shop <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
       </section>
 
 
