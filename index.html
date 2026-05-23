@@ -2230,6 +2230,38 @@
         line-height: 1.05;
       }
 
+      .bundle-time-benefits {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+        padding: 14px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 249, 0.98));
+        border: 1px solid rgba(23, 32, 38, 0.08);
+        border-radius: 8px;
+      }
+
+      .bundle-time-benefits span {
+        position: relative;
+        padding-left: 18px;
+        color: #2f3a40;
+        font-size: 0.88rem;
+        line-height: 1.35;
+      }
+
+      .bundle-time-benefits span::before {
+        content: "";
+        position: absolute;
+        top: 0.62em;
+        left: 0;
+        width: 7px;
+        height: 7px;
+        background: #247780;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(36, 119, 128, 0.1);
+      }
+
       .bundle-note {
         margin: 14px 0 0;
         color: var(--muted);
@@ -3602,6 +3634,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .bundle-time-benefits {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .expertise-strip {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -3824,6 +3860,10 @@
 
         .bundle-apps,
         .bundle-roi-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .bundle-time-benefits {
           grid-template-columns: 1fr;
         }
 
@@ -6213,6 +6253,13 @@
               <span>ROI Beispiel</span>
               <strong>1.703%</strong>
             </div>
+          </div>
+
+          <div class="bundle-time-benefits" aria-label="Was die gewonnene Zeit ermöglicht">
+            <span>Mehr fachliche Arbeit statt Routineaufgaben</span>
+            <span>Schnellere Dokumentation, Prüfungen und Auswertungen</span>
+            <span>Bessere Entscheidungsgrundlagen für Führungskräfte</span>
+            <span>Mehr Kapazität für Wachstum, Kunden, Projekte und Qualität</span>
           </div>
 
           <p class="bundle-note">
