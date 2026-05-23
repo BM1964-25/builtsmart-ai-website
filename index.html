@@ -803,52 +803,50 @@
         font-weight: 850;
       }
 
-      .service-pillars {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 12px;
-        margin-bottom: 16px;
+      .service-focus {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 24px;
       }
 
-      .service-pillar {
+      .service-focus-item {
         --accent: var(--green);
         position: relative;
-        min-height: 126px;
-        padding: 20px 20px 20px 22px;
+        flex: 1 1 260px;
+        min-height: 0;
+        padding: 16px 18px 16px 20px;
         overflow: hidden;
         background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72)),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0 76%, color-mix(in srgb, var(--accent) 8%, #ffffff) 76% 100%);
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 249, 0.84)),
+          linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, #ffffff), rgba(255, 255, 255, 0.92));
         border: 1px solid rgba(211, 219, 214, 0.92);
         border-radius: 8px;
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.96),
-          0 14px 34px rgba(23, 32, 38, 0.055);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96);
       }
 
-      .service-pillar::before {
+      .service-focus-item::before {
         content: "";
         position: absolute;
         inset: 0 auto 0 0;
-        width: 4px;
+        width: 3px;
         background: var(--accent);
       }
 
-      .service-pillar::after {
+      .service-focus-item::after {
         content: "";
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(132deg, transparent 0 66%, rgba(255, 255, 255, 0.72) 66.2% 66.8%, transparent 67%),
-          radial-gradient(circle at 92% 12%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 28%);
+          linear-gradient(132deg, transparent 0 72%, rgba(255, 255, 255, 0.68) 72.2% 72.8%, transparent 73%);
         pointer-events: none;
       }
 
-      .service-pillar span {
+      .service-focus-item span {
         position: relative;
         z-index: 1;
         display: inline-flex;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         color: color-mix(in srgb, var(--accent) 72%, #247780);
         font-size: 0.74rem;
         font-weight: 820;
@@ -856,26 +854,18 @@
         text-transform: uppercase;
       }
 
-      .service-pillar h3 {
+      .service-focus-item strong {
         position: relative;
         z-index: 1;
-        margin: 0 0 8px;
-        font-size: clamp(1.16rem, 1.8vw, 1.42rem);
-        line-height: 1.12;
+        display: block;
+        color: #172026;
+        font-size: clamp(1rem, 1.35vw, 1.16rem);
+        line-height: 1.18;
       }
 
-      .service-pillar p {
-        position: relative;
-        z-index: 1;
-        margin: 0;
-        color: #5d6872;
-        font-size: 0.94rem;
-        line-height: 1.48;
-      }
-
-      .service-pillar:nth-child(1) { --accent: var(--green); }
-      .service-pillar:nth-child(2) { --accent: var(--blue); }
-      .service-pillar:nth-child(3) { --accent: var(--teal); }
+      .service-focus-item:nth-child(1) { --accent: var(--green); }
+      .service-focus-item:nth-child(2) { --accent: var(--blue); }
+      .service-focus-item:nth-child(3) { --accent: var(--teal); }
 
       .service-grid {
         display: grid;
@@ -995,31 +985,84 @@
         border-color: #ffffff;
       }
 
-      .service-process {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-        margin: 18px 0 0;
-      }
-
-      .service-step {
-        position: relative;
-        min-height: 112px;
-        padding: 18px;
+      .service-process-block {
+        margin-top: clamp(26px, 4vw, 42px);
+        padding: clamp(22px, 3.2vw, 32px);
         background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 249, 0.78));
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 249, 0.92));
         border: 1px solid rgba(213, 220, 216, 0.9);
         border-radius: 8px;
       }
 
-      .service-step span {
-        display: block;
-        margin-bottom: 10px;
+      .service-process-head {
+        display: grid;
+        gap: 8px;
+        max-width: 760px;
+      }
+
+      .service-process-head span {
         color: #247780;
-        font-size: 0.72rem;
-        font-weight: 840;
+        font-size: 0.78rem;
+        font-weight: 820;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .service-process-head h3 {
+        margin: 0;
+        color: #172026;
+        font-size: clamp(1.45rem, 2.2vw, 2rem);
+        line-height: 1.08;
+      }
+
+      .service-process-head p {
+        margin: 0;
+        color: #56616b;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .service-process {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        margin: clamp(22px, 3vw, 30px) 0 0;
+      }
+
+      .service-process::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        right: 10%;
+        left: 10%;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(36, 119, 128, 0.22), rgba(49, 95, 158, 0.2));
+      }
+
+      .service-step {
+        position: relative;
+        z-index: 1;
+        min-height: 0;
+        padding: 0 22px 0 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .service-step span {
+        display: inline-grid;
+        min-width: 40px;
+        height: 40px;
+        place-items: center;
+        margin: 0 0 14px;
+        color: #ffffff;
+        background: #172026;
+        border-radius: 999px;
+        box-shadow: 0 12px 28px rgba(23, 32, 38, 0.15);
+        font-size: 0.72rem;
+        font-weight: 840;
+        letter-spacing: 0.02em;
       }
 
       .service-step strong {
@@ -3969,11 +4012,14 @@
         .book-grid,
         .service-grid,
         .service-process,
-        .service-pillars,
         .audience-grid,
         .neutral-grid,
         .app-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .service-process::before {
+          display: none;
         }
 
         .suite-row {
@@ -4133,12 +4179,19 @@
         .book-grid,
         .service-grid,
         .service-process,
-        .service-pillars,
         .audience-grid,
         .neutral-grid,
         .app-grid {
           grid-template-columns: 1fr;
           gap: 12px;
+        }
+
+        .service-process::before {
+          display: none;
+        }
+
+        .service-step {
+          padding-right: 0;
         }
 
         .services-cta {
@@ -4639,21 +4692,18 @@
           </p>
         </div>
 
-        <div class="service-pillars" aria-label="Leistungslogik">
-          <article class="service-pillar">
+        <div class="service-focus" aria-label="Leistungslogik">
+          <article class="service-focus-item">
             <span>Automatisieren</span>
-            <h3>Wiederkehrende Arbeitsschritte reduzieren.</h3>
-            <p>Routinen, Übergaben und Datenflüsse werden so gestaltet, dass Teams schneller und strukturierter arbeiten.</p>
+            <strong>Wiederkehrende Arbeitsschritte reduzieren.</strong>
           </article>
-          <article class="service-pillar">
+          <article class="service-focus-item">
             <span>Assistieren</span>
-            <h3>Fachliche Unterstützung direkt im Prozess.</h3>
-            <p>AI-Agenten und Chatbots helfen bei Recherche, Vorprüfung, Dokumentation und klaren Auskünften.</p>
+            <strong>Fachliche Unterstützung direkt im Prozess.</strong>
           </article>
-          <article class="service-pillar">
+          <article class="service-focus-item">
             <span>Entwickeln</span>
-            <h3>Digitale Werkzeuge für besondere Anforderungen.</h3>
-            <p>Individuelle Web-Apps und interne Tools werden auf konkrete Abläufe, Daten und Entscheidungswege zugeschnitten.</p>
+            <strong>Digitale Werkzeuge für besondere Anforderungen.</strong>
           </article>
         </div>
 
@@ -4747,27 +4797,35 @@
           </article>
         </div>
 
-        <div class="service-process" aria-label="Vorgehen">
-          <article class="service-step">
-            <span>01 Analyse</span>
-            <strong>Idee und Anforderung klären</strong>
-            <p>Prozess, Ziel, Datenlage und Nutzen werden gemeinsam eingeordnet.</p>
-          </article>
-          <article class="service-step">
-            <span>02 Konzept</span>
-            <strong>Schlanke Lösung entwerfen</strong>
-            <p>Aus Anforderungen entsteht ein klarer Ablauf für Tool, Agent oder Automatisierung.</p>
-          </article>
-          <article class="service-step">
-            <span>03 Prototyp</span>
-            <strong>Schnell nutzbar machen</strong>
-            <p>Ein erster Stand zeigt früh, wie die Anwendung im Alltag wirkt.</p>
-          </article>
-          <article class="service-step">
-            <span>04 Ausbau</span>
-            <strong>Gezielt verbessern</strong>
-            <p>Funktionen, Bedienung und Ergebnisse werden praxisnah weiterentwickelt.</p>
-          </article>
+        <div class="service-process-block">
+          <div class="service-process-head">
+            <span>Vorgehen</span>
+            <h3>Von der Idee zur nutzbaren Lösung.</h3>
+            <p>Der Prozess bleibt schlank: erst verstehen, dann strukturieren, schnell sichtbar machen und gezielt verbessern.</p>
+          </div>
+
+          <div class="service-process" aria-label="Vorgehen">
+            <article class="service-step">
+              <span>01</span>
+              <strong>Idee und Anforderung klären</strong>
+              <p>Prozess, Ziel, Datenlage und Nutzen werden gemeinsam eingeordnet.</p>
+            </article>
+            <article class="service-step">
+              <span>02</span>
+              <strong>Schlanke Lösung entwerfen</strong>
+              <p>Aus Anforderungen entsteht ein klarer Ablauf für Tool, Agent oder Automatisierung.</p>
+            </article>
+            <article class="service-step">
+              <span>03</span>
+              <strong>Schnell nutzbar machen</strong>
+              <p>Ein erster Stand zeigt früh, wie die Anwendung im Alltag wirkt.</p>
+            </article>
+            <article class="service-step">
+              <span>04</span>
+              <strong>Gezielt verbessern</strong>
+              <p>Funktionen, Bedienung und Ergebnisse werden praxisnah weiterentwickelt.</p>
+            </article>
+          </div>
         </div>
 
         <div class="services-cta">
