@@ -115,14 +115,14 @@
 
       .site-header__inner {
         width: min(1180px, calc(100% - 32px));
-        min-height: 260px;
+        min-height: 248px;
         margin: 0 auto;
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         grid-template-rows: auto auto auto;
         gap: 0 28px;
         align-items: start;
-        padding: clamp(28px, 4.2vw, 50px) 0 20px;
+        padding: clamp(28px, 4.2vw, 50px) 0 22px;
       }
 
       .brand {
@@ -153,7 +153,7 @@
         grid-column: 1;
         grid-row: 2;
         max-width: 760px;
-        margin: 22px 0 0;
+        margin: 20px 0 0;
         color: #5a5b60;
         font-size: clamp(1.08rem, 1.7vw, 1.32rem);
         line-height: 1.35;
@@ -168,23 +168,29 @@
         max-width: 100%;
         align-items: center;
         justify-content: flex-start;
-        gap: clamp(18px, 2.5vw, 30px);
-        margin-top: 24px;
+        gap: clamp(18px, 2.4vw, 28px);
+        margin-top: 20px;
       }
 
       .site-nav a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
         color: #36383b;
         font-size: 0.9rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
+        line-height: 1;
+        font-weight: 680;
+        letter-spacing: 0.035em;
+        padding: 9px 0;
         text-transform: uppercase;
         text-decoration: none;
-        transition: color 160ms ease;
+        transition: color 160ms ease, opacity 160ms ease;
       }
 
       .site-nav a:hover,
       .site-nav a:focus-visible {
         color: var(--ink);
+        opacity: 0.78;
         outline: none;
       }
 
@@ -193,23 +199,23 @@
         grid-column: 2;
         grid-row: 3;
         min-width: 0;
-        margin-top: 14px;
+        margin-top: 16px;
         padding-top: 0;
         align-items: center;
         justify-content: flex-end;
       }
 
       .header-actions .button {
-        min-height: 38px;
-        padding: 0 14px;
+        min-height: 40px;
+        padding: 0 16px;
         font-size: 0.78rem;
-        font-weight: 800;
+        font-weight: 780;
       }
 
       .header-actions .button-dark {
         color: #172026;
-        background: rgba(255, 255, 255, 0.62);
-        border-color: rgba(23, 32, 38, 0.18);
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(23, 32, 38, 0.22);
         box-shadow: none;
       }
 
@@ -2250,6 +2256,15 @@
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      .bundle-time-intro {
+        grid-column: 1 / -1;
+        max-width: 820px;
+        margin: -2px 0 2px;
+        color: #2f3a40;
+        font-size: 0.94rem;
+        line-height: 1.45;
       }
 
       .bundle-time-benefit {
@@ -5184,8 +5199,8 @@
               <span>Verträge &amp; Risiken</span>
             </div>
             <p class="impact-benefit">
-              Erhöht <strong>Prüfbarkeit</strong> und macht kritische Klauseln,
-              Risiken und Handlungsfelder schneller sichtbar.
+              Macht <strong>kritische Klauseln</strong>, Risiken und
+              Handlungsfelder schneller sichtbar und erhöht die Prüfbarkeit.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 82;"></span><span class="impact-level">hoch</span></span>
@@ -5200,8 +5215,8 @@
               <span>Risiko &amp; Maßnahmen</span>
             </div>
             <p class="impact-benefit">
-              Strukturiert qualitative und quantitative Risiken,
-              Verantwortlichkeiten, Maßnahmen und Berichte.
+              Strukturiert <strong>Risiken und Maßnahmen</strong> inklusive
+              Bewertung, Verantwortlichkeiten, Nachverfolgung und Bericht.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 78;"></span><span class="impact-level">hoch</span></span>
@@ -5232,7 +5247,7 @@
               <span>Rechnung &amp; Plausibilität</span>
             </div>
             <p class="impact-benefit">
-              Unterstützt schnelle Plausibilitätsprüfungen,
+              Unterstützt schnelle <strong>Plausibilitätsprüfungen</strong>,
               transparente Freigaben und nachvollziehbare Prüfvermerke.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
@@ -5264,8 +5279,8 @@
               <span>Promptqualität</span>
             </div>
             <p class="impact-benefit">
-              Verbessert die Qualität von KI-Anfragen und schafft eine lokale
-              Prompt-Bibliothek für konsistente Ergebnisse.
+              Verbessert <strong>KI-Ergebnisse</strong> durch professionellere
+              Prompts und eine lokale Bibliothek für konsistente Anfragen.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
@@ -5281,7 +5296,7 @@
             </div>
             <p class="impact-benefit">
               Verdichtet Dokumente und Inhalte anhand individueller
-              Ausgabeprofile zu präzisen Arbeits- und Entscheidungsgrundlagen.
+              Ausgabeprofile zu präzisen <strong>Entscheidungsgrundlagen</strong>.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
@@ -5296,7 +5311,7 @@
               <span>Kommunikation</span>
             </div>
             <p class="impact-benefit">
-              Beschleunigt geschäftliche und private Kommunikation mit
+              Beschleunigt <strong>geschäftliche und private Kommunikation</strong> mit
               Vorlagen, Stilprofilen, Antwortparametern und Mehrsprachigkeit.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
@@ -5312,8 +5327,8 @@
               <span>Kosten &amp; Bandbreiten</span>
             </div>
             <p class="impact-benefit">
-              Macht Budgetbandbreiten, Erwartungswerte und Unsicherheiten in
-              frühen Projektphasen nachvollziehbar.
+              Macht <strong>Budgetbandbreiten</strong>, Erwartungswerte und
+              Unsicherheiten in frühen Projektphasen nachvollziehbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 72;"></span><span class="impact-level">hoch</span></span>
@@ -5328,8 +5343,8 @@
               <span>Szenarien &amp; Puffer</span>
             </div>
             <p class="impact-benefit">
-              Quantifiziert Kosten-, Termin- und Investitionsrisiken und macht
-              Puffer, Wahrscheinlichkeiten und Auswirkungen greifbar.
+              Macht <strong>Risiken quantifizierbar</strong> und zeigt Puffer,
+              Wahrscheinlichkeiten und Auswirkungen datenbasiert auf.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 70;"></span><span class="impact-level">hoch</span></span>
@@ -5345,7 +5360,8 @@
             </div>
             <p class="impact-benefit">
               Unterstützt Investitions-, CapEx- und
-              Wirtschaftlichkeitsentscheidungen durch vergleichbare Szenarien.
+              <strong>Wirtschaftlichkeitsentscheidungen</strong> durch
+              vergleichbare Szenarien.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 74;"></span><span class="impact-level">hoch</span></span>
@@ -5361,7 +5377,8 @@
             </div>
             <p class="impact-benefit">
               Strukturiert Vorbereitung, Protokolle, Aufgaben und
-              Entscheidungen und reduziert Reibungsverluste in Abstimmungen.
+              Entscheidungen und reduziert Reibungsverluste in
+              <strong>Abstimmungen</strong>.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
@@ -5376,7 +5393,7 @@
               <span>Karriere &amp; Positionierung</span>
             </div>
             <p class="impact-benefit">
-              Unterstützt Stellenanalyse, Positionierung,
+              Unterstützt Stellenanalyse, <strong>Positionierung</strong>,
               Bewerbungsunterlagen und Interviewvorbereitung strukturiert.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
@@ -5393,7 +5410,7 @@
             </div>
             <p class="impact-benefit">
               Stärkt Tagesplanung, Kanban, Pomodoro, Priorisierung und
-              konzentrierte Umsetzung im Arbeitsalltag.
+              <strong>konzentrierte Umsetzung</strong> im Arbeitsalltag.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
@@ -6267,8 +6284,20 @@
             </div>
           </div>
 
+          <p class="bundle-note">
+            Beispielrechnung: 1 Nutzer, 30 Minuten Zeitersparnis pro Arbeitstag,
+            20 Arbeitstage pro Monat und 75 € interner Stundensatz. Daraus
+            entsteht ein Jahreswert von ca. 9.000 €. Der Netto-Nutzen ergibt
+            sich aus dem Jahreswert abzüglich des jährlichen Bundlepreises. Der
+            tatsächliche Effekt hängt vom konkreten Einsatz ab.
+          </p>
+
           <div class="bundle-time-benefits" aria-label="Was die gewonnene Zeit ermöglicht">
             <p class="bundle-time-title">Was die gewonnene Zeit ermöglicht</p>
+            <p class="bundle-time-intro">
+              Zeitgewinn bedeutet nicht Personalabbau, sondern zusätzliche
+              operative Kapazität.
+            </p>
             <div class="bundle-time-benefit">
               <strong>Fachliche Arbeit</strong>
               <span>Mehr Zeit für inhaltliche Aufgaben statt wiederkehrender Routine.</span>
@@ -6286,16 +6315,6 @@
               <span>Teams können Wachstum, Kunden, Projekte und Qualität besser bewältigen.</span>
             </div>
           </div>
-
-          <p class="bundle-note">
-            Beispielrechnung: 1 Nutzer, 30 Minuten Zeitersparnis pro Arbeitstag,
-            20 Arbeitstage pro Monat, interner Stundensatz 75 € netto. Jahreswert:
-            ca. 120 eingesparte Stunden × 75 €. Netto-Nutzen: Jahreswert abzüglich
-            jährlichem Bundlepreis. Der tatsächliche Effekt hängt vom konkreten
-            Einsatz ab. Zeitgewinn bedeutet dabei nicht Personalabbau, sondern
-            zusätzliche operative Kapazität für Projektarbeit, Prüfung,
-            Kommunikation und bessere Entscheidungen.
-          </p>
         </div>
       </section>
 
