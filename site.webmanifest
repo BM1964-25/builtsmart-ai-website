@@ -1,7 +1,7 @@
 {
   "name": "BuiltSmart AI",
   "short_name": "BuiltSmart AI",
-  "description": "KI-Softwarelösungen für Bau, Immobilien, KMU und digitale Unternehmensprozesse.",
+  "description": "KI-Softwarelösungen, Automatisierungen und interne Tools für Bau, Immobilien, KMU und digitale Unternehmensprozesse.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

@@ -477,7 +477,7 @@
         letter-spacing: 0;
       }
 
-      .requirements-section h1 {
+      .requirements-section h2 {
         max-width: 900px;
         color: #090921;
         font-size: clamp(3.1rem, 6.2vw, 5.35rem);
@@ -991,6 +991,47 @@
         color: #172026;
         background: #ffffff;
         border-color: #ffffff;
+      }
+
+      .service-process {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+
+      .service-step {
+        position: relative;
+        min-height: 112px;
+        padding: 18px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 249, 0.78));
+        border: 1px solid rgba(213, 220, 216, 0.9);
+        border-radius: 8px;
+      }
+
+      .service-step span {
+        display: block;
+        margin-bottom: 10px;
+        color: #247780;
+        font-size: 0.72rem;
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .service-step strong {
+        display: block;
+        color: #172026;
+        font-size: 1.02rem;
+        line-height: 1.18;
+      }
+
+      .service-step p {
+        margin: 8px 0 0;
+        color: #5d6872;
+        font-size: 0.9rem;
+        line-height: 1.4;
       }
 
       .tile-grid {
@@ -1647,6 +1688,34 @@
       .suite-row-action:hover span,
       .suite-row-action:focus-visible span {
         transform: translateX(4px);
+      }
+
+      .app-status-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: clamp(18px, 3vw, 28px);
+      }
+
+      .app-status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        padding: 7px 12px;
+        color: #172026;
+        font-size: 0.78rem;
+        font-weight: 720;
+        letter-spacing: 0.01em;
+        background: #ffffff;
+        border: 1px solid rgba(207, 214, 220, 0.95);
+        border-radius: 999px;
+      }
+
+      .app-status strong {
+        margin-right: 5px;
+        color: #247780;
+        font-weight: 820;
       }
 
       .suite-row-meta {
@@ -3619,6 +3688,7 @@
         .tile-grid,
         .benefit-grid,
         .service-grid,
+        .service-process,
         .service-pillars,
         .audience-grid,
         .neutral-grid,
@@ -3781,6 +3851,7 @@
         .tile-grid,
         .benefit-grid,
         .service-grid,
+        .service-process,
         .service-pillars,
         .audience-grid,
         .neutral-grid,
@@ -4083,8 +4154,8 @@
         <div class="hero-copy">
           <h1 id="hero-title">
             <span class="hero-line">KI-Softwarelösungen</span>
-            <span class="hero-line">für Bau, Immobilien und</span>
-            <span class="hero-line">digitale Unternehmensprozesse.</span>
+            <span class="hero-line">für Bau, Immobilien</span>
+            <span class="hero-line">und digitale Prozesse.</span>
           </h1>
           <p class="hero-subtitle">
             Gezielte KI-Anwendungen für schnellere Entscheidungen, effizientere
@@ -4092,12 +4163,16 @@
           </p>
           <p class="hero-lead">
             BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen für
-            KMU, Unternehmen der Bau- und Immobilienwirtschaft sowie digitale
+            KMU, die Bau- und Immobilienwirtschaft sowie digitale
             Unternehmensprozesse. Die Lösungen strukturieren Informationen,
-            machen Risiken frühzeitig sichtbar und unterstützen belastbare
+            machen Risiken frühzeitig sichtbar und bereiten belastbare
             Entscheidungen auf Basis moderner KI-Technologien und fundierter
-            Branchenexpertise.
+            Branchenexpertise vor.
           </p>
+          <div class="hero-actions" aria-label="Zentrale Aktionen">
+            <a class="button button-light" href="#apps-title">Apps ansehen <span aria-hidden="true">→</span></a>
+            <button class="button button-ghost contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
+          </div>
         </div>
       </div>
     </section>
@@ -4106,10 +4181,10 @@
       <section class="requirements-section" aria-labelledby="page-title">
         <div class="intro">
           <p class="eyebrow">Warum BuiltSmart AI</p>
-          <h1 id="page-title">
+          <h2 id="page-title">
             <span class="requirements-title-line">Die Anforderungen</span>
             <span class="requirements-title-line">an Unternehmen steigen.</span>
-          </h1>
+          </h2>
           <p class="lead">
             Komplexere Projekte, wachsende Datenmengen und steigender Kosten-
             und Entscheidungsdruck erfordern digitale Werkzeuge, die
@@ -4381,6 +4456,29 @@
             </span>
             <h3>Interne Tools</h3>
             <p>Schlanke Werkzeuge für Teams, Projektsteuerung, Reporting, Prüfung, Wissensmanagement und operative Entlastung.</p>
+          </article>
+        </div>
+
+        <div class="service-process" aria-label="Vorgehen">
+          <article class="service-step">
+            <span>01 Analyse</span>
+            <strong>Idee und Anforderung klären</strong>
+            <p>Prozess, Ziel, Datenlage und Nutzen werden gemeinsam eingeordnet.</p>
+          </article>
+          <article class="service-step">
+            <span>02 Konzept</span>
+            <strong>Schlanke Lösung entwerfen</strong>
+            <p>Aus Anforderungen entsteht ein klarer Ablauf für Tool, Agent oder Automatisierung.</p>
+          </article>
+          <article class="service-step">
+            <span>03 Prototyp</span>
+            <strong>Schnell nutzbar machen</strong>
+            <p>Ein erster Stand zeigt früh, wie die Anwendung im Alltag wirkt.</p>
+          </article>
+          <article class="service-step">
+            <span>04 Ausbau</span>
+            <strong>Gezielt verbessern</strong>
+            <p>Funktionen, Bedienung und Ergebnisse werden praxisnah weiterentwickelt.</p>
           </article>
         </div>
 
@@ -4748,6 +4846,11 @@
             <strong>Wissen wiederverwendbar zu machen</strong> und operative
             Prozesse konsistenter, schneller und belastbarer umzusetzen.
           </p>
+          <div class="app-status-row" aria-label="Einordnung der Anwendungen">
+            <span class="app-status"><strong>Verfügbar:</strong> erste App-Landingpages</span>
+            <span class="app-status"><strong>Anfragbar:</strong> Details zu jeder Anwendung</span>
+            <span class="app-status"><strong>Anpassbar:</strong> individuelle KMU-Prozesse</span>
+          </div>
         </div>
 
         <span class="suite-variant-label">Variante 1 · Kartenansicht</span>
@@ -4927,6 +5030,11 @@
             <strong>Wissen wiederverwendbar zu machen</strong> und operative
             Prozesse konsistenter, schneller und belastbarer umzusetzen.
           </p>
+          <div class="app-status-row" aria-label="Einordnung der Anwendungen">
+            <span class="app-status"><strong>Verfügbar:</strong> erste App-Landingpages</span>
+            <span class="app-status"><strong>Anfragbar:</strong> Details zu jeder Anwendung</span>
+            <span class="app-status"><strong>Anpassbar:</strong> individuelle KMU-Prozesse</span>
+          </div>
         </div>
 
         <span class="suite-variant-label" hidden>Variante 2 · Workflow-Liste</span>
@@ -5680,7 +5788,9 @@
                 Annahme: 1 Monat = 4 Wochen. Netto-Nutzen = eingesparte
                 Stunden pro Monat × Stundensatz - monatliche KI-Investition.
                 ROI = Netto-Nutzen /
-                monatliche KI-Investition × 100.
+                monatliche KI-Investition × 100. Die Berechnung dient als
+                Orientierung und ersetzt keine individuelle
+                Wirtschaftlichkeitsanalyse.
               </p>
             </div>
           </div>
@@ -6332,6 +6442,10 @@
               Anwendungen für KMU, Projektverantwortliche und Entscheider zu
               schaffen, die Prozesse strukturieren, Risiken sichtbar machen und
               Entscheidungen belastbar vorbereiten.
+            </p>
+            <p>
+              Ihr Ansprechpartner für KI-gestützte Fachanwendungen,
+              Automatisierung und digitale Werkzeuge für KMU.
             </p>
             <div class="founder-proof" aria-label="Schwerpunkte">
               <span>Praxisnahes Branchenwissen</span>
