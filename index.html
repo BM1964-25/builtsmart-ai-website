@@ -2083,9 +2083,13 @@
       }
 
       .bundle-price-card {
+        display: grid;
+        min-height: 190px;
         min-width: 240px;
         padding: 18px;
+        place-items: center;
         color: #ffffff;
+        text-align: center;
         background:
           radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.16), transparent 36%),
           linear-gradient(135deg, #111b1f 0%, #173438 56%, #235d57 100%);
@@ -2115,6 +2119,7 @@
         margin-top: 10px;
         color: rgba(255, 255, 255, 0.82);
         font-size: 0.9rem;
+        line-height: 1.45;
       }
 
       .bundle-apps {
@@ -6159,26 +6164,26 @@
           <div class="bundle-roi-grid" aria-label="ROI-Beispielrechnung">
             <div class="bundle-roi-metric">
               <span>Zeitersparnis</span>
-              <strong>20 Min./Tag</strong>
+              <strong>30 Min./Tag</strong>
             </div>
             <div class="bundle-roi-metric">
               <span>Jahreswert</span>
-              <strong>6.000 €</strong>
+              <strong>9.000 €</strong>
             </div>
             <div class="bundle-roi-metric">
               <span>Netto-Nutzen</span>
-              <strong>5.501 €</strong>
+              <strong>8.501 €</strong>
             </div>
             <div class="bundle-roi-metric">
               <span>ROI Beispiel</span>
-              <strong>1.103%</strong>
+              <strong>1.703%</strong>
             </div>
           </div>
 
           <p class="bundle-note">
-            Beispielrechnung: 1 Nutzer, 20 Minuten Zeitersparnis pro Arbeitstag,
+            Beispielrechnung: 1 Nutzer, 30 Minuten Zeitersparnis pro Arbeitstag,
             20 Arbeitstage pro Monat, interner Stundensatz 75 € netto. Jahreswert:
-            ca. 80 eingesparte Stunden × 75 €. Netto-Nutzen: Jahreswert abzüglich
+            ca. 120 eingesparte Stunden × 75 €. Netto-Nutzen: Jahreswert abzüglich
             Bundlepreis. Der tatsächliche Effekt hängt vom konkreten Einsatz ab.
           </p>
         </div>
