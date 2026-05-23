@@ -2131,6 +2131,10 @@
       .bundle-app {
         --bundle-accent: #5d6fa3;
         position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 58px;
+        column-gap: 14px;
+        align-items: start;
         min-height: 172px;
         padding: 18px;
         overflow: hidden;
@@ -2146,6 +2150,17 @@
         inset: 0 auto 0 0;
         width: 4px;
         background: var(--bundle-accent);
+      }
+
+      .bundle-app-copy {
+        min-width: 0;
+      }
+
+      .bundle-app-icon {
+        width: 58px;
+        height: 58px;
+        object-fit: contain;
+        filter: drop-shadow(0 12px 18px color-mix(in srgb, var(--bundle-accent) 20%, transparent));
       }
 
       .bundle-app h4 {
@@ -2166,6 +2181,7 @@
       }
 
       .bundle-app p {
+        grid-column: 1 / -1;
         margin: 14px 0 0;
         color: #344148;
         font-size: 0.92rem;
@@ -6145,18 +6161,27 @@
 
           <div class="bundle-apps" aria-label="Enthaltene Apps">
             <article class="bundle-app" style="--bundle-accent: #5d6fa3;">
-              <h4>SMART PromptCreator</h4>
-              <span>Promptqualität</span>
+              <div class="bundle-app-copy">
+                <h4>SMART PromptCreator</h4>
+                <span>Promptqualität</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20PromptCreator.png" alt="">
               <p>Professionellere Prompts für bessere KI-Ergebnisse und wiederverwendbare Prompt-Bausteine.</p>
             </article>
             <article class="bundle-app" style="--bundle-accent: #2f7d58;">
-              <h4>SMART SummaryAssistent</h4>
-              <span>Dokumente &amp; Profile</span>
+              <div class="bundle-app-copy">
+                <h4>SMART SummaryAssistent</h4>
+                <span>Dokumente &amp; Profile</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
               <p>Schnellere Verdichtung von Dokumenten, Protokollen und Fachinhalten anhand individueller Ausgabeprofile.</p>
             </article>
             <article class="bundle-app" style="--bundle-accent: #b87924;">
-              <h4>SMART ReplySuite</h4>
-              <span>Kommunikation</span>
+              <div class="bundle-app-copy">
+                <h4>SMART ReplySuite</h4>
+                <span>Kommunikation</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
               <p>Effizientere Antworten für geschäftliche und private Kommunikation mit Vorlagen und Stilprofilen.</p>
             </article>
           </div>
