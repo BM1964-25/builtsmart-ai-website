@@ -1977,6 +1977,8 @@
       .roi-panel {
         position: relative;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
         padding: clamp(22px, 3vw, 34px);
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 249, 0.98)),
@@ -2024,6 +2026,27 @@
         color: var(--muted);
         font-size: 0.86rem;
         line-height: 1.45;
+      }
+
+      .roi-context {
+        display: grid;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: clamp(24px, 4vw, 36px);
+        color: #53606a;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .roi-context strong {
+        display: block;
+        color: #172026;
+        font-size: 0.92rem;
+        line-height: 1.2;
+      }
+
+      .roi-context span {
+        display: block;
       }
 
       .roi-result {
@@ -6019,6 +6042,13 @@
                 <input id="roi-investment" type="range" min="0" max="1000" step="50" value="100">
                 <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
               </div>
+            </div>
+            <div class="roi-context" aria-label="Hinweis zu den Eingaben">
+              <strong>Hinweis zu den Eingaben</strong>
+              <span>
+                Kleine Zeitgewinne pro Person können sich bei mehreren Nutzern
+                schnell zu spürbarer operativer Kapazität summieren.
+              </span>
             </div>
           </div>
 
