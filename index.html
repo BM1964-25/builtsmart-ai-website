@@ -1855,7 +1855,7 @@
       }
 
       .roi-section {
-        order: 20;
+        order: 0;
         padding: clamp(22px, 3vw, 34px);
         background: #ffffff;
         border-radius: 8px;
@@ -4066,9 +4066,9 @@
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a href="#apps-title">Apps</a>
           <a href="#leistungen">Leistungen</a>
+          <a href="#roi-title">ROI Rechner</a>
           <a href="#datenschutz-sicherheit">Sicherheit</a>
           <a href="#zielgruppen">Zielgruppen</a>
-          <a href="#roi-title">ROI Rechner</a>
           <a href="#branchenwissen-software">Expertise</a>
         </nav>
 
@@ -5585,6 +5585,207 @@
         </div>
       </section>
 
+      <section class="tile-section roi-section" aria-labelledby="roi-title">
+        <div class="section-heading">
+          <p class="eyebrow">ROI Rechner</p>
+          <h2 id="roi-title">Wie wirtschaftlich ist<br>KI-Nutzung?</h2>
+          <p>
+            Der Rechner zeigt, welchen <strong>wirtschaftlichen Effekt</strong>
+            KI-gestützte Anwendungen durch <strong>Zeitersparnis</strong>,
+            <strong>produktivere Abläufe</strong> und <strong>reduzierte
+            manuelle Aufwände</strong> erzielen können. Grundlage sind
+            Nutzerzahl, Arbeitszeit, geschätzte Zeitersparnis, Stundensatz und
+            monatliche Investition.
+          </p>
+        </div>
+
+        <div class="roi-calculator" id="roi-calculator">
+          <div class="roi-panel">
+            <div class="roi-controls">
+              <div class="roi-control">
+                <label for="roi-people">
+                  Anzahl der Nutzer
+                  <span class="roi-value" id="roi-people-value">12 Personen</span>
+                </label>
+                <input id="roi-people" type="range" min="1" max="10" value="1">
+                <span class="roi-hint">Wie viele Personen nutzen KI regelmäßig im Arbeitsalltag?</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-hours">
+                  Arbeitszeit pro Nutzer und Woche
+                  <span class="roi-value" id="roi-hours-value">32 Std.</span>
+                </label>
+                <input id="roi-hours" type="range" min="5" max="50" value="40">
+                <span class="roi-hint">Relevante Arbeitszeit, in der KI Aufgaben beschleunigen kann.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-saving">
+                  Zeitersparnis durch KI
+                  <span class="roi-value" id="roi-saving-value">18%</span>
+                </label>
+                <input id="roi-saving" type="range" min="1" max="60" value="20">
+                <span class="roi-hint">Anteil der Zeit, der durch Automatisierung, Assistenz und bessere Vorlagen entfällt.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-rate">
+                  Interner Stundensatz
+                  <span class="roi-value" id="roi-rate-value">75 €</span>
+                </label>
+                <input id="roi-rate" type="range" min="25" max="180" step="5" value="75">
+                <span class="roi-hint">Vollkosten oder kalkulatorischer Wert einer Arbeitsstunde.</span>
+              </div>
+
+              <div class="roi-control">
+                <label for="roi-investment">
+                  KI-Investition pro Monat
+                  <span class="roi-value" id="roi-investment-value">100 €</span>
+                </label>
+                <input id="roi-investment" type="range" min="0" max="1000" step="50" value="100">
+                <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="roi-panel">
+            <div class="roi-result" aria-live="polite">
+              <div class="roi-hero">
+                <span class="roi-label">Return on Investment</span>
+                <strong class="roi-main" id="roi-result">0%</strong>
+                <span class="roi-sub" id="roi-payback">Amortisation wird berechnet</span>
+              </div>
+
+              <div class="roi-metrics">
+                <div class="roi-metric">
+                  <span class="roi-label">Zeitgewinn pro Monat</span>
+                  <strong id="roi-hours-saved">0 Std.</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Wert der Zeitersparnis</span>
+                  <strong id="roi-gross-value">0 €</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Netto-Nutzen pro Monat</span>
+                  <strong id="roi-net-value">0 €</strong>
+                </div>
+                <div class="roi-metric">
+                  <span class="roi-label">Jahrespotenzial</span>
+                  <strong id="roi-year-value">0 €</strong>
+                </div>
+              </div>
+
+              <p class="roi-note">
+                Annahme: 1 Monat = 4 Wochen. Netto-Nutzen = eingesparte
+                Stunden pro Monat × Stundensatz - monatliche KI-Investition.
+                ROI = Netto-Nutzen /
+                monatliche KI-Investition × 100.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bundle-example" id="bundle-beispiel" aria-labelledby="bundle-title">
+          <div class="bundle-head">
+            <div>
+              <span class="bundle-kicker">Bundle-Beispiel</span>
+              <h3 id="bundle-title">Drei Apps für mehr Produktivität im KI-Alltag.</h3>
+              <p>
+                Ein kompaktes Produktivitäts-Bundle aus PromptCreator,
+                SummaryAssistent und ReplySuite unterstützt bessere
+                KI-Anfragen, schnellere Zusammenfassungen und effizientere
+                Kommunikation.
+              </p>
+            </div>
+            <div class="bundle-price-card" aria-label="Bundlepreis">
+              <span>Bundlepreis netto</span>
+              <strong>499 €</strong>
+              <em class="bundle-price-period">pro Jahr</em>
+              <small>Einzelpreise zusammen: 547 € netto<br>Ersparnis: 48 € netto</small>
+            </div>
+          </div>
+
+          <div class="bundle-apps" aria-label="Enthaltene Apps">
+            <article class="bundle-app" style="--bundle-accent: #5d6fa3;">
+              <div class="bundle-app-copy">
+                <h4>SMART PromptCreator</h4>
+                <span>Promptqualität</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20PromptCreator.png" alt="">
+              <p>Professionellere Prompts für bessere KI-Ergebnisse und wiederverwendbare Prompt-Bausteine.</p>
+            </article>
+            <article class="bundle-app" style="--bundle-accent: #2f7d58;">
+              <div class="bundle-app-copy">
+                <h4>SMART SummaryAssistent</h4>
+                <span>Dokumente &amp; Profile</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
+              <p>Schnellere Verdichtung von Dokumenten, Protokollen und Fachinhalten anhand individueller Ausgabeprofile.</p>
+            </article>
+            <article class="bundle-app" style="--bundle-accent: #b87924;">
+              <div class="bundle-app-copy">
+                <h4>SMART ReplySuite</h4>
+                <span>Kommunikation</span>
+              </div>
+              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
+              <p>Effizientere Antworten für geschäftliche und private Kommunikation mit Vorlagen und Stilprofilen.</p>
+            </article>
+          </div>
+
+          <div class="bundle-roi-grid" aria-label="ROI-Beispielrechnung">
+            <div class="bundle-roi-metric">
+              <span>Zeitersparnis</span>
+              <strong>30 Min./Tag</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>Jahreswert</span>
+              <strong>9.000 €</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>Netto-Nutzen</span>
+              <strong>8.501 €</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>ROI Beispiel</span>
+              <strong>1.703%</strong>
+            </div>
+          </div>
+
+          <p class="bundle-note">
+            Beispielrechnung: 1 Nutzer, 30 Minuten Zeitersparnis pro Arbeitstag,
+            20 Arbeitstage pro Monat und 75 € interner Stundensatz. Daraus
+            entsteht ein Jahreswert von ca. 9.000 €. Der Netto-Nutzen ergibt
+            sich aus dem Jahreswert abzüglich des jährlichen Bundlepreises. Der
+            tatsächliche Effekt hängt vom konkreten Einsatz ab.
+          </p>
+
+          <div class="bundle-time-benefits" aria-label="Was die gewonnene Zeit ermöglicht">
+            <p class="bundle-time-title">Was die gewonnene Zeit ermöglicht</p>
+            <p class="bundle-time-intro">
+              Zeitgewinn bedeutet nicht Personalabbau, sondern zusätzliche
+              operative Kapazität.
+            </p>
+            <div class="bundle-time-benefit">
+              <strong>Fachliche Arbeit</strong>
+              <span>Mehr Zeit für inhaltliche Aufgaben statt wiederkehrender Routine.</span>
+            </div>
+            <div class="bundle-time-benefit">
+              <strong>Schnellere Abläufe</strong>
+              <span>Dokumentation, Prüfungen, Zusammenfassungen und Auswertungen entstehen schneller.</span>
+            </div>
+            <div class="bundle-time-benefit">
+              <strong>Bessere Grundlagen</strong>
+              <span>Führungskräfte erhalten schneller strukturierte und entscheidungsfähige Informationen.</span>
+            </div>
+            <div class="bundle-time-benefit">
+              <strong>Mehr Kapazität</strong>
+              <span>Teams können Wachstum, Kunden, Projekte und Qualität besser bewältigen.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="security-section" id="datenschutz-sicherheit" aria-labelledby="security-title">
         <div class="security-copy">
           <p class="security-eyebrow">Datenschutz &amp; Sicherheit</p>
@@ -6117,206 +6318,7 @@
         </p>
       </section>
 
-      <section class="tile-section roi-section" aria-labelledby="roi-title">
-        <div class="section-heading">
-          <p class="eyebrow">ROI Rechner</p>
-          <h2 id="roi-title">Wie wirtschaftlich ist<br>KI-Nutzung?</h2>
-          <p>
-            Der Rechner zeigt, welchen <strong>wirtschaftlichen Effekt</strong>
-            KI-gestützte Anwendungen durch <strong>Zeitersparnis</strong>,
-            <strong>produktivere Abläufe</strong> und <strong>reduzierte
-            manuelle Aufwände</strong> erzielen können. Grundlage sind
-            Nutzerzahl, Arbeitszeit, geschätzte Zeitersparnis, Stundensatz und
-            monatliche Investition.
-          </p>
-        </div>
 
-        <div class="roi-calculator" id="roi-calculator">
-          <div class="roi-panel">
-            <div class="roi-controls">
-              <div class="roi-control">
-                <label for="roi-people">
-                  Anzahl der Nutzer
-                  <span class="roi-value" id="roi-people-value">12 Personen</span>
-                </label>
-                <input id="roi-people" type="range" min="1" max="10" value="1">
-                <span class="roi-hint">Wie viele Personen nutzen KI regelmäßig im Arbeitsalltag?</span>
-              </div>
-
-              <div class="roi-control">
-                <label for="roi-hours">
-                  Arbeitszeit pro Nutzer und Woche
-                  <span class="roi-value" id="roi-hours-value">32 Std.</span>
-                </label>
-                <input id="roi-hours" type="range" min="5" max="50" value="40">
-                <span class="roi-hint">Relevante Arbeitszeit, in der KI Aufgaben beschleunigen kann.</span>
-              </div>
-
-              <div class="roi-control">
-                <label for="roi-saving">
-                  Zeitersparnis durch KI
-                  <span class="roi-value" id="roi-saving-value">18%</span>
-                </label>
-                <input id="roi-saving" type="range" min="1" max="60" value="20">
-                <span class="roi-hint">Anteil der Zeit, der durch Automatisierung, Assistenz und bessere Vorlagen entfällt.</span>
-              </div>
-
-              <div class="roi-control">
-                <label for="roi-rate">
-                  Interner Stundensatz
-                  <span class="roi-value" id="roi-rate-value">75 €</span>
-                </label>
-                <input id="roi-rate" type="range" min="25" max="180" step="5" value="75">
-                <span class="roi-hint">Vollkosten oder kalkulatorischer Wert einer Arbeitsstunde.</span>
-              </div>
-
-              <div class="roi-control">
-                <label for="roi-investment">
-                  KI-Investition pro Monat
-                  <span class="roi-value" id="roi-investment-value">100 €</span>
-                </label>
-                <input id="roi-investment" type="range" min="0" max="1000" step="50" value="100">
-                <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="roi-panel">
-            <div class="roi-result" aria-live="polite">
-              <div class="roi-hero">
-                <span class="roi-label">Return on Investment</span>
-                <strong class="roi-main" id="roi-result">0%</strong>
-                <span class="roi-sub" id="roi-payback">Amortisation wird berechnet</span>
-              </div>
-
-              <div class="roi-metrics">
-                <div class="roi-metric">
-                  <span class="roi-label">Zeitgewinn pro Monat</span>
-                  <strong id="roi-hours-saved">0 Std.</strong>
-                </div>
-                <div class="roi-metric">
-                  <span class="roi-label">Wert der Zeitersparnis</span>
-                  <strong id="roi-gross-value">0 €</strong>
-                </div>
-                <div class="roi-metric">
-                  <span class="roi-label">Netto-Nutzen pro Monat</span>
-                  <strong id="roi-net-value">0 €</strong>
-                </div>
-                <div class="roi-metric">
-                  <span class="roi-label">Jahrespotenzial</span>
-                  <strong id="roi-year-value">0 €</strong>
-                </div>
-              </div>
-
-              <p class="roi-note">
-                Annahme: 1 Monat = 4 Wochen. Netto-Nutzen = eingesparte
-                Stunden pro Monat × Stundensatz - monatliche KI-Investition.
-                ROI = Netto-Nutzen /
-                monatliche KI-Investition × 100.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bundle-example" id="bundle-beispiel" aria-labelledby="bundle-title">
-          <div class="bundle-head">
-            <div>
-              <span class="bundle-kicker">Bundle-Beispiel</span>
-              <h3 id="bundle-title">Drei Apps für mehr Produktivität im KI-Alltag.</h3>
-              <p>
-                Ein kompaktes Produktivitäts-Bundle aus PromptCreator,
-                SummaryAssistent und ReplySuite unterstützt bessere
-                KI-Anfragen, schnellere Zusammenfassungen und effizientere
-                Kommunikation.
-              </p>
-            </div>
-            <div class="bundle-price-card" aria-label="Bundlepreis">
-              <span>Bundlepreis netto</span>
-              <strong>499 €</strong>
-              <em class="bundle-price-period">pro Jahr</em>
-              <small>Einzelpreise zusammen: 547 € netto<br>Ersparnis: 48 € netto</small>
-            </div>
-          </div>
-
-          <div class="bundle-apps" aria-label="Enthaltene Apps">
-            <article class="bundle-app" style="--bundle-accent: #5d6fa3;">
-              <div class="bundle-app-copy">
-                <h4>SMART PromptCreator</h4>
-                <span>Promptqualität</span>
-              </div>
-              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20PromptCreator.png" alt="">
-              <p>Professionellere Prompts für bessere KI-Ergebnisse und wiederverwendbare Prompt-Bausteine.</p>
-            </article>
-            <article class="bundle-app" style="--bundle-accent: #2f7d58;">
-              <div class="bundle-app-copy">
-                <h4>SMART SummaryAssistent</h4>
-                <span>Dokumente &amp; Profile</span>
-              </div>
-              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
-              <p>Schnellere Verdichtung von Dokumenten, Protokollen und Fachinhalten anhand individueller Ausgabeprofile.</p>
-            </article>
-            <article class="bundle-app" style="--bundle-accent: #b87924;">
-              <div class="bundle-app-copy">
-                <h4>SMART ReplySuite</h4>
-                <span>Kommunikation</span>
-              </div>
-              <img loading="lazy" decoding="async" class="bundle-app-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
-              <p>Effizientere Antworten für geschäftliche und private Kommunikation mit Vorlagen und Stilprofilen.</p>
-            </article>
-          </div>
-
-          <div class="bundle-roi-grid" aria-label="ROI-Beispielrechnung">
-            <div class="bundle-roi-metric">
-              <span>Zeitersparnis</span>
-              <strong>30 Min./Tag</strong>
-            </div>
-            <div class="bundle-roi-metric">
-              <span>Jahreswert</span>
-              <strong>9.000 €</strong>
-            </div>
-            <div class="bundle-roi-metric">
-              <span>Netto-Nutzen</span>
-              <strong>8.501 €</strong>
-            </div>
-            <div class="bundle-roi-metric">
-              <span>ROI Beispiel</span>
-              <strong>1.703%</strong>
-            </div>
-          </div>
-
-          <p class="bundle-note">
-            Beispielrechnung: 1 Nutzer, 30 Minuten Zeitersparnis pro Arbeitstag,
-            20 Arbeitstage pro Monat und 75 € interner Stundensatz. Daraus
-            entsteht ein Jahreswert von ca. 9.000 €. Der Netto-Nutzen ergibt
-            sich aus dem Jahreswert abzüglich des jährlichen Bundlepreises. Der
-            tatsächliche Effekt hängt vom konkreten Einsatz ab.
-          </p>
-
-          <div class="bundle-time-benefits" aria-label="Was die gewonnene Zeit ermöglicht">
-            <p class="bundle-time-title">Was die gewonnene Zeit ermöglicht</p>
-            <p class="bundle-time-intro">
-              Zeitgewinn bedeutet nicht Personalabbau, sondern zusätzliche
-              operative Kapazität.
-            </p>
-            <div class="bundle-time-benefit">
-              <strong>Fachliche Arbeit</strong>
-              <span>Mehr Zeit für inhaltliche Aufgaben statt wiederkehrender Routine.</span>
-            </div>
-            <div class="bundle-time-benefit">
-              <strong>Schnellere Abläufe</strong>
-              <span>Dokumentation, Prüfungen, Zusammenfassungen und Auswertungen entstehen schneller.</span>
-            </div>
-            <div class="bundle-time-benefit">
-              <strong>Bessere Grundlagen</strong>
-              <span>Führungskräfte erhalten schneller strukturierte und entscheidungsfähige Informationen.</span>
-            </div>
-            <div class="bundle-time-benefit">
-              <strong>Mehr Kapazität</strong>
-              <span>Teams können Wachstum, Kunden, Projekte und Qualität besser bewältigen.</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section class="founder-section" id="persoenliche-expertise" aria-labelledby="founder-title">
         <div class="founder-card">
