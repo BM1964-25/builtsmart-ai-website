@@ -2106,10 +2106,17 @@
       }
 
       .roi-note {
+        display: grid;
+        gap: 5px;
         margin: 2px 0 0;
         color: var(--muted);
         font-size: 0.88rem;
         line-height: 1.5;
+      }
+
+      .roi-note strong {
+        color: #3a464e;
+        font-weight: 800;
       }
 
       .bundle-example {
@@ -5981,14 +5988,13 @@
                 </div>
               </div>
 
-              <p class="roi-note">
-                Annahme: 1 Monat = 4 Wochen. Netto-Nutzen = eingesparte
-                Stunden pro Monat × Stundensatz - monatliche KI-Investition.
-                ROI = Netto-Nutzen /
-                monatliche KI-Investition × 100. Die Berechnung dient als
-                Orientierung und ersetzt keine individuelle
-                Wirtschaftlichkeitsanalyse.
-              </p>
+              <div class="roi-note" aria-label="Annahmen zur ROI-Berechnung">
+                <strong>Annahmen:</strong>
+                <span>1 Monat = 4 Wochen.</span>
+                <span>Netto-Nutzen = eingesparte Stunden pro Monat × Stundensatz - monatliche KI-Investition.</span>
+                <span>ROI = Netto-Nutzen / monatliche KI-Investition × 100.</span>
+                <span>Die Berechnung dient als Orientierung und ersetzt keine individuelle Wirtschaftlichkeitsanalyse.</span>
+              </div>
             </div>
           </div>
         </div>
