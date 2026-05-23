@@ -2039,6 +2039,174 @@
         line-height: 1.5;
       }
 
+      .bundle-example {
+        margin-top: clamp(30px, 5vw, 54px);
+        padding: clamp(24px, 4vw, 36px);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 250, 249, 0.98)),
+          #ffffff;
+        border: 1px solid rgba(207, 214, 220, 0.86);
+        border-radius: 8px;
+        box-shadow: 0 18px 46px rgba(23, 32, 38, 0.055);
+      }
+
+      .bundle-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: start;
+        margin-bottom: 24px;
+      }
+
+      .bundle-head p {
+        margin: 10px 0 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+        line-height: 1.45;
+      }
+
+      .bundle-kicker {
+        display: block;
+        color: #247780;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .bundle-head h3 {
+        margin: 8px 0 0;
+        color: var(--ink);
+        font-size: clamp(1.8rem, 3vw, 2.7rem);
+        line-height: 1;
+      }
+
+      .bundle-price-card {
+        min-width: 240px;
+        padding: 18px;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.16), transparent 36%),
+          linear-gradient(135deg, #111b1f 0%, #173438 56%, #235d57 100%);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        box-shadow: 0 20px 42px rgba(23, 32, 38, 0.16);
+      }
+
+      .bundle-price-card span {
+        display: block;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .bundle-price-card strong {
+        display: block;
+        margin-top: 8px;
+        font-size: clamp(2.1rem, 3.5vw, 3rem);
+        line-height: 1;
+      }
+
+      .bundle-price-card small {
+        display: block;
+        margin-top: 10px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.9rem;
+      }
+
+      .bundle-apps {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .bundle-app {
+        --bundle-accent: #5d6fa3;
+        position: relative;
+        min-height: 172px;
+        padding: 18px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, color-mix(in srgb, var(--bundle-accent) 5%, #ffffff), #ffffff);
+        border: 1px solid rgba(207, 214, 220, 0.9);
+        border-radius: 8px;
+      }
+
+      .bundle-app::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: var(--bundle-accent);
+      }
+
+      .bundle-app h4 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 1.04rem;
+        line-height: 1.16;
+      }
+
+      .bundle-app span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 780;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .bundle-app p {
+        margin: 14px 0 0;
+        color: #344148;
+        font-size: 0.92rem;
+        line-height: 1.42;
+      }
+
+      .bundle-roi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .bundle-roi-metric {
+        padding: 16px;
+        text-align: center;
+        background: #ffffff;
+        border: 1px solid rgba(23, 32, 38, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 12px 24px rgba(23, 32, 38, 0.04);
+      }
+
+      .bundle-roi-metric span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 820;
+        letter-spacing: 0.075em;
+        text-transform: uppercase;
+      }
+
+      .bundle-roi-metric strong {
+        display: block;
+        margin-top: 8px;
+        color: var(--ink);
+        font-size: clamp(1.35rem, 2.2vw, 2.05rem);
+        line-height: 1.05;
+      }
+
+      .bundle-note {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.5;
+      }
+
       .security-section {
         width: 100vw;
         margin-left: calc(50% - 50vw);
@@ -3391,6 +3559,19 @@
           grid-template-columns: 1fr;
         }
 
+        .bundle-head {
+          grid-template-columns: 1fr;
+        }
+
+        .bundle-price-card {
+          min-width: 0;
+        }
+
+        .bundle-apps,
+        .bundle-roi-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .expertise-strip {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -3608,6 +3789,11 @@
         }
 
         .roi-metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .bundle-apps,
+        .bundle-roi-grid {
           grid-template-columns: 1fr;
         }
 
@@ -5931,6 +6117,70 @@
               </p>
             </div>
           </div>
+        </div>
+
+        <div class="bundle-example" id="bundle-beispiel" aria-labelledby="bundle-title">
+          <div class="bundle-head">
+            <div>
+              <span class="bundle-kicker">Bundle-Beispiel</span>
+              <h3 id="bundle-title">Drei Apps für mehr Produktivität im KI-Alltag.</h3>
+              <p>
+                Ein kompaktes Produktivitäts-Bundle aus PromptCreator,
+                SummaryAssistent und ReplySuite unterstützt bessere
+                KI-Anfragen, schnellere Zusammenfassungen und effizientere
+                Kommunikation.
+              </p>
+            </div>
+            <div class="bundle-price-card" aria-label="Bundlepreis">
+              <span>Bundlepreis netto</span>
+              <strong>499 €</strong>
+              <small>Einzelpreise zusammen: 548 € netto<br>Ersparnis: 49 € netto</small>
+            </div>
+          </div>
+
+          <div class="bundle-apps" aria-label="Enthaltene Apps">
+            <article class="bundle-app" style="--bundle-accent: #5d6fa3;">
+              <h4>SMART PromptCreator</h4>
+              <span>Promptqualität</span>
+              <p>Professionellere Prompts für bessere KI-Ergebnisse und wiederverwendbare Prompt-Bausteine.</p>
+            </article>
+            <article class="bundle-app" style="--bundle-accent: #2f7d58;">
+              <h4>SMART SummaryAssistent</h4>
+              <span>Dokumente &amp; Profile</span>
+              <p>Schnellere Verdichtung von Dokumenten, Protokollen und Fachinhalten anhand individueller Ausgabeprofile.</p>
+            </article>
+            <article class="bundle-app" style="--bundle-accent: #b87924;">
+              <h4>SMART ReplySuite</h4>
+              <span>Kommunikation</span>
+              <p>Effizientere Antworten für geschäftliche und private Kommunikation mit Vorlagen und Stilprofilen.</p>
+            </article>
+          </div>
+
+          <div class="bundle-roi-grid" aria-label="ROI-Beispielrechnung">
+            <div class="bundle-roi-metric">
+              <span>Zeitersparnis</span>
+              <strong>20 Min./Tag</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>Jahreswert</span>
+              <strong>6.000 €</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>Netto-Nutzen</span>
+              <strong>5.501 €</strong>
+            </div>
+            <div class="bundle-roi-metric">
+              <span>ROI Beispiel</span>
+              <strong>1.103%</strong>
+            </div>
+          </div>
+
+          <p class="bundle-note">
+            Beispielrechnung: 1 Nutzer, 20 Minuten Zeitersparnis pro Arbeitstag,
+            20 Arbeitstage pro Monat, interner Stundensatz 75 € netto. Jahreswert:
+            ca. 80 eingesparte Stunden × 75 €. Netto-Nutzen: Jahreswert abzüglich
+            Bundlepreis. Der tatsächliche Effekt hängt vom konkreten Einsatz ab.
+          </p>
         </div>
       </section>
 
