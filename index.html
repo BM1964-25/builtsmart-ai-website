@@ -12,6 +12,7 @@
     <link rel="preload" href="/assets/hero/builtsmart-ai-hero.jpeg" as="image" fetchpriority="high">
     <link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
     <meta property="og:site_name" content="BuiltSmart AI">
@@ -33,10 +34,22 @@
         "logo": "https://www.builtsmart-ai.app/assets/favicon/favicon.svg",
         "image": "https://www.builtsmart-ai.app/assets/hero/builtsmart-ai-hero.jpeg",
         "description": "BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen für KMU, Bau, Immobilien und digitale Unternehmensprozesse.",
+        "email": "info@built-smart-hub.com",
         "founder": {
           "@type": "Person",
           "name": "Bernhard Metzger",
-          "url": "https://www.linkedin.com/in/bernhard-metzger-8376539a"
+          "url": "https://www.linkedin.com/in/bernhard-metzger-8376539a",
+          "sameAs": [
+            "https://www.linkedin.com/in/bernhard-metzger-8376539a",
+            "https://www.built-smart-hub.com"
+          ]
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "info@built-smart-hub.com",
+          "url": "https://www.built-smart-hub.com/termin-buchen",
+          "availableLanguage": ["de", "en"]
         },
         "sameAs": [
           "https://www.linkedin.com/in/bernhard-metzger-8376539a",
@@ -48,6 +61,17 @@
           "@type": "Country",
           "name": "Deutschland"
         },
+        "knowsAbout": [
+          "Künstliche Intelligenz",
+          "KI-Agenten",
+          "Workflow-Automation",
+          "Digitale Prozessoptimierung",
+          "Bau- und Immobilienwirtschaft",
+          "Projektsteuerung",
+          "Risikomanagement",
+          "Dokumentenprüfung",
+          "Wissensmanagement"
+        ],
         "serviceType": [
           "KI-Softwareentwicklung",
           "KI-Automatisierung",
@@ -59,6 +83,99 @@
           "KI-Anwendungen für Bau und Immobilien",
           "Digitale Prozessoptimierung",
           "Projektsteuerung und Risikomanagement"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "BuiltSmart AI Leistungen und Anwendungen",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Individuelle KI-Lösungen",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "KI-Automatisierung" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI-Agenten" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chatbots" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Workflow-Automation" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Individuelle Web-Apps und interne Tools" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "KI-Anwendungen",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART RISK Vertragsanalyse", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART RISK Risiko-Register", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART REVISION", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART Validate", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART PromptCreator", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART SnippetFlow", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART SummaryAssistent", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART ReplySuite", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART COST PERT-Prognose", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART RISK Monte-Carlo-Simulation", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART CapEx", "applicationCategory": "BusinessApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART Meeting Navigator", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART Career Navigator", "applicationCategory": "ProductivityApplication" } },
+                { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "SMART Focus", "applicationCategory": "ProductivityApplication" } }
+              ]
+            }
+          ]
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Für wen ist BuiltSmart AI gedacht?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BuiltSmart AI richtet sich an KMU, Projektverantwortliche, Entscheider und Fachanwender aus der Bau- und Immobilienwirtschaft sowie an Unternehmen mit digitalen Prozessen, die Informationen strukturierter nutzen und Entscheidungen besser vorbereiten möchten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Entwickelt BuiltSmart AI auch individuelle KI-Lösungen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Aus einer Idee, einer Anforderung oder einem bestehenden Prozess können schlanke KI-Tools, Agenten, Automatisierungen, Web-Apps oder interne Anwendungen entwickelt werden. BuiltSmart AI unterstützt auch bei der Strukturierung und Ausarbeitung des passenden Ablaufs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Sind die Anwendungen Standardprodukte oder anpassbar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Anwendungen sind praxisnahe digitale Werkzeuge für klar abgegrenzte Aufgabenbereiche. Je nach Bedarf können Funktionen, Ausgabeprofile, Workflows oder fachliche Prüflogiken an konkrete Anforderungen angepasst werden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welchen Nutzen haben KI-Anwendungen im Arbeitsalltag?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KI-Anwendungen können Routineaufgaben reduzieren, Informationen strukturieren, Prüfungen vorbereiten, Risiken sichtbar machen und Entscheidungsgrundlagen schneller bereitstellen. Der Zeitgewinn bedeutet zusätzliche operative Kapazität, nicht automatisch Personalabbau."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie werden Datenschutz und Nachvollziehbarkeit berücksichtigt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BuiltSmart AI legt Wert auf datenschutzbewusste, nachvollziehbare und kontrollierbare Softwarelösungen. Je nach Anwendung sind browserbasierte, lokale oder kundenspezifisch abgestimmte Umsetzungen möglich."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie startet eine Zusammenarbeit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Einstieg erfolgt über eine kurze Klärung von Ziel, Prozess, Datenlage und gewünschtem Nutzen. Anschließend kann ein schlanker Prototyp, eine konkrete App-Anpassung oder ein individuelles KI-Tool geplant werden."
+            }
+          }
         ]
       }
     </script>
@@ -3124,8 +3241,111 @@
         transform: translateX(4px);
       }
 
-      .final-cta {
+      .faq-section {
         order: 24;
+        margin-top: clamp(64px, 8vw, 104px);
+        padding: clamp(52px, 7vw, 78px) 0 clamp(54px, 7vw, 82px);
+        border-top: 1px solid rgba(217, 222, 216, 0.78);
+      }
+
+      .faq-section .section-heading {
+        max-width: 900px;
+        margin-bottom: clamp(30px, 5vw, 46px);
+        padding-left: 0;
+      }
+
+      .faq-section .section-heading::before {
+        display: none;
+      }
+
+      .faq-section .section-heading > .eyebrow {
+        color: #247780;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+
+      .faq-section .section-heading h2 {
+        max-width: 940px;
+        color: #05050f;
+        font-size: clamp(2.65rem, 5vw, 4.25rem);
+        line-height: 0.98;
+        font-weight: 850;
+      }
+
+      .faq-section .section-heading p {
+        max-width: 850px;
+        margin-top: clamp(22px, 3.8vw, 38px);
+        color: #080811;
+        font-size: clamp(1.18rem, 2vw, 1.52rem);
+        line-height: 1.32;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 248, 0.86)),
+          linear-gradient(135deg, rgba(36, 119, 128, 0.06), transparent 52%);
+        border: 1px solid rgba(217, 222, 216, 0.95);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.88),
+          0 18px 54px rgba(23, 32, 38, 0.06);
+      }
+
+      .faq-item summary {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 24px;
+        color: #172026;
+        font-size: clamp(1.03rem, 1.5vw, 1.22rem);
+        font-weight: 780;
+        line-height: 1.22;
+        list-style: none;
+        cursor: pointer;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: "+";
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: #172026;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        font-weight: 650;
+        line-height: 1;
+      }
+
+      .faq-item[open] summary::after {
+        content: "−";
+      }
+
+      .faq-item p {
+        max-width: 920px;
+        margin: 0;
+        padding: 0 24px 24px;
+        color: #5d6872;
+        font-size: clamp(1rem, 1.32vw, 1.08rem);
+        line-height: 1.55;
+      }
+
+      .final-cta {
+        order: 25;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-top: clamp(64px, 9vw, 118px);
@@ -4087,6 +4307,19 @@
         .founder-media img {
           min-height: 420px;
           object-position: 52% 24%;
+        }
+
+        .faq-section {
+          padding-top: 44px;
+        }
+
+        .faq-item summary {
+          min-height: 68px;
+          padding: 19px 18px;
+        }
+
+        .faq-item p {
+          padding: 0 18px 20px;
         }
 
         .site-footer__inner {
@@ -6831,8 +7064,6 @@
         </div>
       </section>
 
-
-
       <section class="founder-section" id="persoenliche-expertise" aria-labelledby="founder-title">
         <div class="founder-card">
           <div class="founder-content">
@@ -6859,6 +7090,82 @@
           <figure class="founder-media">
             <img loading="lazy" decoding="async" src="assets/portraits/bernhard-metzger.jpg" alt="Bernhard Metzger, Gründer von BuiltSmart AI">
           </figure>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Häufige Fragen zu BuiltSmart AI.</h2>
+          <p>
+            Kurze Antworten auf zentrale Fragen zu Zielgruppen, individuellen
+            Lösungen, Datenschutz und dem Einstieg in KI-gestützte Anwendungen.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Für wen ist BuiltSmart AI gedacht?</summary>
+            <p>
+              BuiltSmart AI richtet sich an KMU, Projektverantwortliche,
+              Entscheider und Fachanwender aus der Bau- und Immobilienwirtschaft
+              sowie an Unternehmen mit digitalen Prozessen, die Informationen
+              strukturierter nutzen und Entscheidungen besser vorbereiten
+              möchten.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Entwickelt BuiltSmart AI auch individuelle KI-Lösungen?</summary>
+            <p>
+              Ja. Aus einer Idee, einer Anforderung oder einem bestehenden
+              Prozess können schlanke KI-Tools, Agenten, Automatisierungen,
+              Web-Apps oder interne Anwendungen entwickelt werden. BuiltSmart AI
+              unterstützt auch bei der Strukturierung und Ausarbeitung des
+              passenden Ablaufs.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Sind die Anwendungen Standardprodukte oder anpassbar?</summary>
+            <p>
+              Die Anwendungen sind praxisnahe digitale Werkzeuge für klar
+              abgegrenzte Aufgabenbereiche. Je nach Bedarf können Funktionen,
+              Ausgabeprofile, Workflows oder fachliche Prüflogiken an konkrete
+              Anforderungen angepasst werden.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Welchen Nutzen haben KI-Anwendungen im Arbeitsalltag?</summary>
+            <p>
+              KI-Anwendungen können Routineaufgaben reduzieren, Informationen
+              strukturieren, Prüfungen vorbereiten, Risiken sichtbar machen und
+              Entscheidungsgrundlagen schneller bereitstellen. Der Zeitgewinn
+              bedeutet zusätzliche operative Kapazität, nicht automatisch
+              Personalabbau.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wie werden Datenschutz und Nachvollziehbarkeit berücksichtigt?</summary>
+            <p>
+              BuiltSmart AI legt Wert auf datenschutzbewusste, nachvollziehbare
+              und kontrollierbare Softwarelösungen. Je nach Anwendung sind
+              browserbasierte, lokale oder kundenspezifisch abgestimmte
+              Umsetzungen möglich.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Wie startet eine Zusammenarbeit?</summary>
+            <p>
+              Der Einstieg erfolgt über eine kurze Klärung von Ziel, Prozess,
+              Datenlage und gewünschtem Nutzen. Anschließend kann ein schlanker
+              Prototyp, eine konkrete App-Anpassung oder ein individuelles
+              KI-Tool geplant werden.
+            </p>
+          </details>
         </div>
       </section>
 

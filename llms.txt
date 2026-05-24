@@ -1,22 +1,79 @@
 # BuiltSmart AI
 
-BuiltSmart AI entwickelt KI-gestützte Softwarelösungen für Bau, Immobilien, KMU und digitale Unternehmensprozesse.
+BuiltSmart AI entwickelt KI-gestützte Softwarelösungen, Automatisierungen und interne Tools für KMU, die Bau- und Immobilienwirtschaft sowie digitale Unternehmensprozesse.
 
-## Website
+## Primäre Website
 
-- [Homepage](https://www.builtsmart-ai.app/)
-- [Sitemap](https://www.builtsmart-ai.app/sitemap.xml)
-- [Kontakt und Terminbuchung](https://www.built-smart-hub.com/termin-buchen)
-- [BuiltSmart Hub](https://www.built-smart-hub.com)
+- Homepage: https://www.builtsmart-ai.app/
+- Leistungen: https://www.builtsmart-ai.app/#leistungen
+- KI-Anwendungen: https://www.builtsmart-ai.app/#apps-title
+- Nutzen-Matrix: https://www.builtsmart-ai.app/#nutzen-matrix
+- FAQ: https://www.builtsmart-ai.app/#faq
+- Sitemap: https://www.builtsmart-ai.app/sitemap.xml
+- Kontakt und Terminbuchung: https://www.built-smart-hub.com/termin-buchen
+- E-Mail: info@built-smart-hub.com
+- BuiltSmart Hub: https://www.built-smart-hub.com
 
-## Schwerpunkte
+## Kurzbeschreibung
 
-- KI-Anwendungen für strukturierte Projektarbeit
-- Risiko-, Vertrags- und Compliance-Management
-- Projektsteuerung, Prognosen und ROI-Bewertung
-- Datenschutzbewusste und nachvollziehbare Softwarelösungen
-- Individuelle KI-gestützte Anwendungen für KMU
+BuiltSmart AI verbindet praktische Erfahrung aus Bau, Immobilien und Projektsteuerung mit moderner KI-gestützter Softwareentwicklung. Die Anwendungen und individuellen Lösungen helfen dabei, Informationen zu strukturieren, Prozesse effizienter zu gestalten, Risiken früher sichtbar zu machen und Entscheidungen belastbarer vorzubereiten.
+
+## Zielgruppen
+
+- Kleine und mittlere Unternehmen
+- Projektentwickler, Bestandshalter, Bauunternehmen und Projektsteuerer
+- Investoren, Banken, Versicherungen, Planer und Behörden
+- Führungskräfte, Entscheider und Fachanwender
+- Privatpersonen mit Bedarf an strukturierter KI-Unterstützung
+
+## Leistungen
+
+- KI-Automatisierung
+- AI-Agenten
+- Chatbots
+- Workflow-Automation
+- Individuelle Web-Apps
+- Interne Tools
+- Strukturierung und Ausarbeitung von Ideen, Anforderungen und Prozessen
+
+## KI-Anwendungen
+
+- SMART RISK Vertragsanalyse: KI-gestützte Vertragsanalyse zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern.
+- SMART RISK Risiko-Register: Qualitative und quantitative Risikoerfassung, Verantwortlichkeiten, Maßnahmenverfolgung und Berichterstellung.
+- SMART REVISION: Digitale Prüfung von Unterlagen, Nachweisen und Prozessen mit Fokus auf Qualitätssicherung und Projektkontrolle.
+- SMART Validate: Prüfung von Rechnungen, Leistungsständen und Abrechnungspositionen auf Plausibilität, Vollständigkeit und Nachvollziehbarkeit.
+- SMART PromptCreator: Umwandlung einfacher Eingaben in professionelle Prompts mit lokaler Prompt-Bibliothek.
+- SMART SnippetFlow: Arbeitsbibliothek für Prompts, Code, Workflows und Notizen.
+- SMART SummaryAssistent: KI-gestützte Zusammenfassungen mit individuellen Ausgabeprofilen.
+- SMART ReplySuite: Unterstützung für geschäftliche und private Kommunikation mit Vorlagen, Stilprofilen und mehrsprachigen Antwortparametern.
+- SMART COST PERT-Prognose: Baukostenprognosen und Szenarien für frühe Projektphasen.
+- SMART RISK Monte-Carlo-Simulation: Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit.
+- SMART CapEx: Analyse von Investitions-, CapEx- und Wirtschaftlichkeitsszenarien.
+- SMART Meeting Navigator: Vorbereitung, Analyse und Dokumentation von Meetings.
+- SMART Career Navigator: KI-gestützte Karriere- und Bewerbungssteuerung.
+- SMART Focus: Fokus-, Aufgaben-, Workflow- und Pomodoro-Unterstützung.
+
+## Nutzen
+
+- Prüfbarkeit und Nachvollziehbarkeit erhöhen
+- Qualitätssicherung professionalisieren
+- Unsicherheit quantifizierbar machen
+- Wissen systematisch nutzbar machen
+- Kommunikation beschleunigen und verbessern
+- Projektsteuerung datenbasierter machen
+- Entscheidungen dokumentationsfähig vorbereiten
+- Operative Entlastung schaffen
+- Frühe Warnsignale sichtbar machen
+- Arbeitsstandards vereinheitlichen
+
+## Datenschutz und Sicherheit
+
+BuiltSmart AI legt Wert auf datenschutzbewusste, nachvollziehbare und kontrollierbare Softwarelösungen. Je nach Anwendung sind browserbasierte, lokale oder kundenspezifisch abgestimmte Umsetzungen möglich.
+
+## Zusammenarbeit
+
+Der Einstieg erfolgt über eine kurze Klärung von Ziel, Prozess, Datenlage und gewünschtem Nutzen. Anschließend kann ein schlanker Prototyp, eine konkrete App-Anpassung oder ein individuelles KI-Tool geplant werden.
 
 ## Betreiber
 
-BuiltSmart AI, powered by BuiltSmart Hub.
+BuiltSmart AI, powered by BuiltSmart Hub - Bernhard Metzger.
