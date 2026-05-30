@@ -5511,7 +5511,7 @@
 
           <a class="app-card" href="#smart-snippetflow">
             <span class="app-media">
-              <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow-neu.png" alt="">
               <span class="app-index">06</span>
             </span>
             <h3>SMART SnippetFlow</h3>
@@ -5744,7 +5744,7 @@
 
           <div class="suite-row suite-row--with-links" style="--accent: var(--violet);">
             <span class="suite-row-media">
-              <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow-neu.png" alt="">
               <span class="suite-row-index">06</span>
             </span>
             <span class="suite-row-copy">
@@ -6450,7 +6450,7 @@
                   KI-Investition pro Monat
                   <span class="roi-value" id="roi-investment-value">100 €</span>
                 </label>
-                <input id="roi-investment" type="range" min="0" max="1000" step="50" value="100">
+                <input id="roi-investment" type="range" min="0" max="28" step="1" value="10">
                 <span class="roi-hint">Lizenzen, Setup, Schulung, Betrieb oder interne Aufwände pro Monat.</span>
               </div>
             </div>
@@ -7645,9 +7645,19 @@
           investment: 100,
         };
 
+        const sliderToInvestment = (value) => {
+          const step = Number(value);
+          return step <= 10 ? step * 10 : 100 + (step - 10) * 50;
+        };
+
+        const investmentToSlider = (value) => {
+          const amount = Number(value);
+          return amount <= 100 ? amount / 10 : 10 + (amount - 100) / 50;
+        };
+
         const resetDefaults = () => {
           Object.entries(defaults).forEach(([key, value]) => {
-            fields[key].value = value;
+            fields[key].value = key === "investment" ? investmentToSlider(value) : value;
           });
         };
 
@@ -7656,7 +7666,7 @@
           const hours = Number(fields.hours.value);
           const saving = Number(fields.saving.value);
           const rate = Number(fields.rate.value);
-          const investment = Number(fields.investment.value);
+          const investment = sliderToInvestment(fields.investment.value);
 
           const monthlyHours = people * hours * 4;
           const savedHours = monthlyHours * (saving / 100);
