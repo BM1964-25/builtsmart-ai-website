@@ -3737,13 +3737,15 @@
         justify-self: end;
       }
 
-      .footer-link-row {
-        display: contents;
+      .footer-link-column {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
       }
 
-      .footer-link-row--contact {
-        display: block;
-        grid-column: 1 / -1;
+      .footer-link-column--internal {
+        grid-column: 2;
       }
 
       .footer-links a,
@@ -7601,24 +7603,18 @@
         </nav>
 
         <nav class="footer-links" aria-label="Footer-Navigation">
-          <span class="footer-link-row">
-            <a href="#apps-title">KI-Anwendungen</a>
-            <a href="#nutzen-matrix">Nutzen-Matrix</a>
-          </span>
-          <span class="footer-link-row">
-            <a href="#datenschutz-sicherheit">Datenschutz &amp; Sicherheit</a>
-            <a href="#branchenwissen-software">Branchenwissen</a>
-          </span>
-          <span class="footer-link-row footer-link-row--contact">
+          <span class="footer-link-column">
             <button class="contact-trigger" type="button" aria-controls="contact-modal">Kontakt</button>
-          </span>
-          <span class="footer-link-row">
             <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener noreferrer">AGB</a>
             <a href="https://www.built-smart-hub.com/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
-          </span>
-          <span class="footer-link-row">
-            <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
             <a href="https://www.built-smart-hub.com/widerrufbelehrung" target="_blank" rel="noopener noreferrer">Widerrufsbelehrung</a>
+            <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+          </span>
+          <span class="footer-link-column footer-link-column--internal">
+            <a href="#apps-title">KI-Anwendungen</a>
+            <a href="#nutzen-matrix">Nutzen-Matrix</a>
+            <a href="#datenschutz-sicherheit">Datenschutz &amp; Sicherheit</a>
+            <a href="#branchenwissen-software">Branchenwissen</a>
           </span>
         </nav>
       </div>
