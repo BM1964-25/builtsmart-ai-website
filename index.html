@@ -1297,7 +1297,7 @@
         padding: 18px 20px;
         display: grid;
         grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto auto auto;
         column-gap: 18px;
         row-gap: 10px;
         align-items: center;
@@ -1391,6 +1391,8 @@
       }
 
       .challenge-grid .menu-tile h2 {
+        position: relative;
+        z-index: 2;
         grid-column: 1 / span 2;
         grid-row: 2;
         min-height: 0;
@@ -1399,6 +1401,46 @@
         font-size: clamp(1.02rem, 1.45vw, 1.24rem);
         font-weight: 760;
         line-height: 1.16;
+      }
+
+      .challenge-grid .tile-detail {
+        position: relative;
+        z-index: 2;
+        grid-column: 1 / span 2;
+        grid-row: 3;
+        max-width: calc(100% - 20px);
+        max-height: 0;
+        margin: 0;
+        overflow: hidden;
+        color: rgba(44, 58, 69, 0.82);
+        font-size: 0.91rem;
+        font-weight: 560;
+        line-height: 1.38;
+        opacity: 0;
+        transform: translateY(4px);
+        transition:
+          max-height 220ms ease,
+          opacity 180ms ease,
+          transform 180ms ease,
+          margin-top 180ms ease;
+      }
+
+      .challenge-grid .menu-tile:hover .tile-detail,
+      .challenge-grid .menu-tile:focus-visible .tile-detail,
+      .challenge-grid .menu-tile:focus-within .tile-detail {
+        max-height: 92px;
+        margin-top: 2px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (hover: none) {
+        .challenge-grid .tile-detail {
+          max-height: none;
+          margin-top: 2px;
+          opacity: 1;
+          transform: none;
+        }
       }
 
       .audience-grid {
@@ -4746,6 +4788,11 @@
           max-width: calc(100% - 76px);
         }
 
+        .challenge-grid .tile-detail {
+          max-width: 100%;
+          font-size: 0.86rem;
+        }
+
         .tile-number {
           width: 34px;
           height: 34px;
@@ -4832,16 +4879,16 @@
             <span class="hero-line">und digitale Prozesse.</span>
           </h1>
           <p class="hero-subtitle">
-            Gezielte KI-Anwendungen für schnellere Entscheidungen, effizientere
-            Prozesse und mehr Transparenz.
+            Praxisorientierte KI-Anwendungen für fundierte Entscheidungen,
+            effiziente Abläufe und mehr Transparenz in Projekten und
+            Organisationen.
           </p>
           <p class="hero-lead">
             BuiltSmart AI entwickelt individuelle KI-gestützte Anwendungen für
-            KMU, die Bau- und Immobilienwirtschaft sowie digitale
-            Unternehmensprozesse. Die Lösungen strukturieren Informationen,
-            machen Risiken frühzeitig sichtbar und bereiten belastbare
-            Entscheidungen auf Basis moderner KI-Technologien und fundierter
-            Branchenexpertise vor.
+            KMU sowie die Bau- und Immobilienwirtschaft. Die Lösungen
+            strukturieren Informationen, machen Risiken frühzeitig sichtbar
+            und unterstützen fundierte Entscheidungen auf Basis moderner
+            KI-Technologien und praxisnaher Branchenexpertise.
           </p>
           <div class="hero-actions" aria-label="Zentrale Aktionen">
             <a class="button button-light" href="#apps-title">Apps ansehen <span aria-hidden="true">→</span></a>
@@ -4887,6 +4934,7 @@
             </span>
           </span>
           <h2>Steigende<br>Komplexität</h2>
+          <p class="tile-detail">Mehr Beteiligte, Daten und Abhängigkeiten erfordern klare Strukturen und nachvollziehbare Entscheidungen.</p>
         </a>
         <a class="menu-tile" href="#hohe-datenmengen">
           <span class="tile-head">
@@ -4901,6 +4949,7 @@
             </span>
           </span>
           <h2>Hohe<br>Datenmengen</h2>
+          <p class="tile-detail">KI hilft, Informationen schneller zu ordnen, relevante Muster zu erkennen und Wissen nutzbar zu machen.</p>
         </a>
         <a class="menu-tile" href="#termin-und-kostendruck">
           <span class="tile-head">
@@ -4918,6 +4967,7 @@
             </span>
           </span>
           <h2>Termin- und<br>Kostendruck</h2>
+          <p class="tile-detail">Frühzeitige Analysen unterstützen realistischere Einschätzungen, Prioritäten und belastbare Projektsteuerung.</p>
         </a>
         <a class="menu-tile" href="#wachsende-risiken">
           <span class="tile-head">
@@ -4931,6 +4981,7 @@
             </span>
           </span>
           <h2>Wachsende<br>Risiken</h2>
+          <p class="tile-detail">Risiken werden systematischer erkannt, bewertet und für Maßnahmen oder Berichte strukturiert aufbereitet.</p>
         </a>
         <a class="menu-tile" href="#mangelnde-transparenz">
           <span class="tile-head">
@@ -4945,6 +4996,7 @@
             </span>
           </span>
           <h2>Mangelnde<br>Transparenz</h2>
+          <p class="tile-detail">Prüfvermerke, Datenbezüge und Entscheidungsgrundlagen werden klarer dokumentiert und leichter nachvollziehbar.</p>
         </a>
         <a class="menu-tile" href="#ineffiziente-prozesse">
           <span class="tile-head">
@@ -4961,6 +5013,7 @@
             </span>
           </span>
           <h2>Ineffiziente<br>Prozesse</h2>
+          <p class="tile-detail">Wiederkehrende Aufgaben lassen sich vereinfachen, vorbereiten oder automatisiert in Workflows überführen.</p>
         </a>
         <a class="menu-tile" href="#fachkraeftemangel">
           <span class="tile-head">
@@ -4977,6 +5030,7 @@
             </span>
           </span>
           <h2>Fachkräfte-<br>mangel</h2>
+          <p class="tile-detail">Digitale Unterstützung entlastet Teams bei Routinearbeit und macht vorhandenes Wissen besser verfügbar.</p>
         </a>
         <a class="menu-tile" href="#steigende-preise">
           <span class="tile-head">
@@ -4993,6 +5047,7 @@
             </span>
           </span>
           <h2>Steigende<br>Preise</h2>
+          <p class="tile-detail">Szenarien, Kostenentwicklungen und Auswirkungen werden vergleichbarer und schneller bewertbar.</p>
         </a>
         <a class="menu-tile" href="#esg-co2-reduktion">
           <span class="tile-head">
@@ -5009,6 +5064,7 @@
             </span>
           </span>
           <h2>ESG &<br>CO₂-Reduktion</h2>
+          <p class="tile-detail">Relevante Kennzahlen, Nachweise und Maßnahmen können strukturierter erfasst und ausgewertet werden.</p>
         </a>
         </nav>
       </section>
@@ -5666,7 +5722,7 @@
             <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
           </a>
 
-          <h3 class="app-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
+          <h3 class="app-category">Organisation, Kommunikation &amp; Produktivität</h3>
 
           <a class="app-card" href="#smart-meeting-navigator">
             <span class="app-media">
@@ -5698,8 +5754,6 @@
             <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
           </a>
 
-          <h3 class="app-category">Unternehmensprozesse &amp; Recruiting</h3>
-
           <a class="app-card" href="#smart-recruitpilot">
             <span class="app-media">
               <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/SMART%20RecruitPilot.jpeg" alt="">
@@ -5710,27 +5764,25 @@
             <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
           </a>
 
+          <a class="app-card" href="#smart-focus">
+            <span class="app-media">
+              <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <span class="app-index">18</span>
+            </span>
+            <h3>SMART Focus</h3>
+            <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
+            <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
+          </a>
+
           <h3 class="app-category">Karriere &amp; Entwicklung</h3>
 
           <a class="app-card" href="#smart-career-navigator">
             <span class="app-media">
               <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/Career%20Navigator-neu.png" alt="">
-              <span class="app-index">18</span>
+              <span class="app-index">19</span>
             </span>
             <h3>SMART CareerNavigator</h3>
             <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
-            <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
-          </a>
-
-          <h3 class="app-category">Produktivität &amp; Workflow Intelligence</h3>
-
-          <a class="app-card" href="#smart-focus">
-            <span class="app-media">
-              <img loading="lazy" decoding="async" class="app-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
-              <span class="app-index">19</span>
-            </span>
-            <h3>SMART Focus</h3>
-            <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
             <span class="app-cta">Details anfragen <span aria-hidden="true">→</span></span>
           </a>
         </nav>
@@ -6003,7 +6055,7 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Kommunikation &amp; Entscheidungsunterstützung</h3>
+          <h3 class="suite-list-category">Organisation, Kommunikation &amp; Produktivität</h3>
 
           <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #3f7868;">
             <span class="suite-row-media">
@@ -6053,8 +6105,6 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Unternehmensprozesse &amp; Recruiting</h3>
-
           <a class="suite-row contact-trigger" id="smart-recruitpilot" href="#kontakt" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20RecruitPilot.jpeg" alt="">
@@ -6071,12 +6121,28 @@
             </span>
           </a>
 
+          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #5d6fa3;">
+            <span class="suite-row-media">
+              <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
+              <span class="suite-row-index">18</span>
+            </span>
+            <span class="suite-row-copy">
+              <h3>SMART Focus</h3>
+              <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
+            </span>
+            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
+              <span class="suite-tag suite-tag-focus">Fokus planen</span>
+              <span class="suite-tag suite-tag-pomodoro">Pomodoro nutzen</span>
+              <span class="suite-tag suite-tag-kanban">Aufgaben steuern</span>
+            </span>
+          </a>
+
           <h3 class="suite-list-category">Karriere &amp; Entwicklung</h3>
 
           <div class="suite-row suite-row--with-links" id="smart-career-navigator" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Career%20Navigator-neu.png" alt="">
-              <span class="suite-row-index">18</span>
+              <span class="suite-row-index">19</span>
             </span>
             <span class="suite-row-copy">
               <h3>SMART CareerNavigator</h3>
@@ -6092,24 +6158,6 @@
               <span class="suite-tag suite-tag-profile">Profil schärfen</span>
             </span>
           </div>
-
-          <h3 class="suite-list-category">Produktivität &amp; Workflow Intelligence</h3>
-
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #5d6fa3;">
-            <span class="suite-row-media">
-              <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
-              <span class="suite-row-index">19</span>
-            </span>
-            <span class="suite-row-copy">
-              <h3>SMART Focus</h3>
-              <p>KI-gestützte Fokus-, Aufgaben- und Workflowsteuerung für Deep Work, Zeitmanagement und produktive Wissensarbeit. Pomodoro, Tagesplanung, Kanban und fokussierte Arbeitsabläufe unterstützen Priorisierung, Konzentration und effiziente Umsetzung.</p>
-            </span>
-            <span class="suite-row-meta" aria-label="Themenschwerpunkte">
-              <span class="suite-tag suite-tag-focus">Fokus planen</span>
-              <span class="suite-tag suite-tag-pomodoro">Pomodoro nutzen</span>
-              <span class="suite-tag suite-tag-kanban">Aufgaben steuern</span>
-            </span>
-          </a>
         </nav>
       </section>
 
