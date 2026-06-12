@@ -26,7 +26,7 @@ KI-Funktionen:
 Nutzungsmodell:
 - Einzelplatzanwendung mit persoenlichem Nutzerzugriff.
 - Browserbasierte Anwendung fuer moderne Browser auf Windows, macOS und anderen Systemen.
-- App-URL: https://montecarlo.builtsmart-ai.app
+- App-URL: https://www.builtsmart-ai.app/montecarlo/
 - Kein Installer und keine separate lokale Installation erforderlich.
 - Fuer Trial, Kauf, Lizenzpruefung und BuiltSmart AI Credits ist ein Nutzerkonto erforderlich.
 - Login erfolgt per Magic Link.
@@ -58,7 +58,7 @@ Lizenzmodell:
 - Alternativ zu BuiltSmart AI Credits kann ein eigener Anthropic API Key genutzt werden.
 - Bei eigenem Anthropic API Key erfolgt die Abrechnung direkt ueber Anthropic.
 - Der Anthropic API Key bleibt lokal in der jeweiligen App und wird nicht an das BuiltSmart Lizenzsystem gesendet.
-- Kauf-/Kontaktlink: https://montecarlo.builtsmart-ai.app
+- Kauf-/Kontaktlink: https://www.builtsmart-ai.app/#kontakt
 
 Plattformen:
 - Moderne Browser auf Windows, macOS und anderen Systemen.

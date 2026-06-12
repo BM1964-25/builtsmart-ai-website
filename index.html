@@ -7836,6 +7836,14 @@
           });
         });
 
+        const openFromHash = () => {
+          if (window.location.hash === "#kontakt") openModal();
+        };
+
+        window.addEventListener("hashchange", openFromHash);
+        window.addEventListener("pageshow", openFromHash);
+        openFromHash();
+
         closeButton.addEventListener("click", closeModal);
 
         modal.addEventListener("click", (event) => {
