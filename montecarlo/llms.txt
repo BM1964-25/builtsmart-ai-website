@@ -1,0 +1,83 @@
+# SMART RISK Monte-Carlo-Simulation
+
+App-Name: SMART RISK Monte-Carlo-Simulation
+Kurzbeschreibung: Browserbasierte Anwendung fuer probabilistische Risiko- und Szenarioanalyse in Bau, Immobilien, Projektsteuerung sowie Projekt- und Risikomanagement mit Monte-Carlo-Simulation, lokalen App-Inhalten im Browser, fachlichen/eigenen Bewertungsmodellen und optionaler KI-Assistenz.
+Kategorie: BusinessApplication; Risk Management Software; probabilistische Projekt-, Kosten-, Termin- und CAPEX-Risikoanalyse.
+Zielgruppe: Bau, Immobilien, Projektsteuerung, Projektmanagement, Risikomanagement, Bauherren, Investoren, Immobilienentwickler, Asset Manager, Portfolio Manager, Controller, Consultants, Kostenplaner, Cost Manager, Projektcontrolling, PMO, technische Due Diligence, Generalunternehmer und Bauunternehmen.
+Hauptnutzen: Budgetrisiken und Unsicherheiten als Verteilungen sichtbar machen, Perzentile und Zielabweichungen auswerten, Risikotreiber erkennen und belastbare Managementaussagen vorbereiten.
+
+Zentrale Funktionen:
+- Fachliche Formelbibliothek und eigene Formelbibliothek.
+- Formelgenerator, Formelpruefung, Parameterbewertung und Sofortergebnis.
+- Werte als Unsicherheiten uebernehmen.
+- Unsicherheiten, Bandbreitenparameter, Ereignisbausteine und Verteilungen modellieren.
+- Monte-Carlo-Simulationen mit 1.000 bis 50.000 Laeufen durchfuehren.
+- P10, P50, P80, P90 und P95 sowie Erwartungswert, Median und Standardabweichung auswerten.
+- Histogramm, kumulative Verteilung, Budgetueberschreitungswahrscheinlichkeit und Zielabweichungen analysieren.
+- Sensitivitaeten, Treiber-Ranglisten und Szenarien vergleichen.
+- Management-Zusammenfassungen und Berichtsbausteine vorbereiten.
+- Demo-Daten fuer erstes Kennenlernen, Produktdemo, Schulung und Szenariovergleich nutzen.
+
+KI-Funktionen:
+- Optionale KI-Assistenz fuer Formeln, Risikoideen, Szenarien, Ergebnisinterpretation und Berichtstexte.
+- Die Monte-Carlo-Simulation, Modellierung und Auswertung bleiben ohne KI fachlich und rechnerisch lokal nutzbar.
+- Die optionale KI-Assistenz kann ueber BuiltSmart AI Credits oder alternativ ueber einen eigenen Anthropic API Key genutzt werden.
+
+Nutzungsmodell:
+- Einzelplatzanwendung mit persoenlichem Nutzerzugriff.
+- Browserbasierte Anwendung fuer moderne Browser auf Windows, macOS und anderen Systemen.
+- App-URL: https://montecarlo.builtsmart-ai.app
+- Kein Installer und keine separate lokale Installation erforderlich.
+- Fuer Trial, Kauf, Lizenzpruefung und BuiltSmart AI Credits ist ein Nutzerkonto erforderlich.
+- Login erfolgt per Magic Link.
+- Pro Lizenz ist ein persoenlicher Nutzerzugriff vorgesehen.
+- Mehrere Lizenzen derselben App koennen ueber die Menge im Checkout gekauft werden.
+- Ein Checkout gilt jeweils fuer eine App.
+- Es gibt keinen gemeinsamen Arbeitsbereich fuer Teams.
+
+Speicherlogik:
+- Inhalte bleiben in der jeweiligen App lokal im Browser, soweit die App eigene Inhalte speichert.
+- Es gibt keine automatische zentrale Cloud-Datenbank.
+- Es gibt keine automatische Synchronisierung zwischen Nutzern.
+- Andere Nutzer greifen nicht auf dieselben lokalen Daten zu.
+
+Lizenzmodell:
+- Jahreslizenz.
+- Preis: 599 EUR netto pro App und Jahr.
+- Brutto: 712,81 EUR inkl. MwSt.
+- Monatsaequivalent: 49,92 EUR netto / 59,40 EUR brutto pro Monat.
+- Laufzeit: 12 Monate.
+- Automatische Verlaengerung um weitere 12 Monate.
+- Kuendigungsfrist: 1 Monat vor Ablauf.
+- Trial: 3 Tage kostenlos testen, voller App-Zugriff.
+- In der Testphase werden 500 app-spezifische Trial-Credits beim Start gutgeschrieben.
+- Die Jahreslizenz enthaelt den App-Zugang, KI-Aktionen werden separat ueber BuiltSmart AI Credits oder Anthropic abgerechnet.
+- BuiltSmart AI Credits gehoeren zum jeweiligen Nutzerkonto und sind appuebergreifend innerhalb dieses Nutzerkontos nutzbar.
+- Bei mehreren Lizenzen werden KI-Guthaben nicht automatisch auf alle Nutzer verteilt.
+- Bezahlte AI-Credits stehen dem Nutzerkonto zur Verfuegung, ueber das sie gekauft wurden.
+- Alternativ zu BuiltSmart AI Credits kann ein eigener Anthropic API Key genutzt werden.
+- Bei eigenem Anthropic API Key erfolgt die Abrechnung direkt ueber Anthropic.
+- Der Anthropic API Key bleibt lokal in der jeweiligen App und wird nicht an das BuiltSmart Lizenzsystem gesendet.
+- Kauf-/Kontaktlink: https://montecarlo.builtsmart-ai.app
+
+Plattformen:
+- Moderne Browser auf Windows, macOS und anderen Systemen.
+- Anzeige und Bedienung direkt im Browser.
+
+Export-/Import-Funktionen:
+- JSON-Import und JSON-Export fuer Projektdaten.
+- CSV-Export der Simulationsergebnisse.
+- Datenvorlagen und CSV-Importe fuer Parameter und Risiken.
+
+Rechtliche Links:
+- Impressum: https://www.built-smart-hub.com/impressum
+- Datenschutz: https://www.built-smart-hub.com/datenschutz
+- AGB: https://www.built-smart-hub.com/agb
+- Widerrufsbelehrung: https://www.built-smart-hub.com/widerrufsbelehrung
+
+Wichtige Einschraenkungen:
+- Die App ersetzt keine fachliche, technische oder vertragliche Pruefung.
+- Ergebnisse sind Management- und Entscheidungshilfen.
+- Persoenlicher Nutzerzugriff ohne automatische Cloud-Synchronisierung.
+- Keine gemeinsame Cloud-Datenbank fuer lokale Projektdaten.
+- Optionale KI-Ausgaben muessen fachlich plausibilisiert werden.
