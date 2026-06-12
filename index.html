@@ -3963,7 +3963,25 @@
       }
 
       .waitlist-card.has-message .waitlist-apps {
-        flex-basis: 140px;
+        flex-basis: 220px;
+        min-height: 180px;
+      }
+
+      .waitlist-card.has-message .waitlist-head {
+        margin-bottom: 10px;
+      }
+
+      .waitlist-card.has-message .waitlist-title {
+        font-size: clamp(1.85rem, 3vw, 2.45rem);
+        line-height: 1.04;
+      }
+
+      .waitlist-card.has-message .waitlist-lead {
+        display: none;
+      }
+
+      .waitlist-card.has-message .waitlist-apps-title {
+        margin-top: 12px;
       }
 
       .waitlist-apps strong {
@@ -4117,7 +4135,12 @@
         }
 
         .waitlist-card.has-message .waitlist-apps {
-          flex-basis: 110px;
+          flex-basis: 190px;
+          min-height: 145px;
+        }
+
+        .waitlist-card.has-message .waitlist-title {
+          font-size: clamp(1.65rem, 7vw, 2.1rem);
         }
 
         .waitlist-actions {
@@ -4155,6 +4178,15 @@
         .waitlist-apps {
           flex-basis: 130px;
           min-height: 0;
+        }
+
+        .waitlist-card.has-message .waitlist-apps {
+          flex-basis: 220px;
+          min-height: 180px;
+        }
+
+        .waitlist-card.has-message .waitlist-title {
+          font-size: clamp(1.7rem, 3.2vw, 2.15rem);
         }
 
         .waitlist-actions {
