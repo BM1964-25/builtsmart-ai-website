@@ -3948,9 +3948,9 @@
 
       .waitlist-apps {
         display: grid;
-        flex: 1 1 auto;
+        flex: 1 1 220px;
         gap: 18px;
-        min-height: clamp(180px, 30svh, 300px);
+        min-height: 0;
         max-height: none;
         overflow: auto;
         overscroll-behavior: contain;
@@ -3960,6 +3960,10 @@
         border-radius: 8px;
         background: #f4f7f2;
         scrollbar-color: #247780 #dce5df;
+      }
+
+      .waitlist-card.has-message .waitlist-apps {
+        flex-basis: 140px;
       }
 
       .waitlist-apps strong {
@@ -4042,6 +4046,7 @@
 
       .waitlist-message-box {
         display: none;
+        flex: 0 0 auto;
         margin-top: 12px;
         padding: 14px;
         color: #172026;
@@ -4062,7 +4067,7 @@
 
       .waitlist-message-box textarea {
         width: 100%;
-        min-height: 140px;
+        min-height: 118px;
         resize: vertical;
         padding: 12px;
         color: #172026;
@@ -4106,8 +4111,13 @@
         }
 
         .waitlist-apps {
-          min-height: 160px;
+          flex-basis: 160px;
+          min-height: 0;
           padding: 14px;
+        }
+
+        .waitlist-card.has-message .waitlist-apps {
+          flex-basis: 110px;
         }
 
         .waitlist-actions {
@@ -4143,11 +4153,21 @@
         }
 
         .waitlist-apps {
-          min-height: 150px;
+          flex-basis: 130px;
+          min-height: 0;
         }
 
         .waitlist-actions {
           margin-top: 12px;
+        }
+
+        .waitlist-message-box {
+          margin-top: 10px;
+          padding: 12px;
+        }
+
+        .waitlist-message-box textarea {
+          min-height: 92px;
         }
       }
 
@@ -8245,6 +8265,7 @@
           modal.hidden = false;
           document.body.style.overflow = "hidden";
           if (feedback) feedback.textContent = "";
+          modal.querySelector(".waitlist-card")?.classList.remove("has-message");
           messageBox?.classList.remove("is-visible");
           if (messageField) messageField.value = "";
           if (messageLink) messageLink.href = `mailto:${emailAddress}`;
@@ -8295,6 +8316,7 @@
           }
 
           messageBox?.classList.add("is-visible");
+          modal.querySelector(".waitlist-card")?.classList.add("has-message");
           notifyButton.textContent = "Nachricht vorbereitet";
 
           try {
