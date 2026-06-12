@@ -1,1 +1,934 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<base href="/contracts/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMART RISK Vertragsanalyse | KI-gestützte Vertragsprüfung</title>
+<meta name="description" content="SMART RISK Vertragsanalyse prüft deutschsprachige Vertragstexte KI-gestützt, erkennt kritische Klauseln, priorisiert Risiken und erstellt lokale Akten sowie druckbare Ergebnisberichte.">
+<link rel="canonical" href="https://www.builtsmart-ai.app/contracts/">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="SMART RISK Vertragsanalyse | KI-gestützte Vertragsprüfung">
+<meta property="og:description" content="Verträge schneller verstehen, Risiken früher erkennen und Fundstellen, Empfehlungen sowie Berichte als klare Entscheidungsgrundlage nutzen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.builtsmart-ai.app/contracts/">
+<meta property="og:image" content="https://www.builtsmart-ai.app/contracts/hero-screenshot.png">
+<meta property="og:site_name" content="BuiltSmart Hub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SMART RISK Vertragsanalyse | KI-gestützte Vertragsprüfung">
+<meta name="twitter:description" content="KI-gestützte Vertragsvorprüfung mit Risiko-Score, Fundstellen, Empfehlungen, lokalen Akten und druckbaren Ergebnisberichten.">
+<meta name="twitter:image" content="https://www.builtsmart-ai.app/contracts/hero-screenshot.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.built-smart-hub.com/#organization",
+      "name": "SmartBuilt-AI",
+      "url": "https://www.built-smart-hub.com/",
+      "brand": {
+        "@type": "Brand",
+        "name": "BuiltSmart Hub"
+      },
+      "legalName": "SmartBuilt-AI - Bernhard Metzger"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.builtsmart-ai.app/contracts/#software",
+      "name": "SMART RISK Vertragsanalyse",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "KI-gestützte Vertragsanalyse und Vertragsvorprüfung",
+      "operatingSystem": "Moderne Browser auf Windows, macOS und anderen Systemen",
+      "description": "SMART RISK Vertragsanalyse prüft deutschsprachige, textbasierte Vertragsdokumente KI-gestützt, erkennt kritische Klauseln, priorisiert Risiken und erstellt strukturierte Auswertungen mit Risiko-Score, Fundstellen, Empfehlungen, lokalen Akten sowie HTML-/Print-Berichten.",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Selbstständige, kleine Unternehmen, Geschäftsführung, Einkauf, Projektverantwortliche, Verwaltung, Beratung und Fachverantwortliche"
+      },
+      "featureList": [
+        "Vertragstext hochladen oder einfügen",
+        "Vertragspartei, Vertragstyp und Prüfperspektive festlegen",
+        "KI-gestützte Risikoanalyse starten",
+        "Risiko-Score, Schweregrade, Kategorien und Klauselbezug auswerten",
+        "Fundstellen, Begründungen, mögliche Folgen und Empfehlungen strukturieren",
+        "Lokale Akten speichern",
+        "JSON Export und Import nutzen",
+        "Druckbare HTML-/Print-Berichte erstellen",
+        "KI-Nutzung über BuiltSmart AI Credits oder eigenen Anthropic API Key"
+      ],
+      "softwareHelp": "Die App ist eine browserbasierte Einzelplatzanwendung. App-Inhalte bleiben lokal im Browser, soweit sie gespeichert werden. Es gibt keine automatische zentrale Cloud-Datenbank und keine automatische Synchronisierung zwischen Nutzern.",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://contracts.builtsmart-ai.app/",
+        "price": "899.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/PreOrder",
+        "category": "Jahreslizenz",
+        "description": "Jahreslizenz pro App und Jahr, 12 Monate Laufzeit, automatische Verlängerung um weitere 12 Monate, Kündigung bis 1 Monat vor Ablauf, pro Lizenz ein persönlicher Nutzerzugriff. 3 Tage Trial mit 1000 app-spezifischen Trial-Credits."
+      },
+      "provider": {
+        "@id": "https://www.built-smart-hub.com/#organization"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://www.builtsmart-ai.app/contracts/#product",
+      "name": "SMART RISK Vertragsanalyse",
+      "brand": {
+        "@type": "Brand",
+        "name": "SmartBuilt-AI"
+      },
+      "description": "KI-gestützte Vertragsvorprüfung für deutschsprachige, textbasierte Vertragsdokumente mit Risiko-Score, Fundstellen, Empfehlungen, lokalen Akten und druckbaren Ergebnisberichten.",
+      "category": "Vertragsanalyse Software",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://contracts.builtsmart-ai.app/",
+        "price": "899.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/PreOrder",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "899.00",
+          "priceCurrency": "EUR",
+          "unitText": "Jahreslizenz netto zzgl. 19 Prozent MwSt."
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.builtsmart-ai.app/contracts/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welchen Nutzen bringt mir SMART RISK Vertragsanalyse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SMART RISK Vertragsanalyse hilft, Vertragstexte schneller zu durchdringen, Risiken sichtbar zu machen, Fundstellen zu priorisieren und Ergebnisse als lokale Akte oder druckbaren Bericht nachvollziehbar zu dokumentieren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Vorteile habe ich bei der Nutzung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die App verbindet klaren Workflow, Risiko-Score, Fundliste, Empfehlungen und Bericht. Dadurch werden manuelle Vorarbeiten reduziert, Prüfpunkte priorisiert und Entscheidungen professioneller vorbereitet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Für wen ist SMART RISK Vertragsanalyse gedacht?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die App richtet sich an Selbstständige, kleine Unternehmen, Projektverantwortliche, Einkauf, Verwaltung und Entscheider, die Verträge vor Freigabe, Verhandlung oder weiterer Prüfung strukturiert vorbewerten wollen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Aufgaben unterstützt die App?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unterstützt werden Vertragspartei wählen, Vertrag hochladen oder Text einfügen, Vertragstyp und Prüfkategorien ermitteln, Risikoanalyse starten, Dashboard, Fundliste, Empfehlungen, lokale Akten, JSON Export/Import und HTML-/Print-Berichte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Vertragsarten eignen sich besonders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SMART RISK eignet sich besonders für deutschsprachige, textbasierte Vertragsdokumente mit klar erkennbaren Klauseln, darunter Miet-, Arbeits-, Dienstleistungs-, Werk-, Kauf-, Liefer-, Bau-, VOB-/HOAI-nahe und B2B-Verträge sowie Projektvereinbarungen und AGB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Rolle spielt KI in SMART RISK Vertragsanalyse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KI ist Bestandteil der App-Funktion. Sie unterstützt die Analyse von Vertragstexten, die Strukturierung von Risiken, Empfehlungen und Zusammenfassungen. Die Nutzung erfolgt kontrolliert über BuiltSmart AI Credits oder optional über einen eigenen Anthropic API Key."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo liegen die Grenzen der Analyse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SMART RISK ist keine anwaltliche Beratung und trifft keine verbindlichen Rechtsentscheidungen. Nur eingeschränkt geeignet sind hochkomplexe M&A-, Finanzierungs-, Kapitalmarkt-, Versicherungs- oder internationale Verträge sowie Vertragswerke, die stark von Anlagen, Zeichnungen, Leistungsverzeichnissen oder Spezialprüfungen abhängen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Inhalte kann ich in der App bearbeiten, speichern oder organisieren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In der App können Vertragstexte, Prüfperspektiven, Prüfkategorien, Analyseergebnisse, Empfehlungen und lokale Akten organisiert werden. Für gespeicherte Inhalte stehen lokale Speicherung im Browser sowie JSON Export/Import zur Verfügung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich ein Nutzerkonto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Für Trial, Kauf, Lizenzprüfung und BuiltSmart AI Credits ist ein Nutzerkonto erforderlich. Der Login erfolgt per Magic Link."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Muss ich etwas installieren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Die App läuft browserbasiert in modernen Browsern auf Windows, macOS und anderen Systemen. Es ist kein Installer und keine separate Installation erforderlich."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert der Trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Trial läuft 3 Tage und bietet vollen App-Zugriff. 1000 app-spezifische BuiltSmart AI Trial-Credits werden beim Start des Trials gutgeschrieben."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist in der Jahreslizenz enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Jahreslizenz kostet 899 EUR netto pro App und Jahr und enthält den App-Zugang für einen persönlichen Nutzerzugriff. Die Laufzeit beträgt 12 Monate und verlängert sich automatisch um weitere 12 Monate. Die Kündigung ist bis 1 Monat vor Ablauf möglich."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist KI-Nutzung pauschal in der Lizenz enthalten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Die Jahreslizenz enthält den App-Zugang. KI-Aktionen werden über BuiltSmart AI Credits oder über einen eigenen Anthropic API Key genutzt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktionieren BuiltSmart AI Credits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BuiltSmart AI Credits gehören zum jeweiligen Nutzerkonto und sind appübergreifend innerhalb dieses Nutzerkontos nutzbar. Bei mehreren Lizenzen werden KI-Guthaben nicht automatisch auf alle Nutzer verteilt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich einen eigenen Anthropic API Key nutzen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Alternativ zu BuiltSmart AI Credits kann ein eigener Anthropic API Key genutzt werden. Die Abrechnung erfolgt dann direkt über Anthropic. Der Key bleibt lokal in der jeweiligen App und wird nicht an das BuiltSmart Lizenzsystem gesendet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich mehrere Lizenzen kaufen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Mehrere Lizenzen derselben App können im Checkout über die Menge gekauft werden. Jede Lizenz ist für einen getrennten persönlichen Nutzerzugriff vorgesehen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie werden KI-Guthaben bei mehreren Lizenzen berechnet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mehrere App-Lizenzen schalten mehrere persönliche Nutzerzugriffe frei. BuiltSmart AI Credits werden separat pro Nutzerkonto geführt. Trial-Credits werden beim Start des Trials dem jeweiligen Nutzerkonto gutgeschrieben. Bezahlte AI-Credits stehen dem Nutzerkonto zur Verfügung, über das sie gekauft wurden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es einen gemeinsamen Team- oder Projektbereich?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Mehrere Lizenzen bedeuten mehrere getrennte persönliche Nutzerzugriffe, nicht einen gemeinsamen Team- oder Projektbereich."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich mehrere unterschiedliche Apps gemeinsam kaufen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Ein Checkout gilt jeweils für eine App. Mehrere Lizenzen derselben App können über die Menge gekauft werden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wo bleiben App-Inhalte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "App-Inhalte bleiben in der jeweiligen App lokal im Browser, soweit die App so gebaut ist. SMART RISK Vertragsanalyse bietet lokale Akten sowie JSON Export/Import für gespeicherte Inhalte."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --navy:#071a33;
+  --blue:#132033;
+  --teal:#0d9488;
+  --teal-soft:#e6faf6;
+  --ink:#102033;
+  --muted:#526273;
+  --line:#d7e3f0;
+  --bg:#f3f2ee;
+  --card:#fff;
+  --red:#dc2626;
+  --amber:#d97706;
+  --green:#059669;
+  --shadow:0 18px 45px rgba(15,35,60,.1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden}
+a{color:inherit}
+.site-header{position:absolute;z-index:20;top:0;left:0;right:0;background:#f3f2ee;border-bottom:1px solid rgba(24,26,31,.08)}
+.header-inner{width:min(1180px,calc(100% - 40px));min-height:88px;margin:0 auto;display:grid;grid-template-columns:minmax(360px,1fr) auto auto;align-items:center;gap:1.8rem}
+.brand{display:flex;align-items:center;gap:.78rem;min-width:0;text-decoration:none}
+.brand img{width:42px;height:42px;border-radius:10px;box-shadow:0 8px 20px rgba(37,99,235,.16);flex:0 0 auto}
+.brand strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:1rem;font-weight:800;line-height:1.12;white-space:nowrap;color:#1c314c}
+.nav{display:flex;align-items:center;gap:1.35rem;font-family:"IBM Plex Sans",sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#526273}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--teal)}
+.btn{min-height:50px;border:1px solid transparent;border-radius:12px;padding:.76rem 1.25rem;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;font-weight:800;text-decoration:none;white-space:nowrap;cursor:pointer}
+.btn.primary{background:#fff;border-color:#fff;color:#181a1f;box-shadow:rgba(0,0,0,.12) 0 16px 42px}
+.btn.primary:hover{background:#f7f7f5;border-color:#f7f7f5}
+.btn.dark{background:#151515;color:#fff;border-color:#151515;border-radius:13px;box-shadow:none;min-height:50px;padding:.78rem 1.45rem}
+.btn.dark:hover{background:#2a2a2a;border-color:#2a2a2a}
+.btn.secondary{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.btn.light{background:#fff;color:var(--navy);border-color:#fff}
+.hero{position:relative;min-height:850px;display:flex;align-items:center;overflow:hidden;background:var(--navy);padding-top:88px}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(7,26,51,.98) 0%,rgba(7,26,51,.9) 30%,rgba(7,26,51,.54) 56%,rgba(7,26,51,.18) 100%),linear-gradient(180deg,rgba(7,26,51,.36) 0%,rgba(7,26,51,.06) 46%,rgba(7,26,51,.46) 100%),url("hero-screenshot.png");background-size:cover;background-position:center top;background-repeat:no-repeat;transform:scale(1.01)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(7,29,52,0),rgba(7,29,52,.78));pointer-events:none}
+.hero-inner{position:relative;z-index:1;width:min(1180px,calc(100% - 40px));margin:0 auto;padding:5.4rem 0 4.2rem}
+.hero-copy{width:min(820px,100%);color:#fff}
+.eyebrow{font-family:"IBM Plex Sans",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#9ee6dc;margin-bottom:1rem}
+.pill{width:max-content;max-width:100%;display:inline-flex;align-items:center;gap:.48rem;border:1px solid rgba(158,230,220,.42);border-radius:999px;background:rgba(13,148,136,.18);color:#d7fffb;font-family:"IBM Plex Sans",sans-serif;font-size:.76rem;font-weight:800;padding:.34rem .78rem;margin-bottom:1rem;box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.pill svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;flex:0 0 auto}
+h1{font-family:"IBM Plex Sans",sans-serif;font-size:clamp(2.45rem,5vw,4.65rem);line-height:.98;font-weight:800;letter-spacing:0;margin:0 0 1.1rem;color:#fff;overflow-wrap:break-word}
+.hero-copy p{font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.52;color:#dce8f5;max-width:620px;margin:0}
+.hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,400px));align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:1.7rem}
+.hero-actions .btn{width:100%;min-height:56px}
+.proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin-top:1.1rem;max-width:820px}
+.proof{position:relative;min-width:0;min-height:150px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(255,255,255,.13);box-shadow:none;padding:2.6rem 1.15rem .9rem;text-align:center;backdrop-filter:blur(10px)}
+.proof::before{content:"✓";position:absolute;top:.9rem;left:50%;transform:translateX(-50%);font-family:"IBM Plex Sans",sans-serif;font-size:1.05rem;font-weight:800;color:#9ee6dc}
+.proof strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:1.08rem;line-height:1.18;color:#fff;margin-bottom:.42rem}
+.proof span{display:block;font-size:.82rem;line-height:1.45;color:#eef4fb}
+.kicker{font-family:"IBM Plex Sans",sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.24rem}
+.section h2{font-family:"IBM Plex Sans",sans-serif;line-height:1.12;color:var(--ink);margin:0}
+.section{width:100%;margin:0;padding:5rem 0;background:linear-gradient(rgba(255,255,255,.99),rgba(252,253,255,.99))}
+.section:nth-of-type(odd){background:linear-gradient(rgba(245,248,252,.99),rgba(239,243,248,.99))}
+.section.tight{padding-top:4.5rem}
+.section > .section-head,.section > .card-grid,.section > .steps,.section > .workflow-track,.section > .split,.section > .scope-note,.section > .faq-groups,.section > .license-strip,.section > .pricing-actions,.section > .license-layout{width:min(1180px,calc(100% - 40px));margin-left:auto;margin-right:auto}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.6rem;margin-bottom:1.7rem}
+.section h2{font-size:clamp(2.25rem,4.4vw,3.85rem);line-height:1.05;max-width:820px;letter-spacing:0}
+.section-head p{font-size:1.02rem;line-height:1.72;color:#43556a;max-width:460px;margin:0}
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.card,.panel,.step{border:1px solid rgba(20,32,51,.12);border-radius:8px;background:#fff;padding:1.2rem 1.25rem;box-shadow:rgba(24,39,60,.06) 0 14px 36px}
+.card{min-height:154px}
+.card.accent{background:var(--teal-soft);border-color:#bde9df}
+.card.warn,.panel.warn{background:#fffbeb;border-color:#fde1a7}
+.card h3,.panel h3,.step h3{font-family:"IBM Plex Sans",sans-serif;color:var(--ink);margin:0 0 .48rem}
+.card h3,.panel h3{font-size:.86rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.card p,.card li,.panel p,.panel li,.step p{font-size:.82rem;line-height:1.65;color:var(--muted);margin:0}
+.panel p + p{margin-top:.75rem}
+.feature-grid{gap:1rem}
+.feature-card{position:relative;min-height:210px;padding:1.45rem 1.35rem 1.35rem;overflow:hidden}
+.feature-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--teal),#9ee6dc)}
+.feature-card .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;background:#0e2138;color:#fff;font-family:"IBM Plex Sans",sans-serif;font-size:.78rem;font-weight:800;margin-bottom:1rem}
+.feature-card h3{font-size:.94rem;line-height:1.25;margin-bottom:.65rem}
+.feature-card p{font-size:.86rem;line-height:1.7;color:#4a5b6e}
+.results-section{background:linear-gradient(180deg,#fff 0%,#f6f9fc 100%)}
+.section.scope-section{background:linear-gradient(180deg,#d8e8f7 0%,#c7dff2 100%)}
+.scope-section .result-card{background:rgba(255,255,255,.9);border-color:rgba(15,95,168,.16);box-shadow:rgba(15,95,168,.1) 0 18px 44px}
+.scope-section .scope-note{background:rgba(255,255,255,.72);border-color:rgba(15,95,168,.18)}
+.results-grid{gap:1rem}
+.result-card{position:relative;min-height:230px;padding:1.45rem;background:#fff;border-color:rgba(16,32,51,.1);box-shadow:rgba(24,39,60,.05) 0 18px 44px}
+.result-card::after{content:"";position:absolute;left:1.45rem;right:1.45rem;top:1.45rem;height:1px;background:linear-gradient(90deg,var(--teal),rgba(13,148,136,0))}
+.result-card .label{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:1rem 0 .85rem}
+.result-card h3{font-size:1.35rem;line-height:1.08;letter-spacing:0;text-transform:none;margin-bottom:.8rem}
+.result-card p{font-size:.9rem;line-height:1.72;color:#44566b}
+.scope-note{margin-top:1rem;border:1px solid rgba(16,32,51,.1);border-radius:8px;background:rgba(255,255,255,.64);padding:1rem 1.15rem;color:#53657a}
+.scope-note strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0d9488;margin-bottom:.35rem}
+.scope-note p{font-size:.84rem;line-height:1.65;margin:0}
+.scope-note p + p{margin-top:.55rem}
+.access-section{background:linear-gradient(180deg,#edf5fc 0%,#e8f1f9 100%)}
+.access-layout{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.85fr);gap:min(6vw,4.6rem);align-items:center}
+.access-copy h2{font-family:"IBM Plex Sans",sans-serif;font-size:clamp(2.35rem,4.8vw,4.25rem);line-height:1.05;letter-spacing:0;margin:0 0 1.35rem;color:var(--ink);max-width:680px}
+.access-copy p{font-size:1rem;line-height:1.72;color:#50637a;max-width:660px;margin:0}
+.access-cards{display:grid;gap:1rem}
+.access-card{display:grid;grid-template-columns:34px minmax(0,1fr);gap:1rem;align-items:start;border:1px solid rgba(16,32,51,.1);border-radius:8px;background:#fff;padding:1.35rem 1.45rem;box-shadow:rgba(24,39,60,.06) 0 18px 42px}
+.access-dot{width:22px;height:22px;border-radius:999px;background:#e9f3ff;position:relative;margin-top:.16rem}
+.access-dot::after{content:"";position:absolute;inset:7px;border-radius:999px;background:#0f65b4}
+.access-card h3{font-family:"IBM Plex Sans",sans-serif;font-size:1.05rem;line-height:1.2;color:var(--ink);margin:0 0 .28rem}
+.access-card p{font-size:.92rem;line-height:1.6;color:#5a6b80;margin:0}
+.audience-section{background:#fff}
+.audience-grid{gap:1rem}
+.audience-card{position:relative;min-height:235px;padding:1.55rem;border-color:rgba(16,32,51,.1);background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)}
+.audience-card::before{content:"";position:absolute;left:1.55rem;right:1.55rem;top:1.35rem;height:1px;background:rgba(16,32,51,.14)}
+.audience-card .label{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:1rem 0 .85rem}
+.audience-card h3{font-size:1.25rem;line-height:1.12;letter-spacing:0;text-transform:none;margin-bottom:.75rem}
+.audience-card p{font-size:.9rem;line-height:1.72;color:#46596d}
+.workflow-track{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem;margin:2rem auto 1.45rem}
+.workflow-track::before{content:"";position:absolute;left:calc((100% - 3.9rem) / 8 + 1.95rem);right:calc((100% - 3.9rem) / 8 + 1.95rem);top:28px;height:2px;background:linear-gradient(90deg,#8db7e6,var(--teal));opacity:.75}
+.workflow-node{position:relative;z-index:1;text-align:center;font-family:"IBM Plex Sans",sans-serif;color:var(--ink)}
+.workflow-node strong{width:58px;height:58px;margin:0 auto .8rem;border-radius:999px;background:#fff;border:1px solid #cfddeb;display:flex;align-items:center;justify-content:center;color:#0f5fa8;font-size:1rem;font-weight:800;box-shadow:rgba(24,39,60,.06) 0 12px 24px}
+.workflow-node span{display:block;font-size:.9rem;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.3rem}
+.step{min-height:194px;text-align:center;padding:2.05rem 1.25rem}
+.step::before{display:none}
+.step h3{font-size:1rem;line-height:1.25;margin-bottom:.75rem;text-transform:none;letter-spacing:0}
+.step p{font-size:.9rem;line-height:1.68;max-width:210px;margin:0 auto}
+.split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:1rem;align-items:stretch}
+.list{display:grid;gap:.58rem;margin:0;padding:0}
+.list li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:.55rem;align-items:start;list-style:none;font-size:.82rem;line-height:1.55;color:var(--muted)}
+.list li::before{content:"✓";width:18px;height:18px;border-radius:999px;background:#dcfce7;color:#047857;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Sans",sans-serif;font-size:.7rem;font-weight:800;margin-top:.08rem}
+.faq-groups{display:grid;grid-template-columns:1fr;gap:1rem}
+.faq-group{border:1px solid var(--line);border-radius:8px;background:#fff;padding:1.05rem}
+.faq-group h3{font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 .75rem}
+.faq-list{display:grid;gap:.55rem}
+.faq-list details{border:1px solid #e0e9f3;border-radius:7px;background:#fbfcfd;overflow:hidden}
+.faq-list summary{list-style:none;cursor:pointer;padding:.78rem .9rem;font-family:"IBM Plex Sans",sans-serif;font-size:.86rem;font-weight:800;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";font-size:1rem;color:var(--teal);flex:0 0 auto}
+.faq-list details[open] summary::after{content:"-"}
+.faq-list p{margin:0;padding:0 .9rem .85rem;font-size:.82rem;line-height:1.65;color:var(--muted)}
+.license-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:.9rem}
+.license-item{border:1px solid var(--line);border-radius:8px;background:#fff;padding:1rem}
+.license-item strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:1.15rem;color:var(--ink);line-height:1.15;margin-bottom:.32rem}
+.license-item span{display:block;font-size:.78rem;line-height:1.5;color:var(--muted)}
+.pricing-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:.9rem}
+.pricing-actions .btn{min-height:52px}
+#lizenz{background:linear-gradient(rgba(255,255,255,.03),rgba(255,255,255,0)),var(--navy);color:#fff;padding:6rem 0}
+#lizenz .kicker{color:#9ee6dc}
+#lizenz h2,#lizenz .card h3{color:#fff}
+#lizenz .section-head p,#lizenz .card p{color:#d5e3f5}
+#lizenz .license-item,#lizenz .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);box-shadow:none;color:#fff}
+#lizenz .license-item strong{color:#fff;font-size:1.55rem}
+#lizenz .license-item span{color:#d5e3f5}
+#lizenz .pricing-actions .btn.primary{box-shadow:rgba(0,0,0,.16) 0 18px 34px}
+.section > .license-layout{width:min(1240px,calc(100% - 40px))}
+.license-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(500px,540px);gap:min(6vw,4.4rem);align-items:center}
+.license-copy h2{font-family:"IBM Plex Sans",sans-serif;font-size:clamp(2.2rem,4.1vw,3.65rem);line-height:1.03;letter-spacing:0;margin:0 0 1.05rem;max-width:560px;color:#fff}
+.license-copy p{font-size:.96rem;line-height:1.72;color:#d9e4f1;max-width:560px;margin:0 0 1.15rem}
+.license-copy p strong{color:#fff}
+.license-benefits{display:grid;gap:.7rem;margin:1.45rem 0 1.35rem;padding:0;max-width:570px}
+.license-benefits li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.7rem;align-items:start;list-style:none;color:#edf5ff;font-size:.95rem;line-height:1.55}
+.license-benefits li::before{content:"✓";width:22px;height:22px;border-radius:999px;background:rgba(158,230,220,.16);color:#9ee6dc;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Sans",sans-serif;font-size:.76rem;font-weight:800;margin-top:.08rem}
+.price-card{position:relative;border:1px solid rgba(216,226,240,.36);border-radius:8px;background:rgba(255,255,255,.14);box-shadow:rgba(0,0,0,.14) 0 28px 70px;padding:2rem;overflow:hidden}
+.price-card::before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,0) 54%);pointer-events:none}
+.price-card > *{position:relative}
+.price-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.3rem}
+.price-label{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#c9d3df;margin-bottom:.2rem}
+.price-card h3{font-family:"IBM Plex Sans",sans-serif;font-size:1.8rem;line-height:1.08;margin:0;color:#fff}
+.price-seal{width:45px;height:45px;border:4px solid #9ee6dc;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#9ee6dc;font-family:"IBM Plex Sans",sans-serif;font-size:1.25rem;font-weight:800;transform:rotate(-8deg);flex:0 0 auto}
+.price-main{display:flex;align-items:flex-end;gap:.85rem;margin-bottom:.45rem}
+.price-main strong{font-family:"IBM Plex Sans",sans-serif;font-size:clamp(3.8rem,5.8vw,4.8rem);line-height:.9;color:#fff;letter-spacing:0;white-space:nowrap}
+.price-main span{font-family:"IBM Plex Sans",sans-serif;font-size:.95rem;font-weight:800;color:#fff;margin-bottom:.72rem}
+.price-note{font-size:.76rem;line-height:1.45;color:#eef4fb;margin-bottom:1.1rem}
+.price-pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin-bottom:1rem}
+.price-pill{border:1px solid rgba(255,255,255,.26);border-radius:999px;background:rgba(255,255,255,.12);padding:.42rem .55rem;text-align:center;font-family:"IBM Plex Sans",sans-serif;font-size:.76rem;font-weight:800;color:#fff;white-space:nowrap}
+.price-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem;margin-bottom:1rem}
+.price-fact{border:1px solid rgba(255,255,255,.14);border-radius:7px;background:rgba(7,26,51,.22);padding:.78rem .62rem;text-align:center}
+.price-fact strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#9ee6dc;margin-bottom:.28rem}
+.price-fact span{display:block;font-size:.84rem;line-height:1.35;color:#fff}
+.ai-box{border:1px solid rgba(13,148,136,.28);border-radius:14px;background:rgba(7,26,51,.58);padding:1rem;text-align:center;margin:1.15rem 0}
+.ai-box strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9ee6dc;margin-bottom:.45rem}
+.ai-box span{display:block;color:#fff;font-size:.88rem;line-height:1.5}
+.price-card .btn{width:100%;min-height:52px}
+.price-footer{font-family:"IBM Plex Sans",sans-serif;font-size:.78rem;font-weight:700;color:#c8d3df;text-align:center;margin-top:1rem}
+.cta-band{width:min(1180px,calc(100% - 40px));margin:1rem auto 3.5rem;border:1px solid #cfe0f5;border-radius:8px;background:var(--navy);color:#fff;padding:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
+.cta-band h2{font-family:"IBM Plex Sans",sans-serif;font-size:1.45rem;line-height:1.2;margin:0 0 .28rem;color:#fff}
+.cta-band p{font-size:.88rem;line-height:1.65;color:#d5e3f5;max-width:690px;margin:0}
+footer{border-top:1px solid var(--line);background:#fff;padding:2rem 0;color:#64748b;font-size:.82rem}
+.footer-inner{width:min(1180px,calc(100% - 40px));margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:2rem}
+.footer-brand{display:grid;grid-template-columns:44px minmax(0,1fr);gap:.82rem;align-items:center;color:var(--ink)}
+.footer-brand img{width:44px;height:44px;border-radius:10px}
+.footer-brand strong{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.95rem;font-weight:800;line-height:1.18;color:var(--ink)}
+.footer-brand span{display:block;font-size:.8rem;line-height:1.45;color:#5c6e82;margin-top:.14rem}
+.footer-legal{text-align:right;color:#5c6e82}
+.footer-links{margin-top:.28rem}
+.footer-links a{color:#526273;text-decoration:none}
+.footer-links a:hover{color:var(--teal)}
+@media(max-width:900px){
+  .header-inner{width:min(100% - 28px,720px);min-height:68px;grid-template-columns:minmax(0,1fr) auto}
+  .nav{display:none}
+  .brand strong{font-size:.9rem}
+  .hero{min-height:calc(100svh - 28px);padding-top:68px;align-items:flex-end}
+  .hero-bg{background-image:linear-gradient(90deg,rgba(7,29,52,.94) 0%,rgba(7,29,52,.82) 58%,rgba(7,29,52,.42) 100%),linear-gradient(180deg,rgba(7,29,52,.28) 0%,rgba(7,29,52,.28) 50%,rgba(7,29,52,.82) 100%),url("hero-screenshot.png");background-size:auto 100%;background-position:58% top}
+  .hero-inner{width:min(100% - 28px,720px);padding:4.2rem 0 3rem}
+  h1{font-size:clamp(2.2rem,12vw,3.45rem)}
+  .proof-grid,.card-grid,.steps,.workflow-track,.split,.access-layout,.license-strip,.pricing-actions,.license-layout{grid-template-columns:1fr}
+  .workflow-track{gap:.85rem;margin:1.4rem auto 1rem}
+  .workflow-track::before{display:none}
+  .workflow-node{display:grid;grid-template-columns:58px minmax(0,1fr);align-items:center;text-align:left;gap:.85rem}
+  .workflow-node strong{margin:0}
+  .section{width:100%;padding:2.2rem 0}
+  .section > .section-head,.section > .card-grid,.section > .steps,.section > .workflow-track,.section > .split,.section > .scope-note,.section > .faq-groups,.section > .license-strip,.section > .pricing-actions,.section > .license-layout{width:min(100% - 28px,720px)}
+  .access-layout{width:min(100% - 28px,720px);gap:1.5rem}
+  .access-copy h2{font-size:clamp(2rem,8vw,3rem)}
+  #lizenz{padding:3.2rem 0}
+  .license-layout{gap:2rem}
+  .price-card{padding:1.35rem}
+  .section-head{display:block}
+  .section h2{font-size:clamp(2rem,8vw,3rem)}
+  .section-head p{margin-top:.55rem;max-width:none}
+  .cta-band{width:min(100% - 28px,720px);display:block;padding:1.2rem}
+  .cta-band .hero-actions{margin-top:1rem}
+  .footer-inner{width:min(100% - 28px,720px);grid-template-columns:1fr;text-align:center;gap:1.2rem}
+  .footer-brand{grid-template-columns:1fr;justify-items:center}
+  .footer-legal{text-align:center}
+}
+@media(max-width:520px){
+  .header-inner{gap:.75rem;width:calc(100% - 22px)}
+  .brand{gap:.55rem;max-width:220px}
+  .brand img{width:38px;height:38px}
+  .brand strong{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-size:.82rem}
+  .btn.dark{min-height:38px;padding:.54rem .72rem;font-size:.74rem}
+  .hero-inner{width:calc(100% - 22px);padding:3.7rem 0 2.8rem}
+  .pill{width:100%;font-size:.7rem;white-space:normal;border-radius:8px;align-items:flex-start}
+  h1{font-size:clamp(2rem,10vw,2.7rem);line-height:1.02}
+  .hero-copy p{font-size:.94rem;line-height:1.62}
+  .hero-actions{align-items:stretch}
+  .hero-actions .btn{width:100%}
+  .proof-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem}
+  .proof{min-height:92px;padding:.55rem .45rem}
+  .proof strong{font-size:.82rem;line-height:1.15}
+  .proof span{font-size:.62rem;line-height:1.35}
+  .cta-band{width:calc(100% - 22px)}
+  .section > .section-head,.section > .card-grid,.section > .steps,.section > .workflow-track,.section > .split,.section > .scope-note,.section > .faq-groups,.section > .license-strip,.section > .pricing-actions,.section > .license-layout{width:calc(100% - 22px)}
+  .access-layout{width:calc(100% - 22px)}
+  .access-card{grid-template-columns:24px minmax(0,1fr);padding:1.15rem}
+  .access-copy p,.access-card p{font-size:.88rem}
+  .section h2{font-size:clamp(1.85rem,10vw,2.55rem)}
+  .step{text-align:left;min-height:auto;padding:1.35rem}
+  .step p{max-width:none;margin:0}
+  .license-copy h2{font-size:clamp(2rem,10vw,2.85rem)}
+  .license-copy p{font-size:.9rem}
+  .price-main{display:block}
+  .price-main strong{font-size:3.7rem}
+  .price-main span{display:block;margin:.35rem 0 0}
+  .price-pills,.price-facts{grid-template-columns:1fr}
+  .price-pill{text-align:left;border-radius:8px}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="SMART RISK Vertragsanalyse">
+      <img src="app-icon.png" alt="SMART RISK Vertragsanalyse App-Icon">
+      <strong>SMART RISK Vertragsanalyse</strong>
+    </a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#vertraege">Verträge</a>
+      <a href="#lizenz">Lizenz</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn dark" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">Jetzt kaufen →</a>
+  </div>
+</header>
 
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">KI-gestützte Vertragsanalyse</div>
+        <div class="pill">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+          <span>Vertragsrisiken strukturiert prüfen, bevor Entscheidungen verbindlich werden.</span>
+        </div>
+        <h1 id="hero-title">SMART RISK Vertragsanalyse</h1>
+        <p>Verträge schneller verstehen. Risiken früher erkennen. SMART RISK Vertragsanalyse prüft Vertragstexte KI-gestützt, markiert kritische Klauseln und ordnet Fundstellen, Empfehlungen und Berichte zu einer klaren Grundlage für Freigabe, Nachverhandlung und nächste Schritte.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">Jahreslizenz kaufen →</a>
+          <a class="btn secondary" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">3 Tage kostenlos testen →</a>
+        </div>
+        <div class="proof-grid" aria-label="Kernvorteile">
+          <div class="proof">
+            <strong>Risiken priorisieren</strong>
+            <span>Risiko-Score, Schweregrade und Fundstellen klar für Entscheidungen einordnen.</span>
+          </div>
+          <div class="proof">
+            <strong>Klauseln verstehen</strong>
+            <span>Kategorie, Klauselbezug, mögliche Folge und Empfehlung präzise nachvollziehen.</span>
+          </div>
+          <div class="proof">
+            <strong>Berichte sichern</strong>
+            <span>Lokale Akten, JSON Export/Import und druckbare Ergebnisberichte professionell nutzen.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight" id="funktionen" aria-label="Kernfunktionen">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Kernfunktionen</div>
+        <h2>Premium-Vertragsanalyse<br>mit KI-gestützter Prüflogik.</h2>
+      </div>
+      <p>SMART RISK Vertragsanalyse schafft aus komplexen Vertragstexten eine klare Entscheidungsbasis: mit priorisierten Risiken, belegbaren Fundstellen, konkreten Empfehlungen und lokal gesicherten Ergebnisakten.</p>
+    </div>
+    <div class="card-grid feature-grid">
+      <article class="card feature-card">
+        <span class="num" aria-hidden="true">01</span>
+        <h3>Prüfkontext präzisieren</h3>
+        <p>Vertragspartei, Vertragstyp und Prüfperspektive werden exakt eingeordnet, damit die Analyse von Beginn an auf die richtige Risikolage ausgerichtet ist.</p>
+      </article>
+      <article class="card feature-card">
+        <span class="num" aria-hidden="true">02</span>
+        <h3>Risiken belastbar strukturieren</h3>
+        <p>Die Analyse verdichtet Fundstellen zu Risiko-Score, Schweregraden, Kategorien, Klauselbezug und nachvollziehbaren Begründungen für eine klare Priorisierung.</p>
+      </article>
+      <article class="card feature-card">
+        <span class="num" aria-hidden="true">03</span>
+        <h3>Ergebnisse entscheidungsreif sichern</h3>
+        <p>Empfehlungen, lokale Akten, JSON Export/Import und druckbare HTML-/Print-Berichte schaffen eine hochwertige Grundlage für Freigabe, Nachverhandlung und Review.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf" aria-label="Workflow">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Workflow</div>
+        <h2>Vier Schritte vom Vertrag<br>zur belastbaren Entscheidungsvorlage.</h2>
+      </div>
+    </div>
+    <div class="workflow-track" aria-label="Workflow-Stationen">
+      <div class="workflow-node"><strong>01</strong><span>Vorbereitung</span></div>
+      <div class="workflow-node"><strong>02</strong><span>Steuerung</span></div>
+      <div class="workflow-node"><strong>03</strong><span>Analyse</span></div>
+      <div class="workflow-node"><strong>04</strong><span>Ergebnis</span></div>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <h3>Vertrag erfassen</h3>
+        <p>Vertrag hochladen, Text einfügen und die relevante Vertragspartei sauber festlegen, damit die Bewertung mit dem richtigen Blickwinkel startet.</p>
+      </article>
+      <article class="step">
+        <h3>Prüfung steuern</h3>
+        <p>Vertragstyp, Prüfkategorien und Analysefokus bestimmen, damit die Bewertung fachlich fokussiert und entscheidungsnah erfolgt.</p>
+      </article>
+      <article class="step">
+        <h3>Risiken bewerten</h3>
+        <p>Risiko-Score, Fundstellen, Schweregrade und Empfehlungen prüfen, gewichten und für die nächsten Schritte priorisieren.</p>
+      </article>
+      <article class="step">
+        <h3>Bericht nutzen</h3>
+        <p>Ergebnisbericht erstellen, lokale Akte sichern und Analyseinhalte per JSON strukturiert für Abstimmung und Dokumentation weiterverwenden.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section results-section" aria-label="Analyseergebnisse">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Analyseergebnisse</div>
+        <h2>Risiken, Fundstellen<br>und Handlungsoptionen<br>auf einen Blick.</h2>
+      </div>
+      <p>SMART RISK Vertragsanalyse übersetzt komplexe Vertragstexte in eine klare Ergebnisstruktur: priorisiert, nachvollziehbar und vorbereitet für Freigabe, interne Abstimmung, Nachverhandlung oder weitere Fachprüfung.</p>
+    </div>
+    <div class="card-grid results-grid">
+      <article class="card result-card">
+        <span class="label">01 Transparenz</span>
+        <h3>Risikobild verdichten</h3>
+        <p>Score, Schweregrade und Top-Kategorien zeigen schnell, welche rechtlichen, wirtschaftlichen oder operativen Punkte besondere Aufmerksamkeit verdienen.</p>
+      </article>
+      <article class="card result-card">
+        <span class="label">02 Evidenz</span>
+        <h3>Fundstellen belastbar machen</h3>
+        <p>Jede Auffälligkeit wird mit Klauselbezug, Kategorie, Begründung und möglicher Folge strukturiert, damit Prüfung, Review und Kommunikation belastbar bleiben.</p>
+      </article>
+      <article class="card result-card">
+        <span class="label">03 Umsetzung</span>
+        <h3>Entscheidungen vorbereiten</h3>
+        <p>Priorisierte Empfehlungen, lokale Akten und druckbare Berichte schaffen eine professionelle Grundlage für Freigabe, Nachverhandlung oder externe Prüfung.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section scope-section" id="vertraege" aria-label="Geeignete Verträge und klare Grenzen">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Einsatzbereich</div>
+        <h2>Geeignete Verträge.<br>Klare Grenzen.</h2>
+      </div>
+      <p>SMART RISK Vertragsanalyse ist auf deutschsprachige, textbasierte Vertragsdokumente mit erkennbaren Klauseln ausgerichtet und hilft besonders vor Unterschrift, Nachverhandlung oder interner Freigabe.</p>
+    </div>
+    <div class="card-grid results-grid">
+      <article class="card result-card">
+        <span class="label">01 Vertragsarten</span>
+        <h3>Typische Dokumente prüfen</h3>
+        <p>Geeignet für Miet-, Arbeits-, Dienstleistungs-, Werk-, Kauf-, Liefer-, Bau-, VOB-/HOAI-nahe und B2B-Verträge sowie Projektvereinbarungen und AGB.</p>
+      </article>
+      <article class="card result-card">
+        <span class="label">02 Risikothemen</span>
+        <h3>Kritische Klauseln erkennen</h3>
+        <p>Die App unterstützt bei Themen wie Leistung, Vergütung, Haftung, Gewährleistung, Fristen, Kündigung, Sicherheiten, Abnahme, Mitwirkungspflichten und Vertragsstrafen.</p>
+      </article>
+      <article class="card result-card">
+        <span class="label">03 Abgrenzung</span>
+        <h3>Vorprüfung mit Grenzen</h3>
+        <p>Nicht ausgelegt ist SMART RISK für verbindliche Rechtsentscheidungen, Gerichtsprognosen oder Spezialprüfungen zu M&A, Kapitalmarkt, Steuer-, Notar- oder ausländischem Recht.</p>
+      </article>
+    </div>
+    <div class="scope-note" id="hinweis" aria-label="Hinweis zur fachlichen Einordnung">
+      <strong>Fachliche Einordnung</strong>
+      <p>SMART RISK Vertragsanalyse ist eine KI-gestützte Arbeitshilfe zur Vertragsvorprüfung. Die App macht Risiken, Fundstellen und prüfungsbedürftige Klauseln sichtbar, trifft aber keine verbindlichen Rechtsentscheidungen und ersetzt keine individuelle anwaltliche Beratung.</p>
+      <p>Bei Bau-, VOB- und HOAI-nahen Verträgen kann SMART RISK Risiken und Abweichungen gut sichtbar machen. Die finale Bewertung von Vergütung, Nachträgen, Leistungsphasen, Abrechnung, Verjährung oder projektspezifischen Besonderheiten sollte bei größeren Vorhaben fachlich oder rechtlich gegengeprüft werden.</p>
+    </div>
+  </section>
+
+  <section class="section access-section" aria-label="Zugang, KI-Nutzung und Datenkontrolle">
+    <div class="access-layout">
+      <div class="access-copy">
+        <div class="kicker">Zugang & Kontrolle</div>
+        <h2>Klarer Zugriff. Transparente KI-Nutzung. Kontrolle über Arbeitsstände.</h2>
+        <p>Trial, Kauf und Lizenzprüfung laufen über ein persönliches Nutzerkonto mit Magic Link. KI-Aktionen werden über BuiltSmart AI Credits oder optional über einen eigenen Anthropic API Key genutzt; App-Inhalte bleiben lokal im Browser, soweit sie gespeichert werden.</p>
+      </div>
+      <div class="access-cards" aria-label="Entscheidungshilfe vor dem Preis">
+        <article class="access-card">
+          <span class="access-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Nutzerkonto</h3>
+            <p>Einfacher Magic-Link-Zugang für Trial, Kauf, Lizenzprüfung und BuiltSmart AI Credits.</p>
+          </div>
+        </article>
+        <article class="access-card">
+          <span class="access-dot" aria-hidden="true"></span>
+          <div>
+            <h3>KI-Nutzung</h3>
+            <p>Flexible Nutzung über BuiltSmart AI Credits oder eigenen Anthropic API Key mit direkter Anthropic-Abrechnung.</p>
+          </div>
+        </article>
+        <article class="access-card">
+          <span class="access-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Lokale Inhalte</h3>
+            <p>App-Inhalte bleiben lokal im Browser; gespeicherte Arbeitsstände lassen sich per JSON exportieren und importieren.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lizenz" aria-label="Lizenzmodell">
+    <div class="license-layout">
+      <div class="license-copy">
+        <div class="kicker">Lizenzmodell</div>
+        <h2>Jahreszugang für<br>klare Vertragsprüfung.</h2>
+        <p>SMART RISK Vertragsanalyse gibt Ihnen einen verlässlichen Prüfrahmen für wiederkehrende Vertragsentscheidungen: vor Freigabe, Verhandlung, Nachtrag, Einkauf oder Unterzeichnung.</p>
+        <ul class="license-benefits">
+          <li>Kritische Klauseln schneller erkennen, bevor sie Kosten, Haftung oder Projektverzug auslösen.</li>
+          <li>Fundstellen, Risiko-Score und Empfehlungen als belastbare Grundlage für Freigabe und Nachverhandlung nutzen.</li>
+          <li>Kalkulierbarer Jahreszugang mit 3 Tagen Trial und 1000 app-spezifischen Trial-Credits zum Einstieg.</li>
+        </ul>
+        <p><strong>Der App-Zugang ist klar getrennt von der KI-Nutzung.</strong> Trial, Kauf, Lizenzprüfung und BuiltSmart AI Credits laufen über Nutzerkonto und Magic Link; KI-Aktionen nutzen BuiltSmart AI Credits oder einen eigenen Anthropic API Key.</p>
+      </div>
+      <article class="price-card" aria-label="Jahreslizenz SMART RISK Vertragsanalyse">
+        <div class="price-top">
+          <div>
+            <span class="price-label">Professional</span>
+            <h3>Jahreslizenz</h3>
+          </div>
+          <div class="price-seal" aria-hidden="true">✓</div>
+        </div>
+        <div class="price-main">
+          <strong>899 €</strong>
+          <span>pro Jahr zzgl. 19% MwSt.</span>
+        </div>
+        <div class="price-note">1.069,81 € inkl. MwSt.<br>Entspricht 899 € netto / 74,92 € netto pro Monat.</div>
+        <div class="price-pills" aria-label="Lizenzmerkmale">
+          <div class="price-pill">12 Monate Laufzeit</div>
+          <div class="price-pill">3 Tage Free Trial</div>
+          <div class="price-pill">1 Nutzerzugriff</div>
+        </div>
+        <div class="price-facts">
+          <div class="price-fact"><strong>Verlängerung</strong><span>Automatisch um<br>12 Monate</span></div>
+          <div class="price-fact"><strong>Kündigung</strong><span>1 Monat<br>vor Ablauf</span></div>
+          <div class="price-fact"><strong>Zahlung</strong><span>Sichere<br>Online-Zahlung</span></div>
+        </div>
+        <div class="ai-box">
+          <strong>KI-Nutzung</strong>
+          <span>BuiltSmart AI Credits oder eigener Anthropic API Key.<br>In der Testphase 1000 Credits kostenlos.</span>
+        </div>
+        <a class="btn primary" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">Jahreslizenz kaufen →</a>
+        <div class="price-footer">Jahreslizenz | Magic Link | persönlicher Nutzerzugriff</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section audience-section" aria-label="Zielgruppe">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Zielgruppe</div>
+        <h2>Für Entscheider, die Vertragsrisiken früh erkennen und souverän steuern wollen.</h2>
+      </div>
+      <p>SMART RISK Vertragsanalyse unterstützt alle, die Verträge nicht nur lesen, sondern Risiken strukturiert bewerten, Entscheidungen vorbereiten und kritische Punkte professionell kommunizieren müssen.</p>
+    </div>
+    <div class="card-grid audience-grid">
+      <article class="card audience-card">
+        <span class="label">Geschäftsführung & Selbstständige</span>
+        <h3>Risikoentscheidungen souverän absichern</h3>
+        <p>Verträge vor Unterzeichnung strukturiert einschätzen, kritische Klauseln priorisieren und Entscheidungsrisiken nachvollziehbar dokumentieren.</p>
+      </article>
+      <article class="card audience-card">
+        <span class="label">Einkauf, Projekt & Verwaltung</span>
+        <h3>Vorprüfung und Abstimmung professionalisieren</h3>
+        <p>Fundstellen, Prüfkategorien und Empfehlungen hochwertig vorbereiten, damit interne Reviews gezielter und schneller erfolgen können.</p>
+      </article>
+      <article class="card audience-card">
+        <span class="label">Beratung & Fachverantwortliche</span>
+        <h3>Analyseergebnisse überzeugend übergeben</h3>
+        <p>Ergebnisberichte, lokale Akten und strukturierte Exporte schaffen eine nachvollziehbare Grundlage für Nachverhandlung, Dokumentation und weitere Prüfung.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-label="FAQ">
+    <div class="section-head">
+      <div>
+        <div class="kicker">FAQ</div>
+        <h2>Wichtige Fragen.<br>Klar beantwortet.</h2>
+      </div>
+    </div>
+    <div class="faq-groups">
+      <div class="faq-group">
+        <h3>Zur App</h3>
+        <div class="faq-list">
+          <details>
+            <summary>Welchen Nutzen bringt mir SMART RISK Vertragsanalyse?</summary>
+            <p>SMART RISK Vertragsanalyse hilft, Vertragstexte schneller zu durchdringen, Risiken sichtbar zu machen, Fundstellen zu priorisieren und Ergebnisse als lokale Akte oder druckbaren Bericht nachvollziehbar zu dokumentieren.</p>
+          </details>
+          <details>
+            <summary>Welche Vorteile habe ich bei der Nutzung?</summary>
+            <p>Die App verbindet klaren Workflow, Risiko-Score, Fundliste, Empfehlungen und Bericht. Dadurch werden manuelle Vorarbeiten reduziert, Prüfpunkte priorisiert und Entscheidungen professioneller vorbereitet.</p>
+          </details>
+          <details>
+            <summary>Für wen ist SMART RISK Vertragsanalyse gedacht?</summary>
+            <p>Die App richtet sich an Selbstständige, kleine Unternehmen, Projektverantwortliche, Einkauf, Verwaltung und Entscheider, die Verträge vor Freigabe, Verhandlung oder weiterer Prüfung strukturiert vorbewerten wollen.</p>
+          </details>
+          <details>
+            <summary>Welche Aufgaben unterstützt die App?</summary>
+            <p>Unterstützt werden Vertragspartei wählen, Vertrag hochladen oder Text einfügen, Vertragstyp und Prüfkategorien ermitteln, Risikoanalyse starten, Dashboard, Fundliste, Empfehlungen, lokale Akten, JSON Export/Import und HTML-/Print-Berichte.</p>
+          </details>
+          <details>
+            <summary>Welche Vertragsarten eignen sich besonders?</summary>
+            <p>SMART RISK eignet sich besonders für deutschsprachige, textbasierte Vertragsdokumente mit klar erkennbaren Klauseln, darunter Miet-, Arbeits-, Dienstleistungs-, Werk-, Kauf-, Liefer-, Bau-, VOB-/HOAI-nahe und B2B-Verträge sowie Projektvereinbarungen und AGB.</p>
+          </details>
+          <details>
+            <summary>Welche Rolle spielt KI in SMART RISK Vertragsanalyse?</summary>
+            <p>KI ist Bestandteil der App-Funktion. Sie unterstützt die Analyse von Vertragstexten, die Strukturierung von Risiken, Empfehlungen und Zusammenfassungen. Die Nutzung erfolgt kontrolliert über BuiltSmart AI Credits oder optional über einen eigenen Anthropic API Key.</p>
+          </details>
+          <details>
+            <summary>Wo liegen die Grenzen der Analyse?</summary>
+            <p>SMART RISK ist keine anwaltliche Beratung und trifft keine verbindlichen Rechtsentscheidungen. Nur eingeschränkt geeignet sind hochkomplexe M&A-, Finanzierungs-, Kapitalmarkt-, Versicherungs- oder internationale Verträge sowie Vertragswerke, die stark von Anlagen, Zeichnungen, Leistungsverzeichnissen oder Spezialprüfungen abhängen.</p>
+          </details>
+          <details>
+            <summary>Welche Inhalte kann ich in der App bearbeiten, speichern oder organisieren?</summary>
+            <p>In der App können Vertragstexte, Prüfperspektiven, Prüfkategorien, Analyseergebnisse, Empfehlungen und lokale Akten organisiert werden. Für gespeicherte Inhalte stehen lokale Speicherung im Browser sowie JSON Export/Import zur Verfügung.</p>
+          </details>
+        </div>
+      </div>
+      <div class="faq-group">
+        <h3>Nutzung, Lizenz und KI</h3>
+        <div class="faq-list">
+          <details>
+            <summary>Brauche ich ein Nutzerkonto?</summary>
+            <p>Ja. Für Trial, Kauf, Lizenzprüfung und BuiltSmart AI Credits ist ein Nutzerkonto erforderlich. Der Login erfolgt per Magic Link.</p>
+          </details>
+          <details>
+            <summary>Muss ich etwas installieren?</summary>
+            <p>Nein. Die App läuft browserbasiert in modernen Browsern auf Windows, macOS und anderen Systemen. Es ist kein Installer und keine separate Installation erforderlich.</p>
+          </details>
+          <details>
+            <summary>Wie funktioniert der Trial?</summary>
+            <p>Der Trial läuft 3 Tage und bietet vollen App-Zugriff. 1000 app-spezifische BuiltSmart AI Trial-Credits werden beim Start des Trials gutgeschrieben.</p>
+          </details>
+          <details>
+            <summary>Was ist in der Jahreslizenz enthalten?</summary>
+            <p>Die Jahreslizenz kostet 899 EUR netto pro App und Jahr und enthält den App-Zugang für einen persönlichen Nutzerzugriff. Die Laufzeit beträgt 12 Monate und verlängert sich automatisch um weitere 12 Monate. Die Kündigung ist bis 1 Monat vor Ablauf möglich.</p>
+          </details>
+          <details>
+            <summary>Ist KI-Nutzung pauschal in der Lizenz enthalten?</summary>
+            <p>Nein. Die Jahreslizenz enthält den App-Zugang. KI-Aktionen werden über BuiltSmart AI Credits oder über einen eigenen Anthropic API Key genutzt.</p>
+          </details>
+          <details>
+            <summary>Wie funktionieren BuiltSmart AI Credits?</summary>
+            <p>BuiltSmart AI Credits gehören zum jeweiligen Nutzerkonto und sind appübergreifend innerhalb dieses Nutzerkontos nutzbar. Bei mehreren Lizenzen werden KI-Guthaben nicht automatisch auf alle Nutzer verteilt.</p>
+          </details>
+          <details>
+            <summary>Kann ich einen eigenen Anthropic API Key nutzen?</summary>
+            <p>Ja. Alternativ zu BuiltSmart AI Credits kann ein eigener Anthropic API Key genutzt werden. Die Abrechnung erfolgt dann direkt über Anthropic. Der Key bleibt lokal in der jeweiligen App und wird nicht an das BuiltSmart Lizenzsystem gesendet.</p>
+          </details>
+          <details>
+            <summary>Kann ich mehrere Lizenzen kaufen?</summary>
+            <p>Ja. Mehrere Lizenzen derselben App können im Checkout über die Menge gekauft werden. Jede Lizenz ist für einen getrennten persönlichen Nutzerzugriff vorgesehen.</p>
+          </details>
+          <details>
+            <summary>Wie werden KI-Guthaben bei mehreren Lizenzen berechnet?</summary>
+            <p>Mehrere App-Lizenzen schalten mehrere persönliche Nutzerzugriffe frei. BuiltSmart AI Credits werden separat pro Nutzerkonto geführt. Trial-Credits werden beim Start des Trials dem jeweiligen Nutzerkonto gutgeschrieben. Bezahlte AI-Credits stehen dem Nutzerkonto zur Verfügung, über das sie gekauft wurden.</p>
+          </details>
+          <details>
+            <summary>Gibt es einen gemeinsamen Team- oder Projektbereich?</summary>
+            <p>Nein. Mehrere Lizenzen bedeuten mehrere getrennte persönliche Nutzerzugriffe, nicht einen gemeinsamen Team- oder Projektbereich.</p>
+          </details>
+          <details>
+            <summary>Kann ich mehrere unterschiedliche Apps gemeinsam kaufen?</summary>
+            <p>Nein. Ein Checkout gilt jeweils für eine App. Mehrere Lizenzen derselben App können über die Menge gekauft werden.</p>
+          </details>
+          <details>
+            <summary>Wo bleiben App-Inhalte?</summary>
+            <p>App-Inhalte bleiben in der jeweiligen App lokal im Browser, soweit die App so gebaut ist. SMART RISK Vertragsanalyse bietet lokale Akten sowie JSON Export/Import für gespeicherte Inhalte.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-label="Abschluss">
+    <div>
+      <h2>3 Tage kostenlos testen.</h2>
+      <p>Erleben Sie SMART RISK Vertragsanalyse mit vollem App-Zugriff im Trial und prüfen Sie, wie schnell aus Vertragstexten eine strukturierte Entscheidungsgrundlage wird. Für Trial, Kauf, Lizenzprüfung und BuiltSmart AI Credits ist ein Nutzerkonto mit Magic Link Login erforderlich.</p>
+    </div>
+    <div class="hero-actions">
+      <a class="btn primary" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">Jahreslizenz kaufen →</a>
+      <a class="btn secondary" href="https://contracts.builtsmart-ai.app/" target="_blank" rel="noopener">3 Tage kostenlos testen →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="app-icon.png" alt="SMART RISK Vertragsanalyse App-Icon">
+      <div>
+        <strong>SMART RISK Vertragsanalyse</strong>
+        <span>Risiken erkennen. Verträge verstehen. Sicher entscheiden.</span>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div>© 2026 SmartBuilt-AI · Powered by BuiltSmart Hub - Bernhard Metzger</div>
+      <div class="footer-links" aria-label="Rechtliche Links">
+        <a href="https://www.built-smart-hub.com/impressum" target="_blank" rel="noopener">Impressum</a>
+        <span> | </span>
+        <a href="https://www.built-smart-hub.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+        <span> | </span>
+        <a href="https://www.built-smart-hub.com/agb" target="_blank" rel="noopener">AGB</a>
+        <span> | </span>
+        <a href="https://www.built-smart-hub.com/widerrufsbelehrung" target="_blank" rel="noopener">Widerrufsbelehrung</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

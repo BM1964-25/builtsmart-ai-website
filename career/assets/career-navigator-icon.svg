@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SMART CAREER Navigator">
+  <defs>
+    <linearGradient id="bg" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F7DFF"/>
+      <stop offset="1" stop-color="#2353DD"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#bg)"/>
+  <circle cx="31.5" cy="21.5" r="8.5" fill="#fff"/>
+  <path d="M18 41.5C18 34.6 23.6 29 30.5 29H34V43H18V41.5Z" fill="#fff"/>
+  <path d="M15 50.5C22.8 47.8 30.4 42.5 36.3 34.8C41.1 28.7 46.2 23.9 52.5 20.5" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M49.5 20L55 21.3L53.2 26.7" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.5 47.2C31.3 47.2 41.5 43.3 51.5 35.5" stroke="#DCE8FF" stroke-width="4" stroke-linecap="round"/>
+</svg>
