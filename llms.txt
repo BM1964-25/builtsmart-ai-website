@@ -13,7 +13,7 @@ BuiltSmart AI ist die Produkt- und Informationswebsite fuer browserbasierte KI-A
 ## Wichtige Seiten fuer AI Robots
 
 - SMART ReplySuite: https://www.builtsmart-ai.app/replysuite/
-  - KI-Antworten fuer E-Mails, Briefe, PDFs und Geschaeftskorrespondenz.
+  - KI-Antworten und eigene Schreiben fuer E-Mails, Briefe, PDFs und Geschaeftskorrespondenz; bestehende Entwuerfe optimieren oder neue Schreiben aus kurzen Vorgaben erstellen.
   - Zielgruppen: Unternehmen, Selbststaendige, private Anwender und Fachanwender mit wiederkehrender Korrespondenz.
 - SMART CAREER Navigator: https://www.builtsmart-ai.app/career/
   - KI-App fuer Bewerbungsanalyse, ATS-Optimierung, Interviewvorbereitung, Vertragscheck und Karriereplanung.
