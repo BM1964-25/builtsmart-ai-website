@@ -3850,6 +3850,151 @@
         box-shadow: 0 34px 90px rgba(5, 9, 13, 0.28);
       }
 
+      .waitlist-card {
+        width: min(640px, 100%);
+        max-height: min(86vh, 760px);
+        overflow: auto;
+        color: #f4f6f2;
+        background: #252b28;
+        border-color: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 34px 90px rgba(5, 9, 13, 0.38);
+      }
+
+      .waitlist-card .contact-close {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .waitlist-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .waitlist-logo {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        color: #1b211e;
+        background: #f7f8f4;
+        border: 1px solid rgba(255, 255, 255, 0.54);
+        border-radius: 8px;
+        font-weight: 900;
+      }
+
+      .waitlist-kicker {
+        margin: 0;
+        color: #9edfcf;
+        font-size: 0.86rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .waitlist-powered {
+        display: block;
+        margin-top: 4px;
+        color: rgba(244, 246, 242, 0.72);
+        font-size: 0.95rem;
+        font-weight: 800;
+      }
+
+      .waitlist-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(2.1rem, 5vw, 3.2rem);
+        line-height: 1.05;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .waitlist-card p {
+        color: rgba(244, 246, 242, 0.82);
+      }
+
+      .waitlist-lead {
+        margin-top: 22px;
+        font-size: 1.08rem;
+        line-height: 1.65;
+        font-weight: 650;
+      }
+
+      .waitlist-apps-title {
+        margin: 18px 0 10px;
+        color: #ffffff;
+        font-weight: 900;
+      }
+
+      .waitlist-apps {
+        display: grid;
+        gap: 16px;
+        max-height: 260px;
+        overflow: auto;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .waitlist-apps strong {
+        display: block;
+        margin-bottom: 10px;
+        color: #9edfcf;
+        font-size: 0.92rem;
+        line-height: 1.4;
+      }
+
+      .waitlist-apps label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 9px 0;
+        color: rgba(244, 246, 242, 0.9);
+        font-weight: 800;
+      }
+
+      .waitlist-apps input {
+        width: 16px;
+        height: 16px;
+        accent-color: #9edfcf;
+      }
+
+      .waitlist-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .waitlist-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 14px 22px;
+        color: #1b211e;
+        background: #ecece8;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .waitlist-action.secondary {
+        color: #ffffff;
+        background: transparent;
+      }
+
+      @media (max-width: 640px) {
+        .waitlist-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
       .contact-close {
         position: absolute;
         top: 16px;
@@ -7798,6 +7943,62 @@
       </div>
     </div>
 
+    <div class="contact-modal" id="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-modal-title" hidden>
+      <div class="contact-card waitlist-card">
+        <button class="contact-close waitlist-close" type="button" aria-label="Benachrichtigungskarte schließen">×</button>
+        <div class="waitlist-head">
+          <span class="waitlist-logo" aria-hidden="true">AI</span>
+          <div>
+            <p class="waitlist-kicker">SmartBuilt-AI</p>
+            <span class="waitlist-powered">powered by BuiltSmart Hub - Bernhard Metzger</span>
+          </div>
+        </div>
+        <h2 class="waitlist-title" id="waitlist-modal-title">Unsere APP steht kurz vor der Fertigstellung.</h2>
+        <p class="waitlist-lead">Unsere App steht kurz vor dem Launch und befindet sich aktuell in der finalen Testphase.</p>
+        <p class="waitlist-lead">Wenn du informiert werden möchtest, sobald sie erhältlich ist, schreib uns einfach kurz, welche App dich interessiert.</p>
+        <p class="waitlist-lead">Wir geben dir Bescheid, sobald der Kaufbereich aktiv ist.</p>
+        <p class="waitlist-apps-title">Apps auswählen</p>
+        <div class="waitlist-apps" aria-label="Apps auswählen">
+          <div>
+            <strong>Risiko-, Vertrags- &amp; Compliance-Management</strong>
+            <label><input type="checkbox" value="SMART RISK Vertragsanalyse"> SMART RISK Vertragsanalyse</label>
+            <label><input type="checkbox" value="SMART RISK Risiko-Register"> SMART RISK Risiko-Register</label>
+            <label><input type="checkbox" value="SMART REVISION"> SMART REVISION</label>
+            <label><input type="checkbox" value="SMART Validate"> SMART Validate</label>
+          </div>
+          <div>
+            <strong>Wissenssysteme &amp; Content Intelligence</strong>
+            <label><input type="checkbox" value="SMART SnippetFlow"> SMART SnippetFlow</label>
+            <label><input type="checkbox" value="SMART PromptCreator"> SMART PromptCreator</label>
+            <label><input type="checkbox" value="SMART SummaryAssistent"> SMART SummaryAssistent</label>
+            <label><input type="checkbox" value="SMART ReplySuite"> SMART ReplySuite</label>
+          </div>
+          <div>
+            <strong>Projektsteuerung &amp; Prognose</strong>
+            <label><input type="checkbox" value="SMART COST PERT-Prognose"> SMART COST PERT-Prognose</label>
+            <label><input type="checkbox" value="SMART RISK Monte-Carlo-Simulation"> SMART RISK Monte-Carlo-Simulation</label>
+            <label><input type="checkbox" value="SMART CapEx"> SMART CapEx</label>
+          </div>
+          <div>
+            <strong>Kommunikation &amp; Entscheidungsunterstützung</strong>
+            <label><input type="checkbox" value="SMART Meeting Navigator"> SMART Meeting Navigator</label>
+          </div>
+          <div>
+            <strong>Karriere &amp; Entwicklung</strong>
+            <label><input type="checkbox" value="SMART Career Navigator"> SMART Career Navigator</label>
+          </div>
+          <div>
+            <strong>Produktivität &amp; Workflow Intelligence</strong>
+            <label><input type="checkbox" value="SMART Focus"> SMART Focus</label>
+          </div>
+        </div>
+        <div class="waitlist-actions">
+          <a class="waitlist-action waitlist-mail" href="mailto:info@built-smart-hub.com?subject=Benachrichtigung%20BuiltSmart%20AI%20App&body=Hallo%20BuiltSmart%20AI%2C%0A%0Abitte%20informiert%20mich%2C%20sobald%20die%20ausgewaehlte%20App%20verfuegbar%20ist.%0A%0AInteressierte%20App%3A%20">Bei Verfügbarkeit benachrichtigen <span aria-hidden="true">→</span></a>
+          <button class="waitlist-action secondary waitlist-close" type="button">Schließen</button>
+        </div>
+      </div>
+    </div>
+
     <button class="scroll-top-button" type="button" aria-label="Zurück zum Seitenanfang">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M12 19V5"></path>
@@ -7809,12 +8010,14 @@
       (() => {
         const modal = document.querySelector("#contact-modal");
         const triggers = document.querySelectorAll(".contact-trigger");
-        const closeButton = document.querySelector(".contact-close");
+        const closeButton = modal?.querySelector(".contact-close");
         if (!modal || !triggers.length || !closeButton) return;
 
         let previousFocus = null;
 
         const openModal = () => {
+          const waitlistModal = document.querySelector("#waitlist-modal");
+          if (waitlistModal) waitlistModal.hidden = true;
           previousFocus = document.activeElement;
           modal.hidden = false;
           document.body.style.overflow = "hidden";
@@ -7853,6 +8056,63 @@
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape" && !modal.hidden) closeModal();
         });
+      })();
+
+      (() => {
+        const modal = document.querySelector("#waitlist-modal");
+        const closeButtons = modal?.querySelectorAll(".waitlist-close");
+        const mailLink = modal?.querySelector(".waitlist-mail");
+        if (!modal || !closeButtons?.length || !mailLink) return;
+
+        let previousFocus = null;
+        const baseHref = mailLink.getAttribute("href");
+
+        const openModal = () => {
+          const contactModal = document.querySelector("#contact-modal");
+          if (contactModal) contactModal.hidden = true;
+          previousFocus = document.activeElement;
+          modal.hidden = false;
+          document.body.style.overflow = "hidden";
+          closeButtons[0].focus();
+        };
+
+        const closeModal = () => {
+          modal.hidden = true;
+          document.body.style.overflow = "";
+          if (window.location.hash === "#app-warteliste") {
+            history.replaceState(null, "", window.location.pathname + window.location.search);
+          }
+          if (previousFocus && typeof previousFocus.focus === "function") {
+            previousFocus.focus();
+          }
+        };
+
+        const updateMailLink = () => {
+          const selected = [...modal.querySelectorAll("input[type='checkbox']:checked")]
+            .map((input) => input.value)
+            .join(", ");
+          mailLink.href = baseHref + encodeURIComponent(selected);
+        };
+
+        modal.addEventListener("change", updateMailLink);
+        mailLink.addEventListener("click", updateMailLink);
+        closeButtons.forEach((button) => button.addEventListener("click", closeModal));
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !modal.hidden) closeModal();
+        });
+
+        const openFromHash = () => {
+          if (window.location.hash === "#app-warteliste") openModal();
+        };
+
+        window.addEventListener("hashchange", openFromHash);
+        window.addEventListener("pageshow", openFromHash);
+        openFromHash();
       })();
 
       (() => {

@@ -58,7 +58,7 @@ Lizenzmodell:
 - Alternativ zu BuiltSmart AI Credits kann ein eigener Anthropic API Key genutzt werden.
 - Bei eigenem Anthropic API Key erfolgt die Abrechnung direkt ueber Anthropic.
 - Der Anthropic API Key bleibt lokal in der jeweiligen App und wird nicht an das BuiltSmart Lizenzsystem gesendet.
-- Kauf-/Kontaktlink: https://www.builtsmart-ai.app/#kontakt
+- Kauf-/Kontaktlink: https://www.builtsmart-ai.app/#app-warteliste
 
 Plattformen:
 - Moderne Browser auf Windows, macOS und anderen Systemen.
