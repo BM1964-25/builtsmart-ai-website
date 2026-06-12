@@ -3851,99 +3851,122 @@
       }
 
       .waitlist-card {
-        width: min(640px, 100%);
-        max-height: min(86vh, 760px);
-        overflow: auto;
-        color: #f4f6f2;
-        background: #252b28;
-        border-color: rgba(255, 255, 255, 0.16);
-        box-shadow: 0 34px 90px rgba(5, 9, 13, 0.38);
+        display: flex;
+        flex-direction: column;
+        width: min(760px, calc(100vw - 32px));
+        max-height: min(760px, calc(100svh - 32px));
+        padding: clamp(20px, 3vw, 34px);
+        overflow: hidden;
+        color: #f8fbf7;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+          #121c18;
+        border-color: rgba(199, 255, 242, 0.28);
+        box-shadow: 0 34px 90px rgba(5, 9, 13, 0.5);
       }
 
       .waitlist-card .contact-close {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.22);
+        color: #172026;
+        background: #ffffff;
+        border-color: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 10px 28px rgba(5, 9, 13, 0.24);
       }
 
       .waitlist-head {
         display: flex;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 24px;
+        gap: 14px;
+        margin: 0 52px 18px 0;
       }
 
       .waitlist-logo {
         display: grid;
-        width: 36px;
-        height: 36px;
+        flex: 0 0 42px;
+        width: 42px;
+        height: 42px;
         place-items: center;
         color: #1b211e;
-        background: #f7f8f4;
-        border: 1px solid rgba(255, 255, 255, 0.54);
+        background: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.84);
         border-radius: 8px;
+        font-size: 1rem;
         font-weight: 900;
+        line-height: 1;
       }
 
-      .waitlist-kicker {
+      .waitlist-brand-copy {
+        min-width: 0;
+        padding-top: 2px;
+      }
+
+      .waitlist-card .waitlist-kicker {
         margin: 0;
-        color: #9edfcf;
-        font-size: 0.86rem;
+        color: #f8fbf7;
+        font-size: 0.98rem;
         font-weight: 900;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.035em;
         text-transform: uppercase;
       }
 
       .waitlist-powered {
         display: block;
-        margin-top: 4px;
-        color: rgba(244, 246, 242, 0.72);
+        margin-top: 2px;
+        color: #d7e1dc;
         font-size: 0.95rem;
         font-weight: 800;
+        line-height: 1.28;
       }
 
       .waitlist-title {
         margin: 0;
         color: #ffffff;
-        font-size: clamp(2.1rem, 5vw, 3.2rem);
-        line-height: 1.05;
+        font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+        line-height: 1.02;
         font-weight: 900;
         letter-spacing: 0;
       }
 
       .waitlist-card p {
-        color: rgba(244, 246, 242, 0.82);
+        color: #dce7e2;
       }
 
-      .waitlist-lead {
-        margin-top: 22px;
-        font-size: 1.08rem;
-        line-height: 1.65;
-        font-weight: 650;
+      .waitlist-card .waitlist-lead {
+        margin: 12px 0 0;
+        color: #dce7e2;
+        font-size: 1rem;
+        line-height: 1.42;
+        font-weight: 700;
       }
 
-      .waitlist-apps-title {
-        margin: 18px 0 10px;
+      .waitlist-card .waitlist-apps-title {
+        margin: 16px 0 8px;
         color: #ffffff;
+        font-size: 1.04rem;
+        line-height: 1.35;
         font-weight: 900;
       }
 
       .waitlist-apps {
         display: grid;
-        gap: 16px;
-        max-height: 260px;
+        flex: 1 1 auto;
+        gap: 18px;
+        min-height: clamp(180px, 30svh, 300px);
+        max-height: none;
         overflow: auto;
-        padding: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        overscroll-behavior: contain;
+        padding: 18px 20px;
+        color: #172026;
+        border: 1px solid rgba(255, 255, 255, 0.68);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.07);
+        background: #f4f7f2;
+        scrollbar-color: #247780 #dce5df;
       }
 
       .waitlist-apps strong {
         display: block;
         margin-bottom: 10px;
-        color: #9edfcf;
-        font-size: 0.92rem;
+        color: #075e52;
+        font-size: 0.94rem;
         line-height: 1.4;
       }
 
@@ -3952,21 +3975,22 @@
         align-items: center;
         gap: 10px;
         margin: 9px 0;
-        color: rgba(244, 246, 242, 0.9);
+        color: #172026;
         font-weight: 800;
       }
 
       .waitlist-apps input {
         width: 16px;
         height: 16px;
-        accent-color: #9edfcf;
+        accent-color: #247780;
       }
 
       .waitlist-actions {
         display: grid;
+        flex: 0 0 auto;
         grid-template-columns: minmax(0, 1fr) auto;
-        gap: 14px;
-        margin-top: 28px;
+        gap: 12px;
+        margin-top: 16px;
       }
 
       .waitlist-action {
@@ -3974,24 +3998,156 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        min-height: 56px;
-        padding: 14px 22px;
+        min-height: 52px;
+        padding: 13px 20px;
         color: #1b211e;
-        background: #ecece8;
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.82);
         border-radius: 8px;
+        font-family: inherit;
         font-weight: 900;
         text-decoration: none;
+        cursor: pointer;
       }
 
       .waitlist-action.secondary {
         color: #ffffff;
         background: transparent;
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+
+      .waitlist-card .waitlist-feedback {
+        display: block;
+        margin: 10px 0 0;
+        padding: 10px 12px;
+        color: #172026;
+        background: #f4f7f2;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        border-radius: 8px;
+        font-size: 0.92rem;
+        font-weight: 820;
+        line-height: 1.35;
+      }
+
+      .waitlist-card .waitlist-feedback:empty {
+        display: none;
+      }
+
+      .waitlist-card .waitlist-feedback a {
+        color: #075e52;
+        font-weight: 900;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .waitlist-message-box {
+        display: none;
+        margin-top: 12px;
+        padding: 14px;
+        color: #172026;
+        background: #f4f7f2;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        border-radius: 8px;
+      }
+
+      .waitlist-message-box.is-visible {
+        display: grid;
+        gap: 10px;
+      }
+
+      .waitlist-message-box strong {
+        color: #075e52;
+        font-size: 0.92rem;
+      }
+
+      .waitlist-message-box textarea {
+        width: 100%;
+        min-height: 140px;
+        resize: vertical;
+        padding: 12px;
+        color: #172026;
+        background: #ffffff;
+        border: 1px solid rgba(23, 32, 38, 0.18);
+        border-radius: 8px;
+        font: inherit;
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .waitlist-message-box a {
+        color: #075e52;
+        font-weight: 900;
       }
 
       @media (max-width: 640px) {
+        .waitlist-card {
+          max-height: calc(100svh - 28px);
+          padding: 20px 18px;
+        }
+
+        .waitlist-head {
+          gap: 12px;
+          margin-bottom: 14px;
+        }
+
+        .waitlist-title {
+          font-size: clamp(1.85rem, 8vw, 2.55rem);
+          line-height: 1.02;
+        }
+
+        .waitlist-card .waitlist-lead {
+          margin-top: 9px;
+          font-size: 0.94rem;
+          line-height: 1.32;
+        }
+
+        .waitlist-card .waitlist-apps-title {
+          margin-top: 12px;
+        }
+
+        .waitlist-apps {
+          min-height: 160px;
+          padding: 14px;
+        }
+
         .waitlist-actions {
           grid-template-columns: 1fr;
+          gap: 8px;
+          margin-top: 14px;
+        }
+
+        .waitlist-action {
+          min-height: 48px;
+          padding: 11px 16px;
+        }
+      }
+
+      @media (max-height: 760px) {
+        .waitlist-card {
+          padding-top: 18px;
+          padding-bottom: 18px;
+        }
+
+        .waitlist-head {
+          margin-bottom: 14px;
+        }
+
+        .waitlist-card .waitlist-lead {
+          margin-top: 8px;
+          font-size: 0.93rem;
+          line-height: 1.3;
+        }
+
+        .waitlist-card .waitlist-apps-title {
+          margin-top: 10px;
+        }
+
+        .waitlist-apps {
+          min-height: 150px;
+        }
+
+        .waitlist-actions {
+          margin-top: 12px;
         }
       }
 
@@ -4009,6 +4165,7 @@
         border-radius: 50%;
         font: inherit;
         font-size: 1.35rem;
+        font-weight: 900;
         line-height: 1;
         cursor: pointer;
       }
@@ -4106,10 +4263,12 @@
         background: #172026;
         border: 1px solid #172026;
         border-radius: 8px;
+        font-family: inherit;
         font-size: 0.96rem;
         font-weight: 820;
         line-height: 1.1;
         text-decoration: none;
+        cursor: pointer;
       }
 
       .contact-action.secondary {
@@ -6016,7 +6175,7 @@
               <p>KI-gestützte Analyse von Verträgen zur Identifikation von Risiken, kritischen Klauseln und Handlungsfeldern. Entscheidungen werden transparenter, schneller und nachvollziehbarer vorbereitet.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART RISK Vertragsanalyse">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/contracts">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="contracts/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6036,7 +6195,7 @@
               <p>Qualitative und quantitative Erfassung, Bewertung und Priorisierung von Projektrisiken in einer intelligenten Risikomatrix. Verantwortlichkeiten, Maßnahmen und Fristen werden festgelegt, nachverfolgt und für belastbare Berichte strukturiert aufbereitet.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART RISK Risiko-Register">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/riskregister">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="riskregister/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6122,7 +6281,7 @@
               <p>Die intelligente Arbeitsbibliothek für Prompts, Code, Workflows und Notizen. KI kann unterschiedliche Varianten von Prompts und Workflows erzeugen, die anschließend verglichen, bewertet und gezielt weiterentwickelt werden. Inhalte werden als wiederverwendbare Bausteine nutzbar gemacht.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART SnippetFlow">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/snippetflow">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="snippetflow/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6142,7 +6301,7 @@
               <p>Prompts werden eingegeben, durch KI zu professionellen Prompt-Fassungen weiterentwickelt und für bestmögliche Ergebnisse optimiert. Erstellte Prompts können lokal in einer strukturierten Prompt-Bibliothek verwaltet und wiederverwendet werden.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART PromptCreator">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/promptcreator">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="promptcreator/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6162,7 +6321,7 @@
               <p>KI-gestützte Zusammenfassungen komplexer Dokumente, Protokolle und Fachinhalte. Informationen werden strukturiert verdichtet und anhand individueller Ausgabeprofile als präzise Entscheidungs- und Arbeitsgrundlage zusammengestellt.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART SummaryAssistent">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/summary">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="summary/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6182,7 +6341,7 @@
               <p>Unterstützung für geschäftliche Kommunikation, private Korrespondenz, E-Mails und Anfragen. Antworten können anhand von Vorlagen, Stilprofilen und definierbaren Antwortparametern in bis zu fünf Sprachen vorbereitet und ausgegeben werden. So entstehen klare, passende und nachvollziehbare Antworten.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART ReplySuite">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/replysuite">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="replysuite/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6220,7 +6379,7 @@
               <p>Simulation von Kosten-, Termin- und Investitionsszenarien unter Unsicherheit. Wahrscheinlichkeiten, Risikopuffer und strategische Auswirkungen werden datenbasiert sichtbar gemacht.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART RISK Monte-Carlo-Simulation">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/montecarlo">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="montecarlo/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -6340,7 +6499,7 @@
               <p>KI-gestützte Karriere- und Bewerbungssteuerung von der Stellenanalyse bis zur professionellen Positionierung. Bewerbungsunterlagen, Interviewvorbereitung und Karriereentscheidungen werden strukturiert und datenbasiert unterstützt. Analyse. Positionierung. Bewerbung. Entscheidung.</p>
               <span class="suite-row-links" aria-label="Aktionen für SMART CareerNavigator">
                 <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
-                <a class="suite-row-action" href="/career">Zur Landingpage <span aria-hidden="true">→</span></a>
+                <a class="suite-row-action" href="career/index.html">Zur Landingpage <span aria-hidden="true">→</span></a>
               </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
@@ -7937,7 +8096,7 @@
         </div>
 
         <div class="contact-actions">
-          <a class="contact-action" href="mailto:info@built-smart-hub.com">E-Mail schreiben <span aria-hidden="true">→</span></a>
+          <a class="contact-action" href="mailto:info@built-smart-hub.com?subject=Anfrage%20zu%20BuiltSmart%20AI">E-Mail schreiben <span aria-hidden="true">→</span></a>
           <a class="contact-action secondary" href="https://www.built-smart-hub.com/termin-buchen" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -7948,7 +8107,7 @@
         <button class="contact-close waitlist-close" type="button" aria-label="Benachrichtigungskarte schließen">×</button>
         <div class="waitlist-head">
           <span class="waitlist-logo" aria-hidden="true">AI</span>
-          <div>
+          <div class="waitlist-brand-copy">
             <p class="waitlist-kicker">SmartBuilt-AI</p>
             <span class="waitlist-powered">powered by BuiltSmart Hub - Bernhard Metzger</span>
           </div>
@@ -7965,6 +8124,8 @@
             <label><input type="checkbox" value="SMART RISK Risiko-Register"> SMART RISK Risiko-Register</label>
             <label><input type="checkbox" value="SMART REVISION"> SMART REVISION</label>
             <label><input type="checkbox" value="SMART Validate"> SMART Validate</label>
+            <label><input type="checkbox" value="SMART BauAkte"> SMART BauAkte</label>
+            <label><input type="checkbox" value="SMART BauDocs"> SMART BauDocs</label>
           </div>
           <div>
             <strong>Wissenssysteme &amp; Content Intelligence</strong>
@@ -7980,21 +8141,27 @@
             <label><input type="checkbox" value="SMART CapEx"> SMART CapEx</label>
           </div>
           <div>
-            <strong>Kommunikation &amp; Entscheidungsunterstützung</strong>
-            <label><input type="checkbox" value="SMART Meeting Navigator"> SMART Meeting Navigator</label>
+            <strong>Organisation, Kommunikation &amp; Produktivität</strong>
+            <label><input type="checkbox" value="SMART MeetingNavigator"> SMART MeetingNavigator</label>
+            <label><input type="checkbox" value="SMART LingoLive"> SMART LingoLive</label>
+            <label><input type="checkbox" value="SMART DeckBuilder Pro"> SMART DeckBuilder Pro</label>
+            <label><input type="checkbox" value="SMART RecruitPilot"> SMART RecruitPilot</label>
+            <label><input type="checkbox" value="SMART Focus"> SMART Focus</label>
           </div>
           <div>
             <strong>Karriere &amp; Entwicklung</strong>
-            <label><input type="checkbox" value="SMART Career Navigator"> SMART Career Navigator</label>
-          </div>
-          <div>
-            <strong>Produktivität &amp; Workflow Intelligence</strong>
-            <label><input type="checkbox" value="SMART Focus"> SMART Focus</label>
+            <label><input type="checkbox" value="SMART CareerNavigator"> SMART CareerNavigator</label>
           </div>
         </div>
         <div class="waitlist-actions">
-          <a class="waitlist-action waitlist-mail" href="mailto:info@built-smart-hub.com?subject=Benachrichtigung%20BuiltSmart%20AI%20App&body=Hallo%20BuiltSmart%20AI%2C%0A%0Abitte%20informiert%20mich%2C%20sobald%20die%20ausgewaehlte%20App%20verfuegbar%20ist.%0A%0AInteressierte%20App%3A%20">Bei Verfügbarkeit benachrichtigen <span aria-hidden="true">→</span></a>
+          <button class="waitlist-action waitlist-mail" type="button">Nachricht vorbereiten <span aria-hidden="true">→</span></button>
           <button class="waitlist-action secondary waitlist-close" type="button">Schließen</button>
+        </div>
+        <p class="waitlist-feedback" id="waitlist-feedback" role="status" aria-live="polite"></p>
+        <div class="waitlist-message-box" id="waitlist-message-box">
+          <strong>Nachricht für Ihre E-Mail</strong>
+          <textarea id="waitlist-message" readonly></textarea>
+          <span><a id="waitlist-message-link" href="mailto:info@built-smart-hub.com">E-Mail an info@built-smart-hub.com öffnen</a></span>
         </div>
       </div>
     </div>
@@ -8061,11 +8228,15 @@
       (() => {
         const modal = document.querySelector("#waitlist-modal");
         const closeButtons = modal?.querySelectorAll(".waitlist-close");
-        const mailLink = modal?.querySelector(".waitlist-mail");
-        if (!modal || !closeButtons?.length || !mailLink) return;
+        const notifyButton = modal?.querySelector(".waitlist-mail");
+        const feedback = modal?.querySelector("#waitlist-feedback");
+        const messageBox = modal?.querySelector("#waitlist-message-box");
+        const messageField = modal?.querySelector("#waitlist-message");
+        const messageLink = modal?.querySelector("#waitlist-message-link");
+        if (!modal || !closeButtons?.length || !notifyButton) return;
 
         let previousFocus = null;
-        const baseHref = mailLink.getAttribute("href");
+        const emailAddress = "info@built-smart-hub.com";
 
         const openModal = () => {
           const contactModal = document.querySelector("#contact-modal");
@@ -8073,6 +8244,11 @@
           previousFocus = document.activeElement;
           modal.hidden = false;
           document.body.style.overflow = "hidden";
+          if (feedback) feedback.textContent = "";
+          messageBox?.classList.remove("is-visible");
+          if (messageField) messageField.value = "";
+          if (messageLink) messageLink.href = `mailto:${emailAddress}`;
+          notifyButton.innerHTML = 'Nachricht vorbereiten <span aria-hidden="true">→</span>';
           closeButtons[0].focus();
         };
 
@@ -8087,15 +8263,61 @@
           }
         };
 
-        const updateMailLink = () => {
-          const selected = [...modal.querySelectorAll("input[type='checkbox']:checked")]
-            .map((input) => input.value)
-            .join(", ");
-          mailLink.href = baseHref + encodeURIComponent(selected);
+        const getSelectedApps = () =>
+          [...modal.querySelectorAll("input[type='checkbox']:checked")]
+            .map((input) => input.value);
+
+        const buildMessage = (selectedApps) => {
+          const appText = selectedApps.length ? selectedApps.join(", ") : "Noch nicht ausgewählt";
+          return [
+            "Hallo BuiltSmart AI,",
+            "",
+            "bitte informiert mich, sobald die ausgewählte App verfügbar ist.",
+            "",
+            `Interessierte App(s): ${appText}`,
+            "",
+            "Viele Grüße"
+          ].join("\n");
         };
 
-        modal.addEventListener("change", updateMailLink);
-        mailLink.addEventListener("click", updateMailLink);
+        notifyButton.addEventListener("click", async () => {
+          const selectedApps = getSelectedApps();
+          const message = buildMessage(selectedApps);
+          const subject = encodeURIComponent("Benachrichtigung BuiltSmart AI App");
+          const body = encodeURIComponent(message);
+          const mailto = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+
+          if (messageField) {
+            messageField.value = message;
+          }
+          if (messageLink) {
+            messageLink.href = mailto;
+          }
+
+          messageBox?.classList.add("is-visible");
+          notifyButton.textContent = "Nachricht vorbereitet";
+
+          try {
+            if (!navigator.clipboard?.writeText) {
+              throw new Error("Clipboard API nicht verfügbar");
+            }
+            await navigator.clipboard.writeText(message);
+            notifyButton.textContent = "Nachricht kopiert";
+            if (feedback) {
+              feedback.textContent = selectedApps.length
+                ? `Nachricht mit ${selectedApps.length} Auswahl(en) kopiert. E-Mail öffnen und senden.`
+                : "Nachricht kopiert. Bitte App auswählen oder Text in Ihrer E-Mail ergänzen.";
+            }
+          } catch {
+            if (feedback) {
+              feedback.innerHTML = `Nachricht vorbereitet. Text kopieren und <a href="${mailto}">E-Mail öffnen</a>.`;
+            }
+          }
+
+          messageField?.focus();
+          messageField?.select();
+        });
+
         closeButtons.forEach((button) => button.addEventListener("click", closeModal));
 
         modal.addEventListener("click", (event) => {
