@@ -118,7 +118,7 @@
           "@type": "ContactPoint",
           "contactType": "sales",
           "email": "info@built-smart-hub.com",
-          "url": "https://www.built-smart-hub.com/termin-buchen",
+          "url": "https://booking.builtsmart-ai.app/book?embed=1",
           "availableLanguage": ["de", "en"]
         },
         "sameAs": [
@@ -394,6 +394,7 @@
         min-width: 0;
         margin-top: 16px;
         padding-top: 0;
+        gap: 10px;
         align-items: center;
         justify-content: flex-end;
       }
@@ -5194,6 +5195,7 @@
 
         <div class="header-actions">
           <button class="button button-dark contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen</button>
+          <a class="button button-dark" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen</a>
         </div>
       </div>
     </header>
@@ -5221,6 +5223,7 @@
           <div class="hero-actions" aria-label="Zentrale Aktionen">
             <a class="button button-light" href="#apps-title">Apps ansehen <span aria-hidden="true">→</span></a>
             <button class="button button-ghost contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
+            <a class="button button-ghost" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -6470,7 +6473,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-booking" href="#kontakt" style="--accent: #315f9e;">
+          <div class="suite-row suite-row--with-links" id="smart-booking" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Booking.png" alt="">
               <span class="suite-row-index">16</span>
@@ -6478,13 +6481,17 @@
             <span class="suite-row-copy">
               <h3>SMART Booking</h3>
               <p>Professionelle Terminbuchung für Beratungen, Demos und Kundengespräche. Individuelle Buchungsprofile, Kalenderabgleich, E-Mail-Bestätigungen und optionale Meeting-Links unterstützen einen strukturierten, automatisierten Buchungsprozess.</p>
+              <span class="suite-row-links" aria-label="Aktionen für SMART Booking">
+                <button class="suite-row-action contact-trigger" type="button" aria-controls="contact-modal">Details anfragen <span aria-hidden="true">→</span></button>
+                <a class="suite-row-action" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Beispiel <span aria-hidden="true">→</span></a>
+              </span>
             </span>
             <span class="suite-row-meta" aria-label="Themenschwerpunkte">
               <span class="suite-tag suite-tag-meeting">Termine buchen</span>
               <span class="suite-tag suite-tag-protocol">Bestätigungen senden</span>
               <span class="suite-tag suite-tag-workflow">Websites einbinden</span>
             </span>
-          </a>
+          </div>
 
           <a class="suite-row contact-trigger" id="deckbuilder-pro" href="#kontakt" style="--accent: #315f9e;">
             <span class="suite-row-media">
@@ -8161,7 +8168,7 @@
 
         <div class="contact-actions">
           <a class="contact-action" href="mailto:info@built-smart-hub.com?subject=Anfrage%20zu%20BuiltSmart%20AI">E-Mail schreiben <span aria-hidden="true">→</span></a>
-          <a class="contact-action secondary" href="https://www.built-smart-hub.com/termin-buchen" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
+          <a class="contact-action secondary" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
