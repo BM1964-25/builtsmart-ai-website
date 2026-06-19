@@ -36,6 +36,9 @@ BuiltSmart AI ist die Produkt- und Informationswebsite fuer browserbasierte KI-A
 - SMART RISK Monte-Carlo-Simulation: https://www.builtsmart-ai.app/montecarlo/
   - Probabilistische Risiko- und Szenarioanalyse fuer Kosten-, Termin-, CAPEX- und Projektrisiken.
   - Zielgruppen: Projektsteuerung, Risikomanagement, Bauherren, Investoren, Controller und Consultants.
+- SMART Booking: https://www.builtsmart-ai.app/smartbooking/
+  - Browserbasierte Terminplattform fuer professionelle Kundentermine mit Buchungsseiten, Kalenderabgleich, Meeting-Links, Erinnerungen und Terminbestaetigungen.
+  - Zielgruppen: Selbststaendige, Einzelanwender, Berater, Dienstleister und Anbieter mit Beratungs-, Vertriebs- oder Kundenterminen.
 
 ## Inhaltliche Einordnung
 
