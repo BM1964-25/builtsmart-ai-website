@@ -1086,8 +1086,11 @@
         min-height: 246px;
         position: relative;
         display: grid;
-        align-content: start;
-        gap: 18px;
+        grid-template-columns: 58px minmax(0, 1fr);
+        grid-template-rows: minmax(58px, auto) auto;
+        column-gap: 16px;
+        row-gap: 18px;
+        align-items: start;
         padding: 22px;
         overflow: hidden;
         background:
@@ -1111,6 +1114,8 @@
       .service-icon {
         position: relative;
         z-index: 1;
+        grid-column: 1;
+        grid-row: 1;
         display: grid;
         width: 58px;
         height: 58px;
@@ -1137,7 +1142,10 @@
       .service-card h3 {
         position: relative;
         z-index: 1;
+        grid-column: 2;
+        grid-row: 1;
         margin: 0;
+        align-self: center;
         font-size: clamp(1.16rem, 1.55vw, 1.34rem);
         line-height: 1.14;
       }
@@ -1145,6 +1153,8 @@
       .service-card p {
         position: relative;
         z-index: 1;
+        grid-column: 1 / -1;
+        grid-row: 2;
         margin: 0;
         color: #56616b;
         font-size: 0.97rem;
@@ -1292,6 +1302,42 @@
         color: #5d6872;
         font-size: 0.9rem;
         line-height: 1.4;
+      }
+
+      .service-mvp-note {
+        display: grid;
+        grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+        margin-top: clamp(22px, 3vw, 30px);
+        padding: 20px 22px 20px 24px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 250, 0.9)),
+          linear-gradient(90deg, color-mix(in srgb, #247780 13%, transparent), transparent 68%);
+        border: 1px solid color-mix(in srgb, #247780 22%, rgba(213, 220, 216, 0.9));
+        border-left: 5px solid #247780;
+        border-radius: 8px;
+        box-shadow: 0 16px 36px rgba(23, 32, 38, 0.065);
+      }
+
+      .service-mvp-note strong {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 5px 10px;
+        color: #172026;
+        background: color-mix(in srgb, #247780 8%, #ffffff);
+        border: 1px solid color-mix(in srgb, #247780 18%, transparent);
+        border-radius: 999px;
+        font-size: 0.92rem;
+        line-height: 1.18;
+      }
+
+      .service-mvp-note p {
+        margin: 0;
+        color: #56616b;
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
 
       .tile-grid {
@@ -4913,6 +4959,11 @@
           padding-right: 0;
         }
 
+        .service-mvp-note {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
         .services-cta {
           align-items: stretch;
         }
@@ -5445,7 +5496,7 @@
               </svg>
             </span>
             <h3>KI-Automatisierung</h3>
-            <p>Wiederkehrende Aufgaben automatisieren, Informationen vorstrukturieren und manuelle Arbeitsschritte gezielt reduzieren.</p>
+            <p>Wiederkehrende Aufgaben automatisieren, Informationen vorstrukturieren und manuelle Arbeitsschritte gezielt reduzieren. So werden Abläufe schneller, konsistenter und im Alltag leichter nachvollziehbar.</p>
           </article>
 
           <article class="service-card">
@@ -5462,7 +5513,7 @@
               </svg>
             </span>
             <h3>AI-Agenten</h3>
-            <p>Digitale Assistenten für klar definierte Aufgaben wie Recherche, Analyse, Vorprüfung, Dokumentation oder Prozessunterstützung.</p>
+            <p>Digitale Assistenten für klar definierte Aufgaben wie Recherche, Analyse, Vorprüfung, Dokumentation oder Prozessunterstützung. Agenten übernehmen Teilaufgaben strukturiert und entlasten Fachbereiche im laufenden Prozess.</p>
           </article>
 
           <article class="service-card">
@@ -5474,7 +5525,7 @@
               </svg>
             </span>
             <h3>Chatbots</h3>
-            <p>Fachliche Chatbots für interne Wissenssysteme, Kundenkommunikation, Projektinformationen oder strukturierte Auskünfte.</p>
+            <p>Fachliche Chatbots für interne Wissenssysteme, Kundenkommunikation, Projektinformationen oder strukturierte Auskünfte. Inhalte werden gezielt auffindbar und als schnelle, verständliche Antworten nutzbar gemacht.</p>
           </article>
 
           <article class="service-card">
@@ -5489,7 +5540,7 @@
               </svg>
             </span>
             <h3>Workflow-Automation</h3>
-            <p>Abläufe zwischen Tools, Dokumenten, Datenquellen und Entscheidungen verbinden und nachvollziehbar steuern.</p>
+            <p>Abläufe zwischen Tools, Dokumenten, Datenquellen und Entscheidungen verbinden und nachvollziehbar steuern. Medienbrüche werden reduziert, Zuständigkeiten klarer geführt und Ergebnisse besser dokumentiert.</p>
           </article>
 
           <article class="service-card">
@@ -5502,7 +5553,7 @@
               </svg>
             </span>
             <h3>Individuelle Web-Apps</h3>
-            <p>Browserbasierte Anwendungen für Fachprozesse, Berechnungen, Prüfungen, Auswertungen und strukturierte Dokumentation.</p>
+            <p>Browserbasierte Anwendungen für Fachprozesse, Berechnungen, Prüfungen, Auswertungen und strukturierte Dokumentation. Funktionen werden passgenau auf Arbeitsabläufe, Rollen und konkrete Entscheidungsbedarfe zugeschnitten.</p>
           </article>
 
           <article class="service-card">
@@ -5531,7 +5582,7 @@
               </svg>
             </span>
             <h3>Interne Tools</h3>
-            <p>Schlanke Werkzeuge für Teams, Projektsteuerung, Reporting, Prüfung, Wissensmanagement und operative Entlastung.</p>
+            <p>Schlanke Werkzeuge für Teams, Projektsteuerung, Reporting, Prüfung, Wissensmanagement und operative Entlastung. Sie bündeln Informationen, standardisieren Abläufe und machen wiederkehrende Aufgaben einfacher bearbeitbar.</p>
           </article>
 
           <article class="service-card">
@@ -5584,14 +5635,19 @@
             </article>
             <article class="service-step">
               <span>03</span>
-              <strong>MVP oder Pilotversion nutzbar machen</strong>
-              <p>Ein erster funktionsfähiger Stand zeigt früh, wie die Anwendung im Alltag wirkt, welche Funktionen wirklich benötigt werden und wo gezielt weiterentwickelt werden sollte.</p>
+              <strong>Erste Version testen</strong>
+              <p>Ein erster funktionsfähiger Stand zeigt früh, wie die Lösung im Alltag wirkt.</p>
             </article>
             <article class="service-step">
               <span>04</span>
               <strong>Gezielt verbessern</strong>
               <p>Funktionen, Bedienung und Ergebnisse werden praxisnah weiterentwickelt.</p>
             </article>
+          </div>
+
+          <div class="service-mvp-note">
+            <strong>Was bedeutet MVP?</strong>
+            <p>Ein MVP ist eine erste funktionsfähige Version einer Anwendung. Sie enthält die wichtigsten Funktionen, um eine Idee früh im Alltag zu testen, Nutzerfeedback zu erhalten und gezielt zu entscheiden, welche Funktionen weiterentwickelt werden sollen. Nach der Pilotphase kann die Lösung Schritt für Schritt erweitert, stabilisiert und in bestehende Abläufe integriert werden.</p>
           </div>
         </div>
 
