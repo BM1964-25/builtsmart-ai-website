@@ -774,8 +774,12 @@
       }
 
       .apps-suite-section {
+        width: 100vw;
         margin-top: 0;
-        padding-top: clamp(50px, 7vw, 84px);
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        padding: clamp(40px, 5vw, 64px) max(16px, calc((100vw - 1180px) / 2)) clamp(56px, 7vw, 92px);
+        background: #ffffff;
         border-top: 0;
       }
 
@@ -1312,24 +1316,25 @@
         margin-top: clamp(22px, 3vw, 30px);
         padding: 20px 22px 20px 24px;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 250, 0.9)),
-          linear-gradient(90deg, color-mix(in srgb, #247780 13%, transparent), transparent 68%);
-        border: 1px solid color-mix(in srgb, #247780 22%, rgba(213, 220, 216, 0.9));
+          linear-gradient(135deg, rgba(236, 246, 247, 0.98), rgba(224, 238, 240, 0.94)),
+          linear-gradient(90deg, color-mix(in srgb, #247780 18%, transparent), transparent 68%);
+        border: 1px solid color-mix(in srgb, #247780 32%, rgba(213, 220, 216, 0.9));
         border-left: 5px solid #247780;
         border-radius: 8px;
-        box-shadow: 0 16px 36px rgba(23, 32, 38, 0.065);
+        box-shadow: 0 16px 36px rgba(23, 32, 38, 0.08);
       }
 
       .service-mvp-note strong {
         display: inline-flex;
         align-items: center;
         width: fit-content;
-        padding: 5px 10px;
-        color: #172026;
-        background: color-mix(in srgb, #247780 8%, #ffffff);
-        border: 1px solid color-mix(in srgb, #247780 18%, transparent);
+        padding: 6px 12px;
+        color: #0d3f45;
+        background: color-mix(in srgb, #247780 18%, #ffffff);
+        border: 1px solid color-mix(in srgb, #247780 38%, transparent);
         border-radius: 999px;
         font-size: 0.92rem;
+        font-weight: 820;
         line-height: 1.18;
       }
 
@@ -1338,6 +1343,447 @@
         color: #56616b;
         font-size: 0.95rem;
         line-height: 1.5;
+      }
+
+      .ai-map-section {
+        position: relative;
+        overflow: hidden;
+        width: 100vw;
+        margin-top: clamp(28px, 4vw, 48px);
+        margin-right: calc(50% - 50vw);
+        margin-left: calc(50% - 50vw);
+        padding: 0 max(16px, calc((100vw - 1180px) / 2)) clamp(26px, 3.6vw, 44px);
+        background:
+          linear-gradient(180deg, rgba(241, 246, 245, 0.98), rgba(255, 255, 255, 0.98)),
+          radial-gradient(circle at 18% 10%, rgba(36, 119, 128, 0.16), transparent 34%),
+          radial-gradient(circle at 86% 18%, rgba(49, 95, 158, 0.14), transparent 36%);
+        border-top: 0;
+        border-bottom: 0;
+      }
+
+      .ai-map-intro {
+        position: relative;
+        max-width: none;
+        margin: 0 min(-16px, calc((1180px - 100vw) / 2)) clamp(26px, 3.4vw, 38px);
+        padding: clamp(58px, 7vw, 92px) max(16px, calc((100vw - 1180px) / 2)) clamp(72px, 8vw, 110px);
+        overflow: hidden;
+        color: #ffffff;
+        background:
+          linear-gradient(90deg, rgba(5, 9, 14, 0.94) 0%, rgba(6, 15, 24, 0.82) 38%, rgba(6, 15, 24, 0.38) 64%, rgba(241, 246, 245, 0.08) 100%),
+          linear-gradient(180deg, rgba(5, 9, 14, 0.18) 0%, rgba(5, 9, 14, 0.28) 48%, rgba(241, 246, 245, 0.96) 100%),
+          url("assets/hero/ki-prozesslandkarte-bg.png") center right / cover no-repeat;
+      }
+
+      .ai-map-intro::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: clamp(76px, 11vw, 150px);
+        background: linear-gradient(180deg, rgba(241, 246, 245, 0), rgba(241, 246, 245, 0.98));
+        pointer-events: none;
+      }
+
+      .ai-map-intro > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .ai-map-intro .eyebrow {
+        color: rgba(255, 255, 255, 0.78);
+        margin-bottom: 8px;
+      }
+
+      .ai-map-intro h2 {
+        max-width: 760px;
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(2.3rem, 4.4vw, 4.2rem);
+        line-height: 0.98;
+        text-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+      }
+
+      .ai-map-intro p {
+        max-width: 760px;
+        margin: 14px 0 0;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: clamp(1.04rem, 1.45vw, 1.2rem);
+        line-height: 1.55;
+        text-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+      }
+
+      .ai-map-outcomes {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0;
+        width: 100%;
+        margin: clamp(18px, 2.6vw, 26px) 0 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(213, 224, 222, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
+      }
+
+      .ai-map-outcomes li {
+        --outcome: #315f9e;
+        position: relative;
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        grid-template-rows: 88px auto auto;
+        row-gap: 14px;
+        min-height: 188px;
+        padding: 26px 24px 22px;
+        color: #172026;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .ai-map-outcomes li + li {
+        border-left: 1px solid rgba(213, 220, 216, 0.86);
+      }
+
+      .ai-map-outcomes li:nth-child(2) { --outcome: #247780; }
+      .ai-map-outcomes li:nth-child(3) { --outcome: #7a5f3f; }
+      .ai-map-outcomes li:nth-child(4) { --outcome: #2f7d58; }
+
+      .ai-map-outcome-icon {
+        display: grid;
+        width: 104px;
+        height: 84px;
+        margin-bottom: 14px;
+        place-items: center;
+      }
+
+      .ai-map-outcome-icon img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+
+      .ai-map-outcomes li:nth-child(4) .ai-map-outcome-icon img {
+        width: 88%;
+        height: 88%;
+        object-position: center top;
+      }
+
+      .ai-map-outcomes strong {
+        display: block;
+        color: #172026;
+        font-size: 0.98rem;
+        font-weight: 860;
+        line-height: 1.08;
+        text-transform: uppercase;
+      }
+
+      .ai-map-outcomes span:not(.ai-map-outcome-icon) {
+        display: block;
+        max-width: 22ch;
+        color: #586570;
+        font-size: 0.88rem;
+        font-weight: 720;
+        line-height: 1.36;
+      }
+
+      .ai-map-block-heading {
+        max-width: 840px;
+        margin: 0 0 14px;
+      }
+
+      .ai-map-block-heading + .ai-process-map,
+      .ai-map-block-heading + .ai-department-grid {
+        margin-top: 0;
+      }
+
+      .ai-map-block-heading span {
+        display: block;
+        margin: 0 0 7px;
+        color: #247780;
+        font-size: 0.78rem;
+        font-weight: 860;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .ai-map-block-heading h3 {
+        margin: 0;
+        color: #172026;
+        font-size: clamp(1.45rem, 2.2vw, 2rem);
+        line-height: 1.08;
+      }
+
+      .ai-map-block-heading p {
+        max-width: 760px;
+        margin: 8px 0 0;
+        color: #586570;
+        font-size: 0.98rem;
+        line-height: 1.48;
+      }
+
+      .ai-process-map {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: clamp(20px, 3vw, 30px);
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(213, 220, 216, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(23, 32, 38, 0.06);
+      }
+
+      .ai-process-map::before {
+        content: "";
+        position: absolute;
+        top: 45px;
+        right: 8%;
+        left: 8%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(36, 119, 128, 0.25), rgba(49, 95, 158, 0.18));
+      }
+
+      .ai-process-step {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-rows: 46px auto auto;
+        justify-items: center;
+        row-gap: 8px;
+        text-align: center;
+      }
+
+      .ai-process-step span {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        color: #ffffff;
+        background: #172026;
+        border: 3px solid #ffffff;
+        border-radius: 999px;
+        box-shadow: 0 10px 24px rgba(23, 32, 38, 0.16);
+        font-size: 0.78rem;
+        font-weight: 840;
+      }
+
+      .ai-process-step strong {
+        color: #172026;
+        font-size: 0.96rem;
+        min-height: 1.18em;
+        line-height: 1.18;
+        white-space: nowrap;
+      }
+
+      .ai-process-step p {
+        max-width: 18ch;
+        margin: 0;
+        color: #64707a;
+        font-size: 0.82rem;
+        line-height: 1.28;
+      }
+
+      .ai-department-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 0;
+      }
+
+      .ai-department-card {
+        --accent: #247780;
+        position: relative;
+        display: grid;
+        grid-template-rows: auto auto auto auto 1fr;
+        align-content: start;
+        min-height: 196px;
+        padding: 20px 20px 18px;
+        overflow: hidden;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.78)),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0 72%, color-mix(in srgb, var(--accent) 8%, #ffffff) 72% 100%);
+        border: 1px solid rgba(213, 220, 216, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(23, 32, 38, 0.055);
+      }
+
+      .ai-department-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: var(--accent);
+      }
+
+      .ai-department-card h3 {
+        position: relative;
+        min-height: 2.28em;
+        margin: 0 0 12px;
+        color: #172026;
+        font-size: 1.2rem;
+        line-height: 1.08;
+      }
+
+      .ai-department-card h3 span {
+        display: block;
+      }
+
+      .ai-department-card p {
+        position: relative;
+        min-height: 124px;
+        margin: 0 0 10px;
+        color: #586570;
+        font-size: 0.93rem;
+        line-height: 1.48;
+      }
+
+      .ai-card-metrics {
+        position: relative;
+        display: grid;
+        gap: 6px;
+        margin: 0 0 14px;
+        padding: 9px 0;
+        border-top: 1px solid rgba(213, 220, 216, 0.72);
+        border-bottom: 1px solid rgba(213, 220, 216, 0.72);
+      }
+
+      .ai-card-metric {
+        display: grid;
+        grid-template-columns: 108px minmax(72px, 1fr) 68px;
+        align-items: center;
+        gap: 8px;
+        color: #56616b;
+        font-size: 0.74rem;
+        font-weight: 820;
+        letter-spacing: 0.01em;
+      }
+
+      .ai-card-bar {
+        height: 7px;
+        min-height: 7px;
+        overflow: hidden;
+        background: rgba(23, 32, 38, 0.1);
+        border-radius: 999px;
+      }
+
+      .ai-card-bar::after {
+        content: "";
+        display: block;
+        width: var(--score);
+        height: 100%;
+        background: var(--accent);
+        border-radius: inherit;
+      }
+
+      .ai-card-level {
+        color: #172026;
+        font-size: 0.72rem;
+        font-weight: 860;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .ai-card-benefit-title {
+        position: relative;
+        display: block;
+        margin: 0 0 7px;
+        color: #172026;
+        font-size: 0.78rem;
+        font-weight: 860;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .ai-department-card ul {
+        position: relative;
+        display: grid;
+        gap: 7px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ai-department-card li {
+        position: relative;
+        padding-left: 18px;
+        color: #172026;
+        font-size: 0.88rem;
+        font-weight: 760;
+        line-height: 1.28;
+      }
+
+      .ai-department-card li::before {
+        content: "✓";
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: var(--accent);
+        font-weight: 900;
+      }
+
+      .ai-department-card:nth-child(2) { --accent: #315f9e; }
+      .ai-department-card:nth-child(3) { --accent: #2f7d58; }
+      .ai-department-card:nth-child(4) { --accent: #7a5f3f; }
+      .ai-department-card:nth-child(5) { --accent: #4b6c76; }
+      .ai-department-card:nth-child(6) { --accent: #65529c; }
+      .ai-department-card:nth-child(7) { --accent: #247780; }
+      .ai-department-card:nth-child(8) { --accent: #315f9e; }
+      .ai-department-card:nth-child(9) { --accent: #7a5f3f; }
+
+      .ai-map-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 22px;
+        align-items: center;
+        margin-top: clamp(18px, 2.8vw, 26px);
+        padding: clamp(20px, 3vw, 28px);
+        color: #ffffff;
+        background:
+          linear-gradient(135deg, rgba(23, 32, 38, 0.96), rgba(36, 119, 128, 0.9)),
+          radial-gradient(circle at 14% 22%, rgba(255, 255, 255, 0.16), transparent 28%);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 8px;
+        box-shadow: 0 18px 44px rgba(23, 32, 38, 0.14);
+      }
+
+      .ai-map-cta p {
+        margin: 0;
+        max-width: 76ch;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        line-height: 1.5;
+      }
+
+      .ai-map-cta strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #ffffff;
+        font-size: clamp(1.2rem, 1.8vw, 1.48rem);
+        line-height: 1.15;
+      }
+
+      .ai-map-cta .button {
+        min-width: 238px;
+        justify-content: center;
+        color: #172026;
+        background: #ffffff;
+        border-color: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      }
+
+      .ai-map-cta .button:hover,
+      .ai-map-cta .button:focus-visible {
+        color: #ffffff;
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.78);
       }
 
       .tile-grid {
@@ -2216,25 +2662,36 @@
         grid-template-columns: 132px 1fr auto;
         gap: 10px;
         align-items: center;
+        min-height: 14px;
         color: var(--muted);
         font-size: 0.78rem;
         font-weight: 760;
         letter-spacing: 0.015em;
+        line-height: 1;
       }
 
       .impact-bar {
+        position: relative;
         display: block;
-        height: 8px;
+        width: 100%;
+        height: 6px;
+        min-height: 6px;
+        max-height: 6px;
         overflow: hidden;
         background: rgba(23, 32, 38, 0.09);
         border-radius: 999px;
+        line-height: 0;
       }
 
       .impact-bar::before {
         content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
         display: block;
         width: calc(var(--score) * 1%);
-        height: 100%;
+        height: 6px;
+        min-height: 6px;
+        max-height: 6px;
         background:
           linear-gradient(90deg, color-mix(in srgb, var(--impact-accent) 74%, #172026), var(--impact-accent));
         border-radius: inherit;
@@ -4772,6 +5229,31 @@
           display: none;
         }
 
+        .ai-process-map,
+        .ai-department-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .ai-map-outcomes {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .ai-map-outcomes li {
+          border-top: 1px solid rgba(213, 220, 216, 0.86);
+        }
+
+        .ai-map-outcomes li:nth-child(-n+2) {
+          border-top: 0;
+        }
+
+        .ai-map-outcomes li:nth-child(odd) {
+          border-left: 0;
+        }
+
+        .ai-process-map::before {
+          display: none;
+        }
+
         .suite-row {
           grid-template-columns: auto 1fr;
         }
@@ -4957,6 +5439,47 @@
 
         .service-step {
           padding-right: 0;
+        }
+
+        .ai-process-map,
+        .ai-department-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-map-outcomes {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-map-outcomes li {
+          min-height: 0;
+          border-left: 0;
+        }
+
+        .ai-map-outcomes li + li {
+          border-left: 0;
+          border-top: 1px solid rgba(213, 220, 216, 0.86);
+        }
+
+        .ai-department-card h3,
+        .ai-department-card p {
+          min-height: 0;
+        }
+
+        .ai-map-cta {
+          grid-template-columns: 1fr;
+          align-items: stretch;
+        }
+
+        .ai-map-cta .button {
+          width: 100%;
+        }
+
+        .ai-card-metric {
+          grid-template-columns: 108px minmax(72px, 1fr) 64px;
+        }
+
+        .ai-process-map {
+          padding: 16px;
         }
 
         .service-mvp-note {
@@ -5647,7 +6170,7 @@
 
           <div class="service-mvp-note">
             <strong>Was bedeutet MVP?</strong>
-            <p>Ein MVP ist eine erste funktionsfähige Version einer Anwendung. Sie enthält die wichtigsten Funktionen, um eine Idee früh im Alltag zu testen, Nutzerfeedback zu erhalten und gezielt zu entscheiden, welche Funktionen weiterentwickelt werden sollen. Nach der Pilotphase kann die Lösung Schritt für Schritt erweitert, stabilisiert und in bestehende Abläufe integriert werden.</p>
+            <p>Ein MVP (Minimum Viable Product) ist eine erste funktionsfähige Version einer Anwendung. Sie enthält die wichtigsten Funktionen, um eine Idee früh im Alltag zu testen, Nutzerfeedback zu erhalten und gezielt zu entscheiden, welche Funktionen weiterentwickelt werden sollen. Nach der Pilotphase kann die Lösung Schritt für Schritt erweitert, stabilisiert und in bestehende Abläufe integriert werden.</p>
           </div>
         </div>
 
@@ -5659,7 +6182,260 @@
             unterstütze auch bei der Strukturierung und Ausarbeitung des
             passenden Ablaufs.
           </p>
-          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Lösung besprechen <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Jetzt Lösung besprechen <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="ai-map-section" id="ki-prozesslandkarte" aria-labelledby="ai-map-title">
+        <div class="ai-map-intro">
+          <p class="eyebrow">KI-Prozesslandkarte</p>
+          <h2 id="ai-map-title">Wo KI im Unternehmen konkret hilft.</h2>
+          <p>
+            KI unterstützt dabei, Prozesse zu analysieren, wiederkehrende Aufgaben zu
+            automatisieren, Informationen schneller auszuwerten und fundierte
+            Entscheidungen effizienter vorzubereiten.
+          </p>
+          <ul class="ai-map-outcomes" aria-label="Zentrale KI-Nutzen">
+            <li>
+              <span class="ai-map-outcome-icon" aria-hidden="true">
+                <img loading="lazy" decoding="async" src="assets/process-icons/zeit-sparen.png" alt="">
+              </span>
+              <strong>Zeit sparen</strong>
+              <span>Weniger manuelle Arbeit, mehr Fokus.</span>
+            </li>
+            <li>
+              <span class="ai-map-outcome-icon" aria-hidden="true">
+                <img loading="lazy" decoding="async" src="assets/process-icons/besser-entscheiden.png" alt="">
+              </span>
+              <strong>Besser entscheiden</strong>
+              <span>Daten, Dokumente und Fakten klarer nutzen.</span>
+            </li>
+            <li>
+              <span class="ai-map-outcome-icon" aria-hidden="true">
+                <img loading="lazy" decoding="async" src="assets/process-icons/kosten-senken.png" alt="">
+              </span>
+              <strong>Kosten senken</strong>
+              <span>Abläufe optimieren und Fehler reduzieren.</span>
+            </li>
+            <li>
+              <span class="ai-map-outcome-icon" aria-hidden="true">
+                <img loading="lazy" decoding="async" src="assets/process-icons/risiken-reduzieren.png" alt="">
+              </span>
+              <strong>Risiken reduzieren</strong>
+              <span>Fristen und Abweichungen früher erkennen.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ai-map-block-heading">
+          <span>Prozesskette</span>
+          <h3>Vom Bedarf bis zum Reporting.</h3>
+          <p>
+            Die Prozesskette zeigt, wo KI Informationen aufnimmt, strukturiert,
+            prüft und für Entscheidungen nutzbar macht.
+          </p>
+        </div>
+
+        <div class="ai-process-map" aria-label="Typische Prozesskette">
+          <article class="ai-process-step">
+            <span>01</span>
+            <strong>Anfrage</strong>
+            <p>Kundenbedarf und Informationen aufnehmen</p>
+          </article>
+          <article class="ai-process-step">
+            <span>02</span>
+            <strong>Angebot</strong>
+            <p>Leistungen, Texte und Kalkulation strukturieren</p>
+          </article>
+          <article class="ai-process-step">
+            <span>03</span>
+            <strong>Auftrag</strong>
+            <p>Status, Aufgaben und Zuständigkeiten klären</p>
+          </article>
+          <article class="ai-process-step">
+            <span>04</span>
+            <strong>Projekt</strong>
+            <p>Dokumente, Fristen und Risiken steuern</p>
+          </article>
+          <article class="ai-process-step">
+            <span>05</span>
+            <strong>Dokumentation</strong>
+            <p>Wissen sichern und auffindbar machen</p>
+          </article>
+          <article class="ai-process-step">
+            <span>06</span>
+            <strong>Abrechnung</strong>
+            <p>Belege, Nachweise und Freigaben prüfen</p>
+          </article>
+          <article class="ai-process-step">
+            <span>07</span>
+            <strong>Reporting</strong>
+            <p>Entscheidungen und Maßnahmen vorbereiten</p>
+          </article>
+        </div>
+
+        <div class="ai-map-block-heading">
+          <span>Unternehmensbereiche</span>
+          <h3>Wo KI im Alltag den größten Nutzen schafft.</h3>
+          <p>
+            Die Kacheln zeigen typische Einsatzfelder, konkrete Vorteile und
+            Nutzenindikatoren für einzelne Unternehmensbereiche.
+          </p>
+        </div>
+
+        <div class="ai-department-grid" aria-label="Unternehmensbereiche mit KI-Potenzial">
+          <article class="ai-department-card">
+            <h3><span>Marketing</span><span>&amp; Content</span></h3>
+            <p>Erstellen Sie professionelle Inhalte für Website, Newsletter, Landingpages und Social Media in wenigen Minuten. So bleibt Ihre Unternehmenskommunikation dauerhaft aktuell, einheitlich und ohne zusätzlichen Personalaufwand.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 84%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 66%"></span><span class="ai-card-level">mittel</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Content-Entwürfe automatisch erstellen und Redaktionszeiten deutlich verkürzen.</li>
+              <li>Inhalte kanalübergreifend konsistent und markengerecht ausspielen.</li>
+              <li>Veröffentlichungsfrequenz erhöhen, ohne zusätzliches Personal einzusetzen.</li>
+              <li>Sichtbarkeit und Reichweite planbarer entwickeln.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Vertrieb</span><span>&amp; Kundenkommunikation</span></h3>
+            <p>Erstellen Sie Angebote, E-Mails und Kundenantworten deutlich schneller. Reagieren Sie professionell auf Anfragen und verkürzen Sie Ihre Vertriebsprozesse vom Erstkontakt bis zum Abschluss.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 84%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 72%"></span><span class="ai-card-level">hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Anfragen automatisiert vorstrukturieren und schneller beantworten.</li>
+              <li>Angebote effizient vorbereiten und präziser formulieren.</li>
+              <li>Reaktionszeiten im Erstkontakt messbar reduzieren.</li>
+              <li>Abschlussprozesse professioneller und zügiger steuern.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Personal</span><span>&amp; Recruiting</span></h3>
+            <p>Analysieren Sie Bewerbungen automatisch und vergleichen Sie diese mit Ihren Stellenanforderungen. Geeignete Kandidaten werden schneller erkannt und Auswahlentscheidungen objektiver vorbereitet.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 86%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 80%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 82%"></span><span class="ai-card-level">hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Bewerbungen automatisch vorsortieren und strukturierter bewerten.</li>
+              <li>Geeignete Kandidaten schneller identifizieren.</li>
+              <li>Den Aufwand für die Vorauswahl spürbar senken.</li>
+              <li>Auswahlentscheidungen objektiver und nachvollziehbarer treffen.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Rechnungswesen</span><span>&amp; Controlling</span></h3>
+            <p>Prüfen Sie Rechnungen, Belege und Leistungsnachweise automatisch auf Fehler, Auffälligkeiten und Abweichungen. So reduzieren Sie manuellen Aufwand und schaffen mehr Kostentransparenz.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 86%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 84%"></span><span class="ai-card-level">hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Rechnungen, Belege und Abweichungen automatisiert prüfen.</li>
+              <li>Fehler und Doppelzahlungen frühzeitig erkennen.</li>
+              <li>Prüf- und Abstimmungsaufwand deutlich reduzieren.</li>
+              <li>Kosten und Liquidität transparenter steuern.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Projektmanagement</span><span>&amp; Bauprozesse</span></h3>
+            <p>Analysieren Sie Bauakten, Nachträge, Protokolle und Projektdokumente automatisch. Risiken, Termine und offene Punkte bleiben jederzeit transparent und können frühzeitig gesteuert werden.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 84%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Risiken, Termine und Nachträge datenbasiert frühzeitig bewerten.</li>
+              <li>Projektdaten automatisch verdichten und zusammenführen.</li>
+              <li>Steuerungsentscheidungen schneller und belastbarer treffen.</li>
+              <li>Verzögerungen und Mehrkosten wirksam begrenzen.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Management</span><span>&amp; Entscheidungen</span></h3>
+            <p>Führen Sie Kennzahlen, Dokumente und Unternehmensdaten automatisch zusammen. Entscheidungen werden schneller vorbereitet, fachlich nachvollziehbar begründet und basieren auf einer belastbaren Informationsgrundlage.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 78%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 74%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Kennzahlen, Berichte und Dokumente zentral zusammenführen.</li>
+              <li>Entscheidungsunterlagen automatisch aufbereiten.</li>
+              <li>Managementinformationen schneller verfügbar machen.</li>
+              <li>Strategische Entscheidungen fundierter absichern.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Wissensmanagement</span><span>&amp; Dokumente</span></h3>
+            <p>Machen Sie Ihr gesamtes Unternehmenswissen zentral verfügbar und intelligent durchsuchbar. Informationen stehen innerhalb weniger Sekunden zur Verfügung, bleiben auffindbar und gehen nicht mehr verloren.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 86%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 82%"></span><span class="ai-card-level">hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Unternehmenswissen sofort auffindbar machen.</li>
+              <li>Dokumente, Protokolle und Erfahrungen intelligent verknüpfen.</li>
+              <li>Suchzeiten erheblich verkürzen.</li>
+              <li>Wissen dauerhaft sichern und unternehmensweit verfügbar halten.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Organisation</span><span>&amp; interne Abläufe</span></h3>
+            <p>Automatisieren Sie wiederkehrende Aufgaben und strukturieren Sie interne Prozesse. Dadurch werden Teams im Tagesgeschäft entlastet und Abläufe deutlich schneller, klarer und effizienter.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 86%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 72%"></span><span class="ai-card-level">hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Wiederkehrende Aufgaben intelligent automatisieren.</li>
+              <li>Freigaben und Workflows deutlich beschleunigen.</li>
+              <li>Mitarbeitende im Tagesgeschäft nachhaltig entlasten.</li>
+              <li>Prozesse klarer und skalierbarer gestalten.</li>
+            </ul>
+          </article>
+          <article class="ai-department-card">
+            <h3><span>Einkauf</span><span>&amp; Beschaffung</span></h3>
+            <p>Vergleichen Sie Angebote, Lieferanten und Preise automatisch. Einsparpotenziale werden sofort sichtbar und Einkaufsentscheidungen können auf einer besseren, nachvollziehbaren Datengrundlage getroffen werden.</p>
+            <div class="ai-card-metrics" aria-label="Nutzenbewertung">
+              <div class="ai-card-metric"><span>Effizienz</span><span class="ai-card-bar" style="--score: 84%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Produktivität</span><span class="ai-card-bar" style="--score: 82%"></span><span class="ai-card-level">hoch</span></div>
+              <div class="ai-card-metric"><span>Entscheidungen</span><span class="ai-card-bar" style="--score: 100%"></span><span class="ai-card-level">sehr hoch</span></div>
+            </div>
+            <strong class="ai-card-benefit-title">Ihr Nutzen</strong>
+            <ul>
+              <li>Angebote, Lieferanten und Preise systematisch vergleichen.</li>
+              <li>Preisabweichungen und Risiken frühzeitig erkennen.</li>
+              <li>Einkaufskosten und Beschaffungsrisiken gezielt reduzieren.</li>
+              <li>Vergabeentscheidungen besser absichern.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="ai-map-cta">
+          <p>
+            <strong>Sie möchten das KI-Potenzial in Ihrem Unternehmen erkennen?</strong>
+            In einem unverbindlichen Erstgespräch klären wir, welche Prozesse, Aufgaben
+            oder Datenquellen sich für eine erste KI-Anwendung eignen.
+          </p>
+          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Jetzt Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -6757,7 +7533,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 82;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 72;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 94;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6773,7 +7549,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 78;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 76;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6789,7 +7565,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 74;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 70;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6819,9 +7595,9 @@
               und macht Prüf-, Freigabe- und Ablageprozesse nachvollziehbarer.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 84;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6835,7 +7611,7 @@
               und dokumentiert Bestätigung, Abgleich und Freigabe nachvollziehbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 82;"></span><span class="impact-level">hoch</span></span>
             </div>
@@ -6851,7 +7627,7 @@
               klare LV-Strukturen, Textbausteine und KI-gestützte Klarstellungen schneller nutzbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 84;"></span><span class="impact-level">hoch</span></span>
             </div>
@@ -6867,8 +7643,8 @@
               <strong>wiederverwendbare Arbeitsbibliothek</strong> nutzbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 66;"></span><span class="impact-level">mittel</span></span>
             </div>
           </article>
@@ -6884,7 +7660,7 @@
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 70;"></span><span class="impact-level">hoch</span></span>
             </div>
           </article>
@@ -6899,7 +7675,7 @@
               Ausgabeprofile zu präzisen <strong>Entscheidungsgrundlagen</strong>.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 82;"></span><span class="impact-level">hoch</span></span>
             </div>
@@ -6915,8 +7691,8 @@
               Vorlagen, Stilprofilen, Antwortparametern und Mehrsprachigkeit.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 62;"></span><span class="impact-level">mittel</span></span>
             </div>
           </article>
@@ -6931,8 +7707,8 @@
               Newsletter, Podcast und Social Media durch strukturierte KI-Workflows.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 66;"></span><span class="impact-level">mittel</span></span>
             </div>
           </article>
@@ -6947,9 +7723,9 @@
               aus Projekt- und Unternehmensdokumenten schnell nutzbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6963,9 +7739,9 @@
               über intelligente Suche und KI-Chat schneller nutzbar.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6981,7 +7757,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 72;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 68;"></span><span class="impact-level">mittel</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 94;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -6997,7 +7773,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 70;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 66;"></span><span class="impact-level">mittel</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 96;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -7014,7 +7790,7 @@
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 74;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 70;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 94;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
             </div>
           </article>
 
@@ -7029,7 +7805,7 @@
               <strong>Abstimmungen</strong>.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 84;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 76;"></span><span class="impact-level">hoch</span></span>
             </div>
@@ -7046,7 +7822,7 @@
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 84;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 68;"></span><span class="impact-level">mittel</span></span>
             </div>
           </article>
@@ -7061,7 +7837,7 @@
               mit Buchungsprofilen, Kalenderabgleich, Bestätigungen und Meeting-Links.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 90;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 84;"></span><span class="impact-level">hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 66;"></span><span class="impact-level">mittel</span></span>
             </div>
@@ -7079,7 +7855,7 @@
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 80;"></span><span class="impact-level">hoch</span></span>
             </div>
           </article>
@@ -7110,8 +7886,8 @@
               mit Match-Score, Skill-Abgleich, Interviewfragen und Recruiting-Bericht.
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
-              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 94;"></span><span class="impact-level">sehr hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 88;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
             </div>
           </article>
@@ -7127,7 +7903,7 @@
             </p>
             <div class="impact-scores" aria-label="Nutzenbewertung">
               <span class="impact-score">Effizienz <span class="impact-bar" style="--score: 86;"></span><span class="impact-level">hoch</span></span>
-              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 92;"></span><span class="impact-level">sehr hoch</span></span>
+              <span class="impact-score">Produktivität <span class="impact-bar" style="--score: 100;"></span><span class="impact-level">sehr hoch</span></span>
               <span class="impact-score">Entscheidung <span class="impact-bar" style="--score: 64;"></span><span class="impact-level">mittel</span></span>
             </div>
           </article>
