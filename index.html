@@ -896,6 +896,14 @@
         line-height: 1.35;
       }
 
+      .benefits-section .section-heading a {
+        color: #247780;
+        font-weight: 850;
+        text-decoration: underline;
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
       .benefit-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1011,9 +1019,6 @@
       .benefit-card:nth-child(4) { --accent: #65529c; }
       .benefit-card:nth-child(5) { --accent: #b87924; }
       .benefit-card:nth-child(6) { --accent: #4b6c76; }
-      .benefit-card:nth-child(7) { --accent: #2f6f56; }
-      .benefit-card:nth-child(8) { --accent: #247780; }
-      .benefit-card:nth-child(9) { --accent: #315f9e; }
 
       .services-section {
         margin-top: clamp(50px, 7vw, 86px);
@@ -6412,7 +6417,7 @@
           </article>
         </div>
 
-        <div class="ai-map-block-heading">
+        <div class="ai-map-block-heading" id="unternehmensbereiche">
           <span>Unternehmensbereiche</span>
           <h3>Wo KI im Alltag den größten Nutzen schafft.</h3>
           <p>
@@ -8053,11 +8058,11 @@
           <p class="eyebrow">Nutzen</p>
           <h2 id="benefits-title">Was BuiltSmart AI<br>im Arbeitsalltag verbessert.</h2>
           <p>
-            Die Anwendungen schaffen nicht nur einzelne Arbeitserleichterungen,
-            sondern stärken <strong>Qualität</strong>, <strong>Effizienz</strong>,
-            <strong>Produktivität</strong> und <strong>Struktur</strong> in
-            wiederkehrenden <strong>Prüf-, Steuerungs- und
-            Entscheidungsprozessen</strong>.
+            Die <a href="#unternehmensbereiche">Unternehmensbereiche</a> zeigen,
+            wo KI ansetzen kann. Entscheidend ist, welche Wirkung daraus entsteht:
+            weniger manuelle Arbeit, bessere Entscheidungsgrundlagen,
+            nachvollziehbare Abläufe, frühere Risikoerkennung und
+            wiederverwendbares Wissen.
           </p>
         </div>
 
@@ -8075,8 +8080,8 @@
               </span>
               <span class="benefit-index">01</span>
             </div>
-            <h3>Prüfbarkeit &amp; Nachvollziehbarkeit</h3>
-            <p>Verträge, Rechnungen, Nachweise, Protokolle und Entscheidungen werden strukturierter dokumentiert.</p>
+            <h3>Zeitersparnis<br>&amp; Entlastung</h3>
+            <p>Wiederkehrende Aufgaben, Abstimmungen und Vorbereitungen werden schneller erledigt. Teams gewinnen Zeit für fachliche Entscheidungen statt manueller Routinearbeit.</p>
           </article>
 
           <article class="benefit-card">
@@ -8089,8 +8094,8 @@
               </span>
               <span class="benefit-index">02</span>
             </div>
-            <h3>Qualitätssicherung &amp; Kontrolle</h3>
-            <p>Prüfungen, Plausibilitäten, Abweichungen und Feststellungen werden systematischer vorbereitet.</p>
+            <h3>Bessere<br>Entscheidungsgrundlagen</h3>
+            <p>Daten, Dokumente, Risiken, Kosten und Szenarien werden strukturierter zusammengeführt. Entscheidungen werden schneller vorbereitet und fachlich belastbarer.</p>
           </article>
 
           <article class="benefit-card">
@@ -8106,8 +8111,8 @@
               </span>
               <span class="benefit-index">03</span>
             </div>
-            <h3>Risikofrüherkennung &amp; Unsicherheit</h3>
-            <p>Risiken, Kosten-, Termin- und Investitionsszenarien werden früher sichtbar und besser bewertbar.</p>
+            <h3>Nachvollziehbarkeit<br>&amp; Dokumentation</h3>
+            <p>Prüfvermerke, Quellen, Entscheidungen und Arbeitsschritte bleiben dokumentiert. Ergebnisse werden besser prüfbar und auch später verständlich.</p>
           </article>
 
           <article class="benefit-card">
@@ -8123,8 +8128,8 @@
               </span>
               <span class="benefit-index">04</span>
             </div>
-            <h3>Wissen &amp; Wiederverwendung</h3>
-            <p>Fachwissen, Dokumente, Prompts, Kommunikation und Arbeitsbausteine werden strukturiert nutzbar.</p>
+            <h3>Risikofrüherkennung<br>&amp; Kontrolle</h3>
+            <p>Fristen, Abweichungen, Vertragsrisiken, Kosten- und Terminrisiken werden früher sichtbar. Maßnahmen können rechtzeitig abgeleitet werden.</p>
           </article>
 
           <article class="benefit-card">
@@ -8137,8 +8142,8 @@
               </span>
               <span class="benefit-index">05</span>
             </div>
-            <h3>Kommunikation &amp; Abstimmung</h3>
-            <p>E-Mails, Meetings, Protokolle, Aufgaben und Entscheidungen werden effizienter vorbereitet und dokumentiert.</p>
+            <h3>Wissen sichern<br>&amp; wiederverwenden</h3>
+            <p>Dokumente, Prompts, Vorlagen und Erfahrungen werden gesichert, strukturiert, auffindbar und wiederverwendbar. Wissen bleibt im Unternehmen verfügbar.</p>
           </article>
 
           <article class="benefit-card">
@@ -8154,60 +8159,8 @@
               </span>
               <span class="benefit-index">06</span>
             </div>
-            <h3>Steuerung &amp; Entlastung</h3>
-            <p>Wiederkehrende Prüf-, Analyse- und Dokumentationsprozesse werden konsistenter, schneller und belastbarer.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <rect x="6" y="6" width="20" height="20" rx="4"></rect>
-                  <path d="M11 12h10"></path>
-                  <path d="M11 17h7"></path>
-                  <path d="M11 22h4"></path>
-                  <path d="M22 19l3 3-3 3"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">07</span>
-            </div>
-            <h3>Intuitive Bedienung</h3>
-            <p>Die Anwendungen sind auf einfache Bedienung ausgelegt. Klare Menüführung, integrierte Hinweise und kontextbezogene Hilfen unterstützen den sicheren Einstieg.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M6 24h20"></path>
-                  <path d="M9 21V9"></path>
-                  <path d="M16 21V6"></path>
-                  <path d="M23 21v-8"></path>
-                  <path d="M11 11l5-5 5 5"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">08</span>
-            </div>
-            <h3>Effizienz &amp; Produktivität</h3>
-            <p>Strukturierte Abläufe, wiederverwendbare Arbeitsbausteine und KI-gestützte Unterstützung reduzieren Aufwand und schaffen mehr Fokus.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <rect x="7" y="7" width="18" height="18" rx="3"></rect>
-                  <path d="M12 13h8"></path>
-                  <path d="M12 17h8"></path>
-                  <path d="M12 21h5"></path>
-                  <path d="M8 4h16"></path>
-                  <path d="M8 28h16"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">09</span>
-            </div>
-            <h3>Einheitliche Standards</h3>
-            <p>Wiederkehrende Prüf-, Analyse- und Kommunikationsprozesse werden konsistenter geführt und nachvollziehbarer dokumentiert.</p>
+            <h3>Einheitliche Standards<br>&amp; Qualität</h3>
+            <p>Wiederkehrende Prüf-, Analyse- und Kommunikationsprozesse laufen konsistenter. Qualität, Vergleichbarkeit und Verlässlichkeit steigen.</p>
           </article>
         </div>
       </section>
