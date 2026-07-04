@@ -443,6 +443,10 @@
       }
 
       .header-actions .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         min-height: 42px;
         padding: 0 18px;
         border-radius: 8px;
@@ -462,6 +466,16 @@
         color: #ffffff;
         background: #172026;
         border-color: #172026;
+      }
+
+      .header-actions .button span[aria-hidden="true"] {
+        line-height: 1;
+        transition: transform 170ms ease;
+      }
+
+      .header-actions .button:hover span[aria-hidden="true"],
+      .header-actions .button:focus-visible span[aria-hidden="true"] {
+        transform: translateX(2px);
       }
 
       .social-links {
@@ -707,8 +721,10 @@
         margin-left: calc(50% - 50vw);
         margin-top: calc(clamp(28px, 5vw, 72px) * -1);
         padding: clamp(38px, 5vw, 64px) max(24px, calc((100vw - 1180px) / 2)) clamp(36px, 5vw, 64px);
-        background: #eeeeff;
-        border-bottom: 2px solid rgba(143, 126, 255, 0.26);
+        background:
+          radial-gradient(circle at 82% 18%, rgba(49, 95, 158, 0.08), transparent 34%),
+          linear-gradient(180deg, rgba(248, 250, 249, 0.98), rgba(255, 255, 255, 0.98));
+        border-bottom: 1px solid rgba(23, 32, 38, 0.08);
       }
 
       .requirements-section .intro {
@@ -748,8 +764,104 @@
         line-height: 1.18;
       }
 
-      .requirements-section .challenge-grid {
-        gap: 22px;
+      .pressure-matrix {
+        position: relative;
+        margin-top: clamp(32px, 5vw, 56px);
+        padding: 0;
+        color: #ffffff;
+      }
+
+      .pressure-columns {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(18px, 2.2vw, 26px);
+      }
+
+      .pressure-column {
+        --accent: #6ecbff;
+        display: grid;
+        gap: 12px;
+        align-content: start;
+        padding: clamp(22px, 2.7vw, 30px);
+        background:
+          linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 44%),
+          linear-gradient(118deg, rgba(5, 9, 14, 0.98) 0%, rgba(7, 14, 23, 0.94) 54%, rgba(13, 31, 37, 0.9) 100%);
+        border: 1px solid color-mix(in srgb, var(--accent) 34%, rgba(255, 255, 255, 0.14));
+        border-left: 4px solid var(--accent);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.1),
+          0 20px 48px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(14px);
+      }
+
+      .pressure-column:nth-child(2) { --accent: #4f7dff; }
+      .pressure-column:nth-child(3) { --accent: #ffb25f; }
+
+      .pressure-column h3 {
+        margin: 0 0 6px;
+        color: #ffffff;
+        font-size: clamp(1.34rem, 1.9vw, 1.82rem);
+        line-height: 1.08;
+        font-weight: 880;
+      }
+
+      .pressure-column-subtitle {
+        margin: 0 0 14px;
+        color: var(--accent);
+        font-size: clamp(0.92rem, 1.14vw, 1.08rem);
+        font-weight: 860;
+        letter-spacing: 0.055em;
+        line-height: 1.22;
+        text-transform: uppercase;
+      }
+
+      .pressure-item {
+        border: 1px solid rgba(237, 247, 255, 0.24);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+          rgba(7, 14, 23, 0.54);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .pressure-item summary {
+        cursor: default;
+        list-style: none;
+        padding: 13px 14px;
+        color: #f8fbff;
+        font-size: clamp(0.98rem, 1.18vw, 1.08rem);
+        line-height: 1.18;
+        font-weight: 820;
+      }
+
+      .pressure-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .pressure-item summary::after {
+        display: none;
+      }
+
+      .pressure-item[open] {
+        border-color: color-mix(in srgb, var(--accent) 44%, rgba(255, 255, 255, 0.3));
+        background:
+          linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent),
+          rgba(7, 14, 23, 0.72);
+      }
+
+      .pressure-item p {
+        margin: 0;
+        padding: 0 14px 15px;
+        color: rgba(237, 247, 255, 0.76);
+        font-size: 0.94rem;
+        line-height: 1.44;
+        font-weight: 560;
+      }
+
+      .pressure-item p span {
+        display: block;
+        white-space: nowrap;
       }
 
       .eyebrow {
@@ -1138,53 +1250,46 @@
       }
 
       .service-focus {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 0 0 24px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin: 0 0 clamp(26px, 3.8vw, 42px);
       }
 
       .service-focus-item {
-        --accent: var(--green);
+        --accent: #54d6d6;
         position: relative;
-        flex: 1 1 260px;
-        min-height: 0;
-        padding: 16px 18px 16px 20px;
+        min-height: 132px;
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        padding: clamp(22px, 2.6vw, 30px);
         overflow: hidden;
+        color: #ffffff;
         background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 249, 0.84)),
-          linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, #ffffff), rgba(255, 255, 255, 0.92));
-        border: 1px solid rgba(211, 219, 214, 0.92);
+          linear-gradient(180deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 54%),
+          rgba(8, 18, 31, 0.96);
+        border: 1px solid color-mix(in srgb, var(--accent) 34%, rgba(255, 255, 255, 0.14));
+        border-left: 4px solid var(--accent);
         border-radius: 8px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 22px 56px rgba(23, 32, 38, 0.12);
       }
 
       .service-focus-item::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 3px;
-        background: var(--accent);
-      }
-
-      .service-focus-item::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(132deg, transparent 0 72%, rgba(255, 255, 255, 0.68) 72.2% 72.8%, transparent 73%);
-        pointer-events: none;
+        display: none;
       }
 
       .service-focus-item span {
         position: relative;
         z-index: 1;
         display: inline-flex;
-        margin-bottom: 8px;
-        color: color-mix(in srgb, var(--accent) 72%, #247780);
-        font-size: 0.74rem;
-        font-weight: 820;
-        letter-spacing: 0.08em;
+        color: var(--accent);
+        font-size: clamp(0.92rem, 1.14vw, 1.08rem);
+        font-weight: 860;
+        letter-spacing: 0.055em;
+        line-height: 1.22;
         text-transform: uppercase;
       }
 
@@ -1192,67 +1297,51 @@
         position: relative;
         z-index: 1;
         display: block;
-        color: #172026;
-        font-size: clamp(1rem, 1.35vw, 1.16rem);
-        line-height: 1.18;
+        max-width: 24ch;
+        color: #ffffff;
+        font-size: clamp(1.08rem, 1.35vw, 1.24rem);
+        line-height: 1.22;
       }
 
-      .service-focus-item:nth-child(1) { --accent: var(--green); }
-      .service-focus-item:nth-child(2) { --accent: var(--blue); }
-      .service-focus-item:nth-child(3) { --accent: var(--teal); }
+      .service-focus-item:nth-child(1) { --accent: #54d6d6; }
+      .service-focus-item:nth-child(2) { --accent: #5d8dff; }
+      .service-focus-item:nth-child(3) { --accent: #ffb25f; }
 
       .service-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
+        gap: clamp(16px, 2vw, 22px);
       }
 
       .service-card {
-        --accent: var(--green);
-        min-height: 246px;
+        --accent: #54d6d6;
+        min-height: 276px;
         position: relative;
         display: grid;
-        grid-template-columns: 58px minmax(0, 1fr);
-        grid-template-rows: minmax(58px, auto) auto;
-        column-gap: 16px;
-        row-gap: 18px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 18px;
         align-items: start;
-        padding: 22px;
+        align-content: start;
+        padding: clamp(24px, 2.7vw, 32px);
         overflow: hidden;
         background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.74)),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0 74%, color-mix(in srgb, var(--accent) 8%, #ffffff) 74% 100%);
-        border: 1px solid rgba(213, 220, 216, 0.9);
+          linear-gradient(180deg, rgba(10, 19, 31, 0.08), rgba(10, 19, 31, 0) 34%),
+          linear-gradient(145deg, color-mix(in srgb, var(--accent) 5%, #ffffff), rgba(248, 250, 249, 0.96));
+        border: 1px solid color-mix(in srgb, var(--accent) 32%, rgba(181, 194, 201, 0.92));
+        border-left: 5px solid var(--accent);
         border-radius: 8px;
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.95),
-          0 14px 34px rgba(23, 32, 38, 0.055);
+          0 20px 50px rgba(23, 32, 38, 0.08);
       }
 
       .service-card::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 4px;
-        background: var(--accent);
+        display: none;
       }
 
       .service-icon {
-        position: relative;
-        z-index: 1;
-        grid-column: 1;
-        grid-row: 1;
-        display: grid;
-        width: 58px;
-        height: 58px;
-        place-items: center;
-        color: var(--accent);
-        background:
-          radial-gradient(circle at 30% 20%, #ffffff, transparent 34%),
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.62)),
-          linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, #ffffff), rgba(255, 255, 255, 0.72));
-        border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(255, 255, 255, 0.94));
-        border-radius: 16px;
+        display: none;
       }
 
       .service-icon svg {
@@ -1268,34 +1357,37 @@
       .service-card h3 {
         position: relative;
         z-index: 1;
-        grid-column: 2;
+        grid-column: 1;
         grid-row: 1;
         margin: 0;
-        align-self: center;
-        font-size: clamp(1.16rem, 1.55vw, 1.34rem);
-        line-height: 1.14;
+        max-width: 18ch;
+        color: #111922;
+        font-size: clamp(1.28rem, 1.76vw, 1.6rem);
+        line-height: 1.12;
+        font-weight: 880;
       }
 
       .service-card p {
         position: relative;
         z-index: 1;
-        grid-column: 1 / -1;
+        grid-column: 1;
         grid-row: 2;
         margin: 0;
-        color: #56616b;
-        font-size: 0.97rem;
-        line-height: 1.52;
+        color: #4d5962;
+        font-size: clamp(0.96rem, 1.05vw, 1.02rem);
+        line-height: 1.5;
+        font-weight: 520;
       }
 
-      .service-card:nth-child(1) { --accent: var(--green); }
-      .service-card:nth-child(2) { --accent: var(--blue); }
-      .service-card:nth-child(3) { --accent: var(--teal); }
-      .service-card:nth-child(4) { --accent: var(--gold); }
-      .service-card:nth-child(5) { --accent: var(--violet); }
-      .service-card:nth-child(6) { --accent: #4b6c76; }
-      .service-card:nth-child(7) { --accent: #2f7d58; }
-      .service-card:nth-child(8) { --accent: #315f9e; }
-      .service-card:nth-child(9) { --accent: #7a5f3f; }
+      .service-card:nth-child(1) { --accent: #6ecbff; }
+      .service-card:nth-child(2) { --accent: #4f7dff; }
+      .service-card:nth-child(3) { --accent: #58b7ff; }
+      .service-card:nth-child(4) { --accent: #ffb25f; }
+      .service-card:nth-child(5) { --accent: #9b8cff; }
+      .service-card:nth-child(6) { --accent: #6f8ed8; }
+      .service-card:nth-child(7) { --accent: #54d6d6; }
+      .service-card:nth-child(8) { --accent: #5d8dff; }
+      .service-card:nth-child(9) { --accent: #9d8060; }
 
       .services-cta {
         display: flex;
@@ -1343,7 +1435,7 @@
 
       .service-process-head {
         display: grid;
-        gap: 8px;
+        gap: 10px;
         max-width: 760px;
       }
 
@@ -1358,15 +1450,17 @@
       .service-process-head h3 {
         margin: 0;
         color: #172026;
-        font-size: clamp(1.45rem, 2.2vw, 2rem);
-        line-height: 1.08;
+        font-size: clamp(1.85rem, 2.75vw, 2.55rem);
+        line-height: 1.02;
       }
 
       .service-process-head p {
         margin: 0;
+        max-width: 760px;
         color: #56616b;
         font-size: 1rem;
         line-height: 1.5;
+        text-align: left;
       }
 
       .service-process {
@@ -1492,7 +1586,7 @@
         color: #ffffff;
         background:
           linear-gradient(90deg, rgba(5, 9, 14, 0.94) 0%, rgba(6, 15, 24, 0.82) 38%, rgba(6, 15, 24, 0.38) 64%, rgba(241, 246, 245, 0.08) 100%),
-          linear-gradient(180deg, rgba(5, 9, 14, 0.18) 0%, rgba(5, 9, 14, 0.28) 48%, rgba(241, 246, 245, 0.96) 100%),
+          linear-gradient(180deg, rgba(5, 9, 14, 0.18) 0%, rgba(5, 9, 14, 0.28) 50%, rgba(241, 246, 245, 0.58) 100%),
           url("assets/hero/ki-prozesslandkarte-bg.png") center right / cover no-repeat;
       }
 
@@ -1502,8 +1596,8 @@
         right: 0;
         bottom: 0;
         left: 0;
-        height: clamp(64px, 7vw, 104px);
-        background: linear-gradient(180deg, rgba(241, 246, 245, 0), rgba(241, 246, 245, 0.82));
+        height: clamp(52px, 6vw, 86px);
+        background: linear-gradient(180deg, rgba(241, 246, 245, 0), rgba(241, 246, 245, 0.64));
         pointer-events: none;
       }
 
@@ -4201,7 +4295,7 @@
       .founder-card {
         display: grid;
         grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.72fr);
-        align-items: center;
+        align-items: start;
         width: min(1180px, 100%);
         margin: 0 auto;
         min-height: 0;
@@ -4215,8 +4309,8 @@
       .founder-content {
         position: relative;
         z-index: 1;
-        padding: clamp(44px, 5.6vw, 68px) clamp(42px, 6vw, 74px) clamp(50px, 6.2vw, 76px) 0;
-        align-self: center;
+        padding: clamp(34px, 4.8vw, 54px) clamp(42px, 6vw, 74px) clamp(34px, 4.8vw, 54px) 0;
+        align-self: start;
       }
 
       .founder-content .eyebrow {
@@ -4328,10 +4422,11 @@
 
       .founder-media {
         position: relative;
-        align-self: center;
-        height: clamp(520px, 48vw, 640px);
+        align-self: start;
+        height: clamp(540px, 42vw, 620px);
         min-height: 0;
-        margin: 0;
+        margin: clamp(34px, 4.8vw, 54px) 0 0;
+        overflow: hidden;
       }
 
       .founder-media::before {
@@ -4351,7 +4446,23 @@
         min-height: 0;
         display: block;
         object-fit: cover;
-        object-position: 52% 24%;
+        object-position: 51% 18%;
+      }
+
+      .founder-media .founder-links {
+        position: absolute;
+        left: clamp(18px, 2.8vw, 30px);
+        bottom: clamp(18px, 2.8vw, 30px);
+        z-index: 2;
+        margin: 0;
+      }
+
+      .founder-media .founder-link {
+        min-height: 42px;
+        background: rgba(5, 9, 14, 0.58);
+        border-color: rgba(255, 255, 255, 0.42);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(14px);
       }
 
       .final-cta h2 {
@@ -5486,8 +5597,13 @@
           max-width: 720px;
         }
 
+        .pressure-columns {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .tile-grid,
         .book-grid,
+        .service-focus,
         .service-grid,
         .service-process,
         .audience-grid,
@@ -5739,6 +5855,7 @@
         .tile-grid,
         .benefit-compass-map,
         .book-grid,
+        .service-focus,
         .service-grid,
         .service-process,
         .audience-grid,
@@ -5754,6 +5871,19 @@
 
         .service-step {
           padding-right: 0;
+        }
+
+        .pressure-matrix {
+          padding: 22px;
+        }
+
+        .pressure-columns {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .pressure-item p span {
+          white-space: normal;
         }
 
         .ai-process-map,
@@ -6127,8 +6257,8 @@
         </nav>
 
         <div class="header-actions">
-          <button class="button button-dark contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen</button>
-          <a class="button button-dark" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen</a>
+          <button class="button button-dark contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
+          <a class="button button-dark" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </header>
@@ -6182,155 +6312,60 @@
           </p>
         </div>
 
-        <nav class="tile-grid challenge-grid" aria-label="Herausforderungen">
-        <a class="menu-tile" id="steigende-komplexitaet" href="#steigende-komplexitaet">
-          <span class="tile-head">
-            <span class="tile-number">01</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <path d="M5 24h22"></path>
-                <path d="M8 21V10h5v11"></path>
-                <path d="M14 21V6h5v15"></path>
-                <path d="M20 21v-8h5v8"></path>
-                <path d="M23 8l4-4"></path>
-                <path d="M23 4h4v4"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Steigende<br>Komplexität</h2>
-          <p class="tile-detail">Mehr Beteiligte, Daten und Abhängigkeiten erfordern klare Strukturen und nachvollziehbare Entscheidungen.</p>
-        </a>
-        <a class="menu-tile" id="hohe-datenmengen" href="#hohe-datenmengen">
-          <span class="tile-head">
-            <span class="tile-number">02</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <ellipse cx="16" cy="8" rx="10" ry="4"></ellipse>
-                <path d="M6 8v8c0 2.2 4.5 4 10 4s10-1.8 10-4V8"></path>
-                <path d="M6 16v8c0 2.2 4.5 4 10 4s10-1.8 10-4v-8"></path>
-                <path d="M11 13.5c1.4.4 3 .5 5 .5s3.6-.1 5-.5"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Hohe<br>Datenmengen</h2>
-          <p class="tile-detail">KI hilft, Informationen schneller zu ordnen, relevante Muster zu erkennen und Wissen nutzbar zu machen.</p>
-        </a>
-        <a class="menu-tile" id="termin-und-kostendruck" href="#termin-und-kostendruck">
-          <span class="tile-head">
-            <span class="tile-number">03</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <rect x="5" y="7" width="22" height="20" rx="3"></rect>
-                <path d="M10 5v5"></path>
-                <path d="M22 5v5"></path>
-                <path d="M5 13h22"></path>
-                <path d="M11 20h5"></path>
-                <path d="M18 20h3.5"></path>
-                <path d="M22 17.5l3 3-3 3"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Termin- und<br>Kostendruck</h2>
-          <p class="tile-detail">Frühzeitige Analysen unterstützen realistischere Einschätzungen, Prioritäten und belastbare Projektsteuerung.</p>
-        </a>
-        <a class="menu-tile" id="wachsende-risiken" href="#wachsende-risiken">
-          <span class="tile-head">
-            <span class="tile-number">04</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <path d="M16 4l11 20H5L16 4z"></path>
-                <path d="M16 11v6"></path>
-                <path d="M16 22h.01"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Wachsende<br>Risiken</h2>
-          <p class="tile-detail">Risiken werden systematischer erkannt, bewertet und für Maßnahmen oder Berichte strukturiert aufbereitet.</p>
-        </a>
-        <a class="menu-tile" id="mangelnde-transparenz" href="#mangelnde-transparenz">
-          <span class="tile-head">
-            <span class="tile-number">05</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <path d="M3.5 16s4.5-8 12.5-8 12.5 8 12.5 8-4.5 8-12.5 8S3.5 16 3.5 16z"></path>
-                <circle cx="16" cy="16" r="4"></circle>
-                <path d="M22.5 9.5l4-4"></path>
-                <path d="M26.5 9.5v-4h-4"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Mangelnde<br>Transparenz</h2>
-          <p class="tile-detail">Prüfvermerke, Datenbezüge und Entscheidungsgrundlagen werden klarer dokumentiert und leichter nachvollziehbar.</p>
-        </a>
-        <a class="menu-tile" id="ineffiziente-prozesse" href="#ineffiziente-prozesse">
-          <span class="tile-head">
-            <span class="tile-number">06</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <rect x="5" y="6" width="8" height="8" rx="2"></rect>
-                <rect x="19" y="18" width="8" height="8" rx="2"></rect>
-                <path d="M13 10h5a5 5 0 0 1 5 5v3"></path>
-                <path d="M19 22h-5a5 5 0 0 1-5-5v-3"></path>
-                <path d="M20 13l3 3 3-3"></path>
-                <path d="M12 19l-3-3-3 3"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Ineffiziente<br>Prozesse</h2>
-          <p class="tile-detail">Wiederkehrende Aufgaben lassen sich vereinfachen, vorbereiten oder automatisiert in Workflows überführen.</p>
-        </a>
-        <a class="menu-tile" id="fachkraeftemangel" href="#fachkraeftemangel">
-          <span class="tile-head">
-            <span class="tile-number">07</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <circle cx="12" cy="10" r="4"></circle>
-                <path d="M5 25c.9-5.3 3.2-8 7-8 2.2 0 4 .9 5.2 2.7"></path>
-                <path d="M21 10h6"></path>
-                <path d="M24 7v6"></path>
-                <path d="M19 22h9"></path>
-                <path d="M19 26h6"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Fachkräfte-<br>mangel</h2>
-          <p class="tile-detail">Digitale Unterstützung entlastet Teams bei Routinearbeit und macht vorhandenes Wissen besser verfügbar.</p>
-        </a>
-        <a class="menu-tile" id="steigende-preise" href="#steigende-preise">
-          <span class="tile-head">
-            <span class="tile-number">08</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <path d="M5 24h22"></path>
-                <path d="M8 21l5-5 4 3 7-10"></path>
-                <path d="M21 9h4v4"></path>
-                <path d="M11 8h7"></path>
-                <path d="M14.5 5v13"></path>
-                <path d="M11 18h6a3 3 0 0 0 0-6h-5a3 3 0 0 1 0-6h6"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>Steigende<br>Preise</h2>
-          <p class="tile-detail">Szenarien, Kostenentwicklungen und Auswirkungen werden vergleichbarer und schneller bewertbar.</p>
-        </a>
-        <a class="menu-tile" id="esg-co2-reduktion" href="#esg-co2-reduktion">
-          <span class="tile-head">
-            <span class="tile-number">09</span>
-            <span class="tile-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32">
-                <path d="M7 24h18"></path>
-                <path d="M22 10c-6.2.2-9.8 3.6-10.8 10.2"></path>
-                <path d="M12 20c-1.4-4.4.8-8.6 7.4-11.5 1.7-.8 3.6-1.3 5.6-1.5-.2 6.6-3.4 10.5-9.4 11.6"></path>
-                <path d="M6 11.5c1.2-1.2 2.4-1.8 3.8-1.8 1.7 0 3 1 3 2.7 0 1.8-1.3 2.8-3 2.8-1.4 0-2.6-.6-3.8-1.8"></path>
-                <path d="M22 21l3 3 3-3"></path>
-                <path d="M25 15v9"></path>
-              </svg>
-            </span>
-          </span>
-          <h2>ESG &<br>CO₂-Reduktion</h2>
-          <p class="tile-detail">Relevante Kennzahlen, Nachweise und Maßnahmen können strukturierter erfasst und ausgewertet werden.</p>
-        </a>
-        </nav>
+        <div class="pressure-matrix" aria-label="Druckfelder fuer Unternehmen">
+          <div class="pressure-columns">
+            <section class="pressure-column" aria-labelledby="pressure-complexity-title">
+              <h3 id="pressure-complexity-title">Komplexität &amp;<br>Druck</h3>
+              <p class="pressure-column-subtitle">Mehr Druck &amp; Prioritäten</p>
+              <details class="pressure-item" id="steigende-komplexitaet" open>
+                <summary>Steigende Komplexität</summary>
+                <p><span>Mehr Beteiligte.</span><span>Mehr Abhängigkeiten.</span><span>Mehr Abstimmungsbedarf.</span></p>
+              </details>
+              <details class="pressure-item" id="termin-und-kostendruck" open>
+                <summary>Termin- und Kostendruck</summary>
+                <p><span>Engere Zeitfenster.</span><span>Steigende Kostenrisiken.</span><span>Mehr Entscheidungsdruck.</span></p>
+              </details>
+              <details class="pressure-item" id="steigende-preise" open>
+                <summary>Steigende Preise</summary>
+                <p><span>Unsichere Kalkulationen.</span><span>Schwankende Kosten.</span><span>Mehr Bewertungsbedarf.</span></p>
+              </details>
+            </section>
+
+            <section class="pressure-column" aria-labelledby="pressure-data-title">
+              <h3 id="pressure-data-title">Daten &amp;<br>Transparenz</h3>
+              <p class="pressure-column-subtitle">Mehr Daten &amp; Transparenzbedarf</p>
+              <details class="pressure-item" id="hohe-datenmengen" open>
+                <summary>Hohe Datenmengen</summary>
+                <p><span>Mehr Dokumente.</span><span>Mehr Datenquellen.</span><span>Mehr Suchaufwand.</span></p>
+              </details>
+              <details class="pressure-item" id="mangelnde-transparenz" open>
+                <summary>Mangelnde Transparenz</summary>
+                <p><span>Unklare Datenstände.</span><span>Verteilte Informationen.</span><span>Schwer prüfbare Grundlagen.</span></p>
+              </details>
+              <details class="pressure-item" id="wachsende-risiken" open>
+                <summary>Wachsende Risiken</summary>
+                <p><span>Mehr Abweichungen.</span><span>Mehr Fristen.</span><span>Mehr Kontrollbedarf.</span></p>
+              </details>
+            </section>
+
+            <section class="pressure-column" aria-labelledby="pressure-process-title">
+              <h3 id="pressure-process-title">Prozesse &amp;<br>Verantwortung</h3>
+              <p class="pressure-column-subtitle">Mehr Aufwand &amp; Nachweise</p>
+              <details class="pressure-item" id="ineffiziente-prozesse" open>
+                <summary>Ineffiziente Prozesse</summary>
+                <p><span>Manuelle Arbeit.</span><span>Medienbrüche.</span><span>Wiederholte Abstimmungen.</span></p>
+              </details>
+              <details class="pressure-item" id="fachkraeftemangel" open>
+                <summary>Fachkräftemangel</summary>
+                <p><span>Weniger Kapazität.</span><span>Mehr Routinebelastung.</span><span>Wissensverlust im Alltag.</span></p>
+              </details>
+              <details class="pressure-item" id="esg-co2-reduktion" open>
+                <summary>ESG &amp; CO₂-Reduktion</summary>
+                <p><span>Mehr Nachweispflichten.</span><span>Mehr Kennzahlen.</span><span>Mehr Dokumentationsaufwand.</span></p>
+              </details>
+            </section>
+          </div>
+        </div>
       </section>
 
       <section class="services-section" id="leistungen" aria-labelledby="services-title">
@@ -6497,7 +6532,7 @@
           <div class="service-process-head">
             <span>Vorgehen</span>
             <h3>Von der Idee zur nutzbaren Lösung.</h3>
-            <p>Der Prozess bleibt schlank: erst verstehen, dann strukturieren, schnell sichtbar machen und<br>gezielt verbessern.</p>
+            <p>Der Prozess bleibt schlank: erst verstehen, dann strukturieren, schnell sichtbar machen und gezielt verbessern.</p>
           </div>
 
           <div class="service-process" aria-label="Vorgehen">
@@ -8887,6 +8922,9 @@
               <span>Fokus auf KMU</span>
               <span>Nachvollziehbare Entscheidungen</span>
             </div>
+          </div>
+          <figure class="founder-media">
+            <img loading="lazy" decoding="async" src="assets/portraits/bernhard-metzger.jpg" alt="Bernhard Metzger, Gründer von BuiltSmart AI">
             <div class="founder-links">
               <a class="founder-link" href="https://www.linkedin.com/in/bernhard-metzger-8376539a" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -8895,9 +8933,6 @@
                 Bernhard Metzger auf LinkedIn
               </a>
             </div>
-          </div>
-          <figure class="founder-media">
-            <img loading="lazy" decoding="async" src="assets/portraits/bernhard-metzger.jpg" alt="Bernhard Metzger, Gründer von BuiltSmart AI">
           </figure>
         </div>
       </section>
