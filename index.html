@@ -317,6 +317,12 @@
         display: none !important;
       }
 
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
@@ -5185,18 +5191,21 @@
         .site-header__inner {
           min-height: 0;
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 0;
-          padding: 28px 0 18px;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 10px 16px;
+          padding: 18px 0 14px;
         }
 
         .site-nav {
           display: flex;
+          grid-column: 1 / -1;
+          grid-row: 3;
           width: 100%;
-          gap: 14px;
+          gap: 8px 14px;
           flex-wrap: wrap;
           overflow-x: visible;
-          padding-bottom: 4px;
+          margin-top: 4px;
+          padding-bottom: 0;
         }
 
         .brand {
@@ -5204,19 +5213,33 @@
         }
 
         .brand-name {
-          font-size: clamp(3.2rem, 13vw, 5.7rem);
+          font-size: clamp(2.4rem, 9vw, 3.8rem);
+          line-height: 0.92;
         }
 
         .site-tagline {
-          margin-top: 14px;
+          grid-column: 1 / -1;
+          grid-row: 2;
+          margin-top: 2px;
+          font-size: 0.98rem;
         }
 
         .header-actions {
-          grid-column: 1;
-          grid-row: 4;
-          margin-top: 16px;
+          grid-column: 2;
+          grid-row: 1;
+          margin-top: 0;
           padding-top: 0;
-          justify-content: flex-start;
+          justify-content: flex-end;
+          align-self: start;
+        }
+
+        .header-actions .contact-trigger {
+          display: none;
+        }
+
+        .header-actions .button {
+          min-height: 38px;
+          padding: 0 14px;
         }
 
         .social-links {
@@ -5224,7 +5247,7 @@
         }
 
         .hero {
-          min-height: clamp(590px, 82svh, 720px);
+          min-height: clamp(560px, 76svh, 680px);
           background-position: 58% center;
         }
 
@@ -5246,6 +5269,18 @@
         .requirements-title-line {
           display: inline;
           white-space: normal;
+          overflow-wrap: anywhere;
+        }
+
+        .expertise-title-line {
+          display: inline;
+          white-space: normal;
+          overflow-wrap: anywhere;
+        }
+
+        #target-audience-title,
+        #final-cta-title {
+          overflow-wrap: anywhere;
         }
 
         .requirements-title-line + .requirements-title-line::before {
@@ -5440,7 +5475,7 @@
       @media (max-width: 560px) {
         .site-header__inner {
           width: min(100% - 24px, 1120px);
-          padding: 24px 0 16px;
+          padding: 14px 0 12px;
         }
 
         .brand {
@@ -5452,25 +5487,33 @@
         }
 
         .brand-name {
-          font-size: clamp(2.8rem, 15vw, 4.2rem);
+          font-size: clamp(2rem, 10vw, 2.85rem);
         }
 
         .site-tagline {
-          font-size: 1rem;
+          font-size: 0.88rem;
+          line-height: 1.28;
         }
 
         .site-nav a {
-          font-size: 0.8rem;
+          font-size: 0.72rem;
+          padding: 6px 0;
+        }
+
+        .header-actions .button {
+          min-height: 36px;
+          padding: 0 12px;
+          font-size: 0.76rem;
         }
 
         .hero {
-          min-height: 78svh;
+          min-height: 72svh;
           background-position: 62% center;
         }
 
         .hero-inner {
           width: min(100% - 24px, 1120px);
-          padding: 34px 0;
+          padding: 28px 0;
         }
 
         .hero h1 {
@@ -5479,6 +5522,7 @@
 
         .hero-actions .button {
           width: 100%;
+          min-height: 48px;
         }
 
         .hero-metrics {
@@ -5922,7 +5966,7 @@
         </div>
 
         <nav class="tile-grid challenge-grid" aria-label="Herausforderungen">
-        <a class="menu-tile" href="#steigende-komplexitaet">
+        <a class="menu-tile" id="steigende-komplexitaet" href="#steigende-komplexitaet">
           <span class="tile-head">
             <span class="tile-number">01</span>
             <span class="tile-icon" aria-hidden="true">
@@ -5939,7 +5983,7 @@
           <h2>Steigende<br>Komplexität</h2>
           <p class="tile-detail">Mehr Beteiligte, Daten und Abhängigkeiten erfordern klare Strukturen und nachvollziehbare Entscheidungen.</p>
         </a>
-        <a class="menu-tile" href="#hohe-datenmengen">
+        <a class="menu-tile" id="hohe-datenmengen" href="#hohe-datenmengen">
           <span class="tile-head">
             <span class="tile-number">02</span>
             <span class="tile-icon" aria-hidden="true">
@@ -5954,7 +5998,7 @@
           <h2>Hohe<br>Datenmengen</h2>
           <p class="tile-detail">KI hilft, Informationen schneller zu ordnen, relevante Muster zu erkennen und Wissen nutzbar zu machen.</p>
         </a>
-        <a class="menu-tile" href="#termin-und-kostendruck">
+        <a class="menu-tile" id="termin-und-kostendruck" href="#termin-und-kostendruck">
           <span class="tile-head">
             <span class="tile-number">03</span>
             <span class="tile-icon" aria-hidden="true">
@@ -5972,7 +6016,7 @@
           <h2>Termin- und<br>Kostendruck</h2>
           <p class="tile-detail">Frühzeitige Analysen unterstützen realistischere Einschätzungen, Prioritäten und belastbare Projektsteuerung.</p>
         </a>
-        <a class="menu-tile" href="#wachsende-risiken">
+        <a class="menu-tile" id="wachsende-risiken" href="#wachsende-risiken">
           <span class="tile-head">
             <span class="tile-number">04</span>
             <span class="tile-icon" aria-hidden="true">
@@ -5986,7 +6030,7 @@
           <h2>Wachsende<br>Risiken</h2>
           <p class="tile-detail">Risiken werden systematischer erkannt, bewertet und für Maßnahmen oder Berichte strukturiert aufbereitet.</p>
         </a>
-        <a class="menu-tile" href="#mangelnde-transparenz">
+        <a class="menu-tile" id="mangelnde-transparenz" href="#mangelnde-transparenz">
           <span class="tile-head">
             <span class="tile-number">05</span>
             <span class="tile-icon" aria-hidden="true">
@@ -6001,7 +6045,7 @@
           <h2>Mangelnde<br>Transparenz</h2>
           <p class="tile-detail">Prüfvermerke, Datenbezüge und Entscheidungsgrundlagen werden klarer dokumentiert und leichter nachvollziehbar.</p>
         </a>
-        <a class="menu-tile" href="#ineffiziente-prozesse">
+        <a class="menu-tile" id="ineffiziente-prozesse" href="#ineffiziente-prozesse">
           <span class="tile-head">
             <span class="tile-number">06</span>
             <span class="tile-icon" aria-hidden="true">
@@ -6018,7 +6062,7 @@
           <h2>Ineffiziente<br>Prozesse</h2>
           <p class="tile-detail">Wiederkehrende Aufgaben lassen sich vereinfachen, vorbereiten oder automatisiert in Workflows überführen.</p>
         </a>
-        <a class="menu-tile" href="#fachkraeftemangel">
+        <a class="menu-tile" id="fachkraeftemangel" href="#fachkraeftemangel">
           <span class="tile-head">
             <span class="tile-number">07</span>
             <span class="tile-icon" aria-hidden="true">
@@ -6035,7 +6079,7 @@
           <h2>Fachkräfte-<br>mangel</h2>
           <p class="tile-detail">Digitale Unterstützung entlastet Teams bei Routinearbeit und macht vorhandenes Wissen besser verfügbar.</p>
         </a>
-        <a class="menu-tile" href="#steigende-preise">
+        <a class="menu-tile" id="steigende-preise" href="#steigende-preise">
           <span class="tile-head">
             <span class="tile-number">08</span>
             <span class="tile-icon" aria-hidden="true">
@@ -6052,7 +6096,7 @@
           <h2>Steigende<br>Preise</h2>
           <p class="tile-detail">Szenarien, Kostenentwicklungen und Auswirkungen werden vergleichbarer und schneller bewertbar.</p>
         </a>
-        <a class="menu-tile" href="#esg-co2-reduktion">
+        <a class="menu-tile" id="esg-co2-reduktion" href="#esg-co2-reduktion">
           <span class="tile-head">
             <span class="tile-number">09</span>
             <span class="tile-icon" aria-hidden="true">
@@ -6759,7 +6803,7 @@
         </div>
 
         <nav class="tile-grid neutral-grid" aria-label="Branchenneutrale Einsatzfelder">
-          <a class="menu-tile" href="#operative-teams">
+          <a class="menu-tile" id="operative-teams" href="#operative-teams">
             <span class="tile-head">
               <span class="tile-number">01</span>
               <span class="tile-icon" aria-hidden="true">
@@ -6777,7 +6821,7 @@
             <span class="tile-kicker">Zusammenarbeit</span>
           </a>
 
-          <a class="menu-tile" href="#portfolios">
+          <a class="menu-tile" id="portfolios" href="#portfolios">
             <span class="tile-head">
               <span class="tile-number">02</span>
               <span class="tile-icon" aria-hidden="true">
@@ -6795,7 +6839,7 @@
             <span class="tile-kicker">Steuerung</span>
           </a>
 
-          <a class="menu-tile" href="#standorte">
+          <a class="menu-tile" id="standorte" href="#standorte">
             <span class="tile-head">
               <span class="tile-number">03</span>
               <span class="tile-icon" aria-hidden="true">
@@ -6810,7 +6854,7 @@
             <span class="tile-kicker">Verteilung</span>
           </a>
 
-          <a class="menu-tile" href="#prozesslandschaften">
+          <a class="menu-tile" id="prozesslandschaften" href="#prozesslandschaften">
             <span class="tile-head">
               <span class="tile-number">04</span>
               <span class="tile-icon" aria-hidden="true">
@@ -6828,7 +6872,7 @@
             <span class="tile-kicker">Abläufe</span>
           </a>
 
-          <a class="menu-tile" href="#ressourcenplanung">
+          <a class="menu-tile" id="ressourcenplanung" href="#ressourcenplanung">
             <span class="tile-head">
               <span class="tile-number">05</span>
               <span class="tile-icon" aria-hidden="true">
@@ -6847,7 +6891,7 @@
             <span class="tile-kicker">Kapazitäten</span>
           </a>
 
-          <a class="menu-tile" href="#entscheidungsraeume">
+          <a class="menu-tile" id="entscheidungsraeume" href="#entscheidungsraeume">
             <span class="tile-head">
               <span class="tile-number">06</span>
               <span class="tile-icon" aria-hidden="true">
@@ -7209,7 +7253,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--blue);">
+          <a class="suite-row contact-trigger" id="smart-revision" href="#kontakt" style="--accent: var(--blue);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">03</span>
@@ -7225,7 +7269,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #4b6c76;">
+          <a class="suite-row contact-trigger" id="smart-validate" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">04</span>
@@ -7291,7 +7335,7 @@
 
           <h3 class="suite-list-category">Wissenssysteme &amp; Content Intelligence</h3>
 
-          <div class="suite-row suite-row--with-links" style="--accent: var(--violet);">
+          <div class="suite-row suite-row--with-links" id="smart-snippetflow" style="--accent: var(--violet);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow-neu.png" alt="">
               <span class="suite-row-index">08</span>
@@ -7331,7 +7375,7 @@
             </span>
           </div>
 
-          <div class="suite-row suite-row--with-links" style="--accent: #2f7d58;">
+          <div class="suite-row suite-row--with-links" id="smart-summaryassistent" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
               <span class="suite-row-index">10</span>
@@ -7421,7 +7465,7 @@
 
           <h3 class="suite-list-category">Projektsteuerung &amp; Prognose</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: var(--red);">
+          <a class="suite-row contact-trigger" id="smart-cost-pert-prognose" href="#kontakt" style="--accent: var(--red);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Pert-neu.png" alt="">
               <span class="suite-row-index">15</span>
@@ -7457,7 +7501,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #65529c;">
+          <a class="suite-row contact-trigger" id="smart-capex" href="#kontakt" style="--accent: #65529c;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20CapEx.png" alt="">
               <span class="suite-row-index">17</span>
@@ -7475,7 +7519,7 @@
 
           <h3 class="suite-list-category">Organisation, Kommunikation &amp; Produktivität</h3>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #3f7868;">
+          <a class="suite-row contact-trigger" id="smart-meeting-navigator" href="#kontakt" style="--accent: #3f7868;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Meeting-neu.png" alt="">
               <span class="suite-row-index">18</span>
@@ -7560,7 +7604,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" href="#kontakt" style="--accent: #5d6fa3;">
+          <a class="suite-row contact-trigger" id="smart-focus" href="#kontakt" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
               <span class="suite-row-index">23</span>
@@ -8395,7 +8439,7 @@
         </div>
 
         <div class="security-grid" aria-label="Sicherheitsmerkmale">
-          <a class="security-card" href="#flexible-nutzung">
+          <a class="security-card" id="flexible-nutzung" href="#flexible-nutzung">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M7 9h18v12H7z"></path>
@@ -8410,7 +8454,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#eu-betrieb">
+          <a class="security-card" id="eu-betrieb" href="#eu-betrieb">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <circle cx="16" cy="16" r="10"></circle>
@@ -8425,7 +8469,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#lokale-datenhaltung">
+          <a class="security-card" id="lokale-datenhaltung" href="#lokale-datenhaltung">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <ellipse cx="16" cy="8" rx="8" ry="3"></ellipse>
@@ -8439,7 +8483,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#verschluesselte-uebertragung">
+          <a class="security-card" id="verschluesselte-uebertragung" href="#verschluesselte-uebertragung">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <rect x="8" y="14" width="16" height="12" rx="2"></rect>
@@ -8452,7 +8496,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#kontrollierte-zugriffe">
+          <a class="security-card" id="kontrollierte-zugriffe" href="#kontrollierte-zugriffe">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <circle cx="12" cy="20" r="4"></circle>
@@ -8467,7 +8511,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#kein-training-ohne-freigabe">
+          <a class="security-card" id="kein-training-ohne-freigabe" href="#kein-training-ohne-freigabe">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M16 6v20"></path>
@@ -8483,7 +8527,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#nachvollziehbare-verarbeitung">
+          <a class="security-card" id="nachvollziehbare-verarbeitung" href="#nachvollziehbare-verarbeitung">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M8 6h16v20H8z"></path>
@@ -8499,7 +8543,7 @@
             </span>
           </a>
 
-          <a class="security-card" href="#projektbezogene-abstimmung">
+          <a class="security-card" id="projektbezogene-abstimmung" href="#projektbezogene-abstimmung">
             <span class="security-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M7 9h18v13H13l-6 5V9z"></path>
@@ -8532,7 +8576,7 @@
         </div>
 
         <nav class="audience-flow" aria-label="Zielgruppen">
-          <a class="audience-card" href="#projektentwickler">
+          <a class="audience-card" id="projektentwickler" href="#projektentwickler">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M5 25h22"></path>
@@ -8548,7 +8592,7 @@
             <span class="audience-index">01</span>
           </a>
 
-          <a class="audience-card" href="#investoren">
+          <a class="audience-card" id="investoren" href="#investoren">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M5 24h22"></path>
@@ -8563,7 +8607,7 @@
             <span class="audience-index">02</span>
           </a>
 
-          <a class="audience-card" href="#banken">
+          <a class="audience-card" id="banken" href="#banken">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M5 13h22"></path>
@@ -8581,7 +8625,7 @@
             <span class="audience-index">03</span>
           </a>
 
-          <a class="audience-card" href="#versicherungen">
+          <a class="audience-card" id="versicherungen" href="#versicherungen">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M16 27c-5-3.6-8-8.2-8-13.2V7l8-3 8 3v6.8c0 5-3 9.6-8 13.2z"></path>
@@ -8595,7 +8639,7 @@
             <span class="audience-index">04</span>
           </a>
 
-          <a class="audience-card" href="#bestandshalter">
+          <a class="audience-card" id="bestandshalter" href="#bestandshalter">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <rect x="7" y="6" width="18" height="20" rx="2"></rect>
@@ -8613,7 +8657,7 @@
             <span class="audience-index">05</span>
           </a>
 
-          <a class="audience-card" href="#planer">
+          <a class="audience-card" id="planer" href="#planer">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M6 26h20"></path>
@@ -8629,7 +8673,7 @@
             <span class="audience-index">06</span>
           </a>
 
-          <a class="audience-card" href="#behoerden">
+          <a class="audience-card" id="behoerden" href="#behoerden">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M6 13h20"></path>
@@ -8647,7 +8691,7 @@
             <span class="audience-index">07</span>
           </a>
 
-          <a class="audience-card" href="#bauunternehmen">
+          <a class="audience-card" id="bauunternehmen" href="#bauunternehmen">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M5 26h22"></path>
@@ -8664,7 +8708,7 @@
             <span class="audience-index">08</span>
           </a>
 
-          <a class="audience-card" href="#projektsteuerer">
+          <a class="audience-card" id="projektsteuerer" href="#projektsteuerer">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M6 8h20"></path>
@@ -8682,7 +8726,7 @@
             <span class="audience-index">09</span>
           </a>
 
-          <a class="audience-card" href="#beratungsunternehmen">
+          <a class="audience-card" id="beratungsunternehmen" href="#beratungsunternehmen">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <path d="M6 9h20v13H13l-5 5v-5H6V9z"></path>
@@ -8697,7 +8741,7 @@
             <span class="audience-index">10</span>
           </a>
 
-          <a class="audience-card" href="#fuehrungskraefte">
+          <a class="audience-card" id="fuehrungskraefte" href="#fuehrungskraefte">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <circle cx="16" cy="9" r="4"></circle>
@@ -8712,7 +8756,7 @@
             <span class="audience-index">11</span>
           </a>
 
-          <a class="audience-card" href="#privatpersonen">
+          <a class="audience-card" id="privatpersonen" href="#privatpersonen">
             <span class="audience-icon" aria-hidden="true">
               <svg viewBox="0 0 32 32">
                 <circle cx="16" cy="9" r="4"></circle>
