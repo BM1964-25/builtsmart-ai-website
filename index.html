@@ -904,121 +904,198 @@
         text-underline-offset: 0.18em;
       }
 
-      .benefit-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .benefit-card {
-        --accent: #2f6f56;
+      .benefit-compass {
+        margin-top: clamp(18px, 3.4vw, 36px);
         position: relative;
-        min-height: 244px;
-        display: grid;
-        align-content: start;
-        gap: 18px;
-        padding: 22px;
         overflow: hidden;
+        width: 100vw;
+        margin-right: calc(50% - 50vw);
+        margin-left: calc(50% - 50vw);
+        padding: clamp(26px, 5vw, 52px);
+        color: #ffffff;
         background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0 72%, color-mix(in srgb, var(--accent) 8%, #ffffff) 72% 100%);
-        border: 1px solid rgba(255, 255, 255, 0.96);
-        border-radius: 8px;
+          linear-gradient(115deg, rgba(7, 14, 23, 0.9) 0%, rgba(7, 14, 23, 0.68) 38%, rgba(7, 14, 23, 0.18) 100%),
+          radial-gradient(circle at 50% 42%, rgba(23, 152, 214, 0.12), transparent 36%),
+          url("assets/hero/builtsmart-ai-nutzen-kompass.jpeg") center right / cover no-repeat;
+        border-top: 1px solid rgba(113, 205, 255, 0.2);
+        border-bottom: 1px solid rgba(113, 205, 255, 0.2);
+        border-radius: 0;
         box-shadow:
-          0 0 0 1px rgba(23, 32, 38, 0.055),
-          inset 0 1px 0 rgba(255, 255, 255, 0.98),
-          0 22px 54px rgba(23, 32, 38, 0.07);
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          0 28px 84px rgba(7, 14, 23, 0.2);
       }
 
-      .benefit-card::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 4px;
-        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 38%, #ffffff));
-      }
-
-      .benefit-card::after {
+      .benefit-compass::before {
         content: "";
         position: absolute;
         inset: 0;
+        z-index: 0;
         background:
-          linear-gradient(132deg, transparent 0 62%, rgba(255, 255, 255, 0.7) 62.2% 62.8%, transparent 63%),
-          radial-gradient(circle at 91% 17%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 25%);
+          linear-gradient(90deg, rgba(7, 14, 23, 0.08), transparent 48%),
+          radial-gradient(circle at 82% 38%, rgba(21, 138, 202, 0.12), transparent 28%);
         pointer-events: none;
       }
 
-      .benefit-card-head {
+      .benefit-compass > * {
         position: relative;
         z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
       }
 
-      .benefit-icon {
-        display: grid;
-        width: 58px;
-        height: 58px;
-        place-items: center;
-        color: var(--accent);
-        background:
-          radial-gradient(circle at 30% 20%, #ffffff, transparent 34%),
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 255, 0.62)),
-          linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, #ffffff), rgba(255, 255, 255, 0.72));
-        border: 1px solid color-mix(in srgb, var(--accent) 22%, rgba(255, 255, 255, 0.94));
-        border-radius: 16px;
+      .benefit-compass-head {
+        width: min(1180px, calc(100% - 32px));
+        max-width: none;
+        margin: 0 auto clamp(24px, 4vw, 36px);
+        text-align: left;
       }
 
-      .benefit-icon svg {
-        width: 30px;
-        height: 30px;
-        stroke: currentColor;
-        stroke-width: 1.55;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        fill: none;
-      }
-
-      .benefit-index {
-        display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        color: #ffffff;
+      .benefit-compass-head span {
+        display: block;
+        color: #247780;
         font-size: 0.78rem;
-        font-weight: 800;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent),
-          var(--accent);
-        border-radius: 10px;
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .benefit-card h3 {
+      .benefit-compass-head h3 {
+        max-width: 720px;
+        margin: 10px 0 0;
+        color: #ffffff;
+        font-size: clamp(1.7rem, 3vw, 2.45rem);
+        line-height: 1.05;
+      }
+
+      .benefit-compass-head p {
+        max-width: 760px;
+        margin: 14px 0 0;
+        color: rgba(237, 247, 255, 0.78);
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .benefit-compass-map {
         position: relative;
-        z-index: 1;
-        margin: 0;
-        color: #172026;
-        font-size: clamp(1.12rem, 1.5vw, 1.34rem);
+        width: min(100% - 32px, 1180px);
+        min-height: clamp(700px, 58vw, 800px);
+        margin: 0 auto;
+        isolation: isolate;
+      }
+
+      .benefit-compass-map::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(700px, 68vw);
+        aspect-ratio: 1;
+        z-index: -1;
+        border: 1px solid rgba(127, 217, 255, 0.22);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(7, 14, 23, 0.68) 0 26%, transparent 26.4%),
+          conic-gradient(
+            from -90deg,
+            rgba(127, 217, 255, 0.22),
+            rgba(62, 194, 216, 0.14),
+            rgba(83, 140, 255, 0.15),
+            rgba(147, 124, 255, 0.16),
+            rgba(255, 168, 78, 0.16),
+            rgba(109, 186, 204, 0.14),
+            rgba(127, 217, 255, 0.22)
+          );
+        opacity: 0.96;
+        transform: translate(-50%, -50%);
+      }
+
+      .benefit-compass-center {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        width: min(370px, 31vw);
+        aspect-ratio: 1;
+        min-height: 0;
+        display: grid;
+        place-items: center;
+        padding: clamp(26px, 3.2vw, 38px);
+        color: #ffffff;
+        text-align: center;
+        background:
+          radial-gradient(circle at 28% 20%, rgba(255, 255, 255, 0.28), transparent 34%),
+          linear-gradient(145deg, rgba(11, 30, 45, 0.96), rgba(24, 112, 143, 0.88));
+        border: 1px solid rgba(127, 217, 255, 0.34);
+        border-radius: 50%;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          0 28px 70px rgba(0, 0, 0, 0.3),
+          0 0 64px rgba(33, 166, 224, 0.22);
+        transform: translate(-50%, -50%);
+      }
+
+      .benefit-compass-center strong {
+        display: block;
+        max-width: 18ch;
+        font-size: clamp(1.16rem, 1.62vw, 1.5rem);
+        line-height: 1.08;
+      }
+
+      .benefit-compass-center span {
+        display: block;
+        max-width: 27ch;
+        margin: 14px auto 0;
+        color: rgba(207, 243, 255, 0.88);
+        font-size: clamp(0.96rem, 1.12vw, 1.08rem);
+        line-height: 1.38;
+        font-weight: 820;
+      }
+
+      .benefit-compass-node {
+        --accent: #2f6f56;
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: min(270px, 26vw);
+        min-height: 142px;
+        display: grid;
+        gap: 8px;
+        align-content: start;
+        padding: 17px 18px 18px;
+        color: #f8fbff;
+        background: rgba(8, 18, 31, 0.76);
+        backdrop-filter: blur(14px);
+        border: 1px solid color-mix(in srgb, var(--accent) 38%, rgba(255, 255, 255, 0.14));
+        border-left: 5px solid var(--accent);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 20px 48px rgba(0, 0, 0, 0.24);
+        transform: translate(-50%, -50%);
+      }
+
+      .benefit-compass-node span {
+        color: color-mix(in srgb, var(--accent) 82%, #ffffff 18%);
+        font-size: 0.74rem;
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .benefit-compass-node strong {
+        font-size: clamp(1.02rem, 1.3vw, 1.18rem);
         line-height: 1.14;
       }
 
-      .benefit-card p {
-        position: relative;
-        z-index: 1;
+      .benefit-compass-node p {
         margin: 0;
-        color: #56616b;
-        font-size: 0.98rem;
-        line-height: 1.52;
+        color: rgba(237, 247, 255, 0.74);
+        font-size: 0.9rem;
+        line-height: 1.42;
       }
 
-      .benefit-card:nth-child(1) { --accent: #2f6f56; }
-      .benefit-card:nth-child(2) { --accent: #247780; }
-      .benefit-card:nth-child(3) { --accent: #315f9e; }
-      .benefit-card:nth-child(4) { --accent: #65529c; }
-      .benefit-card:nth-child(5) { --accent: #b87924; }
-      .benefit-card:nth-child(6) { --accent: #4b6c76; }
+      .benefit-compass-node:nth-child(2) { --accent: #7fd9ff; --x: 50%; --y: 9%; }
+      .benefit-compass-node:nth-child(3) { --accent: #54d6d6; --x: 86%; --y: 30%; }
+      .benefit-compass-node:nth-child(4) { --accent: #72a7ff; --x: 86%; --y: 70%; }
+      .benefit-compass-node:nth-child(5) { --accent: #a491ff; --x: 50%; --y: 91%; }
+      .benefit-compass-node:nth-child(6) { --accent: #ffb25f; --x: 14%; --y: 70%; }
+      .benefit-compass-node:nth-child(7) { --accent: #78cfe4; --x: 14%; --y: 30%; }
 
       .services-section {
         margin-top: clamp(50px, 7vw, 86px);
@@ -3785,6 +3862,33 @@
         line-height: 1.3;
       }
 
+      .books-blog-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 22px;
+        color: #247780;
+        font-size: 0.98rem;
+        font-weight: 820;
+        line-height: 1.2;
+        text-decoration: none;
+      }
+
+      .books-blog-link span {
+        transition: transform 170ms ease;
+      }
+
+      .books-blog-link:hover,
+      .books-blog-link:focus-visible {
+        color: #172026;
+        outline: none;
+      }
+
+      .books-blog-link:hover span,
+      .books-blog-link:focus-visible span {
+        transform: translateX(4px);
+      }
+
       .book-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4081,30 +4185,57 @@
 
       .final-cta {
         order: 25;
+        position: relative;
+        overflow: hidden;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-top: clamp(46px, 7vw, 78px);
-        padding: clamp(92px, 13vw, 150px) max(32px, calc((100vw - 980px) / 2)) clamp(88px, 12vw, 130px);
+        padding: clamp(110px, 14vw, 170px) max(32px, calc((100vw - 980px) / 2)) clamp(104px, 13vw, 150px);
         color: #ffffff;
-        background: #000000;
+        background:
+          linear-gradient(112deg, rgba(5, 9, 14, 0.96) 0%, rgba(5, 9, 14, 0.78) 42%, rgba(5, 9, 14, 0.28) 100%),
+          radial-gradient(circle at 72% 42%, rgba(31, 174, 226, 0.2), transparent 32%),
+          url("assets/hero/builtsmart-ai-contact-cta.jpeg") center right / cover no-repeat;
+      }
+
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          linear-gradient(180deg, rgba(5, 9, 14, 0.08), rgba(5, 9, 14, 0.32)),
+          radial-gradient(circle at 78% 34%, rgba(36, 119, 128, 0.18), transparent 30%);
+        pointer-events: none;
+      }
+
+      .final-cta > * {
+        position: relative;
+        z-index: 1;
       }
 
       .founder-section {
         order: 23;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
         margin-top: clamp(64px, 8vw, 104px);
+        padding: clamp(58px, 7vw, 92px) max(16px, calc((100vw - 1180px) / 2));
+        background:
+          linear-gradient(120deg, rgba(0, 0, 0, 0.98) 0%, rgba(8, 13, 17, 0.95) 48%, rgba(8, 13, 17, 0.88) 100%);
       }
 
       .founder-card {
         display: grid;
         grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.72fr);
+        width: min(1180px, 100%);
+        margin: 0 auto;
         min-height: 560px;
         overflow: hidden;
         color: #ffffff;
         background:
-          linear-gradient(120deg, rgba(0, 0, 0, 0.96) 0%, rgba(8, 13, 17, 0.93) 48%, rgba(8, 13, 17, 0.35) 100%),
-          #000000;
-        border-radius: 8px;
-        box-shadow: 0 30px 90px rgba(23, 32, 38, 0.16);
+          linear-gradient(120deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.018) 48%, rgba(255, 255, 255, 0.04) 100%);
+        border-radius: 0;
+        box-shadow: none;
       }
 
       .founder-content {
@@ -4145,6 +4276,48 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
         margin-top: clamp(30px, 4vw, 44px);
+      }
+
+      .founder-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: clamp(26px, 3.4vw, 38px);
+      }
+
+      .founder-link {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 18px;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 820;
+        line-height: 1;
+        text-decoration: none;
+        transition:
+          transform 170ms ease,
+          background 170ms ease,
+          border-color 170ms ease;
+      }
+
+      .founder-link:hover,
+      .founder-link:focus-visible {
+        transform: translateY(-2px);
+        background: rgba(36, 119, 128, 0.36);
+        border-color: rgba(72, 199, 176, 0.72);
+        outline: none;
+      }
+
+      .founder-link svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
       }
 
       .founder-proof span {
@@ -5325,7 +5498,6 @@
         }
 
         .tile-grid,
-        .benefit-grid,
         .book-grid,
         .service-grid,
         .service-process,
@@ -5333,6 +5505,34 @@
         .neutral-grid,
         .app-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .benefit-compass-map {
+          min-height: 0;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 12px;
+        }
+
+        .benefit-compass-map::before {
+          display: none;
+        }
+
+        .benefit-compass-center,
+        .benefit-compass-node {
+          position: relative;
+          inset: auto;
+          left: auto;
+          top: auto;
+          width: auto;
+          min-height: 0;
+          transform: none;
+        }
+
+        .benefit-compass-center {
+          grid-column: 1 / -1;
+          min-height: 190px;
+          border-radius: 8px;
         }
 
         .service-process::before {
@@ -5546,7 +5746,7 @@
         }
 
         .tile-grid,
-        .benefit-grid,
+        .benefit-compass-map,
         .book-grid,
         .service-grid,
         .service-process,
@@ -5755,10 +5955,11 @@
 
         .founder-section {
           margin-top: 54px;
+          padding: 0 0 0;
         }
 
         .founder-card {
-          border-radius: 8px;
+          border-radius: 0;
         }
 
         .founder-content {
@@ -5784,6 +5985,7 @@
 
         .final-cta {
           padding: 72px 24px;
+          background-position: center center;
         }
 
         .final-cta-actions {
@@ -7191,6 +7393,77 @@
         </nav>
       </section>
 
+      <section class="benefits-section" id="nutzen" aria-labelledby="benefits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Nutzen</p>
+          <h2 id="benefits-title">Was BuiltSmart AI<br>im Arbeitsalltag verbessert.</h2>
+          <p>
+            Die <a href="#unternehmensbereiche">Unternehmensbereiche</a> zeigen,
+            wo KI ansetzen kann. Entscheidend ist, welche Wirkung daraus entsteht:
+            weniger manuelle Arbeit, bessere Entscheidungsgrundlagen,
+            nachvollziehbare Abläufe, frühere Risikoerkennung und
+            wiederverwendbares Wissen.
+          </p>
+        </div>
+
+        <div class="benefit-compass" aria-labelledby="benefit-compass-title">
+          <div class="benefit-compass-head">
+            <span>Nutzen-Kompass</span>
+            <h3 id="benefit-compass-title">Sechs Wirkungen, die im Unternehmen zusammenspielen.</h3>
+            <p>
+              Wenn Prozesse, Daten und Wissen verbunden werden, entsteht mehr
+              als Automatisierung: Arbeit wird leichter, Entscheidungen werden
+              belastbarer und Qualität wird im Alltag wiederholbar.
+            </p>
+          </div>
+
+          <div class="benefit-compass-map" aria-label="BuiltSmart AI Nutzen-Kompass">
+            <div class="benefit-compass-center">
+              <div>
+                <strong>Aus Prozessen, Daten und Wissen entstehen</strong>
+            <span>klare Informationslage<br>nutzbares Wissen<br>belastbare Entscheidungen<br>frühzeitige Kontrolle<br>einheitliche Standards<br>spürbare Entlastung</span>
+              </div>
+            </div>
+
+            <article class="benefit-compass-node">
+              <span>01</span>
+              <strong>Zeitersparnis &amp; Entlastung</strong>
+              <p>Routinearbeit sinkt, fachliche Arbeit gewinnt mehr Raum.</p>
+            </article>
+
+            <article class="benefit-compass-node">
+              <span>02</span>
+              <strong>Bessere Entscheidungsgrundlagen</strong>
+              <p>Daten, Dokumente und Szenarien werden vergleichbarer.</p>
+            </article>
+
+            <article class="benefit-compass-node">
+              <span>03</span>
+              <strong>Nachvollziehbarkeit &amp; Dokumentation</strong>
+              <p>Quellen, Prüfvermerke und Entscheidungen bleiben belegbar.</p>
+            </article>
+
+            <article class="benefit-compass-node">
+              <span>04</span>
+              <strong>Risikofrüherkennung &amp; Kontrolle</strong>
+              <p>Abweichungen, Fristen und Risiken werden früher sichtbar.</p>
+            </article>
+
+            <article class="benefit-compass-node">
+              <span>05</span>
+              <strong>Wissen sichern &amp; wiederverwenden</strong>
+              <p>Vorlagen, Prompts und Erfahrungen bleiben verfügbar.</p>
+            </article>
+
+            <article class="benefit-compass-node">
+              <span>06</span>
+              <strong>Einheitliche Standards &amp; Qualität</strong>
+              <p>Abläufe werden konsistenter, vergleichbarer und verlässlicher.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="tile-section apps-suite-section" id="apps-title" aria-labelledby="apps-variant-title">
         <div class="section-heading">
           <p class="eyebrow">KI-Anwendungen</p>
@@ -8053,118 +8326,6 @@
         </div>
       </section>
 
-      <section class="benefits-section" id="nutzen" aria-labelledby="benefits-title">
-        <div class="section-heading">
-          <p class="eyebrow">Nutzen</p>
-          <h2 id="benefits-title">Was BuiltSmart AI<br>im Arbeitsalltag verbessert.</h2>
-          <p>
-            Die <a href="#unternehmensbereiche">Unternehmensbereiche</a> zeigen,
-            wo KI ansetzen kann. Entscheidend ist, welche Wirkung daraus entsteht:
-            weniger manuelle Arbeit, bessere Entscheidungsgrundlagen,
-            nachvollziehbare Abläufe, frühere Risikoerkennung und
-            wiederverwendbares Wissen.
-          </p>
-        </div>
-
-        <div class="benefit-grid" aria-label="Weitere Nutzen">
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M9 5h11l4 4v18H9z"></path>
-                  <path d="M20 5v5h5"></path>
-                  <path d="M13 16h9"></path>
-                  <path d="M13 21h7"></path>
-                  <path d="M11 11l2 2 4-5"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">01</span>
-            </div>
-            <h3>Zeitersparnis<br>&amp; Entlastung</h3>
-            <p>Wiederkehrende Aufgaben, Abstimmungen und Vorbereitungen werden schneller erledigt. Teams gewinnen Zeit für fachliche Entscheidungen statt manueller Routinearbeit.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M16 5l9 4v7c0 5.5-3.6 9.2-9 11-5.4-1.8-9-5.5-9-11V9z"></path>
-                  <path d="M12 16l3 3 6-7"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">02</span>
-            </div>
-            <h3>Bessere<br>Entscheidungsgrundlagen</h3>
-            <p>Daten, Dokumente, Risiken, Kosten und Szenarien werden strukturierter zusammengeführt. Entscheidungen werden schneller vorbereitet und fachlich belastbarer.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M5 25h22"></path>
-                  <path d="M8 22l5-7 5 4 6-10"></path>
-                  <path d="M21 9h3v3"></path>
-                  <path d="M9 8l2 2"></path>
-                  <path d="M11 8l-2 2"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">03</span>
-            </div>
-            <h3>Nachvollziehbarkeit<br>&amp; Dokumentation</h3>
-            <p>Prüfvermerke, Quellen, Entscheidungen und Arbeitsschritte bleiben dokumentiert. Ergebnisse werden besser prüfbar und auch später verständlich.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M8 7h16v18H8z"></path>
-                  <path d="M12 11h8"></path>
-                  <path d="M12 16h8"></path>
-                  <path d="M12 21h5"></path>
-                  <path d="M24 11l4 3-4 3"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">04</span>
-            </div>
-            <h3>Risikofrüherkennung<br>&amp; Kontrolle</h3>
-            <p>Fristen, Abweichungen, Vertragsrisiken, Kosten- und Terminrisiken werden früher sichtbar. Maßnahmen können rechtzeitig abgeleitet werden.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M7 10h12v8H9l-4 4V12a2 2 0 0 1 2-2z"></path>
-                  <path d="M17 15h8a2 2 0 0 1 2 2v9l-4-4h-6z"></path>
-                </svg>
-              </span>
-              <span class="benefit-index">05</span>
-            </div>
-            <h3>Wissen sichern<br>&amp; wiederverwenden</h3>
-            <p>Dokumente, Prompts, Vorlagen und Erfahrungen werden gesichert, strukturiert, auffindbar und wiederverwendbar. Wissen bleibt im Unternehmen verfügbar.</p>
-          </article>
-
-          <article class="benefit-card">
-            <div class="benefit-card-head">
-              <span class="benefit-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32">
-                  <path d="M7 24V8"></path>
-                  <path d="M7 24h18"></path>
-                  <rect x="10" y="17" width="3" height="7"></rect>
-                  <rect x="16" y="12" width="3" height="12"></rect>
-                  <rect x="22" y="8" width="3" height="16"></rect>
-                </svg>
-              </span>
-              <span class="benefit-index">06</span>
-            </div>
-            <h3>Einheitliche Standards<br>&amp; Qualität</h3>
-            <p>Wiederkehrende Prüf-, Analyse- und Kommunikationsprozesse laufen konsistenter. Qualität, Vergleichbarkeit und Verlässlichkeit steigen.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="tile-section roi-section" aria-labelledby="roi-title">
         <div class="section-heading">
           <p class="eyebrow">ROI Rechner</p>
@@ -9015,6 +9176,7 @@
             Die Bücher ergänzen die Softwarelösungen um praxisnahes Wissen zu
             KI, Robotik, digitalen Prozessen und produktivem KI-Einsatz.
           </p>
+          <a class="books-blog-link" href="https://www.built-smart-hub.com/blog/categories/ki-robotik" target="_blank" rel="noopener noreferrer">Weitere Beiträge zu KI &amp; Robotik im BuiltSmart Hub Blog ansehen <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="book-grid" aria-label="Ausgewählte Fachbücher">
@@ -9069,7 +9231,7 @@
         <div class="founder-card">
           <div class="founder-content">
             <p class="eyebrow">Praxis &amp; Verantwortung</p>
-            <h2 id="founder-title">Praxiswissen, das in Software wirksam wird.</h2>
+            <h2 id="founder-title">Praxiswissen,<br>das&nbsp;in&nbsp;Software<br>wirksam&nbsp;wird.</h2>
             <p>
               BuiltSmart AI basiert auf fast vier Jahrzehnten Erfahrung in Bau,
               Immobilien und Projektsteuerung. Dieses Praxiswissen wird mit
@@ -9086,6 +9248,14 @@
               <span>Praxisnahes Branchenwissen</span>
               <span>Fokus auf KMU</span>
               <span>Nachvollziehbare Entscheidungen</span>
+            </div>
+            <div class="founder-links">
+              <a class="founder-link" href="https://www.linkedin.com/in/bernhard-metzger-8376539a" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.02h4.36V23H.32V8.02zM8.12 8.02h4.18v2.05h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.22 2.9 5.22 6.67V23h-4.36v-7.56c0-1.8-.03-4.12-2.51-4.12-2.52 0-2.9 1.96-2.9 3.99V23H7.57V8.02h.55z"></path>
+                </svg>
+                Bernhard Metzger auf LinkedIn
+              </a>
             </div>
           </div>
           <figure class="founder-media">
@@ -9221,7 +9391,7 @@
         <div class="final-cta-actions">
           <a class="final-cta-button primary" href="#apps-title">Anwendungen ansehen <span aria-hidden="true">→</span></a>
           <button class="final-cta-button contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
-          <a class="final-cta-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
+          <a class="final-cta-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin vereinbaren <span aria-hidden="true">→</span></a>
         </div>
       </section>
     </main>
