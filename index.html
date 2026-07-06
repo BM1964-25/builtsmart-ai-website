@@ -1778,6 +1778,143 @@
         line-height: 1.28;
       }
 
+      .ai-process-automation {
+        position: relative;
+        display: grid;
+        gap: clamp(18px, 2.8vw, 24px);
+        margin: 0 0 clamp(36px, 5vw, 58px);
+      }
+
+      .ai-process-automation-head {
+        position: relative;
+        z-index: 1;
+        max-width: 940px;
+      }
+
+      .ai-process-automation-head span {
+        display: block;
+        margin: 0 0 8px;
+        color: #247780;
+        font-size: 0.76rem;
+        font-weight: 860;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .ai-process-automation-head h3 {
+        margin: 0;
+        color: #172026;
+        font-size: clamp(1.55rem, 2.45vw, 2.24rem);
+        line-height: 1.06;
+      }
+
+      .ai-process-automation-head p {
+        max-width: 760px;
+        margin: 9px 0 0;
+        color: #586570;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      .ai-automation-flow {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .ai-automation-step {
+        position: relative;
+        isolation: isolate;
+        z-index: 1;
+        min-height: 158px;
+        display: grid;
+        grid-template-rows: 46px auto 1fr;
+        align-content: start;
+        justify-items: center;
+        gap: 9px;
+        padding: 14px 13px 16px;
+        overflow: hidden;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(203, 216, 215, 0.9);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.92),
+          0 12px 28px rgba(23, 32, 38, 0.045);
+      }
+
+      .ai-automation-step span {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        color: #ffffff;
+        background: #172026;
+        border: 3px solid #ffffff;
+        border-radius: 999px;
+        box-shadow: 0 10px 24px rgba(23, 32, 38, 0.16);
+        font-size: 0.78rem;
+        font-weight: 840;
+      }
+
+      .ai-automation-step strong {
+        color: #172026;
+        font-size: 0.98rem;
+        line-height: 1.18;
+        font-weight: 850;
+      }
+
+      .ai-automation-step p {
+        max-width: 24ch;
+        margin: 0;
+        color: #64707a;
+        font-size: 0.82rem;
+        line-height: 1.3;
+      }
+
+      .ai-automation-control {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(203, 216, 215, 0.88);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+          0 10px 24px rgba(23, 32, 38, 0.04);
+      }
+
+      .ai-automation-control-item {
+        min-height: 0;
+        padding: 14px 18px;
+        background: transparent;
+      }
+
+      .ai-automation-control-item + .ai-automation-control-item {
+        border-left: 1px solid rgba(203, 216, 215, 0.88);
+      }
+
+      .ai-automation-control-item strong {
+        display: block;
+        color: #172026;
+        font-size: 0.98rem;
+        line-height: 1.18;
+      }
+
+      .ai-automation-control-item p {
+        display: block;
+        margin: 5px 0 0;
+        color: #64707a;
+        font-size: 0.88rem;
+        line-height: 1.4;
+      }
+
       .ai-department-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -5458,6 +5595,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .ai-automation-flow {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .ai-map-intro {
           background-position: 62% center;
         }
@@ -5718,6 +5859,16 @@
         .ai-process-map,
         .ai-department-grid {
           grid-template-columns: 1fr;
+        }
+
+        .ai-automation-flow,
+        .ai-automation-control {
+          grid-template-columns: 1fr;
+        }
+
+        .ai-automation-control-item + .ai-automation-control-item {
+          border-top: 1px solid rgba(203, 216, 215, 0.88);
+          border-left: 0;
         }
 
         .ai-map-section {
@@ -6344,52 +6495,57 @@
           </ul>
         </div>
 
-        <div class="ai-map-block-heading">
-          <span>Prozesskette</span>
-          <h3>Vom Bedarf bis zum Reporting.</h3>
-          <p>
-            Die Prozesskette zeigt, wo KI Informationen aufnimmt, strukturiert,
-            prüft und für Entscheidungen<br>nutzbar macht.
-          </p>
-        </div>
+        <section class="ai-process-automation" aria-labelledby="process-automation-title">
+          <div class="ai-process-automation-head">
+            <span>Workflow Automation</span>
+            <h3 id="process-automation-title">Workflow Automation: Abläufe werden vorbereitet, Entscheidungen bleiben bei Ihnen.</h3>
+            <p>
+              BuiltSmart AI verbindet Informationen, Dokumente und Aufgaben zu
+              nachvollziehbaren Abläufen. Wiederkehrende Schritte werden
+              vorbereitet, geprüft und weitergegeben. Verantwortung, Freigabe
+              und Entscheidung bleiben bewusst beim Menschen.
+            </p>
+          </div>
 
-        <div class="ai-process-map" aria-label="Typische Prozesskette">
-          <article class="ai-process-step">
-            <span>01</span>
-            <strong>Anfrage</strong>
-            <p>Informationen und Bedarf aufnehmen</p>
-          </article>
-          <article class="ai-process-step">
-            <span>02</span>
-            <strong>Angebot</strong>
-            <p>Leistungen und<br>Kalkulation strukturieren</p>
-          </article>
-          <article class="ai-process-step">
-            <span>03</span>
-            <strong>Auftrag</strong>
-            <p>Status, Aufgaben und Zuständigkeiten klären</p>
-          </article>
-          <article class="ai-process-step">
-            <span>04</span>
-            <strong>Projekt</strong>
-            <p>Dokumente, Fristen und Risiken steuern</p>
-          </article>
-          <article class="ai-process-step">
-            <span>05</span>
-            <strong>Dokumentation</strong>
-            <p>Wissen sichern und auffindbar machen</p>
-          </article>
-          <article class="ai-process-step">
-            <span>06</span>
-            <strong>Abrechnung</strong>
-            <p>Belege, Nachweise und Freigaben prüfen</p>
-          </article>
-          <article class="ai-process-step">
-            <span>07</span>
-            <strong>Reporting</strong>
-            <p>Entscheidungen und Maßnahmen vorbereiten</p>
-          </article>
-        </div>
+          <div class="ai-automation-flow" aria-label="Workflow Automation Ablauf">
+            <article class="ai-automation-step">
+              <span>01</span>
+              <strong>Aufnehmen</strong>
+              <p>Anfragen, Dokumente, Belege und Projektdaten werden aus dem Arbeitsalltag erfasst.</p>
+            </article>
+            <article class="ai-automation-step">
+              <span>02</span>
+              <strong>Strukturieren</strong>
+              <p>Inhalte werden zu Vorgängen, Aufgaben, Fristen, Risiken und Zuständigkeiten geordnet.</p>
+            </article>
+            <article class="ai-automation-step">
+              <span>03</span>
+              <strong>Vorbereiten</strong>
+              <p>Angebote, Prüfungen, Entscheidungsvorlagen, Abrechnungen oder Reports entstehen vorstrukturiert.</p>
+            </article>
+            <article class="ai-automation-step">
+              <span>04</span>
+              <strong>Freigeben</strong>
+              <p>Ergebnisse werden geprüft, bewertet und erst nach bewusster Entscheidung weiterverwendet.</p>
+            </article>
+            <article class="ai-automation-step">
+              <span>05</span>
+              <strong>Weitergeben</strong>
+              <p>Freigegebene Ergebnisse fließen in Dokumentation, Abrechnung, Reporting oder Folgeprozesse.</p>
+            </article>
+          </div>
+
+          <div class="ai-automation-control" aria-label="Automatisierung und Kontrolle">
+            <div class="ai-automation-control-item">
+              <strong>Automatisiert vorbereitet</strong>
+              <p>Aufnahme, Strukturierung, Vorbereitung, Übergabe und Dokumentation.</p>
+            </div>
+            <div class="ai-automation-control-item">
+              <strong>Menschlich gesteuert</strong>
+              <p>Bewertung, Freigabe, Entscheidung, Verantwortung und finale Kommunikation.</p>
+            </div>
+          </div>
+        </section>
 
         <div class="ai-map-block-heading" id="unternehmensbereiche">
           <span>Unternehmensbereiche</span>
