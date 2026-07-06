@@ -1571,8 +1571,13 @@
       }
 
       .ai-map-intro .eyebrow {
-        color: #247780;
+        color: #57d9c4;
         margin-bottom: 8px;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
 
       .ai-map-intro h2 {
@@ -2174,11 +2179,11 @@
         position: relative;
         overflow: hidden;
         margin-top: clamp(32px, 5vw, 56px);
-        padding: clamp(42px, 5.8vw, 74px);
+        padding: clamp(34px, 4.8vw, 58px) clamp(42px, 5.8vw, 74px);
         color: #ffffff;
         background:
-          linear-gradient(118deg, rgba(7, 13, 19, 0.96) 0%, rgba(10, 24, 32, 0.92) 54%, rgba(21, 45, 49, 0.86) 100%),
-          radial-gradient(circle at 72% 42%, rgba(72, 199, 176, 0.17), transparent 34%);
+          linear-gradient(118deg, rgba(7, 13, 19, 0.96) 0%, rgba(10, 24, 32, 0.92) 56%, rgba(18, 39, 43, 0.82) 100%),
+          radial-gradient(circle at 74% 44%, rgba(72, 199, 176, 0.1), transparent 34%);
         border: 1px solid rgba(84, 214, 214, 0.22);
         border-radius: 8px;
         box-shadow:
@@ -2192,8 +2197,8 @@
         inset: 0;
         z-index: 0;
         background:
-          linear-gradient(90deg, rgba(7, 14, 23, 0.16), transparent 52%),
-          radial-gradient(circle at 82% 38%, rgba(21, 138, 202, 0.14), transparent 28%);
+          linear-gradient(90deg, rgba(7, 14, 23, 0.12), transparent 54%),
+          radial-gradient(circle at 82% 38%, rgba(21, 138, 202, 0.08), transparent 28%);
         pointer-events: none;
       }
 
@@ -3284,12 +3289,12 @@
         position: static;
         width: auto;
         height: auto;
-        max-width: 920px;
+        max-width: min(100%, 1100px);
         margin: 0 0 clamp(36px, 5vw, 54px);
         overflow: visible;
         clip: auto;
         color: #05050f;
-        font-size: clamp(3.1rem, 6.2vw, 5.35rem);
+        font-size: clamp(3.1rem, 5.9vw, 5.12rem);
         line-height: 0.98;
         font-weight: 850;
         white-space: normal;
@@ -3919,7 +3924,7 @@
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-top: clamp(46px, 7vw, 78px);
-        padding: clamp(110px, 14vw, 170px) max(28px, calc((100vw - 1180px) / 2)) clamp(104px, 13vw, 150px);
+        padding: clamp(88px, 11vw, 132px) max(28px, calc((100vw - 1180px) / 2)) clamp(82px, 10vw, 116px);
         color: #ffffff;
         background:
           linear-gradient(112deg, rgba(5, 9, 14, 0.96) 0%, rgba(5, 9, 14, 0.78) 42%, rgba(5, 9, 14, 0.28) 100%),
@@ -3941,6 +3946,16 @@
       .final-cta > * {
         position: relative;
         z-index: 1;
+      }
+
+      .final-cta .eyebrow {
+        margin: 0 0 22px;
+        color: #48c7b0;
+        font-size: clamp(1rem, 1.8vw, 1.28rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
 
       .founder-section {
@@ -4083,10 +4098,10 @@
 
       .founder-media {
         position: relative;
-        align-self: start;
-        height: clamp(610px, 49vw, 762px);
+        align-self: end;
+        height: clamp(620px, 45vw, 742px);
         min-height: 0;
-        margin: clamp(34px, 4.8vw, 54px) 0 0;
+        margin: clamp(22px, 3vw, 38px) 0 0;
         overflow: hidden;
       }
 
@@ -4140,7 +4155,7 @@
 
       .final-cta p {
         max-width: 620px;
-        margin: clamp(38px, 5vw, 60px) 0 0;
+        margin: clamp(24px, 3.3vw, 38px) 0 0;
         color: rgba(255, 255, 255, 0.86);
         font-size: clamp(1.35rem, 2.35vw, 1.85rem);
         line-height: 1.22;
@@ -4150,7 +4165,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: clamp(18px, 3vw, 44px);
-        margin-top: clamp(56px, 7vw, 84px);
+        margin-top: clamp(36px, 4.8vw, 58px);
         justify-content: flex-start;
       }
 
@@ -7913,6 +7928,7 @@
       </section>
 
       <section class="final-cta" id="kontakt" aria-labelledby="final-cta-title">
+        <p class="eyebrow">Kontakt &amp; Erstgespräch</p>
         <h2 id="final-cta-title">
           Informationen strukturieren.<br>
           Risiken früher erkennen.<br>
