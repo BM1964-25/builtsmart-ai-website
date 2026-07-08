@@ -260,6 +260,14 @@
           },
           {
             "@type": "Question",
+            "name": "Bietet BuiltSmart AI auch KI-Schulungen und Workshops an?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. BuiltSmart AI bietet praxisnahe KI-Schulungen und Workshops für Führungskräfte, Fachbereiche und Mitarbeitende. Im Mittelpunkt stehen konkrete Anwendungsfälle, sichere Nutzung, bessere Prompts, produktive Workflows und der Transfer in den Arbeitsalltag."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Was bedeutet Workflow Automation bei BuiltSmart AI?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -1363,6 +1371,109 @@
       .service-card:nth-child(8) { --accent: #5d8dff; }
       .service-card:nth-child(9) { --accent: #9d8060; }
 
+      .service-training-card {
+        --accent: #54d6d6;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(18px, 3vw, 34px);
+        margin-top: clamp(18px, 3vw, 28px);
+        padding: clamp(24px, 3vw, 34px);
+        overflow: hidden;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 92% 10%, rgba(84, 214, 214, 0.18), transparent 34%),
+          linear-gradient(135deg, #071017 0%, #0b1b20 56%, #123430 100%);
+        border: 1px solid rgba(84, 214, 214, 0.24);
+        border-left: 5px solid var(--accent);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 22px 56px rgba(23, 32, 38, 0.12);
+      }
+
+      .service-training-card span {
+        display: inline-flex;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .service-training-card h3 {
+        margin: 8px 0 0;
+        color: #ffffff;
+        font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+        line-height: 1.04;
+      }
+
+      .service-training-card p {
+        max-width: 820px;
+        margin: 12px 0 0;
+        color: rgba(237, 247, 255, 0.82);
+        font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+        line-height: 1.5;
+      }
+
+      .service-training-path {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .service-training-step {
+        min-width: 0;
+        padding: 15px 16px;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+      }
+
+      .service-training-step strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #ffffff;
+        font-size: clamp(0.98rem, 1.18vw, 1.08rem);
+        line-height: 1.18;
+      }
+
+      .service-training-step span {
+        display: block;
+        color: rgba(237, 247, 255, 0.74);
+        font-size: 0.88rem;
+        font-weight: 620;
+        letter-spacing: 0;
+        line-height: 1.38;
+        text-transform: none;
+      }
+
+      .service-training-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 2px;
+      }
+
+      .service-training-cta p {
+        max-width: 720px;
+        margin: 0;
+      }
+
+      .service-training-cta .button {
+        flex: 0 0 auto;
+        min-width: 246px;
+        color: #172026;
+        background: #ffffff;
+        border-color: #ffffff;
+      }
+
+      .service-training-cta .button span[aria-hidden="true"] {
+        color: #172026;
+      }
+
       .services-cta {
         display: flex;
         flex-wrap: wrap;
@@ -1370,7 +1481,7 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 18px;
-        padding: 18px 20px;
+        padding: 18px clamp(24px, 3vw, 34px);
         color: #ffffff;
         background: #172026;
         border-radius: 8px;
@@ -1393,6 +1504,7 @@
 
       .services-cta .button {
         flex: 0 0 auto;
+        min-width: 246px;
         color: #172026;
         background: #ffffff;
         border-color: #ffffff;
@@ -1409,7 +1521,7 @@
       .service-process-head {
         display: grid;
         gap: 10px;
-        max-width: 760px;
+        max-width: 100%;
       }
 
       .service-process-head span {
@@ -1429,11 +1541,17 @@
 
       .service-process-head p {
         margin: 0;
-        max-width: 760px;
+        max-width: none;
         color: #56616b;
         font-size: 1rem;
         line-height: 1.5;
         text-align: left;
+      }
+
+      @media (min-width: 900px) {
+        .service-process-head p {
+          white-space: nowrap;
+        }
       }
 
       .service-process {
@@ -5956,6 +6074,22 @@
           padding-right: 0;
         }
 
+        .service-training-card {
+          grid-template-columns: 1fr;
+        }
+
+        .service-training-path {
+          grid-template-columns: 1fr;
+        }
+
+        .service-training-cta {
+          align-items: stretch;
+        }
+
+        .service-training-cta .button {
+          width: 100%;
+        }
+
         .pressure-matrix {
           padding: 22px;
         }
@@ -6524,9 +6658,48 @@
           </article>
         </div>
 
+        <article class="service-training-card" aria-labelledby="ki-schulungen-title">
+          <div>
+            <span>Strategie, Schulung &amp; Umsetzung</span>
+            <h3 id="ki-schulungen-title">KI-Schulungen &amp; Praxisworkshops</h3>
+            <p>
+              BuiltSmart AI begleitet Unternehmen von der Potenzialanalyse über
+              Strategie, Schulung und Roadmap bis zur Entwicklung individueller
+              KI-Anwendungen. Workshops und Umsetzung greifen dabei direkt in
+              die konkreten Arbeitsprozesse.
+            </p>
+          </div>
+          <div class="service-training-path" aria-label="KI-Einführung von der Analyse bis zur Umsetzung">
+            <div class="service-training-step">
+              <strong>Potenziale erkennen</strong>
+              <span>KI-Potenzialanalyse, Reifegradanalyse und Prozessaufnahme.</span>
+            </div>
+            <div class="service-training-step">
+              <strong>Roadmap entwickeln</strong>
+              <span>Strategieworkshop, Priorisierung und Umsetzungsfahrplan.</span>
+            </div>
+            <div class="service-training-step">
+              <strong>Teams befähigen</strong>
+              <span>KI-Schulungen, Prompt-Workshops und sichere Nutzung im Alltag.</span>
+            </div>
+            <div class="service-training-step">
+              <strong>Lösungen umsetzen</strong>
+              <span>Individuelle KI-Anwendungen, Einführung und Prozessoptimierung.</span>
+            </div>
+          </div>
+          <div class="service-training-cta">
+            <p>
+              In einem unverbindlichen Erstgespräch identifizieren wir konkrete
+              Potenziale und verbinden Strategie, Schulung und Umsetzung zu
+              einem praxistauglichen Vorgehen.
+            </p>
+            <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
         <div class="service-process-block">
           <div class="service-process-head">
-            <span>Vorgehen</span>
+            <span>Umsetzung</span>
             <h3>Von der Idee zur nutzbaren Lösung.</h3>
             <p>Der Prozess bleibt schlank: erst verstehen, dann strukturieren, schnell sichtbar machen und gezielt verbessern.</p>
           </div>
@@ -6568,7 +6741,7 @@
             unterstütze auch bei der Strukturierung und Ausarbeitung des
             passenden Ablaufs.
           </p>
-          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">KI-Potenzial besprechen <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -6823,10 +6996,11 @@
         <div class="ai-map-cta">
           <p>
             <strong>Sie möchten das KI-Potenzial in Ihrem Unternehmen erkennen?</strong>
-            In einem unverbindlichen Erstgespräch klären wir, welche Prozesse, Aufgaben
-            oder Datenquellen sich für eine erste KI-Anwendung eignen.
+            Wir analysieren gemeinsam Ihre Abläufe, identifizieren konkrete
+            Einsatzfelder und priorisieren die KI-Anwendungen, die schnell
+            messbaren Nutzen schaffen.
           </p>
-          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+          <a class="button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">KI-Potenzial besprechen <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
@@ -8229,6 +8403,17 @@
               Rechnungen, Projektsteuerung, Reporting, Vertrieb, Recruiting und
               interne Abläufe. Ziel ist es, konkrete Potenziale sichtbar zu
               machen und daraus umsetzbare KI-Anwendungen abzuleiten.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Bietet BuiltSmart AI auch KI-Schulungen und Workshops an?</summary>
+            <p>
+              Ja. BuiltSmart AI bietet praxisnahe KI-Schulungen und Workshops
+              für Führungskräfte, Fachbereiche und Mitarbeitende. Im Mittelpunkt
+              stehen konkrete Anwendungsfälle, sichere Nutzung, bessere
+              Prompts, produktive Workflows und der Transfer in den
+              Arbeitsalltag.
             </p>
           </details>
 
