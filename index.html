@@ -382,6 +382,7 @@
         display: inline-flex;
         grid-column: 1;
         grid-row: 1;
+        width: fit-content;
         min-width: 0;
         align-items: center;
         gap: 0;
@@ -389,6 +390,7 @@
         text-decoration: none;
         font-weight: 880;
         letter-spacing: 0;
+        transform: translateX(-4px);
       }
 
       .brand-mark {
@@ -405,13 +407,16 @@
       .site-tagline {
         grid-column: 1;
         grid-row: 2;
-        max-width: 920px;
-        margin: 14px 0 0;
+        width: auto;
+        max-width: none;
+        margin: 6px 0 0;
         color: #5a5b60;
-        font-size: clamp(1.06rem, 1.72vw, 1.34rem);
-        line-height: 1.35;
-        font-weight: 450;
+        font-size: clamp(1.16rem, 1.84vw, 1.42rem);
+        line-height: 1.18;
+        font-weight: 560;
         letter-spacing: 0;
+        white-space: nowrap;
+        text-align: left;
       }
 
       .site-nav {
@@ -1423,11 +1428,28 @@
 
       .service-training-step {
         min-width: 0;
-        padding: 15px 16px;
+        min-height: 154px;
+        padding: 17px 16px 16px;
         color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.045));
+        border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 8px;
+      }
+
+      .service-training-step em {
+        width: 34px;
+        height: 34px;
+        display: inline-grid;
+        place-items: center;
+        margin-bottom: 13px;
+        color: #071017;
+        background: var(--accent);
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 1;
       }
 
       .service-training-step strong {
@@ -5397,6 +5419,7 @@
         font-size: 0.96rem;
         font-weight: 820;
         line-height: 1.1;
+        white-space: nowrap;
         text-decoration: none;
         cursor: pointer;
       }
@@ -5462,6 +5485,172 @@
         stroke-width: 2.4;
         stroke-linecap: round;
         stroke-linejoin: round;
+      }
+
+      .floating-toc {
+        position: fixed;
+        top: 50%;
+        right: clamp(18px, 2.4vw, 34px);
+        z-index: 78;
+        display: grid;
+        width: 188px;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(84, 214, 214, 0.18), transparent 38%),
+          linear-gradient(145deg, rgba(7, 16, 23, 0.94), rgba(18, 52, 48, 0.92));
+        border: 1px solid rgba(84, 214, 214, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 20px 54px rgba(7, 16, 23, 0.22);
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(112%, -50%);
+        transition:
+          opacity 180ms ease,
+          transform 220ms ease,
+          width 180ms ease;
+        backdrop-filter: blur(18px);
+      }
+
+      .floating-toc.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(0, -50%);
+      }
+
+      .floating-toc.is-collapsed {
+        top: 50%;
+        bottom: auto;
+        width: 48px;
+        height: 48px;
+        background:
+          radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.16), transparent 30%),
+          linear-gradient(145deg, #172026, #05070a);
+        border-color: rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        box-shadow:
+          0 18px 42px rgba(23, 32, 38, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        transform: translate(0, -50%);
+      }
+
+      .floating-toc__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        min-height: 42px;
+        padding: 8px 8px 8px 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .floating-toc__title {
+        color: #54d6d6;
+        font-size: 0.68rem;
+        font-weight: 860;
+        letter-spacing: 0.1em;
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .floating-toc__toggle {
+        flex: 0 0 auto;
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 850;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .floating-toc__toggle:hover,
+      .floating-toc__toggle:focus-visible {
+        background: rgba(255, 255, 255, 0.16);
+        outline: none;
+      }
+
+      .floating-toc__toggle .floating-toc__open-label,
+      .floating-toc.is-collapsed .floating-toc__toggle .floating-toc__close-label {
+        display: none;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__toggle .floating-toc__open-label {
+        display: block;
+      }
+
+      .floating-toc__nav {
+        display: grid;
+        gap: 2px;
+        padding: 8px;
+      }
+
+      .floating-toc__nav a {
+        display: block;
+        padding: 7px 8px;
+        color: rgba(255, 255, 255, 0.9);
+        border-radius: 7px;
+        font-size: 0.76rem;
+        font-weight: 820;
+        line-height: 1.15;
+        text-decoration: none;
+        transition:
+          color 160ms ease,
+          background 160ms ease;
+      }
+
+      .floating-toc__nav a:hover,
+      .floating-toc__nav a:focus-visible,
+      .floating-toc__nav a.is-active {
+        color: #061014;
+        background: #54d6d6;
+        outline: none;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__title,
+      .floating-toc.is-collapsed .floating-toc__nav {
+        display: none;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__header {
+        justify-content: center;
+        min-height: 48px;
+        padding: 0;
+        border-bottom: 0;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__toggle {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        background: transparent;
+        border: 0;
+        border-radius: 999px;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__toggle .floating-toc__open-label {
+        display: none;
+      }
+
+      .floating-toc.is-collapsed .floating-toc__toggle::before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 1px);
+        width: 18px;
+        height: 2px;
+        background: #ffffff;
+        border-radius: 999px;
+        box-shadow:
+          0 -6px 0 #ffffff,
+          0 6px 0 #ffffff;
+        transform: translate(-50%, -50%);
       }
 
       .menu-tile {
@@ -5657,6 +5846,7 @@
 
         .brand {
           max-width: 100%;
+          transform: none;
         }
 
         .brand-name {
@@ -5667,8 +5857,13 @@
         .site-tagline {
           grid-column: 1 / -1;
           grid-row: 2;
+          width: auto;
           margin-top: 2px;
           font-size: 0.98rem;
+          letter-spacing: 0;
+          white-space: normal;
+          text-align: left;
+          text-align-last: auto;
         }
 
         .header-actions {
@@ -5994,6 +6189,7 @@
 
         .brand {
           max-width: 100%;
+          transform: none;
         }
 
         .brand-mark {
@@ -6007,6 +6203,7 @@
         .site-tagline {
           font-size: 0.88rem;
           line-height: 1.28;
+          white-space: normal;
         }
 
         .site-nav a {
@@ -6438,6 +6635,10 @@
           height: 44px;
         }
 
+        .floating-toc {
+          display: none;
+        }
+
         .contact-modal {
           padding: 14px;
         }
@@ -6671,18 +6872,22 @@
           </div>
           <div class="service-training-path" aria-label="KI-Einführung von der Analyse bis zur Umsetzung">
             <div class="service-training-step">
+              <em>01</em>
               <strong>Potenziale erkennen</strong>
               <span>KI-Potenzialanalyse, Reifegradanalyse und Prozessaufnahme.</span>
             </div>
             <div class="service-training-step">
+              <em>02</em>
               <strong>Roadmap entwickeln</strong>
               <span>Strategieworkshop, Priorisierung und Umsetzungsfahrplan.</span>
             </div>
             <div class="service-training-step">
+              <em>03</em>
               <strong>Teams befähigen</strong>
               <span>KI-Schulungen, Prompt-Workshops und sichere Nutzung im Alltag.</span>
             </div>
             <div class="service-training-step">
+              <em>04</em>
               <strong>Lösungen umsetzen</strong>
               <span>Individuelle KI-Anwendungen, Einführung und Prozessoptimierung.</span>
             </div>
@@ -8304,7 +8509,7 @@
       <section class="founder-section" id="persoenliche-expertise" aria-labelledby="founder-title">
         <div class="founder-card">
           <div class="founder-content">
-            <p class="eyebrow">Praxis &amp; Verantwortung</p>
+            <p class="eyebrow">Praxiswissen &amp; KI-Umsetzung</p>
             <h2 id="founder-title">Praxiswissen,<br>das&nbsp;in&nbsp;Software<br>wirksam&nbsp;wird.</h2>
             <p class="founder-lead">
               BuiltSmart AI basiert auf fast vier Jahrzehnten Erfahrung in Bau,
@@ -8466,18 +8671,18 @@
               Datenlage und gewünschtem Nutzen. Anschließend kann eine erste
               Pilotversion, ein schlanker Prototyp, eine konkrete App-Anpassung
               oder ein individuelles KI-Tool geplant werden. Der nächste
-              sinnvolle Schritt ist ein kurzes Erstgespräch, um Ziel, Prozess
-              und mögliche KI-Potenziale einzuordnen.
+              sinnvolle Schritt ist ein kurzer Termin, um Ziel, Prozess und
+              mögliche KI-Potenziale einzuordnen.
             </p>
             <div class="faq-action">
-              <a class="faq-action-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+              <a class="faq-action-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">KI-Potenzial besprechen <span aria-hidden="true">→</span></a>
             </div>
           </details>
         </div>
       </section>
 
       <section class="final-cta" id="kontakt" aria-labelledby="final-cta-title">
-        <p class="eyebrow">Kontakt &amp; Erstgespräch</p>
+        <p class="eyebrow">Kontakt &amp; Termin</p>
         <h2 id="final-cta-title">
           Informationen strukturieren.<br>
           Risiken früher erkennen.<br>
@@ -8490,7 +8695,7 @@
         <div class="final-cta-actions">
           <a class="final-cta-button primary" href="#apps-title">Anwendungen ansehen <span aria-hidden="true">→</span></a>
           <button class="final-cta-button contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
-          <a class="final-cta-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+          <a class="final-cta-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin vereinbaren <span aria-hidden="true">→</span></a>
         </div>
       </section>
     </main>
@@ -8573,7 +8778,7 @@
 
         <div class="contact-actions">
           <a class="contact-action" href="mailto:info@built-smart-hub.com?subject=Anfrage%20zu%20BuiltSmart%20AI">E-Mail schreiben <span aria-hidden="true">→</span></a>
-          <a class="contact-action secondary" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Erstgespräch vereinbaren <span aria-hidden="true">→</span></a>
+          <a class="contact-action secondary" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin vereinbaren <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -8654,6 +8859,30 @@
         </div>
       </div>
     </div>
+
+    <aside class="floating-toc" aria-label="Inhaltsnavigation">
+      <div class="floating-toc__header">
+        <span class="floating-toc__title">Inhalt</span>
+        <button class="floating-toc__toggle" type="button" aria-label="Inhaltsnavigation einklappen" aria-expanded="true">
+          <span class="floating-toc__close-label" aria-hidden="true">×</span>
+          <span class="floating-toc__open-label" aria-hidden="true">☰</span>
+        </button>
+      </div>
+      <nav class="floating-toc__nav" aria-label="Abschnitte">
+        <a href="#page-title">Anforderungen</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#process-automation-title">Workflow</a>
+        <a href="#unternehmensbereiche">Unternehmensbereiche</a>
+        <a href="#apps-title">KI-Anwendungen</a>
+        <a href="#nutzen-matrix">Nutzen</a>
+        <a href="#roi-title">ROI Rechner</a>
+        <a href="#datenschutz-sicherheit">Sicherheit</a>
+        <a href="#zielgruppen">Zielgruppen</a>
+        <a href="#branchenwissen-software">Expertise</a>
+        <a href="#faq">FAQ</a>
+        <a href="#final-cta-title">Kontakt</a>
+      </nav>
+    </aside>
 
     <button class="scroll-top-button" type="button" aria-label="Zurück zum Seitenanfang">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -8843,6 +9072,98 @@
         window.addEventListener("scroll", toggleButton, { passive: true });
         window.addEventListener("pageshow", toggleButton);
         toggleButton();
+      })();
+
+      (() => {
+        const toc = document.querySelector(".floating-toc");
+        const toggle = toc?.querySelector(".floating-toc__toggle");
+        const links = [...(toc?.querySelectorAll(".floating-toc__nav a") ?? [])];
+        const hero = document.querySelector(".hero");
+        const contact = document.querySelector("#kontakt");
+        const footer = document.querySelector(".site-footer");
+        if (!toc || !toggle || !links.length || !hero || !contact) return;
+
+        let userCollapsed = false;
+        let heroVisible = true;
+        let contactVisible = false;
+        let footerVisible = false;
+
+        const updateVisibility = () => {
+          const shouldShow = !heroVisible && !contactVisible && !footerVisible;
+          toc.classList.toggle("is-visible", shouldShow);
+        };
+
+        const setCollapsed = (collapsed) => {
+          userCollapsed = collapsed;
+          toc.classList.toggle("is-collapsed", collapsed);
+          toggle.setAttribute("aria-expanded", String(!collapsed));
+          toggle.setAttribute(
+            "aria-label",
+            collapsed ? "Inhaltsnavigation öffnen" : "Inhaltsnavigation einklappen"
+          );
+        };
+
+        toggle.addEventListener("click", () => {
+          setCollapsed(!userCollapsed);
+        });
+
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (userCollapsed) setCollapsed(false);
+          });
+        });
+
+        const visibilityObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.target === hero) heroVisible = entry.isIntersecting;
+            if (entry.target === contact) contactVisible = entry.isIntersecting;
+            if (entry.target === footer) footerVisible = entry.isIntersecting;
+          });
+          updateVisibility();
+        }, {
+          threshold: 0,
+          rootMargin: "-18% 0px -18% 0px",
+        });
+
+        visibilityObserver.observe(hero);
+        visibilityObserver.observe(contact);
+        if (footer) visibilityObserver.observe(footer);
+
+        const sectionMap = links
+          .map((link) => {
+            const target = document.querySelector(link.getAttribute("href"));
+            return target ? { link, target } : null;
+          })
+          .filter(Boolean);
+
+        const setActiveLink = (activeItem) => {
+          links.forEach((link) => link.classList.remove("is-active"));
+          activeItem?.link.classList.add("is-active");
+        };
+
+        let ticking = false;
+        const updateActiveLink = () => {
+          ticking = false;
+          const referenceY = window.innerHeight * 0.34;
+          const activeItem = sectionMap.reduce((current, item) => {
+            const top = item.target.getBoundingClientRect().top;
+            return top <= referenceY ? item : current;
+          }, sectionMap[0]);
+          setActiveLink(activeItem);
+        };
+
+        const requestActiveUpdate = () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(updateActiveLink);
+        };
+
+        window.addEventListener("scroll", requestActiveUpdate, { passive: true });
+        window.addEventListener("resize", requestActiveUpdate);
+        window.addEventListener("hashchange", requestActiveUpdate);
+        window.addEventListener("pageshow", requestActiveUpdate);
+        updateVisibility();
+        updateActiveLink();
       })();
 
       (() => {
