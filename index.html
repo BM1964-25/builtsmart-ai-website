@@ -405,7 +405,7 @@
       }
 
       .site-tagline {
-        grid-column: 1;
+        grid-column: 1 / -1;
         grid-row: 2;
         width: auto;
         max-width: none;
@@ -417,6 +417,31 @@
         letter-spacing: 0;
         white-space: nowrap;
         text-align: left;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .language-inline {
+        min-height: 1.4em;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #36383b;
+        font-size: 0.92rem;
+        font-weight: 560;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 160ms ease, opacity 160ms ease;
+      }
+
+      .language-inline:hover,
+      .language-inline:focus-visible {
+        color: var(--brand);
+        opacity: 0.9;
+        outline: none;
       }
 
       .site-nav {
@@ -5918,6 +5943,7 @@
           white-space: normal;
           text-align: left;
           text-align-last: auto;
+          align-items: flex-start;
         }
 
         .header-actions {
@@ -6716,7 +6742,10 @@
           <span class="brand-name">BuiltSmart AI</span>
         </a>
 
-        <p class="site-tagline">Prozesse strukturieren. Risiken erkennen. Entscheidungen verbessern.</p>
+        <p class="site-tagline">
+          <span>Prozesse strukturieren. Risiken erkennen. Entscheidungen verbessern.</span>
+          <a class="language-inline" href="en/index.html">English <span aria-hidden="true">→</span></a>
+        </p>
 
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a href="#leistungen">Leistungen</a>
