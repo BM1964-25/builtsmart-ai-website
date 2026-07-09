@@ -978,8 +978,8 @@
         .site-header__inner {
           min-height: 0;
           grid-template-columns: minmax(0, 1fr);
-          gap: 10px;
-          padding: 18px 0 16px;
+          gap: 6px;
+          padding: 16px 0 8px;
         }
 
         .site-nav {
@@ -988,12 +988,18 @@
           width: 100%;
           justify-content: flex-start;
           flex-wrap: wrap;
-          margin-top: 4px;
+          margin-top: 2px;
         }
 
         .site-tagline {
           white-space: normal;
           align-items: flex-start;
+        }
+
+        .brand-name {
+          font-size: clamp(2.8rem, 10.8vw, 4.35rem);
+          line-height: 0.92;
+          white-space: nowrap;
         }
 
         .header-actions {
@@ -1037,7 +1043,36 @@
           width: min(100% - 24px, var(--max));
         }
 
+        .site-header__inner {
+          padding-bottom: 6px;
+        }
+
         .site-nav {
+          display: flex;
+          gap: 2px 12px;
+          padding-bottom: 0;
+        }
+
+        .site-nav a {
+          font-size: 0.72rem;
+          padding: 3px 0;
+        }
+
+        .brand-name {
+          font-size: clamp(2.7rem, 15.4vw, 3.75rem);
+          line-height: 0.92;
+          white-space: nowrap;
+        }
+
+        .header-actions .button.header-booking-button {
+          display: none;
+        }
+
+        .header-actions .button.email-action {
+          display: none;
+        }
+
+        .header-actions {
           display: none;
         }
 
@@ -1124,7 +1159,7 @@
 
         <div class="header-actions">
           <a class="button button-dark email-action" href="mailto:info@built-smart-hub.com?subject=BuiltSmart%20AI%20Inquiry" data-email="info@built-smart-hub.com">Send Email <span aria-hidden="true">→</span></a>
-          <a class="button button-dark" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Book a Call <span aria-hidden="true">→</span></a>
+          <a class="button button-dark header-booking-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Book a Call <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </header>
@@ -1145,7 +1180,7 @@
           </p>
           <div class="hero-actions">
             <a class="button" href="#services">Explore Services <span aria-hidden="true">→</span></a>
-            <a class="button button-outline" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Discuss an AI Project <span aria-hidden="true">→</span></a>
+            <a class="button button-outline hero-booking-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Discuss an AI Project <span aria-hidden="true">→</span></a>
           </div>
           <div class="hero-proof" aria-label="BuiltSmart AI focus areas">
             <span>Custom AI tools</span>

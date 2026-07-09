@@ -5906,8 +5906,8 @@
           min-height: 0;
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
-          gap: 10px 16px;
-          padding: 18px 0 14px;
+          gap: 6px 16px;
+          padding: 16px 0 8px;
         }
 
         .site-nav {
@@ -5919,8 +5919,9 @@
           flex-wrap: wrap;
           overflow-x: visible;
           justify-content: flex-start;
-          margin-top: 4px;
+          margin-top: 2px;
           padding-bottom: 0;
+          gap: 2px 12px;
         }
 
         .brand {
@@ -5929,8 +5930,9 @@
         }
 
         .brand-name {
-          font-size: clamp(2.4rem, 9vw, 3.8rem);
+          font-size: clamp(2.8rem, 10.8vw, 4.35rem);
           line-height: 0.92;
+          white-space: nowrap;
         }
 
         .site-tagline {
@@ -5964,7 +5966,7 @@
           padding: 0 14px;
         }
 
-        .hero-booking-button {
+        .header-actions .button.header-booking-button {
           display: none;
         }
 
@@ -6268,7 +6270,7 @@
       @media (max-width: 560px) {
         .site-header__inner {
           width: min(100% - 24px, 1120px);
-          padding: 14px 0 12px;
+          padding: 14px 0 6px;
         }
 
         .brand {
@@ -6281,7 +6283,9 @@
         }
 
         .brand-name {
-          font-size: clamp(2rem, 10vw, 2.85rem);
+          font-size: clamp(2.7rem, 15.4vw, 3.75rem);
+          line-height: 0.92;
+          white-space: nowrap;
         }
 
         .site-tagline {
@@ -6292,7 +6296,7 @@
 
         .site-nav a {
           font-size: 0.72rem;
-          padding: 6px 0;
+          padding: 3px 0;
         }
 
         .header-actions .button {
@@ -6763,7 +6767,7 @@
 
         <div class="header-actions">
           <button class="button button-dark contact-trigger" type="button" aria-controls="contact-modal">Kontakt aufnehmen <span aria-hidden="true">→</span></button>
-          <a class="button button-dark" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
+          <a class="button button-dark header-booking-button" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Termin buchen <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </header>
