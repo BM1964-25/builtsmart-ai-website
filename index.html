@@ -5925,7 +5925,9 @@
 
         .brand {
           max-width: 100%;
-          transform: none;
+          justify-self: start;
+          text-align: left;
+          transform: translateX(-4px);
         }
 
         .brand-name {
@@ -5982,23 +5984,25 @@
 
         .hero h1 {
           max-width: 100%;
-          font-size: clamp(2rem, 8.8vw, 3rem);
+          font-size: clamp(2.25rem, 10.4vw, 3.4rem);
           line-height: 1.04;
         }
 
         .hero-line {
-          display: inline;
-          white-space: normal;
-        }
-
-        .hero-line + .hero-line::before {
-          content: " ";
+          display: block;
+          white-space: nowrap;
         }
 
         .requirements-title-line {
-          display: inline;
-          white-space: normal;
-          overflow-wrap: anywhere;
+          display: block;
+          white-space: nowrap;
+        }
+
+        .requirements-section h2 {
+          width: min(calc(100vw - 24px), 900px);
+          font-size: clamp(2.65rem, 5vw, 4.35rem);
+          line-height: 0.98;
+          max-width: none;
         }
 
         .expertise-title-line {
@@ -6010,10 +6014,6 @@
         #target-audience-title,
         #final-cta-title {
           overflow-wrap: anywhere;
-        }
-
-        .requirements-title-line + .requirements-title-line::before {
-          content: " ";
         }
 
         .hero-copy,
@@ -6276,7 +6276,7 @@
 
         .brand {
           max-width: 100%;
-          transform: none;
+          transform: translateX(-4px);
         }
 
         .brand-mark {
@@ -6318,7 +6318,7 @@
         }
 
         .hero h1 {
-          font-size: clamp(1.92rem, 8.2vw, 2.7rem);
+          font-size: clamp(2.25rem, 10.4vw, 3.4rem);
         }
 
         .hero-actions .button {
@@ -6809,7 +6809,8 @@
           <p class="eyebrow">Warum BuiltSmart AI</p>
           <h2 id="page-title">
             <span class="requirements-title-line">Die Anforderungen</span>
-            <span class="requirements-title-line">an Unternehmen steigen.</span>
+            <span class="requirements-title-line">an Unternehmen</span>
+            <span class="requirements-title-line">steigen.</span>
           </h2>
           <p class="lead">
             Komplexere Projekte, wachsende Datenmengen und steigender Kosten-
@@ -7047,7 +7048,7 @@
       <section class="ai-map-section" id="ki-prozesslandkarte" aria-labelledby="ai-map-title">
         <div class="ai-map-intro">
           <p class="eyebrow">KI-Prozesspotenziale</p>
-          <h2 id="ai-map-title">Wo KI in Unternehmensprozessen messbaren Nutzen schafft.</h2>
+          <h2 id="ai-map-title">Wo KI in Unternehmens&shy;prozessen messbaren Nutzen schafft.</h2>
           <p>
             Die Übersicht zeigt zentrale Unternehmensbereiche, in denen KI
             Informationen strukturiert, Aufgaben vorbereitet, Prüfungen
