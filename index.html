@@ -7626,7 +7626,7 @@
         </div>
 
         <div class="assessment-cta">
-          <button class="button button-ghost assessment-soon-button" type="button">Executive Assessment öffnen <span aria-hidden="true">→</span></button>
+          <a class="button button-ghost assessment-soon-button" href="https://ai-assessment.builtsmart-ai.app" target="_blank" rel="noopener noreferrer">Executive KI-Assessment öffnen <span aria-hidden="true">→</span></a>
           <a class="button button-light" href="https://booking.builtsmart-ai.app/book?embed=1" target="_blank" rel="noopener noreferrer">Strategiegespräch buchen <span aria-hidden="true">→</span></a>
         </div>
       </section>
@@ -9444,19 +9444,6 @@
 
         setAppCategory(appTabs.find((tab) => tab.classList.contains("is-active"))?.dataset.appFilter || appTabs[0].dataset.appFilter);
         setMatrixCategory(matrixTabs.find((tab) => tab.classList.contains("is-active"))?.dataset.appFilter || matrixTabs[0]?.dataset.appFilter || "risk");
-      })();
-
-      (() => {
-        const assessmentButton = document.querySelector(".assessment-soon-button");
-        if (!assessmentButton) return;
-        const originalLabel = assessmentButton.innerHTML;
-
-        assessmentButton.addEventListener("click", () => {
-          assessmentButton.textContent = "In Kürze verfügbar";
-          window.setTimeout(() => {
-            assessmentButton.innerHTML = originalLabel;
-          }, 2200);
-        });
       })();
 
       (() => {
