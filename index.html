@@ -2596,6 +2596,67 @@
         margin-top: clamp(30px, 4.2vw, 48px);
       }
 
+      .suite-list.is-tabbed .suite-list-category {
+        margin-top: 0;
+        margin-bottom: 6px;
+      }
+
+      .app-category-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 clamp(18px, 3vw, 28px);
+      }
+
+      .impact-matrix-section .app-category-tabs {
+        margin-top: clamp(18px, 3vw, 26px);
+        margin-bottom: clamp(18px, 3vw, 30px);
+      }
+
+      .app-category-tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 14px;
+        color: #172026;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 820;
+        letter-spacing: 0;
+        text-align: center;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 249, 248, 0.92));
+        border: 1px solid rgba(207, 214, 220, 0.92);
+        border-radius: 8px;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+          0 10px 22px rgba(23, 32, 38, 0.045);
+        cursor: pointer;
+        transition:
+          color 170ms ease,
+          background 170ms ease,
+          border-color 170ms ease,
+          box-shadow 170ms ease,
+          transform 170ms ease;
+      }
+
+      .app-category-tab:hover,
+      .app-category-tab:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(49, 95, 158, 0.34);
+        outline: none;
+      }
+
+      .app-category-tab.is-active {
+        color: #ffffff;
+        background: linear-gradient(180deg, #1e5962, #172026);
+        border-color: rgba(23, 32, 38, 0.92);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          0 14px 30px rgba(23, 32, 38, 0.12);
+      }
+
       .suite-variant-label {
         display: inline-flex;
         width: fit-content;
@@ -2866,6 +2927,7 @@
       .impact-matrix-section {
         margin-top: clamp(42px, 6vw, 72px);
         padding: 0;
+        overflow-anchor: none;
         background: transparent;
         border: 0;
         border-radius: 0;
@@ -2907,6 +2969,7 @@
       /* Kompakte Nutzen-Matrix der BuiltSmart AI Anwendungen. */
       .impact-scorecard {
         margin-top: clamp(28px, 4.8vw, 52px);
+        min-height: clamp(610px, 52vw, 760px);
         padding: clamp(26px, 4vw, 44px);
         overflow: hidden;
         color: #ffffff;
@@ -6143,6 +6206,10 @@
           grid-template-columns: auto 1fr;
         }
 
+        .app-category-tab {
+          flex: 1 1 210px;
+        }
+
         .suite-row-meta {
           grid-column: 2;
           justify-self: start;
@@ -6505,6 +6572,20 @@
           padding: 16px;
         }
 
+        .app-category-tabs {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          margin-bottom: 16px;
+        }
+
+        .app-category-tab {
+          width: 100%;
+          min-height: 38px;
+          padding: 0 12px;
+          font-size: 0.78rem;
+        }
+
         .suite-row-media {
           justify-content: space-between;
           min-height: 74px;
@@ -6537,6 +6618,7 @@
 
         .impact-scorecard {
           padding: 22px;
+          min-height: 1860px;
         }
 
         .impact-scorecard-row {
@@ -7343,10 +7425,18 @@
 
         <span class="suite-variant-label" hidden>Variante 2 · Workflow-Liste</span>
 
-        <nav class="suite-list" aria-label="BuiltSmart Apps Variante 2">
-          <h3 class="suite-list-category">Risiko-, Vertrags- &amp; Compliance-Management</h3>
+        <div class="app-category-tabs" aria-label="KI-Anwendungen nach Kategorie filtern">
+          <button class="app-category-tab is-active" type="button" data-app-filter="risk" aria-pressed="true">Risiko, Verträge &amp; Compliance</button>
+          <button class="app-category-tab" type="button" data-app-filter="knowledge" aria-pressed="false">Wissenssysteme &amp; Content</button>
+          <button class="app-category-tab" type="button" data-app-filter="project" aria-pressed="false">Projektsteuerung &amp; Prognose</button>
+          <button class="app-category-tab" type="button" data-app-filter="org" aria-pressed="false">Organisation &amp; Produktivität</button>
+          <button class="app-category-tab" type="button" data-app-filter="career" aria-pressed="false">Karriere &amp; Entwicklung</button>
+        </div>
 
-          <div class="suite-row suite-row--with-links" id="smart-risk-vertragsanalyse" style="--accent: var(--green);">
+        <nav class="suite-list" aria-label="BuiltSmart Apps Variante 2">
+          <h3 class="suite-list-category" data-category-heading="risk">Risiko-, Vertrags- &amp; Compliance-Management</h3>
+
+          <div class="suite-row suite-row--with-links" id="smart-risk-vertragsanalyse" data-app-category="risk" style="--accent: var(--green);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Vertragsanalyse-neu.png" alt="">
               <span class="suite-row-index">01</span>
@@ -7366,7 +7456,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" id="smart-contract-risk-intelligence" href="#kontakt" style="--accent: var(--teal);">
+          <a class="suite-row contact-trigger" id="smart-contract-risk-intelligence" data-app-category="risk" href="#kontakt" style="--accent: var(--teal);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Vertragsanalyse-neu.png" alt="">
               <span class="suite-row-index">02</span>
@@ -7382,7 +7472,7 @@
             </span>
           </a>
 
-          <div class="suite-row suite-row--with-links" id="smart-risk-risiko-register" style="--accent: var(--teal);">
+          <div class="suite-row suite-row--with-links" id="smart-risk-risiko-register" data-app-category="risk" style="--accent: var(--teal);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Risiko-Register-neu.png" alt="">
               <span class="suite-row-index">03</span>
@@ -7402,7 +7492,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" id="smart-revision" href="#kontakt" style="--accent: var(--blue);">
+          <a class="suite-row contact-trigger" id="smart-revision" data-app-category="risk" href="#kontakt" style="--accent: var(--blue);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">04</span>
@@ -7418,7 +7508,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-validate" href="#kontakt" style="--accent: #4b6c76;">
+          <a class="suite-row contact-trigger" id="smart-validate" data-app-category="risk" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/baurevision-neu.png" alt="">
               <span class="suite-row-index">05</span>
@@ -7434,7 +7524,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-bauakte" href="#kontakt" style="--accent: #2f7d58;">
+          <a class="suite-row contact-trigger" id="smart-bauakte" data-app-category="risk" href="#kontakt" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20BauAkte.png" alt="">
               <span class="suite-row-index">06</span>
@@ -7450,7 +7540,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-baudocs" href="#kontakt" style="--accent: #4b6c76;">
+          <a class="suite-row contact-trigger" id="smart-baudocs" data-app-category="risk" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20BauAkte.png" alt="">
               <span class="suite-row-index">07</span>
@@ -7466,7 +7556,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-offerflow" href="#kontakt" style="--accent: #315f9e;">
+          <a class="suite-row contact-trigger" id="smart-offerflow" data-app-category="risk" href="#kontakt" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20OfferFlow.png" alt="">
               <span class="suite-row-index">08</span>
@@ -7482,9 +7572,9 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Wissenssysteme &amp; Content Intelligence</h3>
+          <h3 class="suite-list-category" data-category-heading="knowledge">Wissenssysteme &amp; Content Intelligence</h3>
 
-          <div class="suite-row suite-row--with-links" id="smart-snippetflow" style="--accent: var(--violet);">
+          <div class="suite-row suite-row--with-links" id="smart-snippetflow" data-app-category="knowledge" style="--accent: var(--violet);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow-neu.png" alt="">
               <span class="suite-row-index">09</span>
@@ -7504,7 +7594,7 @@
             </span>
           </div>
 
-          <div class="suite-row suite-row--with-links" id="smart-promptcreator" style="--accent: #5d6fa3;">
+          <div class="suite-row suite-row--with-links" id="smart-promptcreator" data-app-category="knowledge" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20PromptCreator.png" alt="">
               <span class="suite-row-index">10</span>
@@ -7524,7 +7614,7 @@
             </span>
           </div>
 
-          <div class="suite-row suite-row--with-links" id="smart-summaryassistent" style="--accent: #2f7d58;">
+          <div class="suite-row suite-row--with-links" id="smart-summaryassistent" data-app-category="knowledge" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Summary%20Assistant-neu.png" alt="">
               <span class="suite-row-index">11</span>
@@ -7544,7 +7634,7 @@
             </span>
           </div>
 
-          <div class="suite-row suite-row--with-links" id="smart-replysuite" style="--accent: var(--gold);">
+          <div class="suite-row suite-row--with-links" id="smart-replysuite" data-app-category="knowledge" style="--accent: var(--gold);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
               <span class="suite-row-index">12</span>
@@ -7564,7 +7654,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" id="smart-contentengine" href="#kontakt" style="--accent: #5d6fa3;">
+          <a class="suite-row contact-trigger" id="smart-contentengine" data-app-category="knowledge" href="#kontakt" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20ContentEngine.png" alt="">
               <span class="suite-row-index">13</span>
@@ -7580,7 +7670,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-dokumentintelligence" href="#kontakt" style="--accent: #2f7d58;">
+          <a class="suite-row contact-trigger" id="smart-dokumentintelligence" data-app-category="knowledge" href="#kontakt" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Document%20Intelligence.png" alt="">
               <span class="suite-row-index">14</span>
@@ -7596,7 +7686,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-documentintelligencesystem" href="#kontakt" style="--accent: #2f7d58;">
+          <a class="suite-row contact-trigger" id="smart-documentintelligencesystem" data-app-category="knowledge" href="#kontakt" style="--accent: #2f7d58;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20DocumentIntelligenceSystem.png" alt="">
               <span class="suite-row-index">15</span>
@@ -7612,7 +7702,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-knowledgegalaxy" href="#kontakt" style="--accent: #315f9e;">
+          <a class="suite-row contact-trigger" id="smart-knowledgegalaxy" data-app-category="knowledge" href="#kontakt" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20KnowledgeGalaxy.png" alt="">
               <span class="suite-row-index">16</span>
@@ -7628,9 +7718,9 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Projektsteuerung &amp; Prognose</h3>
+          <h3 class="suite-list-category" data-category-heading="project">Projektsteuerung &amp; Prognose</h3>
 
-          <a class="suite-row contact-trigger" id="smart-cost-pert-prognose" href="#kontakt" style="--accent: var(--red);">
+          <a class="suite-row contact-trigger" id="smart-cost-pert-prognose" data-app-category="project" href="#kontakt" style="--accent: var(--red);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Pert-neu.png" alt="">
               <span class="suite-row-index">17</span>
@@ -7646,7 +7736,7 @@
             </span>
           </a>
 
-          <div class="suite-row suite-row--with-links" id="smart-risk-monte-carlo-simulation" style="--accent: #7a5f3f;">
+          <div class="suite-row suite-row--with-links" id="smart-risk-monte-carlo-simulation" data-app-category="project" style="--accent: #7a5f3f;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Monte-Carlo-Simulation-neu.png" alt="">
               <span class="suite-row-index">18</span>
@@ -7666,7 +7756,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" id="smart-capex" href="#kontakt" style="--accent: #65529c;">
+          <a class="suite-row contact-trigger" id="smart-capex" data-app-category="project" href="#kontakt" style="--accent: #65529c;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20CapEx.png" alt="">
               <span class="suite-row-index">19</span>
@@ -7682,9 +7772,9 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Organisation, Kommunikation &amp; Produktivität</h3>
+          <h3 class="suite-list-category" data-category-heading="org">Organisation, Kommunikation &amp; Produktivität</h3>
 
-          <a class="suite-row contact-trigger" id="smart-meeting-navigator" href="#kontakt" style="--accent: #3f7868;">
+          <a class="suite-row contact-trigger" id="smart-meeting-navigator" data-app-category="org" href="#kontakt" style="--accent: #3f7868;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Meeting-neu.png" alt="">
               <span class="suite-row-index">20</span>
@@ -7700,7 +7790,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-lingolive" href="#kontakt" style="--accent: var(--gold);">
+          <a class="suite-row contact-trigger" id="smart-lingolive" data-app-category="org" href="#kontakt" style="--accent: var(--gold);">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20LingoLive.png" alt="">
               <span class="suite-row-index">21</span>
@@ -7716,7 +7806,7 @@
             </span>
           </a>
 
-          <div class="suite-row suite-row--with-links" id="smart-booking" style="--accent: #315f9e;">
+          <div class="suite-row suite-row--with-links" id="smart-booking" data-app-category="org" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20Booking.png" alt="">
               <span class="suite-row-index">22</span>
@@ -7737,7 +7827,7 @@
             </span>
           </div>
 
-          <a class="suite-row contact-trigger" id="deckbuilder-pro" href="#kontakt" style="--accent: #65529c;">
+          <a class="suite-row contact-trigger" id="deckbuilder-pro" data-app-category="org" href="#kontakt" style="--accent: #65529c;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20DeckBuilder%20Pro.png" alt="">
               <span class="suite-row-index">23</span>
@@ -7753,7 +7843,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-recruitpilot" href="#kontakt" style="--accent: #4b6c76;">
+          <a class="suite-row contact-trigger" id="smart-recruitpilot" data-app-category="org" href="#kontakt" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20RecruitPilot.jpeg" alt="">
               <span class="suite-row-index">24</span>
@@ -7769,7 +7859,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-focus" href="#kontakt" style="--accent: #5d6fa3;">
+          <a class="suite-row contact-trigger" id="smart-focus" data-app-category="org" href="#kontakt" style="--accent: #5d6fa3;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20SnippetFlow%20B-neu.png" alt="">
               <span class="suite-row-index">25</span>
@@ -7785,7 +7875,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-executivereports" href="#kontakt" style="--accent: #315f9e;">
+          <a class="suite-row contact-trigger" id="smart-executivereports" data-app-category="org" href="#kontakt" style="--accent: #315f9e;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/SMART%20DeckBuilder%20Pro.png" alt="">
               <span class="suite-row-index">26</span>
@@ -7801,7 +7891,7 @@
             </span>
           </a>
 
-          <a class="suite-row contact-trigger" id="smart-officehub" href="#kontakt" style="--accent: #3f7868;">
+          <a class="suite-row contact-trigger" id="smart-officehub" data-app-category="org" href="#kontakt" style="--accent: #3f7868;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Smart%20MailResponse-neu.png" alt="">
               <span class="suite-row-index">27</span>
@@ -7817,9 +7907,9 @@
             </span>
           </a>
 
-          <h3 class="suite-list-category">Karriere &amp; Entwicklung</h3>
+          <h3 class="suite-list-category" data-category-heading="career">Karriere &amp; Entwicklung</h3>
 
-          <div class="suite-row suite-row--with-links" id="smart-career-navigator" style="--accent: #4b6c76;">
+          <div class="suite-row suite-row--with-links" id="smart-career-navigator" data-app-category="career" style="--accent: #4b6c76;">
             <span class="suite-row-media">
               <img loading="lazy" decoding="async" class="suite-row-icon" src="assets/app-icons-optimized/Career%20Navigator-neu.png" alt="">
               <span class="suite-row-index">28</span>
@@ -7854,6 +7944,14 @@
           </p>
         </div>
 
+        <div class="app-category-tabs" aria-label="Nutzen-Matrix nach Kategorie filtern">
+          <button class="app-category-tab is-active" type="button" data-app-filter="risk" aria-pressed="true">Risiko, Verträge &amp; Compliance</button>
+          <button class="app-category-tab" type="button" data-app-filter="knowledge" aria-pressed="false">Wissenssysteme &amp; Content</button>
+          <button class="app-category-tab" type="button" data-app-filter="project" aria-pressed="false">Projektsteuerung &amp; Prognose</button>
+          <button class="app-category-tab" type="button" data-app-filter="org" aria-pressed="false">Organisation &amp; Produktivität</button>
+          <button class="app-category-tab" type="button" data-app-filter="career" aria-pressed="false">Karriere &amp; Entwicklung</button>
+        </div>
+
         <div class="impact-scorecard" aria-label="Kompakte Nutzen-Matrix der BuiltSmart AI Anwendungen">
           <div class="impact-scorecard-grid">
             <div class="impact-scorecard-row is-head" aria-hidden="true">
@@ -7864,7 +7962,7 @@
               <span>Entscheidung</span>
             </div>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--green);">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: var(--green);">
               <div class="impact-scorecard-app"><strong>SMART RISK Vertragsanalyse</strong><span>Verträge &amp; Risiken</span></div>
               <span class="impact-scorecard-focus">Klauseln, Risiken und Handlungsfelder prüfen.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7872,7 +7970,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--teal);">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: var(--teal);">
               <div class="impact-scorecard-app"><strong>SMART Contract &amp; Risk Intelligence</strong><span>Verträge &amp; Risikoentscheidungen</span></div>
               <span class="impact-scorecard-focus">Klauseln extrahieren, Risiken klassifizieren und Maßnahmen ableiten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7880,7 +7978,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--teal);">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: var(--teal);">
               <div class="impact-scorecard-app"><strong>SMART RISK Risiko-Register</strong><span>Risiko &amp; Maßnahmen</span></div>
               <span class="impact-scorecard-focus">Risiken bewerten, verfolgen und berichten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7888,7 +7986,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--blue);">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: var(--blue);">
               <div class="impact-scorecard-app"><strong>SMART REVISION</strong><span>Prüfung &amp; Qualität</span></div>
               <span class="impact-scorecard-focus">Feststellungen und Prüfschritte dokumentieren.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7896,7 +7994,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #4b6c76;">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: #4b6c76;">
               <div class="impact-scorecard-app"><strong>SMART Validate</strong><span>Rechnung &amp; Plausibilität</span></div>
               <span class="impact-scorecard-focus">Plausibilität, Freigabe und Prüfvermerk sichern.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7904,7 +8002,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #2f7d58;">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: #2f7d58;">
               <div class="impact-scorecard-app"><strong>SMART BauAkte</strong><span>Bauakten &amp; Dokumente</span></div>
               <span class="impact-scorecard-focus">Dokumente, Fristen und Aufgaben bündeln.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7912,7 +8010,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #4b6c76;">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: #4b6c76;">
               <div class="impact-scorecard-app"><strong>SMART BauDocs</strong><span>Lieferscheine &amp; Rechnungen</span></div>
               <span class="impact-scorecard-focus">Bestellung, Lieferschein und Rechnung abgleichen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7920,7 +8018,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #65529c;">
+            <article class="impact-scorecard-row" data-app-category="risk" style="--impact-accent: #65529c;">
               <div class="impact-scorecard-app"><strong>SMART OfferFlow</strong><span>Angebote &amp; Abrechnung</span></div>
               <span class="impact-scorecard-focus">Angebote, Aufträge und Abrechnung strukturieren.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7928,7 +8026,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--violet);">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: var(--violet);">
               <div class="impact-scorecard-app"><strong>SMART SnippetFlow</strong><span>Wissen &amp; Bausteine</span></div>
               <span class="impact-scorecard-focus">Arbeitswissen und Bausteine wiederverwenden.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7936,7 +8034,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #5d6fa3;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #5d6fa3;">
               <div class="impact-scorecard-app"><strong>SMART PromptCreator</strong><span>Promptqualität</span></div>
               <span class="impact-scorecard-focus">Prompts verbessern und Ergebnisse standardisieren.</span>
               <span class="score-pill is-high">hoch</span>
@@ -7944,7 +8042,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #2f7d58;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #2f7d58;">
               <div class="impact-scorecard-app"><strong>SMART SummaryAssistent</strong><span>Dokumente &amp; Profile</span></div>
               <span class="impact-scorecard-focus">Inhalte verdichten und Ausgabeprofile nutzen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7952,7 +8050,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--gold);">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: var(--gold);">
               <div class="impact-scorecard-app"><strong>SMART ReplySuite</strong><span>Kommunikation</span></div>
               <span class="impact-scorecard-focus">Antworten, Vorlagen und Mehrsprachigkeit beschleunigen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7960,7 +8058,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #5d6fa3;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #5d6fa3;">
               <div class="impact-scorecard-app"><strong>SMART ContentEngine</strong><span>Content &amp; Veröffentlichung</span></div>
               <span class="impact-scorecard-focus">Content-Workflows planen und veröffentlichen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7968,7 +8066,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #2f7d58;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #2f7d58;">
               <div class="impact-scorecard-app"><strong>SMART DokumentIntelligence</strong><span>Dokumente &amp; Entscheidungen</span></div>
               <span class="impact-scorecard-focus">Fristen, Risiken und Quellenbezüge erschließen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7976,7 +8074,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #2f7d58;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #2f7d58;">
               <div class="impact-scorecard-app"><strong>SMART DIS-AI</strong><span>Dokumente &amp; KI-Suche</span></div>
               <span class="impact-scorecard-focus">Inhalte per Suche und KI-Chat nutzbar machen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7984,7 +8082,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #315f9e;">
+            <article class="impact-scorecard-row" data-app-category="knowledge" style="--impact-accent: #315f9e;">
               <div class="impact-scorecard-app"><strong>SMART KnowledgeGalaxy</strong><span>Lokales Wissen &amp; Dokumente</span></div>
               <span class="impact-scorecard-focus">Verstreute Dateien durchsuchen, Zusammenhänge erkennen und Originale öffnen.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -7992,7 +8090,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--red);">
+            <article class="impact-scorecard-row" data-app-category="project" style="--impact-accent: var(--red);">
               <div class="impact-scorecard-app"><strong>SMART COST PERT-Prognose</strong><span>Kosten &amp; Bandbreiten</span></div>
               <span class="impact-scorecard-focus">Budgetbandbreiten und Erwartungswerte bewerten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8000,7 +8098,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #7a5f3f;">
+            <article class="impact-scorecard-row" data-app-category="project" style="--impact-accent: #7a5f3f;">
               <div class="impact-scorecard-app"><strong>SMART RISK Monte-Carlo-Simulation</strong><span>Szenarien &amp; Puffer</span></div>
               <span class="impact-scorecard-focus">Risiken quantifizieren und Puffer ableiten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8008,7 +8106,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #65529c;">
+            <article class="impact-scorecard-row" data-app-category="project" style="--impact-accent: #65529c;">
               <div class="impact-scorecard-app"><strong>SMART CapEx</strong><span>Investition &amp; Wirtschaftlichkeit</span></div>
               <span class="impact-scorecard-focus">Investitionen und Szenarien vergleichbar machen.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8016,7 +8114,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #3f7868;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #3f7868;">
               <div class="impact-scorecard-app"><strong>SMART MeetingNavigator</strong><span>Meetings &amp; Aufgaben</span></div>
               <span class="impact-scorecard-focus">Abstimmungen, Aufgaben und Entscheidungen strukturieren.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -8024,7 +8122,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: var(--gold);">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: var(--gold);">
               <div class="impact-scorecard-app"><strong>SMART LingoLive</strong><span>Übersetzung &amp; Glossar</span></div>
               <span class="impact-scorecard-focus">Mehrsprachige Abstimmungen unterstützen.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8032,7 +8130,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #315f9e;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #315f9e;">
               <div class="impact-scorecard-app"><strong>SMART Booking</strong><span>Terminbuchung &amp; Kundenkontakt</span></div>
               <span class="impact-scorecard-focus">Termine, Bestätigungen und Meeting-Links automatisieren.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -8040,7 +8138,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #65529c;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #65529c;">
               <div class="impact-scorecard-app"><strong>SMART DeckBuilder Pro</strong><span>Präsentationen &amp; Storyline</span></div>
               <span class="impact-scorecard-focus">Narrative, Layouts und Folienarchitekturen entwickeln.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8048,7 +8146,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #4b6c76;">
+            <article class="impact-scorecard-row" data-app-category="career" style="--impact-accent: #4b6c76;">
               <div class="impact-scorecard-app"><strong>SMART CareerNavigator</strong><span>Karriere &amp; Positionierung</span></div>
               <span class="impact-scorecard-focus">Positionierung und Bewerbungsunterlagen vorbereiten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8056,7 +8154,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #4b6c76;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #4b6c76;">
               <div class="impact-scorecard-app"><strong>SMART RecruitPilot</strong><span>Recruiting &amp; Kandidatenprofil</span></div>
               <span class="impact-scorecard-focus">Bewerbungen prüfen und Kandidaten bewerten.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -8064,7 +8162,7 @@
               <span class="score-pill is-high">hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #5d6fa3;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #5d6fa3;">
               <div class="impact-scorecard-app"><strong>SMART Focus</strong><span>Fokus &amp; Aufgaben</span></div>
               <span class="impact-scorecard-focus">Priorisieren, planen und konzentriert umsetzen.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8072,7 +8170,7 @@
               <span class="score-pill is-medium">mittel</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #315f9e;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #315f9e;">
               <div class="impact-scorecard-app"><strong>SMART ExecutiveReports</strong><span>Berichte &amp; Dashboards</span></div>
               <span class="impact-scorecard-focus">Berichte und Entscheidungsgrundlagen aufbereiten.</span>
               <span class="score-pill is-high">hoch</span>
@@ -8080,7 +8178,7 @@
               <span class="score-pill is-very">sehr hoch</span>
             </article>
 
-            <article class="impact-scorecard-row" style="--impact-accent: #3f7868;">
+            <article class="impact-scorecard-row" data-app-category="org" style="--impact-accent: #3f7868;">
               <div class="impact-scorecard-app"><strong>SMART OfficeHub</strong><span>Postfach &amp; Tagessteuerung</span></div>
               <span class="impact-scorecard-focus">Postfächer, Termine und nächste Schritte bündeln.</span>
               <span class="score-pill is-very">sehr hoch</span>
@@ -9053,6 +9151,70 @@
     </button>
 
     <script>
+      (() => {
+        const appTabs = [...document.querySelectorAll(".apps-suite-section [data-app-filter]")];
+        const matrixTabs = [...document.querySelectorAll(".impact-matrix-section [data-app-filter]")];
+        const appRows = [...document.querySelectorAll(".suite-row[data-app-category]")];
+        const categoryHeadings = [...document.querySelectorAll("[data-category-heading]")];
+        const matrixRows = [...document.querySelectorAll(".impact-scorecard-row[data-app-category]")];
+        const suiteList = document.querySelector(".suite-list");
+        if (!appTabs.length || !appRows.length) return;
+        suiteList?.classList.add("is-tabbed");
+
+        const setActiveTab = (tabs, category) => {
+          tabs.forEach((tab) => {
+            const isActive = tab.dataset.appFilter === category;
+            tab.classList.toggle("is-active", isActive);
+            tab.setAttribute("aria-pressed", String(isActive));
+          });
+        };
+
+        const setAppCategory = (category) => {
+          setActiveTab(appTabs, category);
+
+          categoryHeadings.forEach((heading) => {
+            heading.hidden = heading.dataset.categoryHeading !== category;
+          });
+
+          appRows.forEach((row) => {
+            row.hidden = row.dataset.appCategory !== category;
+          });
+        };
+
+        const setMatrixCategory = (category) => {
+          const scrollBefore = window.scrollY;
+          setActiveTab(matrixTabs, category);
+
+          matrixRows.forEach((row) => {
+            row.hidden = row.dataset.appCategory !== category;
+          });
+
+          window.scrollTo({ top: scrollBefore, left: window.scrollX, behavior: "auto" });
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: scrollBefore, left: window.scrollX, behavior: "auto" });
+          });
+        };
+
+        appTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            setAppCategory(tab.dataset.appFilter);
+          });
+        });
+
+        matrixTabs.forEach((tab) => {
+          tab.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+          });
+
+          tab.addEventListener("click", () => {
+            setMatrixCategory(tab.dataset.appFilter);
+          });
+        });
+
+        setAppCategory(appTabs.find((tab) => tab.classList.contains("is-active"))?.dataset.appFilter || appTabs[0].dataset.appFilter);
+        setMatrixCategory(matrixTabs.find((tab) => tab.classList.contains("is-active"))?.dataset.appFilter || matrixTabs[0]?.dataset.appFilter || "risk");
+      })();
+
       (() => {
         const modal = document.querySelector("#contact-modal");
         const triggers = document.querySelectorAll(".contact-trigger");
